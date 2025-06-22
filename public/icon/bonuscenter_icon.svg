@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="33mm"
+   height="33mm"
+   viewBox="0 0 33 33"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.1 (1:1.4.1+202503302257+93de688d07)"
+   sodipodi:docname="bonuscenter_icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="2.8614198"
+     inkscape:cx="83.874447"
+     inkscape:cy="100.12512"
+     inkscape:window-width="1862"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g1"
+       transform="matrix(0.99999672,0,0,0.99999672,19.72255,-21.94017)"
+       style="fill:#4caf50;fill-opacity:1">
+      <g
+         id="g3"
+         transform="matrix(0.99412124,0,0,0.99412124,-0.11594498,0.12898052)">
+        <rect
+           style="fill:#4caf50;fill-opacity:1;stroke-width:2.16513"
+           id="rect1"
+           width="33.195255"
+           height="33.195255"
+           x="-19.722614"
+           y="21.940243"
+           ry="8.0547314" />
+        <text
+           xml:space="preserve"
+           style="font-size:31.2324px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:16.1368"
+           x="-12.684435"
+           y="50.16853"
+           id="text1"><tspan
+             sodipodi:role="line"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:'Monospace Bold';fill:#ffffff;fill-opacity:1;stroke-width:16.1368"
+             x="-12.684435"
+             y="50.16853"
+             id="tspan2">B</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

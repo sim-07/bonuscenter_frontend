@@ -1,0 +1,26 @@
+# Dipendenze
+node_modules/
+
+# File di log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+.next/
+out/
+
+# Directory di ambiente locale
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Sistema operativo
+.DS_Store
+
+# IDE/editor
+.vscode/
+.idea/
+
