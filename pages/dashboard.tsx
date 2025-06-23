@@ -1,17 +1,14 @@
 import { Box } from "@mui/material";
 import { useState } from "react";
 
-export default function Dashboard() {
-    const [open, setOpen] = useState(false)
+import DashboardLayout from "../src/components/common/DashboardLayout";
 
-    const toggleDrawer = (newOpen: boolean) => () => {
-        setOpen(newOpen);
-    };
+export default function Dashboard() {
 
     
     return (
-        <Box>
+        <DashboardLayout>
             
-        </Box>
+        </DashboardLayout>
     );
 }

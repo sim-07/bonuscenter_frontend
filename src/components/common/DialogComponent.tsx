@@ -49,7 +49,7 @@ export default function DialogComponent({
           style={{
             position: 'fixed',
             top: 0,
-            left: 0,
+            left: '-20px',
             width: '100vw',
             height: '100vh',
             backgroundColor: 'rgba(0, 0, 0, 0.5)',

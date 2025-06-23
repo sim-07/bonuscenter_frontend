@@ -12,9 +12,21 @@ const DrawerMenu = ({ open, toggleDrawer, children }: DrawerMenuProps) => {
 
 
     return (
-        <Drawer open={open} onClose={toggleDrawer(false)}>
+        <Drawer
+            open={open}
+            onClose={toggleDrawer(false)}
+            slotProps={{
+                paper: {
+                    sx: {
+                        maxWidth: '300px',
+                        width: '25%',
+                        minWidth: '250px',
+                    },
+                },
+            }}
+        >
             {children}
-        </Drawer>
+        </Drawer >
     );
 };
 
