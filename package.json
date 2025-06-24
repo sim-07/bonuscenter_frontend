@@ -13,16 +13,19 @@
     "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^7.1.2",
+    "@mui/joy": "5.0.0-beta.52",
     "@mui/material": "^7.1.2",
     "dotenv": "^16.5.0",
     "framer-motion": "^12.16.0",
     "next": "15.3.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@next/bundle-analyzer": "^15.3.4",
+    "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

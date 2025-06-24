@@ -1,5 +1,5 @@
 import React, { useState, ReactNode } from 'react';
-import { Box, IconButton, Alert, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Link, Stack } from '@mui/material';
+import { Box, IconButton, Alert, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Link, Stack, Divider } from '@mui/material';
 import { useTheme, useMediaQuery } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -8,11 +8,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 import router from 'next/router';
 import Navbar from '../Home/Navbar';
 import DrawerMenu from './DrawerMenu';
 import Footer from '../Home/Footer';
+import DialogComponent from './DialogComponent';
+import AddCodeForm from './AddCodeForm';
 
 interface DashboardlayoutProps {
     children?: ReactNode;
@@ -21,6 +25,12 @@ interface DashboardlayoutProps {
 const DashboardLayout = ({ children }: DashboardlayoutProps) => {
     const [open, setOpen] = useState(false);
     const [error, setError] = useState<string | null>(null);
+
+    const [openCodeDialog, setOpenCodeDialog] = useState(false);
+
+    const openAddCodeDialog = () => {
+        setOpenCodeDialog(true);
+    };
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const openP = Boolean(anchorEl);
@@ -39,6 +49,7 @@ const DashboardLayout = ({ children }: DashboardlayoutProps) => {
     const listMenu = [
         { text: 'Dashboard', icon: <HomeIcon />, path: '/dashboard' },
         { text: 'Profilo', icon: <PersonIcon />, path: '/profilo' },
+        { text: 'I miei codici', icon: <AssignmentIcon />, path: '/my-referral' },
     ];
 
     const handleLogout = async () => {
@@ -62,8 +73,14 @@ const DashboardLayout = ({ children }: DashboardlayoutProps) => {
         setOpen(newOpen);
     };
 
+
     return (
         <Box>
+            <DialogComponent open={openCodeDialog} onClose={() => setOpenCodeDialog(false)}>
+                <Box>
+                    <AddCodeForm />
+                </Box>
+            </DialogComponent>
             <Navbar>
                 {isMobile ? (
                     <>
@@ -81,6 +98,15 @@ const DashboardLayout = ({ children }: DashboardlayoutProps) => {
                                         </ListItemButton>
                                     </ListItem>
                                 ))}
+                                <Divider sx={{ m: 2 }}/>
+                                <ListItem disablePadding>
+                                    <ListItemButton onClick={() => handleLogout()}>
+                                        <ListItemIcon>
+                                            <ExitToAppIcon />
+                                        </ListItemIcon>
+                                        <ListItemText primary='Logout' />
+                                    </ListItemButton>
+                                </ListItem>
                             </List>
                         </DrawerMenu>
                     </>
@@ -93,8 +119,14 @@ const DashboardLayout = ({ children }: DashboardlayoutProps) => {
                                 marginTop: '15px !important',
                             }}
                         >
+                            <Link
+                                onClick={() => {
+                                    openAddCodeDialog()
+                                }}
+                                underline="none"
+                                color="inherit"
+                                sx={{ cursor: 'pointer' }}>Pubblica un codice</Link>
                             <Link href="/home" underline="none" color="inherit">I miei codici</Link>
-                            <Link href="/about" underline="none" color="inherit">Pubblica un codice</Link>
                         </Stack>
 
 
@@ -104,11 +136,10 @@ const DashboardLayout = ({ children }: DashboardlayoutProps) => {
                                 alignSelf: 'end',
                                 zIndex: '2',
                                 fontSize: 40,
-                                ml: 'auto',
-                                mr: 2,
+                                ml: 2,
                             }}
                         >
-                            <AccountCircleIcon sx={{ fontSize: 40 }} />
+                            <AccountCircleIcon sx={{ fontSize: 40, }} />
                         </IconButton>
 
                         <Menu
@@ -123,15 +154,15 @@ const DashboardLayout = ({ children }: DashboardlayoutProps) => {
                             }}
                         >
                             <MenuItem onClick={handleCloseProfile}>Profilo</MenuItem>
-                            <MenuItem onClick={handleCloseProfile}>Impostazioni</MenuItem>
                             <MenuItem onClick={handleCloseProfile}>Logout</MenuItem>
+
                         </Menu>
                     </>
                 )}
             </Navbar>
-                <Box>
-                    {children}
-                </Box>
+            <Box>
+                {children}
+            </Box>
             <Footer />
         </Box>
     );

@@ -16,9 +16,9 @@ export default function Header() {
     return (
         <Box>
             <Navbar>
-            <Link underline="none" color="inherit" onClick={openLoginDialog}>Login</Link>
+                <Link underline="none" color="inherit" onClick={openLoginDialog}>Login</Link>
                 <Link href="/about" underline="none" color="inherit">About</Link>
-                
+
 
                 <DialogComponent open={openLogin} onClose={() => setOpenLogin(false)} variant="form">
                     <LoginForm signinTypeP={"login"} />

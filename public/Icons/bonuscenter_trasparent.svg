@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="151mm"
+   height="21mm"
+   viewBox="0 0 151 21"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.1 (1:1.4.1+202503302257+93de688d07)"
+   sodipodi:docname="bonuscenter_trasparent.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.0116647"
+     inkscape:cx="206.5902"
+     inkscape:cy="-53.871606"
+     inkscape:window-width="1862"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g2" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g2"
+       transform="matrix(1.8963008,0,0,1.8963008,41.804167,139.17083)">
+      <g
+         id="g1"
+         transform="matrix(0.59013386,0,0,0.6125614,-32.849413,-133.99651)"
+         style="fill:#4caf50;fill-opacity:1">
+        <rect
+           style="fill:#4caf50;fill-opacity:1;stroke-width:1.18207"
+           id="rect1"
+           width="18.123287"
+           height="18.123287"
+           x="18.308218"
+           y="98.938354"
+           ry="4.3975625" />
+        <text
+           xml:space="preserve"
+           style="font-size:16.8174px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#4caf50;fill-opacity:1;stroke-width:8.68901"
+           x="41.878448"
+           y="114.16262"
+           id="text1"><tspan
+             sodipodi:role="line"
+             id="tspan1"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Monospace;-inkscape-font-specification:'Monospace Bold';fill:#4caf50;fill-opacity:1;stroke-width:8.68901"
+             x="41.878448"
+             y="114.16262">BONUSCENTER</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -26,6 +26,9 @@ export default function Footer() {
                 <Link href="/contact_us" underline="hover" color="inherit" sx={{ cursor: 'pointer' }}>
                     Contattaci
                 </Link>
+                <Link href="/about" underline="hover" color="inherit" sx={{ cursor: 'pointer' }}>
+                    About
+                </Link>
             </Stack>
 
             <Typography variant="body2" color="inherit" component="p">

@@ -2,6 +2,10 @@ import { Box, AppBar, Toolbar, Stack } from '@mui/material';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 
+import BonuscenterIcon from '../Icons/BonuscenterIcon.jsx';
+import router, { Router } from 'next/router.js';
+
+
 interface NavbarProps {
     children: ReactNode;
 }
@@ -33,24 +37,24 @@ export default function Navbar({ children }: NavbarProps) {
                         flexDirection: 'row',
                     }}
                 >
-                    <Stack
-                        direction="row"
-                        spacing={2.5}
+                    <Box
                         sx={{
-
-                            order: { xs: 0, md: 1 }, // su mobile prima children su desktop prima icona
+                            display: 'flex',
+                            order: { xs: 0, md: 1 },
                             '& a': {
                                 cursor: 'pointer',
                                 textDecoration: 'none',
                                 fontSize: '1.1em',
-                            },
-                            '& a:first-of-type': {
-                                fontWeight: 'bold',
+                                marginLeft: '25px',
+                                '&:first-of-type': {
+                                    marginLeft: 0,
+                                    fontWeight: 'bold',
+                                },
                             },
                         }}
                     >
                         {children}
-                    </Stack>
+                    </Box>
 
                     <Box
                         sx={{
@@ -63,16 +67,13 @@ export default function Navbar({ children }: NavbarProps) {
                             order: { xs: 1, md: 0 },
                         }}
                     >
-                        <Image
-                            src={'/icon/bonuscenter.avif'}
-                            alt={'bonuscenter'}
-                            width={256}
-                            height={34}
-                            priority={true}
+                        <BonuscenterIcon
                             style={{
                                 width: '100%',
                                 height: 'auto',
+                                cursor: 'pointer'
                             }}
+                            // onClick={() => router.push('/')}
                         />
                     </Box>
                 </Toolbar>

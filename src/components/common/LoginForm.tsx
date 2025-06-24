@@ -93,10 +93,9 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
             component="form"
             onSubmit={handleSubmit}
             sx={{
-                p: 4,
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 2
+                gap: 2,
             }}
         >
             {/* TITOLO LOGIN/SIGNUP */}
@@ -152,6 +151,7 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
                     color: 'white',
                     mt: 2,
                     position: 'relative',
+                    p: 1
                 }}
             >
                 {isLoading ? <CircularProgress size={24} color="inherit" /> : signinType === 'login' ? 'ACCEDI' : 'REGISTRATI'}
@@ -160,7 +160,7 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
             {/* SWITCH LOGIN/SIGNUP */}
             {signinType === 'login' ? (
                 <Typography sx={{ color: '#535353', display: 'inline-flex', alignItems: 'center', gap: 1, mt: 2 }}>
-                    Don't have account?
+                    Non hai un account?
                     <Button
                         variant="text"
                         sx={{ padding: 0, minWidth: 'auto', textTransform: 'none' }}
@@ -171,7 +171,7 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
                 </Typography>
             ) : (
                 <Typography sx={{ color: '#535353', display: 'inline-flex', alignItems: 'center', gap: 1, mt: 2 }}>
-                    Already registered?
+                    Sei già registrato?
                     <Button
                         variant="text"
                         sx={{ padding: 0, minWidth: 'auto', textTransform: 'none' }}

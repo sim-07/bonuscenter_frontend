@@ -49,7 +49,7 @@ export default function DialogComponent({
           style={{
             position: 'fixed',
             top: 0,
-            left: '-20px',
+            left: '0px',
             width: '100vw',
             height: '100vh',
             backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -77,10 +77,9 @@ export default function DialogComponent({
               sx={{
                 backgroundColor: 'white',
                 color: isError ? '#ce0000' : 'black',
-                padding: isError ? 2 : 4,
+                padding: isError ? 2 : 7,
                 borderRadius: 2,
                 boxShadow: 24,
-                maxHeight: isError ? 200 : 600,
                 minWidth: isError ? 250 : 300,
                 maxWidth: isError ? 500 : 500,
                 width: isError

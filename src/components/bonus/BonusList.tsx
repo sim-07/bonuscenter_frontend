@@ -1,13 +1,24 @@
 import React from 'react';
 import { Box, Grid, Pagination, Stack, Typography } from '@mui/material';
 
-import { bonusListData } from '../data/bonusListData';
 
 
 import BonusCard from './BonusCard';
 import { relative } from 'path';
 
-export default function BonusList() {
+interface BonusItem {
+    title: string;
+    description: string;
+    bonusValue: string;
+    image: string;
+    category: string;
+  }
+  
+  interface BonusListProps {
+    bonusListData: BonusItem[];
+  }
+
+export default function BonusList({bonusListData}: BonusListProps) {
 
     const [page, setPage] = React.useState(1);
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {

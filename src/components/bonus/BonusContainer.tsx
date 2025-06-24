@@ -2,12 +2,21 @@ import { Box } from '@mui/material';
 
 import SearchInput from '../common/SearchInput';
 import BonusList from './BonusList';
+import { bonusListData } from '../data/bonusListData';
+import { useState } from 'react';
 
-interface HeroSectionProps {
+
+interface BonusContainerProps {
     width?: string;
 }
 
-export default function HeroSection({ width = '95%' }: HeroSectionProps) {
+export default function BonusContainer({ width = '95%' }: BonusContainerProps) {
+    const [searchTerm, setSearchTerm] = useState('');
+
+    let filtBonusListData = bonusListData.filter((bonus) => {
+        return bonus.title.toLowerCase().includes(searchTerm.toLowerCase())
+    })
+
     return (
         <Box
             sx={{
@@ -24,8 +33,12 @@ export default function HeroSection({ width = '95%' }: HeroSectionProps) {
                 gap: '30px',
             }}
         >
-            <SearchInput width={'60%'} />
-            <BonusList />
+            <SearchInput
+                width="60%"
+                value={searchTerm}
+                onChange={(value) => setSearchTerm(value)}
+            />
+            <BonusList bonusListData={filtBonusListData} />
         </Box>
 
     );

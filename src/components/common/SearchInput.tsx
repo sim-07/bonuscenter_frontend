@@ -2,7 +2,13 @@ import { Box, IconButton, InputAdornment, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 
-export default function SearchInput({ width = '100%' }) {
+interface SearchInputProps {
+    width?: string;
+    value: string;
+    onChange: (value: string) => void;
+}
+
+export default function SearchInput({ width = '100%', value, onChange }: SearchInputProps) {
     return (
         <TextField
             sx={{
@@ -31,6 +37,8 @@ export default function SearchInput({ width = '100%' }) {
             }}
             variant="outlined"
             placeholder="Cerca"
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
             slotProps={{
                 input: {
                     endAdornment: (
