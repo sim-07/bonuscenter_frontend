@@ -14,22 +14,22 @@ import { useState } from 'react';
 import { bonusListData } from '../data/bonusListData';
 
 type AddCodeFormProps = {
-    onSuccess?: () => void;
+    successAddCode: () => void;
 };
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-export default function AddCodeForm({ onSuccess }: AddCodeFormProps) {
+export default function AddCodeForm({ successAddCode }: AddCodeFormProps) {
     const [formData, setFormData] = useState<{
         title: string;
         brand: string;
-        bonusValue: string;
+        bonus_value: string;
         code: string;
         desctiption: string;
     }>({
         title: '',
         brand: '',
-        bonusValue: '',
+        bonus_value: '',
         code: '',
         desctiption: ''
     });
@@ -50,7 +50,7 @@ export default function AddCodeForm({ onSuccess }: AddCodeFormProps) {
             required: true,
         },
         {
-            name: 'bonusValue',
+            name: 'bonus_value',
             label: 'Valore bonus',
             type: 'text',
             required: true,
@@ -81,7 +81,7 @@ export default function AddCodeForm({ onSuccess }: AddCodeFormProps) {
         setFormData({
             title: '',
             brand: '',
-            bonusValue: '',
+            bonus_value: '',
             code: '',
             desctiption: ''
         });
@@ -114,8 +114,7 @@ export default function AddCodeForm({ onSuccess }: AddCodeFormProps) {
             const data = await response.json();
             if (response.ok) {
                 resetForm();
-                if (onSuccess) onSuccess();
-                else router.push('/dashboard');
+                successAddCode();
             } else {
                 setErrorMessage(data.error || 'Errore del server');
             }

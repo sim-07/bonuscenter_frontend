@@ -1,5 +1,5 @@
 import React, { useState, ReactNode } from 'react';
-import { Box, IconButton, Alert, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Link, Stack, Divider } from '@mui/material';
+import { Box, IconButton, Alert, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Link, Stack, Divider, Button } from '@mui/material';
 import { useTheme, useMediaQuery } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -17,20 +17,28 @@ import DrawerMenu from './DrawerMenu';
 import Footer from '../Home/Footer';
 import DialogComponent from './DialogComponent';
 import AddCodeForm from './AddCodeForm';
+import CustomizedSnackbar from './Snakbar';
 
 interface DashboardlayoutProps {
     children?: ReactNode;
 }
 
 const DashboardLayout = ({ children }: DashboardlayoutProps) => {
-    const [open, setOpen] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+    const [openDrawer, setOpenDrawer] = useState(false);
+    const [snakbarMessage, setSnakbarMessage] = useState('');
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
 
     const [openCodeDialog, setOpenCodeDialog] = useState(false);
 
     const openAddCodeDialog = () => {
         setOpenCodeDialog(true);
     };
+
+    const successAddCode = () => {
+        setOpenCodeDialog(false);
+        setSnakbarMessage("Il tuo codice è stato inserito!");
+        setSnackbarOpen(true);
+    }
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const openP = Boolean(anchorEl);
@@ -70,7 +78,7 @@ const DashboardLayout = ({ children }: DashboardlayoutProps) => {
     };
 
     const toggleDrawer = (newOpen: boolean) => () => {
-        setOpen(newOpen);
+        setOpenDrawer(newOpen);
     };
 
 
@@ -78,7 +86,7 @@ const DashboardLayout = ({ children }: DashboardlayoutProps) => {
         <Box>
             <DialogComponent open={openCodeDialog} onClose={() => setOpenCodeDialog(false)}>
                 <Box>
-                    <AddCodeForm />
+                    <AddCodeForm successAddCode={successAddCode} />
                 </Box>
             </DialogComponent>
             <Navbar>
@@ -88,7 +96,7 @@ const DashboardLayout = ({ children }: DashboardlayoutProps) => {
                             <MenuIcon />
                         </IconButton>
 
-                        <DrawerMenu open={open} toggleDrawer={toggleDrawer}>
+                        <DrawerMenu open={openDrawer} toggleDrawer={toggleDrawer}>
                             <List>
                                 {listMenu.map(({ text, icon, path }) => (
                                     <ListItem key={text} disablePadding>
@@ -98,7 +106,7 @@ const DashboardLayout = ({ children }: DashboardlayoutProps) => {
                                         </ListItemButton>
                                     </ListItem>
                                 ))}
-                                <Divider sx={{ m: 2 }}/>
+                                <Divider sx={{ m: 2 }} />
                                 <ListItem disablePadding>
                                     <ListItemButton onClick={() => handleLogout()}>
                                         <ListItemIcon>
@@ -116,17 +124,30 @@ const DashboardLayout = ({ children }: DashboardlayoutProps) => {
                             direction="row"
                             spacing={2.5}
                             sx={{
-                                marginTop: '15px !important',
+                                marginTop: '10px !important'
                             }}
                         >
-                            <Link
+                            <Button
                                 onClick={() => {
                                     openAddCodeDialog()
                                 }}
-                                underline="none"
-                                color="inherit"
-                                sx={{ cursor: 'pointer' }}>Pubblica un codice</Link>
-                            <Link href="/home" underline="none" color="inherit">I miei codici</Link>
+                                variant='contained'
+                                sx={{
+                                    color: 'white',
+                                    height: '35px'
+                                }}
+                                >
+                                Pubblica un codice
+                            </Button>
+                            <Button
+                                variant='contained'
+                                sx={{
+                                    color: 'white',
+                                    height: '35px'
+                                }}
+                            >
+                                I miei codici
+                            </Button>
                         </Stack>
 
 
@@ -154,12 +175,24 @@ const DashboardLayout = ({ children }: DashboardlayoutProps) => {
                             }}
                         >
                             <MenuItem onClick={handleCloseProfile}>Profilo</MenuItem>
-                            <MenuItem onClick={handleCloseProfile}>Logout</MenuItem>
+                            <MenuItem
+                                onClick={() => {
+                                    handleCloseProfile();
+                                    handleLogout();
+                                }}
+                            >
+                                Logout
+                            </MenuItem>
 
                         </Menu>
                     </>
                 )}
             </Navbar>
+            <CustomizedSnackbar
+                open={snackbarOpen}
+                onClose={() => setSnackbarOpen(false)}
+                message={snakbarMessage}
+            />
             <Box>
                 {children}
             </Box>
