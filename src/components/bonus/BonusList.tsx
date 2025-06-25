@@ -12,13 +12,13 @@ interface BonusItem {
     bonusValue: string;
     image: string;
     category: string;
-  }
-  
-  interface BonusListProps {
-    bonusListData: BonusItem[];
-  }
+}
 
-export default function BonusList({bonusListData}: BonusListProps) {
+interface BonusListProps {
+    bonusListData: BonusItem[];
+}
+
+export default function BonusList({ bonusListData }: BonusListProps) {
 
     const [page, setPage] = React.useState(1);
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -40,8 +40,29 @@ export default function BonusList({bonusListData}: BonusListProps) {
                 minHeight: '70vh',
             }}
         >
-            <Box sx={{ flex: 1 }}>
-                <Grid container spacing={2} columns={{ xs: 4, sm: 6, md: 9, lg: 12 }}>
+            <Box
+                sx={{
+                    flex: 1,
+                    width: '100%'
+                }}
+            >
+                <Grid
+                    container
+                    spacing={4}
+                    columns={{ xs: 4, sm: 6, md: 9, lg: 12 }}
+                    sx={{ 
+                        margin: 0,
+                        justifyContent: 'center',
+                        padding: '10px !important',
+                        minWidth: {
+                            xs: '100%',
+                            sm: '500px',
+                            md: '760px',
+                            lg: '980px',
+                            xl: '1030px'
+                          }
+                    }}
+                >
                     {itemsPage.map((bonus, index) => (
                         <Grid key={index} size={{ xs: 4, sm: 3, md: 3 }}>
                             <BonusCard
