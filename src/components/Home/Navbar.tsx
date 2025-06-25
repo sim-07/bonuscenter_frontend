@@ -46,10 +46,7 @@ export default function Navbar({ children }: NavbarProps) {
                                 textDecoration: 'none',
                                 fontSize: '1.1em',
                                 marginLeft: '25px',
-                                '&:first-of-type': {
-                                    marginLeft: 0,
-                                    fontWeight: 'bold',
-                                },
+
                             },
                         }}
                     >
