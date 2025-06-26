@@ -21,25 +21,25 @@ export default function MyReferral() {
                     method: 'POST',
                     credentials: 'include',
                 });
-    
+
                 const resData = await response.json();
-    
+
                 if (response.ok) {
                     console.log("DATA: ", resData);
-    
+
                     const userReferralImg = resData.data.map((ref: any) => {
                         const selectedBonus = bonusListData.find(
                             (b) => b.title.toLowerCase() === ref.brand.toLowerCase()
                         );
-    
+
                         return {
                             ...ref,
                             image: selectedBonus?.image,
                         };
                     });
-    
+
                     setUserReferral(userReferralImg);
-    
+
                 } else {
                     console.log(resData.error);
                 }
@@ -50,10 +50,10 @@ export default function MyReferral() {
                 setLoading(false);
             }
         };
-    
+
         getUserReferral();
     }, []);
-    
+
 
     return (
         <Box>
@@ -63,12 +63,21 @@ export default function MyReferral() {
                         width: '100%',
                         height: '100vh',
                         display: 'flex',
-                        justifyContent: 'center'
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        alignContent: 'center'
                     }}
                 >
-                    <LoadingSpinner />
-                </Box>
+                    <Box 
+                        sx={{
+                            position: 'relative',
+                            top: '-70px',
+                        }}
+                    >
+                        <LoadingSpinner />
+                    </Box>
 
+                </Box>
             ) : (
                 <BonusContainer bonusListDataP={userReferral} titleBonusContainer={'I miei codici'} />
             )}
