@@ -8,6 +8,7 @@ import AddCodeForm from '@/components/common/AddCodeForm';
 import CustomizedSnackbar from '@/components/common/Snakbar';
 import DashboardLayoutDesktop from '@/components/Dashboard/DashboardLayoutDesktop';
 import DashboardLayoutMobile from '@/components/Dashboard/DashboardLayoutMobile';
+import Footer from '@/components/Home/Footer';
 
 interface DashboardlayoutProps {
     children?: ReactNode;
@@ -69,27 +70,35 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
                         <AddCodeForm successAddCode={successAddCode} />
                     </DialogComponent>
 
-                    {isMobile ? (
-                        <DashboardLayoutMobile
-                            username={username}
-                            openAddCodeDialog={() => setOpenCodeDialog(true)}
-                        >
-                            {children}
-                        </DashboardLayoutMobile>
-                    ) : (
-                        <DashboardLayoutDesktop
-                            username={username}
-                            openAddCodeDialog={() => setOpenCodeDialog(true)}
-                        >
-                            {children}
-                        </DashboardLayoutDesktop>
-                    )}
+                    <Box
+                        sx={{
+                            minHeight: "100vh"
+                        }}
+                    >
+                        {isMobile ? (
+                            <DashboardLayoutMobile
+                                username={username}
+                                openAddCodeDialog={() => setOpenCodeDialog(true)}
+                            >
+                                {children}
+                            </DashboardLayoutMobile>
+                        ) : (
+                            <DashboardLayoutDesktop
+                                username={username}
+                                openAddCodeDialog={() => setOpenCodeDialog(true)}
+                            >
+                                {children}
+                            </DashboardLayoutDesktop>
+                        )}
+                    </Box>
+
 
                     <CustomizedSnackbar
                         open={snackbarOpen}
                         onClose={() => setSnackbarOpen(false)}
                         message={snackbarMessage}
                     />
+                    <Footer />
                 </>
             )}
         </>

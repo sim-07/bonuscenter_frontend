@@ -38,6 +38,7 @@ export default function BonusList({ bonusListData }: BonusListProps) {
                 display: 'flex',
                 flexDirection: 'column',
                 minHeight: '70vh',
+                width: '100%'
             }}
         >
             <Box
@@ -54,13 +55,6 @@ export default function BonusList({ bonusListData }: BonusListProps) {
                         margin: 0,
                         justifyContent: 'center',
                         padding: '10px !important',
-                        minWidth: {
-                            xs: '100%',
-                            sm: '500px',
-                            md: '760px',
-                            lg: '980px',
-                            xl: '1030px'
-                          }
                     }}
                 >
                     {itemsPage.map((bonus, index) => (

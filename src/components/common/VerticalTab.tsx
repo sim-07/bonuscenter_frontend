@@ -71,14 +71,22 @@ export default function VerticalTabs({ tabs }: VerticalTabsProps) {
                         iconPosition="start"
                         {...a11yProps(index)}
                     />
-                    // icona
                 ))}
             </Tabs>
 
             {tabs.map((tab, index) => (
-                <TabPanel key={index} value={value} index={index}>
-                    {value === index ? tab.content : null}  
-                </TabPanel>
+                <Box
+                    key={index}
+                    sx={{
+                        flexGrow: 1,
+                        width: '100%',
+                        display: value === index ? 'block' : 'none'
+                    }}
+                >
+                    <TabPanel value={value} index={index}>
+                        {tab.content}
+                    </TabPanel>
+                </Box>
             ))}
         </Box>
     );

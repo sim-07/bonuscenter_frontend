@@ -12,7 +12,7 @@ import Navbar from "../Home/Navbar";
 import Footer from "../Home/Footer";
 import router from "next/router";
 
-import VerticalTabs from "@/components/common/TabPanel"
+import VerticalTabs from "@/components/common/VerticalTab"
 import BonusContainer from "../bonus/BonusContainer";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -59,7 +59,7 @@ export default function DashboardLayoutDesktop({
         { title: 'I miei codici', icon: <AssignmentIcon />, content: <UserReferral /> },
         { title: 'Codici usati', icon: <AssignmentTurnedInIcon />, content: <UsedCodes /> },
     ];
-    
+
 
     return (
         <Box>
@@ -72,7 +72,7 @@ export default function DashboardLayoutDesktop({
                     <Link href="/dashboard" color="inherit">Tutte le offerte</Link> */}
                 </Stack>
 
-                
+
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, alignSelf: 'flex-end', zIndex: 2, mt: -1, ml: 2, p: 1 }}>
                     <IconButton onClick={handleClickProfile} sx={{ ml: 2, p: 1 }}>
                         <AccountCircleIcon sx={{ fontSize: 40 }} />
@@ -119,9 +119,14 @@ export default function DashboardLayoutDesktop({
             >
                 <VerticalTabs tabs={tab} />
             </Box>
-            
-            <Box>{children}</Box>
-            <Footer />
+
+            <Box
+                sx={{
+                    width: '100%'
+                }}
+            >
+                {children}
+            </Box>
 
         </Box>
     );

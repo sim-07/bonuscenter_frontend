@@ -35,7 +35,7 @@ export default function BonusContainer({ width = '95%', bonusListDataP = bonusLi
             sx={{
                 backgroundColor: '#f9f9f9',
                 borderRadius: '24px',
-                width: { width },
+                width: width,
                 height: 'auto',
                 minHeight: '85vh',
                 display: 'flex',

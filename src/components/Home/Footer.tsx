@@ -12,6 +12,8 @@ export default function Footer() {
                 mt: 'auto',
                 textAlign: 'center',
                 fontSize: '0.9rem',
+                width: '100%',
+                flexShrink: 0,
             }}
         >
             <Stack

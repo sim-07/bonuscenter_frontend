@@ -68,18 +68,11 @@ export default function MyReferral() {
                         alignContent: 'center'
                     }}
                 >
-                    <Box 
-                        sx={{
-                            position: 'relative',
-                            top: '-70px',
-                        }}
-                    >
-                        <LoadingSpinner />
-                    </Box>
+                    <LoadingSpinner />
 
                 </Box>
             ) : (
-                <BonusContainer bonusListDataP={userReferral} titleBonusContainer={'I miei codici'} />
+                    <BonusContainer bonusListDataP={userReferral} titleBonusContainer={'I miei codici'} />                
             )}
         </Box>
     );

@@ -9,6 +9,7 @@ import Navbar from "../Home/Navbar";
 import Footer from "../Home/Footer";
 import DrawerMenu from "../common/DrawerMenu";
 import router from "next/router";
+import BonusContainer from "../bonus/BonusContainer";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -75,8 +76,17 @@ export default function DashboardLayoutMobile({
                 </DrawerMenu>
             </Navbar>
 
+            <Box
+                sx={{
+                    ml: 3
+                }}
+            >
+                <BonusContainer />
+            </Box>
+
+
             <Box>{children}</Box>
-            <Footer />
+            
         </Box>
     );
 }
