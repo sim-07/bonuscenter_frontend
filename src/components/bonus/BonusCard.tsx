@@ -5,17 +5,17 @@ interface BonusCardProps {
     title: string;
     description: string;
     image: string;
-    bonusValue: string;
+    bonus_value: string;
 }
 
-export default function BonusCard({ title, description, image, bonusValue }: BonusCardProps) {
+export default function BonusCard({ title, description, image, bonus_value }: BonusCardProps) {
     return (
         <Box
             sx={{
                 position: 'relative',
                 width: '100%',
-                minWidth: '220px',
-                height: '300px',
+                    minWidth: '220px',
+                    height: '320px',
                 backgroundColor: '#ececec',
                 cursor: 'pointer',
                 padding: '20px',
@@ -45,7 +45,7 @@ export default function BonusCard({ title, description, image, bonusValue }: Bon
                     marginTop: '-20px',
                 }}
             >
-                <Typography sx={{ color: 'white', mt: 0.4, }} variant='h5'>{bonusValue}</Typography>
+                <Typography sx={{ color: 'white', mt: 0.4, }} variant='h5'>{bonus_value}</Typography>
             </Box>
                 <Image
                     src={image}

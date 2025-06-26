@@ -4,7 +4,11 @@ import BonusContainer from '../bonus/BonusContainer';
 
 export default function MiddlePage() {
     return (
-        <Box>
+        <Box
+            sx={{
+                margin: 'auto',
+            }}
+        >
             <BonusContainer />
         </Box>
 

@@ -133,7 +133,7 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
                     label={
                         <Typography>
                             Ho letto e accetto{' '}
-                            <MuiLink href="/privacy" sx={{ textDecoration: 'underline', cursor: 'pointer' }}>
+                            <MuiLink href="/privacy" sx={{ textDecoration: 'underline', cursor: 'pointer', marginLeft: '0px !important' }}>
                                 l'informativa sulla privacy
                             </MuiLink>.
                         </Typography>

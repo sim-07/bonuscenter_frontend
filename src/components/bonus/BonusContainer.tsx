@@ -1,31 +1,43 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 import SearchInput from '../common/SearchInput';
 import BonusList from './BonusList';
-import { bonusListData } from '../data/bonusListData';
 import { useState } from 'react';
+import { bonusListData } from '../data/bonusListData';
 
-
-interface BonusContainerProps {
-    width?: string;
+interface BonusItem {
+    title: string;
+    description: string;
+    bonus_value: string;
+    image: string;
+    category: string;
 }
 
-export default function BonusContainer({ width = '95%' }: BonusContainerProps) {
+interface BonusContainerProps {
+    bonusListDataP?: BonusItem[] | null;
+    width?: string;
+    titleBonusContainer?: string;
+}
+
+export default function BonusContainer({ width = '95%', bonusListDataP = bonusListData, titleBonusContainer }: BonusContainerProps) {
     const [searchTerm, setSearchTerm] = useState('');
 
-    let filtBonusListData = bonusListData.filter((bonus) => {
-        return bonus.title.toLowerCase().includes(searchTerm.toLowerCase())
-    })
+    console.log("bonusListDataP BONUSCONTAINER:", bonusListDataP);
+
+    const filtBonusListData = Array.isArray(bonusListDataP)
+        ? bonusListDataP.filter((bonus) =>
+            bonus.title.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        : [];
 
     return (
         <Box
             sx={{
                 backgroundColor: '#f9f9f9',
                 borderRadius: '24px',
-                width: {width},
+                width: { width },
                 height: 'auto',
                 minHeight: '85vh',
-                margin: '70px auto',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -33,6 +45,16 @@ export default function BonusContainer({ width = '95%' }: BonusContainerProps) {
                 gap: '30px',
             }}
         >
+            <Typography
+                component={'h1'}
+                sx={{
+                    fontSize: '26px',
+                    fontWeight: 'bold',
+                }}
+            >
+                {titleBonusContainer}
+            </Typography>
+
             <SearchInput
                 width="60%"
                 value={searchTerm}

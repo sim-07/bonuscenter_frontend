@@ -9,7 +9,7 @@ import { relative } from 'path';
 interface BonusItem {
     title: string;
     description: string;
-    bonusValue: string;
+    bonus_value: string;
     image: string;
     category: string;
 }
@@ -69,7 +69,7 @@ export default function BonusList({ bonusListData }: BonusListProps) {
                                 title={bonus.title}
                                 description={bonus.description}
                                 image={bonus.image}
-                                bonusValue={bonus.bonusValue}
+                                bonus_value={bonus.bonus_value}
                             />
                         </Grid>
                     ))}
