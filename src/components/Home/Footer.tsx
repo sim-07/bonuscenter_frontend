@@ -9,7 +9,7 @@ export default function Footer() {
                 color: 'rgba(255, 255, 255, 0.7)',
                 py: 3,
                 px: { xs: 2, sm: 4 },
-                mt: 'auto',
+                mt: '50px',
                 textAlign: 'center',
                 fontSize: '0.9rem',
                 width: '100%',

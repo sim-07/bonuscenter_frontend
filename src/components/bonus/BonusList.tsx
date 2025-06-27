@@ -7,6 +7,7 @@ import BonusCard from './BonusCard';
 import { relative } from 'path';
 
 interface BonusItem {
+    name: string,
     title: string;
     description: string;
     bonus_value: string;
@@ -58,8 +59,9 @@ export default function BonusList({ bonusListData }: BonusListProps) {
                     }}
                 >
                     {itemsPage.map((bonus, index) => (
-                        <Grid key={index} size={{ xs: 4, sm: 3, md: 3 }}>
+                        <Grid key={index} size={{ xs: 4, sm: 3, md: 3, lg: 3 }}>
                             <BonusCard
+                                name={bonus.name}
                                 title={bonus.title}
                                 description={bonus.description}
                                 image={bonus.image}

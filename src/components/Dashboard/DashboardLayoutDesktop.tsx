@@ -7,9 +7,10 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import PersonIcon from '@mui/icons-material/Person';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import AddIcon from '@mui/icons-material/Add';
+import NotificationsIcon from '@mui/icons-material/Notifications'
 
 import Navbar from "../Home/Navbar";
-import Footer from "../Home/Footer";
 import router from "next/router";
 
 import VerticalTabs from "@/components/common/VerticalTab"
@@ -21,11 +22,9 @@ const UserReferral = dynamic(() => import('@/components/common/UserReferral'));
 const UsedCodes = dynamic(() => import('@/components/common/UsedCodes'));
 
 export default function DashboardLayoutDesktop({
-    children,
     username,
     openAddCodeDialog
 }: {
-    children: ReactNode,
     username: string,
     openAddCodeDialog: () => void
 }) {
@@ -65,11 +64,27 @@ export default function DashboardLayoutDesktop({
         <Box>
             <Navbar>
                 <Stack direction="row" spacing={2.5} sx={{ marginTop: '12px !important' }}>
-                    <Button variant="contained" onClick={openAddCodeDialog} sx={{ color: 'white', height: '35px' }}>
-                        Pubblica un codice
-                    </Button>
-                    {/* <Link href="/my-referral" color="inherit">I miei codici</Link>
-                    <Link href="/dashboard" color="inherit">Tutte le offerte</Link> */}
+                    <IconButton
+                        onClick={openAddCodeDialog}
+                        sx={{
+                            bgcolor: 'primary.main',
+                            color: 'white',
+                            height: '40px',
+                            width: '40px',
+                            '&:hover': {
+                                bgcolor: 'primary.dark',
+                            },
+                        }}
+                    >
+                        <AddIcon />
+                    </IconButton>
+
+                    <IconButton
+                        onClick={() => { /* logica notifiche */ }}
+                        sx={{ bgcolor: 'grey.200', color: 'text.primary', height: '40px', width: '40px' }}
+                    >
+                        <NotificationsIcon />
+                    </IconButton>
                 </Stack>
 
 
@@ -118,14 +133,6 @@ export default function DashboardLayoutDesktop({
                 }}
             >
                 <VerticalTabs tabs={tab} />
-            </Box>
-
-            <Box
-                sx={{
-                    width: '100%'
-                }}
-            >
-                {children}
             </Box>
 
         </Box>

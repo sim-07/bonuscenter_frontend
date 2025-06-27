@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { bonusListData } from '../data/bonusListData';
 
 interface BonusItem {
+    name: string,
     title: string;
     description: string;
     bonus_value: string;
@@ -41,7 +42,6 @@ export default function BonusContainer({ width = '95%', bonusListDataP = bonusLi
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                padding: '30px',
                 gap: '30px',
             }}
         >

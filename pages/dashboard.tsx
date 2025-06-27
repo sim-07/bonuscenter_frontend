@@ -79,16 +79,12 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
                             <DashboardLayoutMobile
                                 username={username}
                                 openAddCodeDialog={() => setOpenCodeDialog(true)}
-                            >
-                                {children}
-                            </DashboardLayoutMobile>
+                            />
                         ) : (
                             <DashboardLayoutDesktop
                                 username={username}
                                 openAddCodeDialog={() => setOpenCodeDialog(true)}
-                            >
-                                {children}
-                            </DashboardLayoutDesktop>
+                            />
                         )}
                     </Box>
 
