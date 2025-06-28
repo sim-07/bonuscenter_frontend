@@ -34,7 +34,7 @@ export default function BonusContainer({ width = '95%', bonusListDataP = bonusLi
     return (
         <Box
             sx={{
-                backgroundColor: '#f9f9f9',
+                backgroundColor: 'grey.100',
                 borderRadius: '24px',
                 width: width,
                 height: 'auto',
@@ -50,6 +50,7 @@ export default function BonusContainer({ width = '95%', bonusListDataP = bonusLi
                 sx={{
                     fontSize: '26px',
                     fontWeight: 'bold',
+                    mt: 4
                 }}
             >
                 {titleBonusContainer}

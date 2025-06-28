@@ -1,7 +1,55 @@
 {
-    "title": "Bonus Skrill 15€",
-    "paragraphs": [
-      "sefuhsh seufhsekfh sughslf seoigsilghslhg iaw fageiah aij relihgsihklejjkn f f gdfngd gdg ,mg g"
-    ]
-  }
-  
+  "title": "Bonus Skrill 35€",
+  "name": "skrill",
+  "bonus_image": "skrill",
+  "summary": {
+    "bonus": "15€ subito disponibili al primo invio internazionale di almeno 150€",
+    "invito": "15€ per ogni amico invitato che effettua un trasferimento",
+    "deposito_richiesto": "135€ per il primo trasferimento + 60€ per il bonus extra",
+    "scadenza": "Nessuna data di scadenza indicata",
+    "commissioni": "1,50€ con carta - Gratis con bonifico bancario",
+    "extra": "20€ extra se completi 3 transazioni da almeno 20€ l’una"
+  },
+  "sections": [
+    {
+      "title": "Cos'è Skrill e come funziona il bonus",
+      "content": [
+        "Skrill è una piattaforma gratuita per pagamenti digitali simile a PayPal, con la possibilità di associare carte e conti bancari.",
+        "La funzione principale è il Money Transfer, cioè l’invio di denaro anche verso conti esteri.",
+        "Per i nuovi utenti, Skrill offre un bonus immediato di 15€, prelevabile subito, quando si effettua un primo invio di almeno 150€ verso un IBAN non italiano.",
+        "In pratica, paghi 135€ e il destinatario riceve 150€, grazie al contributo del bonus."
+      ]
+    },
+    {
+      "title": "Requisiti principali",
+      "content": [
+        "Il bonus di benvenuto è di 35€ in totale: 15€ al primo invio + 20€ extra completando 3 transazioni da 20€ ciascuna.",
+        "Ogni invito completato fa guadagnare altri 15€ a te e all'amico invitato.",
+        "È necessario depositare inizialmente 135€ per effettuare il primo trasferimento.",
+        "Per ricevere il bonus extra di 20€, dovrai caricare altri 60€ sul conto Skrill.",
+        "Il bonus si riceve direttamente al completamento del primo trasferimento.",
+        "Il bonus invito viene sbloccato dopo un nuovo invio da parte dell’utente invitato.",
+        "Per attivare l’account serve la verifica KYC con carta d’identità, patente o passaporto.",
+        "Le commissioni sono pari a 1,50€ usando una carta, gratuite invece se si opta per il bonifico bancario.",
+        "Skrill fornisce una carta virtuale gratuita, attivabile direttamente dall’app.",
+        "Possono registrarsi solo maggiorenni (18+)."
+      ]
+    },
+    {
+      "title": "Guida passo passo",
+      "content": [
+        "1. Registrati usando un link referral per accedere al bonus (li trovi in alto nella pagina di fianco al logo di Skrill)",
+        "2. Durante la registrazione (da smartphone, clicca sulle tre linee in alto a sinistra), troverai un campo per inserire il codice promozionale che sblocca i 15€.",
+        "3. Effettua un trasferimento di almeno 150€ verso un conto con IBAN estero (es. Revolut, N26, Verse). Il trasferimento può essere fatto con carta o bonifico.",
+        "⚠️ Se usi una carta, scegli 'carta di credito' per pagare solo 1,50€ di commissione. Se preferisci il bonifico, accertati che sia istantaneo, inserendo nome beneficiario, IBAN (es. irlandese con prefisso IE) e soprattutto il numero di riferimento nella causale.",
+        "4. Il bonus si riceve assieme al denaro trasferito sul conto estero: invii 135€, il destinatario riceve 150€, quindi hai ottenuto 15€ netti.",
+        "5. Una volta ricevuto il primo bonus, puoi invitare amici tramite il tuo referral link e codice, visibili accedendo a Skrill da browser.",
+        "6. Per ottenere anche il bonus extra di 20€, deposita 60€ sul conto Skrill e completa 3 spese da almeno 20€ ciascuna.",
+        "💡 Sono valide anche ricariche verso conti gioco, carte come Revolut, BBVA, Icard, o qualsiasi altro acquisto. Puoi anche creare un link di pagamento con Revolut e pagare con la carta Skrill.",
+        "📕 Procedura per creare il link su Revolut: vai in 'Pagamenti', tocca 'Nuovo', clicca sul '+' in alto a destra, scegli 'Crea link di pagamento' e poi 'Richiedi denaro'. Apri il link in un browser e paga con Skrill.",
+        "✅ Una volta ricevuti i bonus, puoi prelevarli richiedendo la carta virtuale Skrill e collegandola al conto su cui vuoi trasferire i fondi."
+      ],
+      "image": ""
+    }
+  ]
+}

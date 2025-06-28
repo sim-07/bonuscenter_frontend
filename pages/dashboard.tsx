@@ -1,7 +1,10 @@
 import { ReactNode, useEffect, useState } from 'react';
+import Head from 'next/head';
+import router from 'next/router';
+
 import { Box } from '@mui/material';
 import { useTheme, useMediaQuery } from '@mui/material';
-import router from 'next/router';
+
 import LoadingSpinner from '@/components/common/LoadingSpinner';
 import DialogComponent from '@/components/common/DialogComponent';
 import AddCodeForm from '@/components/common/AddCodeForm';
@@ -60,6 +63,11 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
 
     return (
         <>
+            <Head>
+                <title>Dashboard | BonusCenter</title>
+                <meta name="description" content="Condividi codici referral e guadagna online in modo veloce e senza rischi" />
+                <link rel="icon" href="/icons/bonuscenter_icon.png" />
+            </Head>
             {isLoading ? (
                 <Box sx={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center' }}>
                     <LoadingSpinner />

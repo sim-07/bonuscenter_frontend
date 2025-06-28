@@ -54,7 +54,7 @@ export default function DashboardLayoutDesktop({
     };
 
     const tab = [
-        { title: 'Tutti i codici', icon: <AssignmentIcon />, content: <BonusContainer /> },
+        { title: 'Tutti i codici', icon: <AssignmentIcon />, content: <BonusContainer width="98%" /> },
         { title: 'I miei codici', icon: <AssignmentIcon />, content: <UserReferral /> },
         { title: 'Codici usati', icon: <AssignmentTurnedInIcon />, content: <UsedCodes /> },
     ];

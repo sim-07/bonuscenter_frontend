@@ -25,13 +25,13 @@ export default function AddCodeForm({ successAddCode }: AddCodeFormProps) {
         brand: string;
         bonus_value: string;
         code: string;
-        desctiption: string;
+        description: string;
     }>({
         title: '',
         brand: '',
         bonus_value: '',
         code: '',
-        desctiption: ''
+        description: ''
     });
     const [errorMessage, setErrorMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -69,7 +69,7 @@ export default function AddCodeForm({ successAddCode }: AddCodeFormProps) {
         },
     ];
 
-    const brandList = bonusListData.map((bonus) => {
+    const brandNameList = bonusListData.map((bonus) => {
         return bonus.title;
     })
 
@@ -83,7 +83,7 @@ export default function AddCodeForm({ successAddCode }: AddCodeFormProps) {
             brand: '',
             bonus_value: '',
             code: '',
-            desctiption: ''
+            description: ''
         });
         setErrorMessage('');
     };
@@ -100,6 +100,17 @@ export default function AddCodeForm({ successAddCode }: AddCodeFormProps) {
         setIsLoading(true);
         setErrorMessage('');
 
+        const selectedBonus = bonusListData.find(
+            (b) => b.title.toLowerCase() === formData.brand.toLowerCase()
+        );
+
+        const payload = {
+            ...formData,
+            name: selectedBonus ? selectedBonus.name : null,
+        };
+
+        console.log(payload)
+
         try {
             const response = await fetch(
                 `${apiUrl}/codes/post_code`,
@@ -107,7 +118,7 @@ export default function AddCodeForm({ successAddCode }: AddCodeFormProps) {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     credentials: 'include',
-                    body: JSON.stringify(formData),
+                    body: JSON.stringify(payload),
                 }
             );
 
@@ -160,7 +171,7 @@ export default function AddCodeForm({ successAddCode }: AddCodeFormProps) {
                             <Autocomplete
                                 key={field.name}
                                 disablePortal
-                                options={brandList}
+                                options={brandNameList}
                                 value={formData[field.name as keyof typeof formData] || ''}
                                 onChange={(_, newValue) => handleChange(field.name, newValue || '')}
                                 renderInput={(params) => (

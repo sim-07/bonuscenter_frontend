@@ -17,7 +17,6 @@ export default function BonusCard({ name, title, description, image, bonus_value
     return (
         <Link
             href={`/bonus/${name}`}
-            passHref
             style={{
                 textDecoration: 'none',
                 color: 'inherit',

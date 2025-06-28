@@ -6,7 +6,8 @@ export default function MiddlePage() {
     return (
         <Box
             sx={{
-                margin: 'auto',
+                display: 'flex',
+                justifyContent: 'center'
             }}
         >
             <BonusContainer />

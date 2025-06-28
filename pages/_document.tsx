@@ -35,7 +35,11 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="it">
-        <Head />
+        <Head>
+          <title>BonusCenter</title>
+          <meta name="description" content="Condividi codici referral e guadagna online in modo veloce e senza rischi" />
+          <link rel="icon" href="/icons/bonuscenter_icon.png" />
+        </Head>
         <body>
           <Main />
           <NextScript />
