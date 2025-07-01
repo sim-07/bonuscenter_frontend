@@ -1,18 +1,35 @@
 import Image from 'next/image';
-import { Box, Typography } from '@mui/material';
+import { Box, Divider, IconButton, Stack, Typography } from '@mui/material';
 import Link from 'next/link';
 
-import router from 'next/router';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 interface BonusCardProps {
     name: string,
     title: string;
     description: string;
-    image: string;
     bonus_value: string;
+    image: string;
+    code_id?: string;
+    edit?: boolean;
+    editCode?: () => void;
+    deleteCode?: (code_id: string) => void;
+    setSelectedCodeId?: (code_id: string) => void;
 }
 
-export default function BonusCard({ name, title, description, image, bonus_value }: BonusCardProps) {
+export default function BonusCard({
+    code_id,
+    name,
+    title,
+    description,
+    image,
+    bonus_value,
+    edit,
+    editCode,
+    deleteCode,
+    setSelectedCodeId
+}: BonusCardProps) {
 
     return (
         <Link
@@ -23,22 +40,22 @@ export default function BonusCard({ name, title, description, image, bonus_value
                 display: 'block',
             }}
         >
-
             <Box
                 sx={{
                     position: 'relative',
                     width: '100%',
+                    maxWidth: '350px',
                     minWidth: '220px',
-                    height: '320px',
+                    height: edit ? '380px' : '330px',
                     backgroundColor: '#ececec',
                     cursor: 'pointer',
                     padding: '20px',
                     borderRadius: '24px',
                     margin: '20px',
                     userSelect: 'none',
+                    overflow: 'hidden'
                 }}
             >
-
                 <Box
                     sx={{
                         display: 'flex',
@@ -57,9 +74,21 @@ export default function BonusCard({ name, title, description, image, bonus_value
                             position: 'absolute',
                             marginLeft: '160px',
                             marginTop: '-20px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
                         }}
                     >
-                        <Typography sx={{ color: 'white', mt: 0.4, }} variant='h5'>{bonus_value}</Typography>
+                        <Typography
+                            sx={{
+                                color: 'white',
+                                mt: 0.4,
+                                maxWidth: 60,
+                                overflow: 'hidden',
+                            }}
+                            variant='h5'>
+                            {bonus_value}
+                        </Typography>
                     </Box>
                     <Image
                         src={image}
@@ -79,9 +108,56 @@ export default function BonusCard({ name, title, description, image, bonus_value
                 >
                     {title}
                 </Typography>
-                <Typography variant='body2'>{description}</Typography>
+                <Typography
+                    variant='body2'
+                    sx={{
+                        maxHeight: 60,
+                        overflow: 'hidden'
+                    }}
+                >
+                    {description}
+                </Typography>
+                {(edit && editCode && deleteCode && code_id && setSelectedCodeId) && (
+                    <Stack
+                        direction="column"
+                        spacing={1}
+                        sx={{
+                            position: 'absolute',
+                            bottom: '20px',
+                            left: '20px',
+                            right: '20px',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <Divider sx={{ width: '100%', marginBottom: '10px !important' }} />
+                        <Stack
+                            direction={'row'}
+                            spacing={2}
+                        >
+                            <IconButton
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    e.preventDefault();
+                                    setSelectedCodeId(code_id);
+                                    editCode();
+                                }}
+                            >
+                                <EditIcon />
+                            </IconButton>
+
+                            <IconButton
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    e.preventDefault();
+                                    deleteCode(code_id);
+                                }}
+                            >
+                                <DeleteIcon />
+                            </IconButton>
+                        </Stack>
+                    </Stack>
+                )}
             </Box >
         </Link>
-
     );
 }

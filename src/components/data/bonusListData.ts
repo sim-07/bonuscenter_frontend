@@ -24,8 +24,8 @@ export const bonusListData = [
         category: "voucher"
     },
     {
-        title: "BuddyBank Invito",
-        name: "buddybank_invito",
+        title: "BuddyBank",
+        name: "buddybank",
         description: "50€ per ogni invito",
         bonus_value: "50€",
         image: "/images_bonus/buddybank.avif",
@@ -77,14 +77,6 @@ export const bonusListData = [
         description: "Bonus con trasferimento internazionale da 150€",
         bonus_value: "15€",
         image: "/images_bonus/skrill.avif",
-        category: "liquid"
-    },
-    {
-        title: "BuddyBank Benvenuto",
-        name: "buddybank_benvenuto",
-        description: "Bonus benvenuto con 30€ di spesa",
-        bonus_value: "50€",
-        image: "/images_bonus/buddybank.avif",
         category: "liquid"
     },
 ]

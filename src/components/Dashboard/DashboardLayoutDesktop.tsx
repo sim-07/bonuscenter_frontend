@@ -1,8 +1,7 @@
-import { Box, Button, IconButton, Link, Stack, Menu, MenuItem, ListItemIcon, ListItemText, Divider, Typography } from "@mui/material";
+import { Box, Button, IconButton, Link, Stack, Menu, MenuItem, ListItemIcon, ListItemText, Divider, Typography, Avatar } from "@mui/material";
 import { ReactNode, useState } from "react";
 import dynamic from 'next/dynamic';
 
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import PersonIcon from '@mui/icons-material/Person';
@@ -90,7 +89,7 @@ export default function DashboardLayoutDesktop({
 
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, alignSelf: 'flex-end', zIndex: 2, mt: -1, ml: 2, p: 1 }}>
                     <IconButton onClick={handleClickProfile} sx={{ ml: 2, p: 1 }}>
-                        <AccountCircleIcon sx={{ fontSize: 40 }} />
+                        <Avatar sx={{ fontSize: 40 }} />
                     </IconButton>
                     <Box
                         component="span"

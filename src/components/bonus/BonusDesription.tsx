@@ -68,7 +68,7 @@ export default function BonusDescription({ bonus }: Props) {
                         direction="row"
                         justifyContent="space-between"
                         alignItems="center"
-                        width="100%"
+                        width="80%"
                         sx={{
                             margin: '80px 0px'
                         }}
@@ -127,7 +127,7 @@ export default function BonusDescription({ bonus }: Props) {
 
                 {bonus.sections.map((section, i) => (
                     <Box key={i} sx={{ mb: 6 }}>
-                        <Typography variant="h5" component="h3" gutterBottom fontWeight="medium" color="text.primary">
+                        <Typography variant="h5" component="h3" gutterBottom fontWeight="bold" color="text.primary">
                             {section.title}
                         </Typography>
                         {section.content.map((p, idx) => (

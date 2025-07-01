@@ -1,27 +1,33 @@
-import React from 'react';
-import { Box, Grid, Pagination, Stack, Typography } from '@mui/material';
-
-
-
+import React, { useState } from 'react';
+import { Box, Grid, Pagination, Stack, Typography, Dialog } from '@mui/material';
 import BonusCard from './BonusCard';
-import { relative } from 'path';
+import DialogComponent from '../common/DialogComponent';
+import AddCodeForm from '../common/AddCodeForm';
+import CustomizedSnackbar from '../common/Snakbar';
 
 interface BonusItem {
+    code_id?: string;
     name: string,
     title: string;
     description: string;
     bonus_value: string;
     image: string;
-    category: string;
 }
 
 interface BonusListProps {
     bonusListData: BonusItem[];
+    edit?: boolean;
 }
 
-export default function BonusList({ bonusListData }: BonusListProps) {
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
+export default function BonusList({ bonusListData, edit = false }: BonusListProps) {
     const [page, setPage] = React.useState(1);
+    const [openDialog, setOpenDialog] = useState(false);
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState('');
+    const [selectedCodeId, setSelectedCodeId] = useState<string | null>(null);
+    
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setPage(value);
     };
@@ -31,10 +37,48 @@ export default function BonusList({ bonusListData }: BonusListProps) {
     const endIndex = startIndex + itemsPageNum;
     const itemsPage = bonusListData.slice(startIndex, endIndex);
 
+    const closeBonusCardSnakbar = () => {
+        setSnackbarOpen(false);
+    }
+
+    const closeBonusCardDialog = () => {
+        setOpenDialog(false);
+    }
+
+    const successEditCode = () => {
+        setOpenDialog(false);
+        setSnackbarMessage("Il tuo codice è stato aggiornato!");
+        setSnackbarOpen(true);
+    };
+
+    const editCode = () => {
+        setOpenDialog(true);
+    }
+
+    const deleteCode = async (code_id: string) => {
+        try {
+            const res = await fetch(`${apiUrl}/codes/delete_code`, {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                credentials: 'include',
+                body: JSON.stringify({ code_id: code_id }),
+            });
+            if (res.ok) {
+                setSnackbarOpen(true);
+                setSnackbarMessage("Codice eliminato con successo")
+            } else {
+                console.error("Errore eliminando il codice")
+            }
+        } catch (err) {
+            console.error("Errore eliminando il codice")
+        }
+    };
+
     return (
         <Box
             sx={{
                 mt: 4,
+                mb: 4,
                 paddingRight: 5,
                 display: 'flex',
                 flexDirection: 'column',
@@ -52,7 +96,7 @@ export default function BonusList({ bonusListData }: BonusListProps) {
                     container
                     spacing={4}
                     columns={{ xs: 4, sm: 6, md: 9, lg: 12 }}
-                    sx={{ 
+                    sx={{
                         margin: 0,
                         justifyContent: 'center',
                         padding: '10px !important',
@@ -61,11 +105,16 @@ export default function BonusList({ bonusListData }: BonusListProps) {
                     {itemsPage.map((bonus, index) => (
                         <Grid key={index} size={{ xs: 4, sm: 3, md: 3, lg: 3 }}>
                             <BonusCard
+                                code_id={bonus.code_id}
                                 name={bonus.name}
                                 title={bonus.title}
                                 description={bonus.description}
                                 image={bonus.image}
                                 bonus_value={bonus.bonus_value}
+                                edit={edit}
+                                editCode={editCode}
+                                deleteCode={deleteCode}
+                                setSelectedCodeId={setSelectedCodeId}
                             />
                         </Grid>
                     ))}
@@ -85,6 +134,20 @@ export default function BonusList({ bonusListData }: BonusListProps) {
                     onChange={handleChange}
                 />
             </Stack>
+
+            {edit && (
+                <>
+                    <DialogComponent open={openDialog} onClose={closeBonusCardDialog}>
+                        <AddCodeForm successAddCode={successEditCode} isAdd={false} codeId={selectedCodeId} />
+                    </DialogComponent>
+
+                    <CustomizedSnackbar
+                        open={snackbarOpen}
+                        onClose={closeBonusCardSnakbar}
+                        message={snackbarMessage || ''}
+                    />
+                </>
+            )}
         </Box>
     );
 }

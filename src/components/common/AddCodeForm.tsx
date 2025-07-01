@@ -9,17 +9,18 @@ import {
     Autocomplete,
     AutocompleteRenderInputParams,
 } from '@mui/material';
-import router from 'next/router';
-import { useState } from 'react';
+
+import apiService from '../scripts/apiService';
+import { useEffect, useState } from 'react';
 import { bonusListData } from '../data/bonusListData';
 
 type AddCodeFormProps = {
     successAddCode: () => void;
+    isAdd?: boolean;
+    codeId?: string | null;
 };
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-
-export default function AddCodeForm({ successAddCode }: AddCodeFormProps) {
+export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: AddCodeFormProps) {
     const [formData, setFormData] = useState<{
         title: string;
         brand: string;
@@ -77,6 +78,38 @@ export default function AddCodeForm({ successAddCode }: AddCodeFormProps) {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
+    useEffect(() => {
+        const fetchCodeData = async () => {
+            if (isAdd || !codeId) return;
+
+            try {
+                setIsLoading(true);
+
+                const res = await apiService('codes', 'get_user_code', { code_id: codeId });
+
+                const data = res.data?.[0];
+                if (data) {
+                    setFormData({
+                        title: data.title || '',
+                        brand: data.brand || '',
+                        bonus_value: data.bonus_value || '',
+                        code: data.code || '',
+                        description: data.description || '',
+                    });
+                } else {
+                    console.error('Codice non trovato');
+                }
+            } catch (err: any) {
+                console.error('Errore nel recupero del codice:', err.message || err);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchCodeData();
+    }, [codeId]);
+
+
     const resetForm = () => {
         setFormData({
             title: '',
@@ -85,6 +118,7 @@ export default function AddCodeForm({ successAddCode }: AddCodeFormProps) {
             code: '',
             description: ''
         });
+
         setErrorMessage('');
     };
 
@@ -107,31 +141,24 @@ export default function AddCodeForm({ successAddCode }: AddCodeFormProps) {
         const payload = {
             ...formData,
             name: selectedBonus ? selectedBonus.name : null,
+            code_id: codeId ? codeId : null,
         };
 
         console.log(payload)
 
         try {
-            const response = await fetch(
-                `${apiUrl}/codes/post_code`,
-                {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    credentials: 'include',
-                    body: JSON.stringify(payload),
-                }
+            const res = await apiService(
+                'codes',
+                isAdd ? 'post_code' : 'update_code',
+                payload
             );
 
-            const data = await response.json();
-            if (response.ok) {
-                resetForm();
-                successAddCode();
-            } else {
-                setErrorMessage(data.error || 'Errore del server');
-            }
-        } catch (err) {
-            console.error(err);
-            setErrorMessage('Errore di rete');
+            resetForm();
+            successAddCode();
+
+        } catch (err: any) {
+            console.error('Errore nella submission:', err);
+            setErrorMessage(err.message || 'Errore del server');
         } finally {
             setIsLoading(false);
         }
@@ -148,7 +175,7 @@ export default function AddCodeForm({ successAddCode }: AddCodeFormProps) {
             }}
         >
             <Typography sx={{ color: '#535353', fontSize: '1.4em', mb: 3 }}>
-                Pubblica un codice
+                {isAdd ? 'Pubblica un codice' : 'Modifica'}
             </Typography>
 
             {formFields.map((field) => {
@@ -215,7 +242,7 @@ export default function AddCodeForm({ successAddCode }: AddCodeFormProps) {
                 {isLoading ? (
                     <CircularProgress size={24} color="inherit" />
                 ) : (
-                    'PUBBLICA CODICE'
+                    isAdd ? 'PUBBLICA CODICE' : 'MODIFICA'
                 )}
             </Button>
 

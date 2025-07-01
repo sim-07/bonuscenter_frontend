@@ -7,6 +7,7 @@ import Navbar from '@/components/Home/Navbar';
 import Footer from '@/components/Home/Footer';
 import { inherits } from 'util';
 import BonusDescription from '@/components/bonus/BonusDesription';
+import Head from 'next/head';
 
 interface BonusData {
     title: string;
@@ -62,6 +63,9 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 export default function BonusDescriptionPage({ bonus }: Props) {
     return (
         <>
+            <Head>
+                <title>{ bonus.title }</title>
+            </Head>
             <BonusDescription bonus={bonus} />
         </>
 

@@ -12,6 +12,7 @@ import {
 } from '@mui/material';
 import router from 'next/router';
 import { useState } from 'react';
+import apiService from '../scripts/apiService';
 
 type LoginFormProps = {
     signinTypeP: string;
@@ -61,25 +62,17 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
 
         setIsLoading(true);
 
+
         try {
-            const response = await fetch(`${apiUrl}/users/${signinType === 'login' ? 'login' : 'create_user'}`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                credentials: 'include',
-                body: JSON.stringify(formData),
-            });
+            const endpoint = signinType === 'login' ? 'login' : 'create_user';
+            const data = await apiService("users", endpoint, formData);
+            
+            resetForm();
+            router.push('/dashboard');
 
-            const data = await response.json();
-
-            if (response.ok) {
-                resetForm();
-                router.push('/dashboard');
-            } else {
-                console.log(data.error);
-                setErrorMessage(data.error || 'Server error');
-            }
-        } catch (error) {
-            console.error('Errore di rete:', error);
+        } catch (error: any) {
+            console.log(error.message || error);
+            setErrorMessage(error.message || 'Server error');
         } finally {
             setIsLoading(false);
         }

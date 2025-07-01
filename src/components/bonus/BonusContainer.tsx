@@ -18,9 +18,10 @@ interface BonusContainerProps {
     bonusListDataP?: BonusItem[] | null;
     width?: string;
     titleBonusContainer?: string;
+    edit?: boolean;
 }
 
-export default function BonusContainer({ width = '95%', bonusListDataP = bonusListData, titleBonusContainer }: BonusContainerProps) {
+export default function BonusContainer({ width = '95%', bonusListDataP = bonusListData, titleBonusContainer, edit = false }: BonusContainerProps) {
     const [searchTerm, setSearchTerm] = useState('');
 
     console.log("bonusListDataP BONUSCONTAINER:", bonusListDataP);
@@ -61,7 +62,7 @@ export default function BonusContainer({ width = '95%', bonusListDataP = bonusLi
                 value={searchTerm}
                 onChange={(value) => setSearchTerm(value)}
             />
-            <BonusList bonusListData={filtBonusListData} />
+            <BonusList bonusListData={filtBonusListData} edit={edit}/>
         </Box>
 
     );
