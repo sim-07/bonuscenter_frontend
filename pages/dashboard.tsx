@@ -12,6 +12,7 @@ import CustomizedSnackbar from '@/components/common/Snakbar';
 import DashboardLayoutDesktop from '@/components/Dashboard/DashboardLayoutDesktop';
 import DashboardLayoutMobile from '@/components/Dashboard/DashboardLayoutMobile';
 import Footer from '@/components/Home/Footer';
+import apiService from '@/components/scripts/apiService';
 
 interface DashboardlayoutProps {
     children?: ReactNode;
@@ -33,24 +34,16 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const res = await fetch(`${apiUrl}/users/get_user_data`, {
-                    method: 'POST',
-                    credentials: 'include',
-                });
-                if (res.ok) {
-                    const data = await res.json();
-                    setUsername(data.username);
-                    setUserId(data.user_id);
-                } else {
-                    router.push('/');
-                }
+                const res = await apiService('users', 'get_user_data');
+                setUsername(res.data[0].username);
+                setUserId(res.data[0].user_id);
             } catch (err) {
                 router.push('/');
             } finally {
                 setIsLoading(false);
             }
         };
-
+    
         checkAuth();
     }, []);
 

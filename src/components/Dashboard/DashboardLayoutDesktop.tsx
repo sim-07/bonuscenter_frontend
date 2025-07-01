@@ -1,6 +1,7 @@
 import { Box, Button, IconButton, Link, Stack, Menu, MenuItem, ListItemIcon, ListItemText, Divider, Typography, Avatar } from "@mui/material";
 import { ReactNode, useState } from "react";
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
 
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
@@ -114,7 +115,12 @@ export default function DashboardLayoutDesktop({
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                     transformOrigin={{ vertical: 'top', horizontal: 'right' }}
                 >
-                    <MenuItem onClick={handleCloseProfile}>
+                    <MenuItem
+                        onClick={() => {
+                            handleCloseProfile();
+                            router.push('/profile');
+                        }}
+                    >
                         <ListItemIcon><PersonIcon fontSize="small" /></ListItemIcon>
                         <ListItemText>Profilo</ListItemText>
                     </MenuItem>
