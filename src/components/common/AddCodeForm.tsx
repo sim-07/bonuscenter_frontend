@@ -144,8 +144,6 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
             code_id: codeId ? codeId : null,
         };
 
-        console.log(payload)
-
         try {
             const res = await apiService(
                 'codes',

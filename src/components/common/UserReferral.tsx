@@ -19,7 +19,7 @@ export default function UserReferral() {
 
                 const res = await apiService('codes', 'get_user_codes');
 
-                const userReferralImg = res.data.map((ref: any) => {
+                const userReferralWithImg = res.data.map((ref: any) => {
                     const selectedBonus = bonusListData.find(
                         (b) => b.title.toLowerCase() === ref.brand.toLowerCase()
                     );
@@ -29,7 +29,7 @@ export default function UserReferral() {
                     };
                 });
 
-                setUserReferral(userReferralImg);
+                setUserReferral(userReferralWithImg);
 
             } catch (err: any) {
                 console.error('Errore nel recupero dei codici:', err.message || err);

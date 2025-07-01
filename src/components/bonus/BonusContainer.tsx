@@ -62,7 +62,7 @@ export default function BonusContainer({ width = '95%', bonusListDataP = bonusLi
                 value={searchTerm}
                 onChange={(value) => setSearchTerm(value)}
             />
-            <BonusList bonusListData={filtBonusListData} edit={edit}/>
+            <BonusList bonusListDataP={filtBonusListData} edit={edit}/>
         </Box>
 
     );
