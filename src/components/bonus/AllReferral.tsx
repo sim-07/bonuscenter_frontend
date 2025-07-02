@@ -26,7 +26,7 @@ interface AllReferralProps {
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 type ReferralType = {
-    id: string;
+    code_id: string;
     user_id: string;
     username: string;
     title: string;
@@ -52,14 +52,41 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
     const [openSnackbar, setOpenSnackbar] = useState(false);
 
 
-    const handleOpenDialog = (referral: ReferralType) => {
+    const handleOpenDialog = async (referral: ReferralType) => {
         setSelectedReferral(referral);
-        setOpenDialog(true);
+        setOpenDialog(true);        
 
         try {
-            // const data = await apiService("used_codes", )
+            const res = await apiService("used_codes", "set_used_code", {
+                code_id: referral.code_id,
+                created_by: referral.user_id,
+                bonus_name: referral.name,
+                bonus_value: referral.bonus_value,
+                bonus_code: referral.code,
+            });
+            if (res.error) {
+                console.error("Error set_used_code: ", res.error);
+            }
+        } catch (error: any) {
+            console.error(error.message || error);
         }
+
+        let notificationMessage = `🎉 ${referral.username} ha appena copiato il tuo codice ${referral.brand}! Verifica che lo abbia usato correttamente e premi “Conferma” per validarlo.`
         
+        try {
+            const res = await apiService("notification", "create_notification", {
+                receiver: referral.user_id,
+                type: "used_code",
+                message: notificationMessage,
+                read: false,
+            });
+            if (res.error) {
+                console.error("Error create_notification: ", res.error);
+            }
+        } catch (error: any) {
+            console.error(error.message || error);
+        }
+
     };
 
     const handleCloseDialog = () => {
@@ -125,7 +152,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
 
             <List sx={{ width: "100%", maxWidth: 360, bgcolor: "gray.100" }}>
                 {allReferralData.map((referral) => (
-                    <React.Fragment key={referral.id}>
+                    <React.Fragment key={referral.code_id}>
                         <ListItem
                             alignItems="flex-start"
                             sx={{ cursor: "pointer" }}
