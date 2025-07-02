@@ -16,6 +16,8 @@ import React from "react";
 import DialogComponent from "../common/DialogComponent";
 import LoadingSpinner from "../common/LoadingSpinner";
 import CustomizedSnackbar from "../common/Snakbar";
+import apiService from '@/components/scripts/apiService';
+
 
 interface AllReferralProps {
     bonusName: string;
@@ -53,6 +55,11 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
     const handleOpenDialog = (referral: ReferralType) => {
         setSelectedReferral(referral);
         setOpenDialog(true);
+
+        try {
+            // const data = await apiService("used_codes", )
+        }
+        
     };
 
     const handleCloseDialog = () => {

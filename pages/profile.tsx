@@ -1,11 +1,17 @@
 'use client';
 
-import { Box, Button, Typography, Avatar, Stack, Divider, LinearProgress } from '@mui/material';
+import { Box, Button, Typography, Avatar, Stack, Divider, LinearProgress, IconButton, Link } from '@mui/material';
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 import { useRouter } from 'next/navigation';
+
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 import apiService from '@/components/scripts/apiService';
 import LoadingSpinner from '@/components/common/LoadingSpinner';
 import Navbar from '@/components/Home/Navbar';
+import Footer from '@/components/Home/Footer';
+
 
 export default function Profilo() {
     const [userData, setUserData] = useState<{
@@ -22,9 +28,16 @@ export default function Profilo() {
         const fetchProfile = async () => {
             try {
                 const res = await apiService('users', 'get_user_data');
+
+                if (res.error || !res.data || !Array.isArray(res.data) || res.data.length === 0) {
+                    router.push('/');
+                    return;
+                }
+
                 setUserData(res.data[0]);
             } catch (err) {
                 console.error('Errore nel caricamento del profilo');
+                router.push('/');
             }
         };
 
@@ -87,6 +100,9 @@ export default function Profilo() {
 
     return (
         <>
+            <Head>
+                <title>Bonuscenter | Profile</title>
+            </Head>
             <Navbar>
                 <></>
             </Navbar>
@@ -98,10 +114,17 @@ export default function Profilo() {
                     padding: 10,
                     borderRadius: 4,
                     boxShadow: 3,
-                    mt: 10,
+                    mt: 6,
+                    mb: 10,
                     backgroundColor: '#fff',
                 }}
             >
+                <Link href='/dashboard'>
+                    <IconButton>
+                        <ArrowBackIcon sx={{ fontSize: '30px' }} />
+                    </IconButton>
+                </Link>
+
                 <Stack spacing={3} alignItems="center">
                     <Avatar sx={{ width: 80, height: 80 }}>
                         {email?.charAt(0)?.toUpperCase() || '?'}
@@ -162,6 +185,8 @@ export default function Profilo() {
                     </Stack>
                 </Stack>
             </Box>
+
+            <Footer />
 
         </>
     );

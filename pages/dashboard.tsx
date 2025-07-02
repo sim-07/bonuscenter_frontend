@@ -34,7 +34,15 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
     useEffect(() => {
         const checkAuth = async () => {
             try {
+                setIsLoading(true);
+                
                 const res = await apiService('users', 'get_user_data');
+
+                if (res.error || !res.data || !Array.isArray(res.data) || res.data.length === 0) {
+                    router.push('/');
+                    return;
+                }
+
                 setUsername(res.data[0].username);
                 setUserId(res.data[0].user_id);
             } catch (err) {

@@ -12,16 +12,14 @@ import {
 } from '@mui/material';
 import router from 'next/router';
 import { useState } from 'react';
-import apiService from '../scripts/apiService';
+import apiService from '@/components/scripts/apiService';
 
 type LoginFormProps = {
     signinTypeP: string;
 };
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-
 export default function LoginForm({ signinTypeP }: LoginFormProps) {
-    const [signinType, setSigninType] = useState(signinTypeP); // signup o login
+    const [signinType, setSigninType] = useState(signinTypeP); // "signup" o "login"
     const [acceptedPrivacy, setAcceptedPrivacy] = useState(false);
     const [formData, setFormData] = useState<{ [key: string]: string }>({});
     const [errorMessage, setErrorMessage] = useState('');
@@ -62,10 +60,15 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
 
         setIsLoading(true);
 
-
         try {
             const endpoint = signinType === 'login' ? 'login' : 'create_user';
             const data = await apiService("users", endpoint, formData);
+
+            if (data.error) {
+                setErrorMessage(data.error || 'Server error');
+                console.log("DATA LoginForm: ", data)
+                return;
+            }
             
             resetForm();
             router.push('/dashboard');

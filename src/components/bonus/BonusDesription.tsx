@@ -89,7 +89,6 @@ export default function BonusDescription({ bonus }: Props) {
 
                 </Box>
 
-
                 <Box
                     sx={{
                         mb: 5,

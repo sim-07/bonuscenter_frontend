@@ -11,11 +11,12 @@ const apiService = async (route: string, endpoint: string, payload?: object) => 
             body: payload ? JSON.stringify(payload) : undefined,
         });
 
+        const data = await response.json();
+
         if (response.ok) {
-            const data = await response.json();
             return data;
         } else {
-            throw new Error(`Error in ${endpoint}`);
+            return { error: data.error || 'Errore generico', status: response.status };
         }
     } catch (error) {
         console.error(`Error in ${endpoint}: `, error);
