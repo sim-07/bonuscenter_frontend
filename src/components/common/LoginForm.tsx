@@ -20,10 +20,10 @@ type LoginFormProps = {
 
 export default function LoginForm({ signinTypeP }: LoginFormProps) {
     const [signinType, setSigninType] = useState(signinTypeP); // "signup" o "login"
-    const [acceptedPrivacy, setAcceptedPrivacy] = useState(false);
     const [formData, setFormData] = useState<{ [key: string]: string }>({});
     const [errorMessage, setErrorMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+
 
 
     const formField = [
@@ -38,17 +38,11 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
 
     const resetForm = () => {
         setFormData({});
-        setAcceptedPrivacy(false);
         setErrorMessage('');
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-
-        if (signinType === 'signup' && !acceptedPrivacy) {
-            alert("Per continuare accetta l'informativa sulla privacy");
-            return;
-        }
 
         for (const field of formField) {
             if (field.formType.includes(signinType) && field.required && !formData[field.name]) {
@@ -69,7 +63,7 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
                 console.log("DATA LoginForm: ", data)
                 return;
             }
-            
+
             resetForm();
             router.push('/dashboard');
 
@@ -80,7 +74,7 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
             setIsLoading(false);
         }
 
-        console.log('Dati inviati:', { ...formData, acceptedPrivacy, mode: signinType });
+        console.log('Dati inviati:', { ...formData, mode: signinType });
 
     };
 
@@ -118,23 +112,12 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
 
             {/* PRIVACY POLICY */}
             {signinType === 'signup' && (
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            checked={acceptedPrivacy}
-                            onChange={(e) => setAcceptedPrivacy(e.target.checked)}
-                            sx={{ width: '40px' }}
-                        />
-                    }
-                    label={
-                        <Typography>
-                            Ho letto e accetto{' '}
-                            <MuiLink href="/privacy" sx={{ textDecoration: 'underline', cursor: 'pointer', marginLeft: '0px !important' }}>
-                                l'informativa sulla privacy
-                            </MuiLink>.
-                        </Typography>
-                    }
-                />
+                <Typography>
+                    Registrandoti accetti {' '}
+                    <MuiLink href="/privacy" sx={{ textDecoration: 'underline', cursor: 'pointer', marginLeft: '0px !important' }}>
+                        l'informativa sulla privacy
+                    </MuiLink>.
+                </Typography>
             )}
 
             {/* BOTTONE INVIO */}

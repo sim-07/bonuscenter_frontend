@@ -6,6 +6,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/navigation';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 import apiService from '@/components/scripts/apiService';
 import LoadingSpinner from '@/components/common/LoadingSpinner';
@@ -18,9 +19,13 @@ export default function Profilo() {
         username: string;
         email: string;
         created_at: string;
-        codes_count: number;
-        estimated_bonus: number;
     } | null>(null);
+
+    const [usedCodes, setUsedCodes] = useState<Array<{
+        bonus_name: string;
+        brand: string;
+        bonus_value: string;
+    }>>([]);
 
     const router = useRouter();
 
@@ -41,7 +46,22 @@ export default function Profilo() {
             }
         };
 
+        const fetchUsedCodes = async () => {
+            try {
+                const res = await apiService('used_codes', 'get_used_code');
+
+                if (!res.error) {
+                    setUsedCodes(res.data);
+                } else {
+                    console.error("Error fetching used codes")
+                }
+            } catch (err) {
+                console.error('Error used codes');
+            }
+        }
+
         fetchProfile();
+        fetchUsedCodes();
     }, []);
 
     const handleLogout = async () => {
@@ -84,13 +104,13 @@ export default function Profilo() {
     const maxCodes = 20;
     const maxBonus = 200;
 
-    ///// test
-    let codes_count = 54;
-    let estimated_bonus = 120;
-    ///// test
+    let codes_count = usedCodes.length;
+    let bonus_value_tot = usedCodes.reduce((acc, curr) => {
+        return acc + parseFloat(curr.bonus_value || '0');
+    }, 0);
 
     let visibilityPercent = Math.min(100,
-        ((codes_count / maxCodes) * 50) + ((estimated_bonus / maxBonus) * 50)
+        ((codes_count / maxCodes) * 50) + ((bonus_value_tot / maxBonus) * 50)
     );
 
     let visibilityLabel = "Iniziale";
@@ -146,12 +166,12 @@ export default function Profilo() {
                         <Typography variant="h6" sx={{ mb: 2 }} gutterBottom>
                             📊 Attività
                         </Typography>
-                        <Typography variant="body1">Codici pubblicati: </Typography>
-                        <Typography variant="body1">Bonus stimati: €</Typography>
+                        <Typography variant="body1"><strong>Codici pubblicati:</strong> {codes_count}</Typography>
+                        <Typography variant="body1"><strong>Guadagno totale:</strong> {bonus_value_tot}€</Typography>
 
                         <Box sx={{ mt: 3, mb: 2 }}>
                             <Typography sx={{ fontSize: '18px', mb: 2 }} gutterBottom>
-                                👁️ Visibilità: {visibilityLabel} ({Math.round(visibilityPercent)}%)
+                                <strong>Visibilità:</strong> {visibilityLabel} (+{Math.round(visibilityPercent)}%)
                             </Typography>
                             <LinearProgress
                                 variant="determinate"
@@ -171,6 +191,9 @@ export default function Profilo() {
                                 }}
                             />
                         </Box>
+                        <Typography sx={{ color: '#626262' }}>
+                            La <strong>visibilità</strong> aumenta in base al numero di bonus completati e al loro valore
+                        </Typography>
                     </Box>
 
                     <Divider sx={{ width: '100%' }} />

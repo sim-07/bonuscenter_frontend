@@ -8,7 +8,11 @@ import {
     CircularProgress,
     Autocomplete,
     AutocompleteRenderInputParams,
+    IconButton,
+    InputAdornment,
 } from '@mui/material';
+
+import EuroIcon from '@mui/icons-material/Euro';
 
 import apiService from '../scripts/apiService';
 import { useEffect, useState } from 'react';
@@ -52,8 +56,8 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
         },
         {
             name: 'bonus_value',
-            label: 'Valore bonus',
-            type: 'text',
+            label: 'Premio bonus',
+            type: 'amount',
             required: true,
         },
         {
@@ -191,6 +195,34 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                                 sx={{ mb: 0.5 }}
                             />
                         )
+                    case 'amount':
+                        return (
+                            <TextField
+                                key={field.name}
+                                label={field.label}
+                                variant="outlined"
+                                type="text"
+                                inputMode="decimal"
+                                value={formData[field.name as keyof typeof formData]}
+                                onChange={(e) => {
+                                    const value = e.target.value;
+                                    if (/^\d*\.?\d{0,2}$/.test(value)) {
+                                        handleChange(field.name, value);
+                                    }
+                                }}
+                                slotProps={{
+                                    input: {
+                                        endAdornment: (
+                                            <InputAdornment position="end">
+                                                <IconButton edge="end">
+                                                    <EuroIcon />
+                                                </IconButton>
+                                            </InputAdornment>
+                                        ),
+                                    },
+                                }}
+                            />
+                        )
                     case 'autoComplete':
                         return (
                             <Autocomplete
@@ -219,6 +251,7 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                                 rows={4}
                             />
                         )
+
                     default:
                         return null;
                 }

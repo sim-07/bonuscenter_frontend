@@ -63,6 +63,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                 bonus_name: referral.name,
                 bonus_value: referral.bonus_value,
                 bonus_code: referral.code,
+                brand: referral.brand,
             });
             if (res.error) {
                 console.error("Error set_used_code: ", res.error);
