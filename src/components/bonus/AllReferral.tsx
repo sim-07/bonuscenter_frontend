@@ -54,10 +54,10 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
 
     const handleOpenDialog = async (referral: ReferralType) => {
         setSelectedReferral(referral);
-        setOpenDialog(true);        
+        setOpenDialog(true);
 
         try {
-            const res = await apiService("used_codes", "set_used_code", {
+            const resSetUsedCodes = await apiService("used_codes", "set_used_code", {
                 code_id: referral.code_id,
                 created_by: referral.user_id,
                 bonus_name: referral.name,
@@ -65,24 +65,24 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                 bonus_code: referral.code,
                 brand: referral.brand,
             });
-            if (res.error) {
-                console.error("Error set_used_code: ", res.error);
-            }
-        } catch (error: any) {
-            console.error(error.message || error);
-        }
+            if (resSetUsedCodes.error || !resSetUsedCodes.used_by) {
+                console.error("Error set_used_code: ", resSetUsedCodes.error);
+            } else {
 
-        let notificationMessage = `🎉 ${referral.username} ha appena copiato il tuo codice ${referral.brand}! Verifica che lo abbia usato correttamente e premi “Conferma” per validarlo.`
-        
-        try {
-            const res = await apiService("notification", "create_notification", {
-                receiver: referral.user_id,
-                type: "used_code",
-                message: notificationMessage,
-                read: false,
-            });
-            if (res.error) {
-                console.error("Error create_notification: ", res.error);
+                try {
+                    const res = await apiService("notification", "create_notification", {
+                        receiver: referral.user_id,
+                        code_id: referral.code_id,
+                        type: "used_code",
+
+                    });
+                    if (res.error) {
+                        console.error("Error create_notification: ", res.error);
+                    }
+                } catch (error: any) {
+                    console.error(error.message || error);
+                }
+
             }
         } catch (error: any) {
             console.error(error.message || error);
@@ -111,16 +111,11 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
     useEffect(() => {
         const getAllReferral = async () => {
             try {
-                const res = await fetch(`${apiUrl}/codes/get_all_referral_codes`, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    credentials: "include",
-                    body: JSON.stringify({ name: bonusName }),
-                });
 
-                if (res.ok) {
-                    const data = await res.json();
-                    setAllReferralData(data.data);
+                const res = await apiService("codes", "get_all_referral_codes", {name: bonusName})
+
+                if (!res.error) {
+                    setAllReferralData(res.data);
                 } else {
                     console.error("Errore getAllReferral");
                 }

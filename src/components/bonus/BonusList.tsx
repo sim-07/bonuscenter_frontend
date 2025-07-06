@@ -88,13 +88,9 @@ export default function BonusList({ bonusListDataP, edit = false }: BonusListPro
 
     const deleteCode = async (code_id: string) => {
         try {
-            const res = await fetch(`${apiUrl}/codes/delete_code`, {
-                method: 'POST',
-                headers: { "Content-Type": "application/json" },
-                credentials: 'include',
-                body: JSON.stringify({ code_id: code_id }),
-            });
-            if (res.ok) {
+
+            const res = await apiService("codes", "delete_code", { code_id: code_id })
+            if (!res.error) {
                 setSnackbarOpen(true);
                 setSnackbarMessage("Codice eliminato con successo")
             } else {

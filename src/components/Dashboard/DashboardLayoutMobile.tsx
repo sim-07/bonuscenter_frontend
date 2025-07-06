@@ -1,5 +1,5 @@
 import { ReactNode, useState } from "react";
-import { Box, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider } from "@mui/material";
+import { Box, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, Link } from "@mui/material";
 
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
@@ -15,11 +15,10 @@ import router from "next/router";
 import BonusContainer from "../bonus/BonusContainer";
 import UserReferral from "../common/UserReferral";
 import UsedCodes from "../common/UsedCodes";
-
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+import apiService from "../scripts/apiService";
 
 const listMenu = [
-    { text: 'Profilo', icon: <PersonIcon />, component: <BonusContainer /> },
+    { text: 'Profilo', icon: <PersonIcon />, route: '/profile' },
     { text: 'Tutti i codici', icon: <AssignmentIcon />, component: <BonusContainer /> },
     { text: 'I miei codici', icon: <AssignmentAddIcon />, component: <UserReferral /> },
     { text: 'Codici usati', icon: <AssignmentTurnedInIcon />, component: <UsedCodes /> },
@@ -41,12 +40,12 @@ export default function DashboardLayoutMobile({
 
     const handleLogout = async () => {
         try {
-            const response = await fetch(`${apiUrl}/users/logout`, {
-                method: 'POST',
-                credentials: 'include',
-            });
-            if (response.ok) {
+            const res = await apiService('users', 'logout', {  });
+
+            if (!res.error) {
                 router.push('/');
+            } else {
+                console.error("Error during logout");
             }
         } catch (error) {
             console.error('Errore durante il logout:', error);
@@ -64,10 +63,16 @@ export default function DashboardLayoutMobile({
                     <List>
                         {listMenu.map((tab, index) => (
                             <ListItem key={tab.text} disablePadding>
-                                <ListItemButton onClick={() => {
-                                    setActiveTab(index);
-                                    setOpenDrawer(false);
-                                }}>
+                                <ListItemButton
+                                    onClick={() => {
+                                        if (tab.route) {
+                                            router.push(tab.route);
+                                        } else {
+                                            setActiveTab(index);
+                                        }
+                                        setOpenDrawer(false);
+                                    }}
+                                >
                                     <ListItemIcon>{tab.icon}</ListItemIcon>
                                     <ListItemText primary={tab.text} />
                                 </ListItemButton>

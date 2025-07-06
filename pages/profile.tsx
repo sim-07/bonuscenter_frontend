@@ -101,7 +101,7 @@ export default function Profilo() {
 
     const { username, email, created_at } = userData;
 
-    const maxCodes = 20;
+    const maxCodes = 13;
     const maxBonus = 200;
 
     let codes_count = usedCodes.length;
@@ -116,7 +116,7 @@ export default function Profilo() {
     let visibilityLabel = "Iniziale";
     if (visibilityPercent >= 75) visibilityLabel = "Estrema";
     else if (visibilityPercent >= 50) visibilityLabel = "Ottima";
-    else if (visibilityPercent >= 25) visibilityLabel = "Buona";
+    else if (visibilityPercent >= 20) visibilityLabel = "Buona";
 
     return (
         <>
@@ -130,6 +130,7 @@ export default function Profilo() {
             <Box
                 sx={{
                     maxWidth: 600,
+                    width: {xs: '90%', md: '60%'},
                     margin: '0 auto',
                     padding: 10,
                     borderRadius: 4,
@@ -166,7 +167,7 @@ export default function Profilo() {
                         <Typography variant="h6" sx={{ mb: 2 }} gutterBottom>
                             📊 Attività
                         </Typography>
-                        <Typography variant="body1"><strong>Codici pubblicati:</strong> {codes_count}</Typography>
+                        <Typography variant="body1"><strong>Codici usati:</strong> {codes_count}</Typography>
                         <Typography variant="body1"><strong>Guadagno totale:</strong> {bonus_value_tot}€</Typography>
 
                         <Box sx={{ mt: 3, mb: 2 }}>
@@ -183,7 +184,7 @@ export default function Profilo() {
                                     '& .MuiLinearProgress-bar': {
                                         borderRadius: 5,
                                         backgroundColor:
-                                            visibilityPercent < 25 ? '#f44336' :
+                                            visibilityPercent < 20 ? '#f44336' :
                                                 visibilityPercent < 50 ? '#ff9800' :
                                                     visibilityPercent < 75 ? '#2196f3' :
                                                         '#4caf50'

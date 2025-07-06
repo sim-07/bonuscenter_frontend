@@ -1,0 +1,197 @@
+import { Box, Button, Divider, ListItemText, MenuItem, Stack, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+
+import apiService from "../scripts/apiService";
+import LoadingSpinner from "./LoadingSpinner";
+import CustomizedSnackbar from '@/components/common/Snakbar';
+
+type NotificheListProps = {
+    max?: number;
+    compact?: boolean;
+};
+
+type Notification = {
+    code_id: string;
+    message: string;
+    type: string;
+    created_at: string;
+};
+
+type SeveritySnakbarType = {
+    severity?: 'success' | 'error' | 'warning' | 'info';
+}
+
+export default function NotificheList({ max, compact = false }: NotificheListProps) {
+    const [isLoading, setIsLoading] = useState(true);
+    const [notifications, setNotifications] = useState<Notification[]>([]);
+
+    const [snakbarMessage, setSnakbarMessage] = useState('');
+    const [severitySnakbar, setSeveritySnakbar] = useState<SeveritySnakbarType | null>(null);
+    const [openSnackbar, setOpenSnackbar] = useState(false);
+
+    useEffect(() => {
+        const fetchNotification = async () => {
+            try {
+                setIsLoading(true);
+                const res = await apiService('notification', 'get_notifications', {});
+
+                if (!res.error) {
+                    setNotifications(res.data);
+                } else {
+                    console.error("Error during get_notifications: ", res.error);
+                }
+            } catch (error) {
+                console.error('Errore durante get_notifications:', error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchNotification();
+
+    }, [])
+
+    const items = max ? notifications.slice(0, max) : notifications;
+
+    const handleConfirmUsedCode = async (code_id: string) => {
+        try {
+            setIsLoading(true);
+            const res = await apiService('used_codes', 'confirm_code', { code_id });
+
+            if (!res.error) {
+                try {
+                    const resDelete = await apiService('notification', 'delete_notification', { code_id });
+                    if (!resDelete.error) {
+                        setSnakbarMessage("Confermato!")
+                        setOpenSnackbar(true);
+                        setNotifications(prev =>
+                            prev.filter(item => item.code_id !== code_id)
+                          );
+                    } else {
+                        console.error("Error during delete_notification: ", resDelete.error);
+                    }
+                } catch (error) {
+                    console.error('Errore durante delete_notification:', error);
+                }
+            } else {
+                console.error("Error during confirm_code: ", res.error);
+            }
+        } catch (error) {
+            console.error('Errore durante confirm_code:', error);
+        } finally {
+            setIsLoading(false);
+        }
+    }
+
+
+    
+
+    return (
+        <>
+            {compact ? (
+                <>
+                    {!isLoading ? (
+                        items.length === 0 ? (
+                            <MenuItem
+                                sx={{
+                                    whiteSpace: 'normal',
+                                    alignItems: 'flex-start',
+                                    minWidth: 300,
+                                    maxWidth: 400,
+                                }}
+                            >
+                                Nessuna notifica
+                            </MenuItem>
+                        ) : (
+                            items.map((item, index) => {
+                                let content;
+
+                                switch (item.type) {
+                                    case 'used_code':
+                                        content = (
+                                            <Stack direction="column" spacing={2}>
+                                                <ListItemText
+                                                    primary={item.message}
+                                                    secondary={new Date(item.created_at).toLocaleString()}
+                                                />
+                                                <Button
+                                                    variant="contained"
+                                                    sx={{ color: "white", maxWidth: 140 }}
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        e.stopPropagation();
+                                                        handleConfirmUsedCode(item.code_id);
+                                                    }}
+                                                >
+                                                    Conferma
+                                                </Button>
+                                            </Stack>
+                                        );
+                                        break;
+
+                                    default:
+                                        content = (
+                                            <ListItemText
+                                                primary={item.message}
+                                                secondary={new Date(item.created_at).toLocaleString()}
+                                            />
+                                        );
+                                }
+
+                                return (
+                                    <div key={index}>
+                                        <MenuItem
+                                            sx={{
+                                                whiteSpace: 'normal',
+                                                alignItems: 'flex-start',
+                                                minWidth: 300,
+                                                maxWidth: 400,
+                                            }}
+                                        >
+                                            {content}
+                                        </MenuItem>
+                                        <Divider />
+                                    </div>
+                                );
+                            })
+                        )
+                    ) : (
+                        <Box
+                            sx={{
+                                width: '100%',
+                                minWidth: 300,
+                                minHeight: 100,
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                alignContent: 'center',
+                            }}
+                        >
+                            <LoadingSpinner size={40} />
+                        </Box>
+                    )}
+                </>
+            ) : (
+                <Box sx={{ maxHeight: 300, overflowY: 'auto' }}>
+                    {items.map((item, index) => (
+                        <Box key={index} sx={{ py: 1, borderBottom: '1px solid #eee' }}>
+                            <Typography variant="body2">{item.message}</Typography>
+                            <Typography variant="caption" color="gray">
+                                {new Date(item.created_at).toLocaleString()}
+                            </Typography>
+                        </Box>
+                    ))}
+                </Box>
+            )}
+
+            <CustomizedSnackbar
+                open={openSnackbar}
+                onClose={() => setOpenSnackbar(false)}
+                message={snakbarMessage}
+                severity={severitySnakbar?.severity}
+            />
+
+        </>
+    );
+
+};

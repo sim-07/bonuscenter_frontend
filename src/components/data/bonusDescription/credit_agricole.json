@@ -1,0 +1,60 @@
+{
+    "title": "Bonus Crédit Agricole 50€ Amazon + fino a 100€ extra",
+    "name": "credit_agricole",
+    "bonus_image": "credit_agricole",
+    "summary": {
+      "bonus": "🎁 50€ in buono Amazon dopo una transazione da almeno 0,10€",
+      "invito": "🎁 50€ in buono Amazon per ogni amico invitato (max 4 inviti)",
+      "deposito_richiesto": "💰 0,10€ tramite bonifico istantaneo gratuito",
+      "scadenza": "🗓️ Promo valida fino al 30 giugno 2025 (requisiti entro 10 agosto)",
+      "commissioni": "✅ Conto e carta gratuiti per 9 mesi, poi 2€/mese (solo over 35)",
+      "extra": "💵 +50€ per accredito stipendio/pensione + fino a 50€ di cashback extra"
+    },
+    "sections": [
+      {
+        "title": "Che cos’è Crédit Agricole e come funziona il bonus",
+        "content": [
+          "Crédit Agricole è una banca europea che offre un conto online con IBAN italiano, gestibile interamente via app.",
+          "Aprendo un conto e utilizzando una carta di debito, puoi ricevere un buono Amazon da 50€ con una semplice spesa di almeno 0,10€.",
+          "Inoltre, puoi ottenere altri 50€ se accrediti lo stipendio o la pensione per almeno un mese, e fino a 50€ extra sotto forma di cashback spendendo con la carta.",
+          "Ogni invito completato ti dà diritto ad altri 50€ in buoni Amazon, fino a un massimo di 4 inviti (totale 200€)."
+        ]
+      },
+      {
+        "title": "Requisiti principali",
+        "content": [
+          "Transazione minima richiesta: almeno 0,10€ entro 60 giorni dall'apertura (e comunque entro il 10/08/2025).",
+          "Per ottenere il bonus stipendio, è necessario ricevere un accredito regolare (stipendio o pensione) entro il 10 agosto 2025 e mantenerlo fino a quella data.",
+          "Per ricevere il cashback fino a 50€, bisogna effettuare spese con la carta nei primi 60 giorni:",
+          "💵 25€ se si spendono almeno 500€; 💵 50€ se si superano i 1.000€.",
+          "Il conto è gratuito per i primi 9 mesi, poi 2€/mese se hai più di 35 anni (gratuito per gli under 35).",
+          "La carta VISA è gratuita per 24 mesi. Disponibile anche la carta Bancomat Easy Cash per solo pagamenti fisici.",
+          "Sono necessari documenti validi (identità e tessera sanitaria) e un breve videoselfie per l’identificazione.",
+          "Il bonus viene erogato entro 120 giorni dal termine della promozione.",
+          "Può registrarsi solo chi ha almeno 18 anni.",
+          "Massimo 4 inviti per utente; il contatore si resetta a ogni nuova promozione."
+        ]
+      },
+      {
+        "title": "Guida passo passo",
+        "content": [
+          "1. Registrati dal link in alto nella pagina: assicurati che il codice promozionale sia correttamente inserito e clicca su 'Usa il codice promo'.",
+          "2. Scegli la filiale più vicina (anche casuale se non ne hai vicino). In caso di dubbi, ti contatteranno via telefono o email.",
+          "3. Inserisci i tuoi dati, compila la sezione antiriciclaggio e conferma indirizzo e codice fiscale. Scegli la carta VISA DEBIT.",
+          "4. Verifica i documenti: dovrai fotografare il documento di identità e la tessera sanitaria, oltre a registrare un breve video con codice.",
+          "5. Firma digitalmente i documenti e attendi le email di conferma. Dovrai completare la firma con un codice OTP ricevuto via SMS.",
+          "6. Dopo circa 24h riceverai l’attivazione del conto. Imposta le credenziali di accesso dalla pagina clienti del sito Crédit Agricole.",
+          "7. Dopo altre 24-48h potrai attivare la carta virtuale dall'app: entra nel menu 'Carte e conti', poi abilita i pagamenti online.",
+          "8. Una volta attiva la carta, deposita almeno 0,10€ con bonifico istantaneo e completa una transazione idonea (POS, online o wallet).",
+          "💡 Idee per la spesa: ricarica Revolut con link pagamento, acquisto token su TikTok, app da pochi centesimi su App Store o Google Play.",
+          "❌ Non validi: bonifici, ricariche SIM o carte prepagate. Evita spese sotto i 5€, a meno che non si tratti di una ricarica Amazon.",
+          "9. Il buono Amazon viene inviato entro 120 giorni dalla verifica dei requisiti (10/08/2025).",
+          "💵 Per ottenere i bonus extra:",
+          "- Effettua spese per almeno 500€ (25€) o 1.000€ (50€) entro 60 giorni.",
+          "- Accredita lo stipendio o la pensione entro il 10/08/2025 e mantienilo attivo per ricevere altri 50€.",
+          "✅ Tutti i bonus sono cumulabili."
+        ]
+      }
+    ]
+  }
+  

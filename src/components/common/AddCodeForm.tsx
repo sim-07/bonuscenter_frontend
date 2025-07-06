@@ -214,9 +214,7 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                                     input: {
                                         endAdornment: (
                                             <InputAdornment position="end">
-                                                <IconButton edge="end">
-                                                    <EuroIcon />
-                                                </IconButton>
+                                                <EuroIcon />
                                             </InputAdornment>
                                         ),
                                     },

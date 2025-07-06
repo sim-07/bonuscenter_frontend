@@ -15,6 +15,8 @@ import router from "next/router";
 
 import VerticalTabs from "@/components/common/VerticalTab"
 import BonusContainer from "../bonus/BonusContainer";
+import apiService from "../scripts/apiService";
+import NotificationList from "../common/NotificationList";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -28,28 +30,38 @@ export default function DashboardLayoutDesktop({
     username: string,
     openAddCodeDialog: () => void
 }) {
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const openP = Boolean(anchorEl);
+    const [anchorElProfile, setAnchorElProfile] = useState<null | HTMLElement>(null);
+    const [anchorElNotification, setAchorElNotification] = useState<null | HTMLElement>(null);
+    const openP = Boolean(anchorElProfile);
+    const openN = Boolean(anchorElNotification);
 
     const handleClickProfile = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(event.currentTarget);
+        setAnchorElProfile(event.currentTarget);
     };
 
     const handleCloseProfile = () => {
-        setAnchorEl(null);
+        setAnchorElProfile(null);
+    };
+
+    const handleClickNotification = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAchorElNotification(event.currentTarget);
+    };
+
+    const handleCloseNotification = () => {
+        setAchorElNotification(null);
     };
 
     const handleLogout = async () => {
         try {
-            const response = await fetch(`${apiUrl}/users/logout`, {
-                method: 'POST',
-                credentials: 'include',
-            });
-            if (response.ok) {
+            const res = await apiService('users', 'logout', {});
+
+            if (!res.error) {
                 router.push('/');
+            } else {
+                console.error("Error during logout");
             }
         } catch (error) {
-            console.error('Errore durante logout');
+            console.error('Errore durante il logout:', error);
         }
     };
 
@@ -80,7 +92,7 @@ export default function DashboardLayoutDesktop({
                     </IconButton>
 
                     <IconButton
-                        onClick={() => { /* logica notifiche */ }}
+                        onClick={handleClickNotification}
                         sx={{ bgcolor: 'grey.200', color: 'text.primary', height: '40px', width: '40px' }}
                     >
                         <NotificationsIcon />
@@ -109,7 +121,7 @@ export default function DashboardLayoutDesktop({
                 </Box>
 
                 <Menu
-                    anchorEl={anchorEl}
+                    anchorEl={anchorElProfile}
                     open={openP}
                     onClose={handleCloseProfile}
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
@@ -129,6 +141,17 @@ export default function DashboardLayoutDesktop({
                         <ListItemIcon><ExitToAppIcon fontSize="small" /></ListItemIcon>
                         <ListItemText>Logout</ListItemText>
                     </MenuItem>
+                </Menu>
+
+
+                <Menu
+                    anchorEl={anchorElNotification}
+                    open={openN}
+                    onClose={handleCloseNotification}
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                    transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+                >
+                    <NotificationList compact={true} max={10}/>
                 </Menu>
             </Navbar>
 

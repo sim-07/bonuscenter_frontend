@@ -17,7 +17,7 @@ export const bonusListData = [
     },
     {
         title: "Crédit Agricole",
-        name: "crédit_agricole",
+        name: "credit_agricole",
         description: "Buono Amazon richiede carta Visa + 1 spesa",
         bonus_value: "50€",
         image: "/images_bonus/credit_agricole.avif",
