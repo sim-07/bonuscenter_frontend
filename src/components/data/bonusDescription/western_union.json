@@ -1,0 +1,49 @@
+{
+    "title": "Western Union Refer-a-Friend USA",
+    "name": "western_union",
+    "bonus_image": "western_union",
+    "summary": {
+      "bonus": "🎁 $10 Amazon Gift Card per chi si registra e invia almeno $100",
+      "invito": "🎁 $15 Amazon Gift Card per ogni amico che completa i requisiti",
+      "deposito_richiesto": "$100 da inviare tramite Western Union online",
+      "scadenza": "31 dicembre 2025",
+      "commissioni": "Commissioni standard Western Union applicate al trasferimento",
+      "extra": "Massimo 20 referral premiati per persona"
+    },
+    "sections": [
+      {
+        "title": "Come funziona il bonus Western Union (solo USA)",
+        "content": [
+          "Western Union offre un programma 'Refer a Friend' valido solo negli Stati Uniti.",
+          "Chi si registra con un link referral e invia almeno 100$ tramite un trasferimento online, riceve un buono Amazon da 10$.",
+          "L’utente che ha invitato (referrer) riceverà un buono Amazon da 15$ per ogni amico che completa con successo un trasferimento idoneo.",
+          "Il trasferimento deve essere effettuato tramite il sito westernunion.com (USA) o l’app Western Union (USA)."
+        ]
+      },
+      {
+        "title": "Requisiti principali",
+        "content": [
+          "Il bonus è valido solo per utenti con profilo registrato negli Stati Uniti.",
+          "Il nuovo utente deve creare un profilo tramite link referral e inviare almeno 100$ entro 30 giorni.",
+          "Il trasferimento deve essere approvato e completato con successo (ricevuto dal destinatario).",
+          "Il referrer può ricevere un massimo di 20 premi durante l’intero periodo promozionale.",
+          "I premi sono inviati via email entro 15 giorni lavorativi dalla verifica dei requisiti.",
+          "I buoni Amazon sono soggetti ai termini e condizioni Amazon USA.",
+          "Non è permesso auto-invitarsi né creare profili falsi; in caso contrario il premio sarà annullato."
+        ]
+      },
+      {
+        "title": "Guida passo passo",
+        "content": [
+          "1. Un utente già registrato su Western Union (USA) genera il proprio link referral dalla sezione 'Refer a Friend'.",
+          "2. Il nuovo utente (referee) si registra tramite quel link sul sito westernunion.com o app (versione USA).",
+          "3. Il referee deve completare un trasferimento di almeno 100$ entro 30 giorni dalla registrazione.",
+          "4. Il trasferimento deve essere inviato da un profilo statunitense e completato (ricevuto).",
+          "5. Dopo la verifica, entrambi riceveranno via email un buono Amazon (10$ per il referee, 15$ per il referrer).",
+          "⚠️ Non è permesso condividere i link in modo spam o con persone sconosciute: Western Union può bloccare i premi.",
+          "❌ Il programma non è valido per utenti europei né utilizzabile fuori dagli Stati Uniti."
+        ]
+      }
+    ]
+  }
+  

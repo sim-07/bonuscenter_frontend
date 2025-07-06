@@ -80,7 +80,7 @@ export default function DialogComponent({
                 padding: isError ? 2 : 7,
                 borderRadius: 2,
                 boxShadow: 24,
-                minWidth: isError ? 250 : 300,
+                minWidth: isError ? 250 : 340,
                 maxWidth: isError ? 500 : 500,
                 width: isError
                   ? { xs: '80vw', sm: 280 }

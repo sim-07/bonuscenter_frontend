@@ -46,7 +46,6 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
 
         for (const field of formField) {
             if (field.formType.includes(signinType) && field.required && !formData[field.name]) {
-                console.log(formField)
                 setErrorMessage(`Il campo "${field.label}" è obbligatorio`);
                 return;
             }
@@ -60,7 +59,6 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
 
             if (data.error) {
                 setErrorMessage(data.error || 'Server error');
-                console.log("DATA LoginForm: ", data)
                 return;
             }
 
@@ -73,8 +71,6 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
         } finally {
             setIsLoading(false);
         }
-
-        console.log('Dati inviati:', { ...formData, mode: signinType });
 
     };
 

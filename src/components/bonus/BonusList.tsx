@@ -62,19 +62,15 @@ export default function BonusList({ bonusListDataP, edit = false }: BonusListPro
 
             const userReferralWithImg = res.data.map((ref: any) => {
 
-                console.log("bonusListDataP: ", bonusListDataP)
                 const selectedBonus = bonusListData.find(
                     (b) => b.name.toLowerCase() === ref.name.toLowerCase()
                 );
-
-                // console.log("sELECTEDBONUS: ", selectedBonus)
 
                 return {
                     ...ref,
                     image: selectedBonus?.image,
                 };
             });
-            console.log("USERREFERRALWITHIMG: ", userReferralWithImg)
             setItemsPage(userReferralWithImg);
 
         } catch (err: any) {

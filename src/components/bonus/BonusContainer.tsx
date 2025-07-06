@@ -24,8 +24,6 @@ interface BonusContainerProps {
 export default function BonusContainer({ width = '95%', bonusListDataP = bonusListData, titleBonusContainer, edit = false }: BonusContainerProps) {
     const [searchTerm, setSearchTerm] = useState('');
 
-    console.log("bonusListDataP BONUSCONTAINER:", bonusListDataP);
-
     const filtBonusListData = Array.isArray(bonusListDataP)
         ? bonusListDataP.filter((bonus) =>
             bonus.title.toLowerCase().includes(searchTerm.toLowerCase())

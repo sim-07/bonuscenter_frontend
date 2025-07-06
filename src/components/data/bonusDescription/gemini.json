@@ -1,0 +1,53 @@
+{
+    "title": "Bonus Gemini 75$ in crypto + 75$ per invito",
+    "name": "gemini",
+    "bonus_image": "gemini",
+    "summary": {
+      "bonus": "💵 75$ in criptovaluta a scelta dopo un trade di almeno 100$",
+      "invito": "💵 75$ in crypto per ogni amico che completa i requisiti",
+      "deposito_richiesto": "Minimo 105€ tramite bonifico SEPA",
+      "scadenza": "Nessuna data di scadenza definita",
+      "commissioni": "Bonifico gratuito; carta sconsigliata (5€ di commissione)",
+      "extra": "Fino a 10 prelievi crypto gratuiti al mese"
+    },
+    "sections": [
+      {
+        "title": "Cos'è Gemini e come funziona il bonus",
+        "content": [
+          "Gemini è un exchange cripto con sede negli Stati Uniti, noto per l’elevata sicurezza e il volume di scambi elevato.",
+          "Con il programma 'Invita un amico', puoi ricevere 75$ in criptovaluta a tua scelta dopo esserti registrato, aver depositato almeno 105€ e aver effettuato un trade totale di almeno 100$.",
+          "Anche la persona che ti ha invitato riceverà 75$.",
+          "Il bonus viene accreditato dopo 32 giorni dal completamento dei requisiti.",
+          "Il programma è valido senza scadenza definita, e puoi accumulare bonus fino a un massimo di 1.875$ all’anno."
+        ]
+      },
+      {
+        "title": "Requisiti principali",
+        "content": [
+          "Registrati tramite il link pubblicato accanto al logo Gemini sulla pagina.",
+          "Completa la verifica dell’identità (KYC) con documento valido: carta d’identità cartacea, patente o passaporto.",
+          "Effettua un deposito minimo di 105€ tramite bonifico SEPA (non sono ammessi depositi in crypto).",
+          "Il bonifico può essere istantaneo (tramite Plaid) o manuale: in quest’ultimo caso ricordati di inserire correttamente la causale con il tuo Reference Number.",
+          "Dopo il deposito, esegui almeno 100$ di volume di trading in crypto (acquisto o vendita), anche suddivisi in più ordini.",
+          "È consigliato l’uso della modalità 'ActiveTrader' per ridurre le commissioni.",
+          "Il bonus viene accreditato dopo circa 32 giorni, e riceverai un’email di conferma dopo 24 ore dal completamento dei requisiti.",
+          "Il conto può essere aperto da chi ha almeno 18 anni."
+        ]
+      },
+      {
+        "title": "Guida passo passo",
+        "content": [
+          "1. Usa il codice promozionale nella sezione Codici della community su questa pagina. Registrati **da browser in modalità desktop**, non da app.",
+          "2. Compila i dati personali e completa la verifica dell’identità caricando un documento valido.",
+          "3. Deposita almeno 105€ tramite bonifico SEPA. Il metodo più veloce è tramite 'Plaid', ma puoi anche selezionare il bonifico manuale e seguire le istruzioni fornite da Gemini (IBAN estone).",
+          "⚠️ Inserisci correttamente la causale indicata ('Reference Number') durante il bonifico.",
+          "4. Esegui un trade totale di almeno 100$, acquistando o vendendo crypto (es. Bitcoin, USDC).",
+          "💡 Per risparmiare sulle fee attiva 'ActiveTrader' dal tuo profilo Gemini: imposta un ordine limite, clicca su MID e completa l’acquisto, poi eventualmente rivendi.",
+          "5. Dopo aver completato i trade, riceverai un’email entro 24 ore. Il bonus da 75$ verrà accreditato entro 32 giorni nella crypto selezionata.",
+          "✅ Puoi ritirare sia il bonus che il deposito in euro tramite bonifico (verso lo stesso IBAN usato per il deposito) oppure trasferire le crypto con **fino a 10 prelievi gratuiti al mese**.",
+          "📌 Puoi invitare amici usando il tuo link nella sezione 'Ricompense' sul sito, guadagnando 75$ per ogni invito andato a buon fine."
+        ]
+      }
+    ]
+  }
+  

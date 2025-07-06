@@ -48,6 +48,14 @@ export const bonusListData = [
         category: "voucher"
     },
     {
+        title: "Revolut",
+        name: "revolut",
+        description: "Premio in denaro sul conto",
+        bonus_value: "60€",
+        image: "/images_bonus/revolut.avif",
+        category: "voucher"
+    },
+    {
         title: "N26",
         name: "n26",
         description: "20€ dopo 1 acquisto, +30€ con altri 10",
@@ -66,8 +74,8 @@ export const bonusListData = [
     {
         title: "Western Union",
         name: "western_union",
-        description: "20€ per chi invita un amico che si registra",
-        bonus_value: "20€",
+        description: "15€ per chi invita un amico che si registra (solo USA)",
+        bonus_value: "15€",
         image: "/images_bonus/western_union.avif",
         category: "liquid"
     },

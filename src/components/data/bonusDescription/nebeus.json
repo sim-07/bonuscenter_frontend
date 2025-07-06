@@ -1,0 +1,55 @@
+{
+    "title": "Bonus Nebeus 20€ per ogni invito",
+    "name": "nebeus",
+    "bonus_image": "nebeus",
+    "summary": {
+      "bonus": "❌ Nessun bonus di benvenuto",
+      "invito": "💰 20€ per ogni amico invitato che deposita e spende almeno 5€",
+      "deposito_richiesto": "10€ con bonifico o carta",
+      "scadenza": "Non specificata",
+      "commissioni": "Carta virtuale con costo mensile di 4,95€",
+      "extra": "Bonus prelevabile subito dopo la transazione"
+    },
+    "sections": [
+      {
+        "title": "Cos'è Nebeus e come funziona il bonus",
+        "content": [
+          "Nebeus è un'app con carta virtuale per gestire denaro e fare acquisti online o tramite wallet come Google Pay.",
+          "Non offre un bonus di benvenuto, ma permette di guadagnare 20€ per ogni amico che si registra, verifica l’identità, deposita almeno 10€ ed effettua una spesa minima di 5€.",
+          "La carta virtuale è obbligatoria per completare i requisiti, ma può essere chiusa dopo aver ricevuto il bonus.",
+          "Il bonus è accreditato entro massimo 15 giorni e può essere prelevato insieme al deposito iniziale."
+        ]
+      },
+      {
+        "title": "Requisiti principali",
+        "content": [
+          "Effettua la registrazione completa inserendo numero di telefono, dati anagrafici, codice fiscale e indirizzo.",
+          "Verifica l’identità con documento (carta d’identità o passaporto) e selfie.",
+          "È obbligatoria anche la prova di residenza, valida solo se recente (meno di 3 mesi) e con indirizzo coerente con il documento.",
+          "Puoi fornire una bolletta, un estratto conto (no BBVA) o un certificato di residenza da ANPR.",
+          "Effettua un deposito di almeno 10€ tramite bonifico (preferibile) o carta (con fee del 3,5%).",
+          "Trasferisci i fondi sulla carta virtuale dall'app e fai un acquisto di almeno 5€ entro 30 giorni.",
+          "Massimo 5 inviti premiati. Il bonus arriva in 24 ore o entro 15 giorni, ed è immediatamente disponibile."
+        ]
+      },
+      {
+        "title": "Guida passo passo",
+        "content": [
+          "1. Usa il codice promozionale (sezione Codici della community in alto nella pagina).",
+          "2. Completa la registrazione con tutti i dati richiesti e verifica l’identità con documento e selfie.",
+          "3. Fornisci una prova di residenza: bolletta recente, estratto conto o certificato da ANPR.",
+          "💡 Puoi ottenere il certificato da https://www.anagrafenazionale.interno.it accedendo con SPID e selezionando “Certificato di Residenza”.",
+          "4. Ordina solo la carta virtuale (la fisica non è richiesta).",
+          "5. Ricarica il conto con almeno 10€ tramite bonifico bancario preferibilmente da Revolut, N26 o simili.",
+          "⚠️ Non usare BBVA per il bonifico e non ricaricare tramite carte Revolut/BBVA.",
+          "6. Sposta i fondi sulla carta: clicca su 'SEND' → 'EURO' → 'TO CRYPTO ACCOUNT'.",
+          "7. Effettua un acquisto di almeno 5€ con la carta virtuale, anche tramite Google Pay o Apple Pay.",
+          "💡 Idee: ricarica Amazon, ricarica telefonica, acquisto su Google Store, TikTok o app economiche.",
+          "⚠️ Su Amazon imposta EUR come valuta predefinita prima di pagare.",
+          "8. Il bonus di 20€ sarà accreditato entro 15 giorni dalla transazione, spesso entro 24 ore.",
+          "9. Dopo aver ricevuto il bonus e invitato amici, puoi chiudere la carta virtuale per evitare il costo mensile di 4,95€ andando nel menu → 'More' → 'Terminate Card'."
+        ]
+      }
+    ]
+  }
+  
