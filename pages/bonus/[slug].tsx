@@ -1,11 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { Box, Typography, List, ListItem, ListItemText, Divider, Link } from '@mui/material';
-import Image from 'next/image'
 
-import Navbar from '@/components/Home/Navbar';
-import Footer from '@/components/Home/Footer';
-import { inherits } from 'util';
 import BonusDescription from '@/components/bonus/BonusDesription';
 import Head from 'next/head';
 
