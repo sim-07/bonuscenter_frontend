@@ -48,10 +48,11 @@ export default function Profilo() {
 
         const fetchUsedCodes = async () => {
             try {
-                const res = await apiService('used_codes', 'get_used_code');
+                const res = await apiService('used_codes', 'get_used_code', { confirmed: true });
 
                 if (!res.error) {
-                    setUsedCodes(res.data);
+                    const confirmedCodes = res.data.filter((code: any) => code.confirmed === true);
+                    setUsedCodes(confirmedCodes);
                 } else {
                     console.error("Error fetching used codes")
                 }
@@ -130,7 +131,7 @@ export default function Profilo() {
             <Box
                 sx={{
                     maxWidth: 600,
-                    width: {xs: '90%', md: '60%'},
+                    width: { xs: '90%', md: '60%' },
                     margin: '0 auto',
                     padding: 10,
                     borderRadius: 4,

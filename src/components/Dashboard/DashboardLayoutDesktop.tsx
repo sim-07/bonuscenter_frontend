@@ -20,8 +20,8 @@ import NotificationList from "../common/NotificationList";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-const UserReferral = dynamic(() => import('@/components/common/UserReferral'));
-const UsedCodes = dynamic(() => import('@/components/common/UsedCodes'));
+const UserReferral = dynamic(() => import('@/components/bonus/UserReferral'));
+const UsedCodes = dynamic(() => import('@/components/bonus/UsedCodes'));
 
 export default function DashboardLayoutDesktop({
     username,

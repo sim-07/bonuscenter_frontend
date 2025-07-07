@@ -13,8 +13,8 @@ import Navbar from "../Home/Navbar";
 import DrawerMenu from "../common/DrawerMenu";
 import router from "next/router";
 import BonusContainer from "../bonus/BonusContainer";
-import UserReferral from "../common/UserReferral";
-import UsedCodes from "../common/UsedCodes";
+import UserReferral from "../bonus/UserReferral";
+import UsedCodes from "../bonus/UsedCodes";
 import apiService from "../scripts/apiService";
 
 const listMenu = [
