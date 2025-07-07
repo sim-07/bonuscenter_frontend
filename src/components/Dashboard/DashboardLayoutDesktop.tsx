@@ -1,7 +1,6 @@
-import { Box, Button, IconButton, Link, Stack, Menu, MenuItem, ListItemIcon, ListItemText, Divider, Typography, Avatar } from "@mui/material";
-import { ReactNode, useState } from "react";
+import { Box, IconButton, Stack, Menu, MenuItem, ListItemIcon, ListItemText, Divider, Avatar } from "@mui/material";
+import { useState } from "react";
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/navigation';
 
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';

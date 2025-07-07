@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import { Box, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, Stack } from "@mui/material";
 
 import MenuIcon from '@mui/icons-material/Menu';

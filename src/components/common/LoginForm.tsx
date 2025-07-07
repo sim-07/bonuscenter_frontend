@@ -3,8 +3,6 @@
 import {
     Box,
     Button,
-    Checkbox,
-    FormControlLabel,
     TextField,
     Typography,
     Link as MuiLink,

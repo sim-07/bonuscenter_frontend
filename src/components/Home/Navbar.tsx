@@ -1,5 +1,4 @@
 import { Box, AppBar, Toolbar, Stack } from '@mui/material';
-import Image from 'next/image';
 import { ReactNode } from 'react';
 
 import BonuscenterIcon from '../Icons/BonuscenterIcon.jsx';

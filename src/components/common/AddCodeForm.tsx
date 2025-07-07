@@ -7,8 +7,6 @@ import {
     Typography,
     CircularProgress,
     Autocomplete,
-    AutocompleteRenderInputParams,
-    IconButton,
     InputAdornment,
 } from '@mui/material';
 

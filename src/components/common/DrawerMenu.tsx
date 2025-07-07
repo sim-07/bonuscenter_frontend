@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Box, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider } from '@mui/material';
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { Drawer } from '@mui/material';
 
 interface DrawerMenuProps {
     open: boolean,
