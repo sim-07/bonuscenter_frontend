@@ -43,12 +43,12 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
                     return;
                 }
 
+                setIsLoading(false);
+
                 setUsername(res.data[0].username);
                 setUserId(res.data[0].user_id);
             } catch (err) {
                 router.push('/');
-            } finally {
-                setIsLoading(false);
             }
         };
     
