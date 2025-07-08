@@ -44,14 +44,13 @@ export default function BonusCard({
                 sx={{
                     position: 'relative',
                     width: '100%',
-                    maxWidth: '350px',
                     minWidth: '220px',
                     height: edit ? '380px' : '330px',
                     backgroundColor: '#ececec',
                     cursor: 'pointer',
                     padding: '20px',
                     borderRadius: '24px',
-                    margin: '20px',
+                    margin: '10px 0px',
                     userSelect: 'none',
                     overflow: 'hidden'
                 }}

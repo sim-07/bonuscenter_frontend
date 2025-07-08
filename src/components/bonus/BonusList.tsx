@@ -102,7 +102,7 @@ export default function BonusList({ bonusListDataP, edit = false }: BonusListPro
             sx={{
                 mt: 4,
                 mb: 4,
-                paddingRight: 5,
+                p: 2,
                 display: 'flex',
                 flexDirection: 'column',
                 minHeight: '70vh',
@@ -118,7 +118,7 @@ export default function BonusList({ bonusListDataP, edit = false }: BonusListPro
                 <Grid
                     container
                     spacing={4}
-                    columns={{ xs: 4, sm: 6, md: 9, lg: 12 }}
+                    columns={{ xs: 4, sm: 6, md: 9, lg: 12, xl: 10 }}
                     sx={{
                         margin: 0,
                         justifyContent: 'center',
@@ -126,7 +126,7 @@ export default function BonusList({ bonusListDataP, edit = false }: BonusListPro
                     }}
                 >
                     {itemsPage.map((bonus, index) => (
-                        <Grid key={index} size={{ xs: 4, sm: 3, md: 3, lg: 3 }}>
+                        <Grid key={index} size={{ xs: 4, sm: 3, md: 3, lg: 3, xl: 2 }}>
                             <BonusCard
                                 code_id={bonus.code_id}
                                 name={bonus.name}
