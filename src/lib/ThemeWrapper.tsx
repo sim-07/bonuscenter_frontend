@@ -1,27 +1,18 @@
 "use client";
 
-import * as React from 'react';
-import { CacheProvider, EmotionCache } from '@emotion/react';
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import createEmotionCache from '../lib/createEmotionCache';
-import theme from './theme';
-
-const clientSideEmotionCache = createEmotionCache();
+import * as React from "react";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import theme from "./theme";
 
 interface ThemeWrapperProps {
-  emotionCache?: EmotionCache;
   children: React.ReactNode;
 }
 
-export default function ThemeWrapper(props: ThemeWrapperProps) {
-  const { emotionCache = clientSideEmotionCache, children } = props;
-
+export default function ThemeWrapper({ children }: ThemeWrapperProps) {
   return (
-    <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {children}
-      </ThemeProvider>
-    </CacheProvider>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      {children}
+    </ThemeProvider>
   );
 }
