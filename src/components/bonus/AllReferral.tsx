@@ -136,7 +136,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
             sx={{
                 backgroundColor: "grey.100",
                 p: 1,
-                borderRadius: 2,
+                borderRadius: '12px',
                 height: 300,
                 overflow: "scroll",
                 minWidth: "410px",
@@ -145,7 +145,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
             <Typography sx={{ margin: 2, fontSize: "25px" }}>
                 Codici della community
             </Typography>
-
+            <Divider />
             <List sx={{ width: "100%", maxWidth: 360, bgcolor: "gray.100" }}>
                 {allReferralData.map((referral) => (
                     <React.Fragment key={referral.code_id}>

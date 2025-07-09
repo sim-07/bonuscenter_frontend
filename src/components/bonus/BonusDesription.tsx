@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Navbar from '@/components/Home/Navbar';
 import Footer from '@/components/Home/Footer';
 import AllReferral from './AllReferral';
+import CommentsContainer from '../Comments/CommentsContainer';
 
 interface BonusData {
     title: string;
@@ -144,7 +145,11 @@ export default function BonusDescription({ bonus }: Props) {
                         )}
                     </Box>
                 ))}
+
+                <CommentsContainer bonusName={bonus.name}/>
+
             </Box>
+            
 
             <Footer />
         </>
