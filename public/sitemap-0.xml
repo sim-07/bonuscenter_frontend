@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://bonuscenter.it</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bonuscenter.it</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
 <url><loc>https://bonuscenter.it/about</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://bonuscenter.it/dashboard</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bonuscenter.it/home</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bonuscenter.it/home</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
 <url><loc>https://bonuscenter.it/privacy</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://bonuscenter.it/profile</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bonuscenter.it/bonus/bbva</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bonuscenter.it/bonus/buddybank</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bonuscenter.it/bonus/credit_agricole</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bonuscenter.it/bonus/findomestic</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bonuscenter.it/bonus/fineco</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bonuscenter.it/bonus/gemini</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bonuscenter.it/bonus/n26</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bonuscenter.it/bonus/nebeus</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bonuscenter.it/bonus/revolut</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bonuscenter.it/bonus/skrill</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bonuscenter.it/bonus/western_union</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bonuscenter.it/bonus/bbva</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>https://bonuscenter.it/bonus/buddybank</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>https://bonuscenter.it/bonus/credit_agricole</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>https://bonuscenter.it/bonus/findomestic</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>https://bonuscenter.it/bonus/fineco</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>https://bonuscenter.it/bonus/gemini</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>https://bonuscenter.it/bonus/n26</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>https://bonuscenter.it/bonus/nebeus</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>https://bonuscenter.it/bonus/revolut</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>https://bonuscenter.it/bonus/skrill</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>https://bonuscenter.it/bonus/western_union</loc><lastmod>2025-07-09T14:08:53.167Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
 </urlset>
