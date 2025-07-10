@@ -12,9 +12,10 @@ interface Comment {
 
 interface CommentsListProps {
     commentsList: Comment[];
+    isLoading: boolean;
 }
 
-export default function CommentsList({ commentsList }: CommentsListProps) {
+export default function CommentsList({ commentsList, isLoading }: CommentsListProps) {
     return (
         <Box
             sx={{
@@ -23,7 +24,7 @@ export default function CommentsList({ commentsList }: CommentsListProps) {
                 pr: 1,
             }}
         >
-            {commentsList.length > 0 ? (
+            {!isLoading ? (
                 commentsList.map((comment, index) => (
                     <Comment
                         key={index}

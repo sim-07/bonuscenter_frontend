@@ -15,6 +15,7 @@ type SeveritySnakbarType = {
 }
 
 export default function CommentsContainer({ bonusName }: CommentsContainerProps) {
+    const [isLoading, setIsLoading] = useState(true);
     const [commentText, setCommentText] = useState("");
     const [snakbarMessage, setSnakbarMessage] = useState('');
     const [severitySnakbar, setSeveritySnakbar] = useState<SeveritySnakbarType | null>(null);
@@ -27,22 +28,24 @@ export default function CommentsContainer({ bonusName }: CommentsContainerProps)
         created_at: string;
     }[]>([]);
 
-    
+    const fetchAllComments = async () => {
+        try {
+            setIsLoading(true);
+            const res = await apiService('comments', 'get_all_comments', { bonusName })
+            if (!res.error) {
+                setCommentsList(res.data);
+            } else {
+                console.error(res.error)
+            }
+
+        } catch (err: any) {
+            console.error('Errore recupero dei commenti:', err.message || err);
+        } finally {
+            setIsLoading(false);
+        }
+    }
 
     useEffect(() => {
-        const fetchAllComments = async () => {
-            try {
-                const res = await apiService('comments', 'get_all_comments', { bonusName })
-                if (!res.error) {
-                    setCommentsList(res.data);
-                } else {
-                    console.error(res.error)
-                }
-
-            } catch (err: any) {
-                console.error('Errore recupero dei commenti:', err.message || err);
-            }
-        }
         fetchAllComments();
     }, [])
 
@@ -56,6 +59,7 @@ export default function CommentsContainer({ bonusName }: CommentsContainerProps)
                 setOpenSnackbar(true);
                 setSnakbarMessage("Commento pubblicato!");
                 setSeveritySnakbar({ severity: 'success' });
+                fetchAllComments();
             } else {
                 setOpenSnackbar(true);
                 setSnakbarMessage(res.error);
@@ -115,7 +119,14 @@ export default function CommentsContainer({ bonusName }: CommentsContainerProps)
                         },
                     }}
                 />
-                <CommentsList commentsList={commentsList} />
+                {commentsList.length === 0 && !isLoading ? (
+                    <Typography>
+                        Ancora nessun commento. Commenta prima di tutti!
+                    </Typography>
+                ) : (
+                    <CommentsList commentsList={commentsList} isLoading={isLoading} />
+                )}
+
             </Stack>
 
             <CustomizedSnackbar
