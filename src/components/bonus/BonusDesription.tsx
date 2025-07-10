@@ -44,7 +44,12 @@ export default function BonusDescription({ bonus }: Props) {
                 </Link>
             </Navbar>
 
-            <Box sx={{ p: 3, maxWidth: 1200, mx: 'auto', width: '80%' }}>
+            <Box sx={{
+                p: 3,
+                maxWidth: 1200,
+                mx: 'auto',
+                width: {sm: '95%', md: '80%'}
+            }}>
                 <Typography
                     variant="h4"
                     component="h1"
@@ -66,7 +71,7 @@ export default function BonusDescription({ bonus }: Props) {
                     }}
                 >
                     <Stack
-                        direction={{md: "column", lg: "row"}}
+                        direction={{ md: "column", lg: "row" }}
                         justifyContent="space-between"
                         alignItems="center"
                         width="80%"
@@ -127,7 +132,7 @@ export default function BonusDescription({ bonus }: Props) {
 
                 {bonus.sections.map((section, i) => (
                     <Box key={i} sx={{ mb: 6 }}>
-                        <Typography variant="h5" component="h3" gutterBottom fontWeight="bold" color="text.primary" sx={{mb: 5}}>
+                        <Typography variant="h5" component="h3" gutterBottom fontWeight="bold" color="text.primary" sx={{ mb: 5 }}>
                             {section.title}
                         </Typography>
                         {section.content.map((p, idx) => (
@@ -146,10 +151,10 @@ export default function BonusDescription({ bonus }: Props) {
                     </Box>
                 ))}
 
-                <CommentsContainer bonusName={bonus.name}/>
+                <CommentsContainer bonusName={bonus.name} />
 
             </Box>
-            
+
 
             <Footer />
         </>

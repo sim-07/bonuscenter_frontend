@@ -150,9 +150,9 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                 backgroundColor: "grey.100",
                 p: 1,
                 borderRadius: '12px',
-                height: 300,
                 overflow: "scroll",
-                minWidth: "410px",
+                minWidth: "350px",
+                height: 'auto'
             }}
         >
             <Stack
@@ -195,7 +195,14 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                     </Typography>
                 </Box>
             ) : (
-                <List sx={{ width: "100%", maxWidth: 360, bgcolor: "gray.100" }}>
+                <List
+                    sx={{
+                        width: "100%",
+                        maxWidth: 360,
+                        bgcolor: "gray.100",
+                        overflow: 'scroll',
+                        height: '200px'
+                    }}>
                     {allReferralData.map((referral) => (
                         <React.Fragment key={referral.code_id}>
                             <ListItem
