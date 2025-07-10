@@ -27,6 +27,12 @@ export default function Profilo() {
         bonus_value: string;
     }>>([]);
 
+    const [userBonusValue, setUserBonusValue] = useState<Array<{
+        bonus_name: string;
+        brand: string;
+        bonus_value: string;
+    }>>([]);
+
     const router = useRouter();
 
     useEffect(() => {
@@ -48,7 +54,7 @@ export default function Profilo() {
 
         const fetchUsedCodes = async () => {
             try {
-                const res = await apiService('used_codes', 'get_used_code', { confirmed: true });
+                const res = await apiService('used_codes', 'get_used_code');
 
                 if (!res.error) {
                     const confirmedCodes = res.data.filter((code: any) => code.confirmed === true);
@@ -61,8 +67,23 @@ export default function Profilo() {
             }
         }
 
+        const fetchUserUsedCodes = async () => {
+            try {
+                const res = await apiService('used_codes', 'get_user_used_code', { confirmed: true });
+
+                if (!res.error) {
+                    setUserBonusValue(res.data);
+                } else {
+                    console.error("Error fetching used codes")
+                }
+            } catch (err) {
+                console.error('Error user used codes');
+            }
+        }
+
         fetchProfile();
         fetchUsedCodes();
+        fetchUserUsedCodes();
     }, []);
 
     const handleLogout = async () => {
@@ -105,14 +126,20 @@ export default function Profilo() {
     const maxCodes = 13;
     const maxBonus = 200;
 
-    let codes_count = usedCodes.length;
-    let bonus_value_tot = usedCodes.reduce((acc, curr) => {
+    let codesCount = usedCodes.length;
+    let bonusValue = usedCodes.reduce((acc, curr) => {
         return acc + parseFloat(curr.bonus_value || '0');
     }, 0);
 
     let visibilityPercent = Math.min(100,
-        ((codes_count / maxCodes) * 50) + ((bonus_value_tot / maxBonus) * 50)
+        ((codesCount / maxCodes) * 50) + ((bonusValue / maxBonus) * 50)
     );
+
+    let userBonusTotal = userBonusValue.reduce((acc, curr) => {
+        return acc + parseFloat(curr.bonus_value || '0');
+      }, 0);
+      
+      let bonusValueTot = bonusValue + userBonusTotal;
 
     let visibilityLabel = "Iniziale";
     if (visibilityPercent >= 75) visibilityLabel = "Estrema";
@@ -168,8 +195,8 @@ export default function Profilo() {
                         <Typography variant="h6" sx={{ mb: 2 }} gutterBottom>
                             📊 Attività
                         </Typography>
-                        <Typography variant="body1"><strong>Codici usati:</strong> {codes_count}</Typography>
-                        <Typography variant="body1"><strong>Guadagno totale:</strong> {bonus_value_tot}€</Typography>
+                        <Typography variant="body1"><strong>Codici usati:</strong> {codesCount}</Typography>
+                        <Typography variant="body1"><strong>Guadagno totale:</strong> {bonusValueTot}€</Typography>
 
                         <Box sx={{ mt: 3, mb: 2 }}>
                             <Typography sx={{ fontSize: '18px', mb: 2 }} gutterBottom>
