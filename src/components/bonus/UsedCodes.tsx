@@ -52,11 +52,23 @@ export default function UsedCodes() {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        alignContent: 'center'
                     }}
                 >
                     <LoadingSpinner />
-
+                </Box>
+            ) : usedCodes.length === 0 ? (
+                <Box
+                    sx={{
+                        width: '100%',
+                        height: '60vh',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
+                >
+                    <Typography variant="h6" color="text.secondary">
+                        Nessun codice utilizzato.
+                    </Typography>
                 </Box>
             ) : (
                 <Box p={2}>
@@ -78,9 +90,7 @@ export default function UsedCodes() {
                                     <TableRow key={index}>
                                         <TableCell>{code.brand}</TableCell>
                                         <TableCell>{code.bonus_value}€</TableCell>
-                                        <TableCell>
-                                            {code.confirmed ? 'Sì' : 'No'}
-                                        </TableCell>
+                                        <TableCell>{code.confirmed ? 'Sì' : 'No'}</TableCell>
                                         <TableCell>{new Date(code.created_at).toLocaleString()}</TableCell>
                                     </TableRow>
                                 ))}
