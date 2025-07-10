@@ -112,7 +112,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
         const getAllReferral = async () => {
             try {
 
-                const res = await apiService("codes", "get_all_referral_codes", {name: bonusName})
+                const res = await apiService("codes", "get_all_referral_codes", { name: bonusName })
 
                 if (!res.error) {
                     setAllReferralData(res.data);
@@ -146,37 +146,52 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                 Codici della community
             </Typography>
             <Divider />
-            <List sx={{ width: "100%", maxWidth: 360, bgcolor: "gray.100" }}>
-                {allReferralData.map((referral) => (
-                    <React.Fragment key={referral.code_id}>
-                        <ListItem
-                            alignItems="flex-start"
-                            sx={{ cursor: "pointer" }}
-                            onClick={() => handleOpenDialog(referral)}
-                        >
-                            <ListItemAvatar>
-                                <Avatar alt={referral.username} />
-                            </ListItemAvatar>
-                            <ListItemText
-                                primary={referral.username}
-                                secondary={
-                                    <React.Fragment>
-                                        <Typography
-                                            component="span"
-                                            variant="body2"
-                                            sx={{ color: "text.primary", display: "inline" }}
-                                        >
-                                            {`${referral.title}: `}
-                                        </Typography>
-                                        {referral.description}
-                                    </React.Fragment>
-                                }
-                            />
-                        </ListItem>
-                        <Divider variant="inset" component="li" />
-                    </React.Fragment>
-                ))}
-            </List>
+            {allReferralData.length === 0 ? (
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: '200px',
+                    }}
+                >
+                    <Typography color="text.secondary">
+                        Nessun codice al momento.
+                    </Typography>
+                </Box>
+            ) : (
+                <List sx={{ width: "100%", maxWidth: 360, bgcolor: "gray.100" }}>
+                    {allReferralData.map((referral) => (
+                        <React.Fragment key={referral.code_id}>
+                            <ListItem
+                                alignItems="flex-start"
+                                sx={{ cursor: "pointer" }}
+                                onClick={() => handleOpenDialog(referral)}
+                            >
+                                <ListItemAvatar>
+                                    <Avatar alt={referral.username} />
+                                </ListItemAvatar>
+                                <ListItemText
+                                    primary={referral.username}
+                                    secondary={
+                                        <React.Fragment>
+                                            <Typography
+                                                component="span"
+                                                variant="body2"
+                                                sx={{ color: "text.primary", display: "inline" }}
+                                            >
+                                                {`${referral.title}: `}
+                                            </Typography>
+                                            {referral.description}
+                                        </React.Fragment>
+                                    }
+                                />
+                            </ListItem>
+                            <Divider variant="inset" component="li" />
+                        </React.Fragment>
+                    ))}
+                </List>
+            )}
 
             <DialogComponent open={openDialog} onClose={handleCloseDialog}>
                 {selectedReferral && (
