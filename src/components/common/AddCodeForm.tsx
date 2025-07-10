@@ -222,10 +222,12 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                     case 'autoComplete':
                         return (
                             <Autocomplete
-                                key={field.name}
+                                fullWidth
                                 disablePortal
+                                key={field.name}
                                 options={brandNameList}
                                 value={formData[field.name as keyof typeof formData] || ''}
+                                sx={{ width: '100%' }}
                                 onChange={(_, newValue) => handleChange(field.name, newValue || '')}
                                 renderInput={(params) => (
                                     <TextField {...params} label="Brand" required={field.required} />

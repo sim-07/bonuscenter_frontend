@@ -120,8 +120,8 @@ export default function CommentsContainer({ bonusName }: CommentsContainerProps)
                     }}
                 />
                 {commentsList.length === 0 && !isLoading ? (
-                    <Typography>
-                        Ancora nessun commento. Commenta prima di tutti!
+                    <Typography sx={{ color: '#666' }}>
+                        Ancora nessun commento. 
                     </Typography>
                 ) : (
                     <CommentsList commentsList={commentsList} isLoading={isLoading} />

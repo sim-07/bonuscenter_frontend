@@ -3,6 +3,7 @@ import {
     Box,
     Button,
     Divider,
+    IconButton,
     List,
     ListItem,
     ListItemAvatar,
@@ -17,6 +18,9 @@ import DialogComponent from "../common/DialogComponent";
 import LoadingSpinner from "../common/LoadingSpinner";
 import CustomizedSnackbar from "../common/Snakbar";
 import apiService from '@/components/scripts/apiService';
+import AddCodeForm from "../common/AddCodeForm";
+
+import AddIcon from '@mui/icons-material/Add';
 
 
 interface AllReferralProps {
@@ -50,6 +54,9 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
     const [snakbarMessage, setSnakbarMessage] = useState('');
     const [severitySnakbar, setSeveritySnakbar] = useState<SeveritySnakbarType | null>(null);
     const [openSnackbar, setOpenSnackbar] = useState(false);
+    const [openCodeDialog, setOpenCodeDialog] = useState(false);
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState('');
 
 
     const handleOpenDialog = async (referral: ReferralType) => {
@@ -129,6 +136,12 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
         getAllReferral();
     }, [bonusName]);
 
+    const successAddCode = () => {
+        setOpenCodeDialog(false);
+        setSnackbarMessage("Il tuo codice è stato inserito!");
+        setSnackbarOpen(true);
+    };
+
     if (isLoading) return <LoadingSpinner />;
 
     return (
@@ -142,9 +155,31 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                 minWidth: "410px",
             }}
         >
-            <Typography sx={{ margin: 2, fontSize: "25px" }}>
-                Codici della community
-            </Typography>
+            <Stack
+                direction={'row'}
+            >
+                <Typography sx={{ margin: 2, fontSize: "25px" }}>
+                    Codici della community
+                </Typography>
+
+                <IconButton
+                    onClick={() => setOpenCodeDialog(true)}
+                    sx={{
+                        bgcolor: 'primary.main',
+                        color: 'white',
+                        height: '40px',
+                        width: '40px',
+                        mt: 2,
+                        ml: 1,
+                        '&:hover': {
+                            bgcolor: 'primary.dark',
+                        },
+                    }}
+                >
+                    <AddIcon />
+                </IconButton>
+            </Stack>
+
             <Divider />
             {allReferralData.length === 0 ? (
                 <Box
@@ -156,7 +191,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                     }}
                 >
                     <Typography color="text.secondary">
-                        Nessun codice al momento.
+                        Nessun codice al momento. Pubblica il primo!
                     </Typography>
                 </Box>
             ) : (
@@ -250,6 +285,17 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                 message={snakbarMessage}
                 severity={severitySnakbar?.severity}
             />
+
+            <DialogComponent open={openCodeDialog} onClose={() => setOpenCodeDialog(false)}>
+                <AddCodeForm successAddCode={successAddCode} />
+            </DialogComponent>
+
+            <CustomizedSnackbar
+                open={snackbarOpen}
+                onClose={() => setSnackbarOpen(false)}
+                message={snackbarMessage}
+            />
+
         </Box>
     );
 }
