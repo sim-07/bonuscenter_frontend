@@ -2,8 +2,8 @@ export const bonusListData = [
     {
         title: "BBVA",
         name: "bbva",
-        description: "20€ per chi invita, 10€ per chi viene invitato",
-        bonus_value: "10€",
+        description: "20€ per ogni invito",
+        bonus_value: "20€",
         image: "/images_bonus/bbva.avif",
         category: "liquid"
     },

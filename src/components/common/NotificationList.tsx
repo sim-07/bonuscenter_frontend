@@ -66,7 +66,7 @@ export default function NotificheList({ max, compact = false }: NotificheListPro
                         setOpenSnackbar(true);
                         setNotifications(prev =>
                             prev.filter(item => item.code_id !== code_id)
-                          );
+                        );
                     } else {
                         console.error("Error during delete_notification: ", resDelete.error);
                     }
@@ -82,9 +82,6 @@ export default function NotificheList({ max, compact = false }: NotificheListPro
             setIsLoading(false);
         }
     }
-
-
-    
 
     return (
         <>
