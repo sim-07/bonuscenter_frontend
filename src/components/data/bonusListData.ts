@@ -40,6 +40,14 @@ export const bonusListData = [
         category: "crypto"
     },
     {
+        title: "Nemo Money",
+        name: "nemo_money",
+        description: "50€ in crypto dopo deposito di 1000€ o 10€ dopo deposito di 100€",
+        bonus_value: "50€",
+        image: "/images_bonus/nemo_money.avif",
+        category: "crypto"
+    },
+    {
         title: "Findomestic",
         name: "findomestic",
         description: "Buono Amazon con 3 versamenti da 500€",
