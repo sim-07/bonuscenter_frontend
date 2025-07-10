@@ -15,12 +15,17 @@ import EuroIcon from '@mui/icons-material/Euro';
 import apiService from '../scripts/apiService';
 import { useEffect, useState } from 'react';
 import { bonusListData } from '../data/bonusListData';
+import CustomizedSnackbar from './Snakbar';
 
 type AddCodeFormProps = {
     successAddCode: () => void;
     isAdd?: boolean;
     codeId?: string | null;
 };
+
+type SeveritySnakbarType = {
+    severity?: 'success' | 'error' | 'warning' | 'info';
+}
 
 export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: AddCodeFormProps) {
     const [formData, setFormData] = useState<{
@@ -38,6 +43,9 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
     });
     const [errorMessage, setErrorMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [severitySnakbar, setSeveritySnakbar] = useState<SeveritySnakbarType | null>(null);
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState('');
 
     const formFields = [
         {
@@ -153,8 +161,15 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                 payload
             );
 
-            resetForm();
-            successAddCode();
+            if (!res.error) {
+                resetForm();
+                successAddCode();
+            } else {
+                setSnackbarMessage("Fai il login per pubblicare un codice");
+                setSeveritySnakbar({ severity: 'warning' });
+                setSnackbarOpen(true);
+            }
+
 
         } catch (err: any) {
             console.error('Errore nella submission:', err);
@@ -227,7 +242,9 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                                 key={field.name}
                                 options={brandNameList}
                                 value={formData[field.name as keyof typeof formData] || ''}
-                                sx={{ width: '100%' }}
+                                sx={{ 
+                                    width: '100%',
+                                }}
                                 onChange={(_, newValue) => handleChange(field.name, newValue || '')}
                                 renderInput={(params) => (
                                     <TextField {...params} label="Brand" required={field.required} />
@@ -278,6 +295,13 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
             {errorMessage && (
                 <Typography sx={{ color: 'red' }}>{errorMessage}</Typography>
             )}
+
+            <CustomizedSnackbar
+                open={snackbarOpen}
+                onClose={() => setSnackbarOpen(false)}
+                message={snackbarMessage}
+                severity={severitySnakbar?.severity || 'success'}
+            />
         </Box>
     );
 }
