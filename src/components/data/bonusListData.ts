@@ -42,7 +42,7 @@ export const bonusListData = [
     {
         title: "Nemo Money",
         name: "nemo_money",
-        description: "50€ in crypto dopo deposito di 1000€ o 10€ dopo deposito di 100€",
+        description: "50€ per ogni utente invitato + 50€ di benvenuto",
         bonus_value: "50€",
         image: "/images_bonus/nemo_money.avif",
         category: "crypto"
