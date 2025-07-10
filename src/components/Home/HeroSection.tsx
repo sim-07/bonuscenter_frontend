@@ -1,5 +1,8 @@
 import { Box, Button, Container, Grid, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { useState } from 'react';
+import LoginForm from '../common/LoginForm';
+import DialogComponent from '../common/DialogComponent';
 
 const HeroContainer = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.grey?.[100] || '#f5f5f5',
@@ -75,6 +78,11 @@ export default function HeroSection({ scrollToMiddle }: HeroSectionProps) {
 
     const theme = useTheme();
 
+    const [openLogin, setOpenLogin] = useState(false);
+
+    const openLoginDialog = () => {
+        setOpenLogin(true);
+    };
 
     return (
         <HeroContainer>
@@ -115,13 +123,13 @@ export default function HeroSection({ scrollToMiddle }: HeroSectionProps) {
 
                         <Grid container spacing={2} sx={{ mt: 4 }}>
                             <Grid>
-                                <PrimaryButton variant="contained" size="large" onClick={scrollToMiddle}>
-                                    Inizia a Guadagnare
+                                <PrimaryButton variant="contained" size="large" onClick={openLoginDialog}>
+                                    Pubblica referral
                                 </PrimaryButton>
                             </Grid>
                             <Grid>
-                                <SecondaryButton variant="outlined" size="large">
-                                    Scopri Come Funziona
+                                <SecondaryButton variant="outlined" size="large" onClick={scrollToMiddle}>
+                                    Tutti i bonus
                                 </SecondaryButton>
                             </Grid>
                         </Grid>
@@ -132,6 +140,9 @@ export default function HeroSection({ scrollToMiddle }: HeroSectionProps) {
                     </Grid>
                 </Grid>
             </Container>
+            <DialogComponent open={openLogin} onClose={() => setOpenLogin(false)} variant="form">
+                <LoginForm signinTypeP={"signup"} />
+            </DialogComponent>
         </HeroContainer>
     );
 }

@@ -15,7 +15,7 @@ import { useEffect, useState } from 'react';
 import apiService from '@/components/scripts/apiService';
 import LoadingSpinner from '../common/LoadingSpinner';
 
-export default function LoginForm() {
+export default function UsedCodes() {
     const [usedCodes, setUsedCodes] = useState<Array<{
         brand: string;
         bonus_value: string;
