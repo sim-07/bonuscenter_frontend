@@ -8,6 +8,7 @@ import {
     CircularProgress,
     Autocomplete,
     InputAdornment,
+    Link,
 } from '@mui/material';
 
 import EuroIcon from '@mui/icons-material/Euro';
@@ -242,7 +243,7 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                                 key={field.name}
                                 options={brandNameList}
                                 value={formData[field.name as keyof typeof formData] || ''}
-                                sx={{ 
+                                sx={{
                                     width: '100%',
                                 }}
                                 onChange={(_, newValue) => handleChange(field.name, newValue || '')}
@@ -272,6 +273,19 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                 }
 
             })}
+
+            <Typography>
+                Non trovi il brand che cercavi? {" "}
+                <Link
+                    sx={{
+                        cursor: 'pointer',
+                        color: 'primary.main'
+                    }}
+                    href='/suggest_new_code'
+                >
+                     Suggerisci un nuovo brand
+                </Link>
+            </Typography>
 
             <Button
                 type="submit"
