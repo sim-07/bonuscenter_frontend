@@ -16,6 +16,14 @@ export const bonusListData = [
         category: "voucher"
     },
     {
+        title: "Satispay",
+        name: "satispay",
+        description: "Bonus variabile da 5 a 30€ per un acquisto da minimo 5€",
+        bonus_value: "5€",
+        image: "/images_bonus/satispay.avif",
+        category: "liquid"
+    },
+    {
         title: "Crédit Agricole",
         name: "credit_agricole",
         description: "Buono Amazon richiede carta Visa + 1 spesa",

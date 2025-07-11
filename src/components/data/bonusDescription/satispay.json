@@ -1,0 +1,57 @@
+{
+    "title": "Satispay: Bonus di benvenuto e inviti per pagamenti digitali semplici e sicuri",
+    "name": "satispay",
+    "bonus_image": "satispay",
+    "summary": {
+      "bonus": "🎁 5€ all’iscrizione per i nuovi utenti",
+      "invito": "🎁 Bonus invito fino a 50€ durante le Super Promo (normalmente 5€ per ogni amico invitato)",
+      "deposito_richiesto": "💰 Fare un acquisto da minimo 5€ nei primi 30 giorni",
+      "scadenza": "🗓️ Super Promo attiva solo in giorni specifici, controlla sempre la pagina per aggiornamenti",
+      "commissioni": "✅ Nessuna commissione per i pagamenti e trasferimenti",
+      "extra": "📱 Disponibile su dispositivi Android e iOS; verifica documenti e selfie obbligatori"
+    },
+    "sections": [
+      {
+        "title": "Cos’è Satispay e come funziona il bonus",
+        "content": [
+          "Satispay è un'app wallet gratuita che consente pagamenti digitali semplici, veloci e sicuri presso negozi fisici e online, oltre a trasferimenti tra amici.",
+          "Iscrivendoti e facendo un acquisto di minimo 5€ entro 30 giorni riceverai subito un bonus di 5€ per iniziare a fare acquisti o trasferire denaro.",
+          "Durante particolari Super Promo, attive per pochi giorni al mese, il bonus per ogni amico invitato può salire fino a 50€.",
+          "È richiesta la verifica dell'identità con documento e selfie per attivare il conto."
+        ]
+      },
+      {
+        "title": "Requisiti per ottenere il bonus",
+        "content": [
+          "Registrati tramite il link ufficiale o inserendo il codice promo disponibile pubblicamente nella pagina.",
+          "Completa la verifica documentale con carta d'identità (cartacea o elettronica) o passaporto e un selfie di conferma.",
+          "Effettua almeno un pagamento con Satispay (in negozio, online o su servizi interni all’app) entro 30 giorni dall’iscrizione.",
+          "Per il bonus invito, ogni amico che si registra con il tuo codice e completa il primo pagamento ti fa guadagnare un bonus (normalmente 5€, durante le Super Promo fino a 50€).",
+          "Puoi invitare un numero illimitato di amici."
+        ]
+      },
+      {
+        "title": "Guida passo passo per registrarti e ottenere il bonus",
+        "content": [
+          "1. Registrati da un dispositivo Android o iOS usando il link o inserendo il codice promo presente sulla pagina.",
+          "2. Completa la verifica documentale caricando il documento d’identità e facendo il selfie richiesto.",
+          "3. Collega un IBAN al tuo account; in alcuni casi sarà necessario confermare con piccoli bonifici di verifica.",
+          "4. Effettua un pagamento con Satispay entro 30 giorni dalla registrazione (anche di pochi centesimi).",
+          "5. Il bonus di 5€ sarà accreditato subito dopo il primo pagamento.",
+          "6. Invita i tuoi amici condividendo il tuo codice pubblico presente in alto sulla pagina per guadagnare bonus extra.",
+          "7. Durante le Super Promo, potrai guadagnare bonus maggiorati per ogni amico invitato."
+        ]
+      },
+      {
+        "title": "Altre informazioni utili su Satispay",
+        "content": [
+          "Il bonus è prelevabile o spendibile liberamente senza limiti.",
+          "Puoi trasferire i soldi sul tuo conto bancario collegato gratuitamente.",
+          "Se non hai inserito il codice promo in fase di registrazione, puoi aggiungerlo entro due giorni nelle impostazioni del profilo.",
+          "La piattaforma garantisce sicurezza elevata con crittografia e verifica a due fattori.",
+          "Resta sempre aggiornato sulle Super Promo consultando la pagina ufficiale e il nostro sito."
+        ]
+      }
+    ]
+  }
+  
