@@ -17,25 +17,46 @@ export default function AboutPage() {
         <></>
       </Navbar>
 
-      {/* Main content: cresce per occupare lo spazio disponibile */}
-      <Box 
-        component="main" 
-        sx={{ 
-          flexGrow: 1, 
-          py: 6, 
-          display: 'flex', 
-          justifyContent: 'center' 
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          py: 6,
+          display: 'flex',
+          justifyContent: 'center'
         }}
       >
         <Container maxWidth="md" sx={{ width: '80%' }}>
-          <Typography 
-            variant="h4" 
-            component="h1" 
-            align="left" 
-            fontWeight="bold" 
-            gutterBottom 
-            sx={{ mb: 4 }}
-          >
+
+        <Typography variant="h4" component="h1" align="left" fontWeight="bold" gutterBottom sx={{ mb: 4 }}>
+            Come funziona?
+          </Typography>
+
+          <Typography component="p" sx={{ mb: 3 }}>
+            Molte aziende per aumentare il numero di utenti fanno delle promozioni usando dei <strong>Referral Link</strong> che gli utenti possono condividere coi loro amici che ancora non si sono iscritti alla piattaforma in questione. Quando i tuoi amici utilizzeranno il tuo Referral Link, entrambi otterrete dei vantaggi!
+          </Typography>
+
+          <Typography component="p" sx={{ mb: 3 }}>
+            Se sei già pratico di questo sistema, probabilmente ti sarà successo di esaurire le persone a cui condividere il tuo link.
+          </Typography>
+
+          <Typography component="p" sx={{ mb: 3 }}>
+            Come fare in questi casi?
+          </Typography>
+
+          <Typography component="p" sx={{ mb: 3 }}>
+            Facile: puoi diffondere il tuo codice su BonusCenter, dove potrà essere utilizzato da chiunque, così continuerai a ricevere i tuoi guadagni.
+          </Typography>
+
+          <Typography component="p" sx={{ mb: 3 }}>
+            E se invece stai cercando uno o più Referral Link (o codici amico) ma non sai a chi chiedere o dove trovarli?
+          </Typography>
+
+          <Typography component="p" sx={{ mb: 6 }}>
+            Anche qui la soluzione è semplice: li trovi tutti su BonusCenter!
+          </Typography>
+
+          <Typography variant="h4" component="h1" align="left" fontWeight="bold" gutterBottom sx={{ mb: 4 }}>
             Chi siamo
           </Typography>
 
@@ -45,12 +66,6 @@ export default function AboutPage() {
             piattaforme ingannevoli (oltre il 95% sono truffe o inutili), ed è fondamentale imparare a distinguere le
             vere occasioni da quelle pericolose.
           </Typography>
-
-          <Typography component="p" sx={{ mb: 3 }}>
-            Per riuscirci, serve <strong>studio costante</strong>. Ti invitiamo a formarti ogni giorno, anche solo con contenuti
-            gratuiti su YouTube o seguendo le guide della nostra community.
-          </Typography>
-
 
           <Typography component="p" sx={{ mb: 3 }}>
             Il nostro team testa e analizza continuamente nuove app, carte e piattaforme. Leggiamo i regolamenti,
@@ -91,6 +106,7 @@ export default function AboutPage() {
             Unisciti a noi e trasforma ogni app in un'opportunità concreta. Il web è pieno di possibilità, se sai dove
             cercare!
           </Typography>
+
         </Container>
       </Box>
 
