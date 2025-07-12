@@ -1,4 +1,4 @@
-import { Box, Link } from '@mui/material';
+import { Box, Link, Typography } from '@mui/material';
 
 import Navbar from './Navbar';
 import { useState } from 'react';
@@ -16,7 +16,12 @@ export default function Header() {
     return (
         <Box>
             <Navbar>
-                <Link underline="none" color="inherit" onClick={openLoginDialog}>Login</Link>
+                <Typography
+                    onClick={openLoginDialog}
+                    sx={{ cursor: 'pointer', color: 'inherit' }}
+                >
+                    Login
+                </Typography>
                 <Link href="/about" underline="none" color="inherit">About</Link>
 
 
