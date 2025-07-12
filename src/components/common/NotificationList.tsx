@@ -5,7 +5,7 @@ import apiService from "../scripts/apiService";
 import LoadingSpinner from "./LoadingSpinner";
 import CustomizedSnackbar from '@/components/common/Snakbar';
 
-type NotificheListProps = {
+type NotificationListProps = {
     max?: number;
     compact?: boolean;
 };
@@ -21,7 +21,7 @@ type SeveritySnakbarType = {
     severity?: 'success' | 'error' | 'warning' | 'info';
 }
 
-export default function NotificheList({ max, compact = false }: NotificheListProps) {
+export default function NotificationList({ max, compact = false }: NotificationListProps) {
     const [isLoading, setIsLoading] = useState(true);
     const [notifications, setNotifications] = useState<Notification[]>([]);
 

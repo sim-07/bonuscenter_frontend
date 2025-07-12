@@ -150,7 +150,7 @@ export default function DashboardLayoutDesktop({
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                     transformOrigin={{ vertical: 'top', horizontal: 'right' }}
                 >
-                    <NotificationList compact={true} max={10}/>
+                    <NotificationList compact={true} max={50}/>
                 </Menu>
             </Navbar>
 
