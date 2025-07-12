@@ -18,7 +18,12 @@ export default function Header() {
             <Navbar>
                 <Typography
                     onClick={openLoginDialog}
-                    sx={{ cursor: 'pointer', color: 'inherit' }}
+                    sx={{
+                        cursor: 'pointer',
+                        color: 'inherit',
+                        fontWeight: 'bold',
+                        fontSize: '1.10em'
+                    }}
                 >
                     Login
                 </Typography>
