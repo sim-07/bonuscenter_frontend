@@ -4,6 +4,7 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import { appWithTranslation } from 'next-i18next'
 import createEmotionCache from "../src/lib/createEmotionCache";
 import ThemeWrapper from "../src/lib/ThemeWrapper";
+import nextI18NextConfig from '../next-i18next.config';
 
 import '@/i18n';
 
@@ -23,4 +24,4 @@ const MyApp = ({ Component, pageProps, emotionCache = clientSideCache }: MyAppPr
   );
 }
 
-export default appWithTranslation(MyApp)
+export default appWithTranslation(MyApp, nextI18NextConfig)
