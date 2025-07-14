@@ -28,7 +28,7 @@ export default function Home() {
                     href={`https://www.bonuscenter.it/en/`}
                     hrefLang="en"
                 />
-                <link
+                <link 
                     rel="alternate"
                     href={`https://www.bonuscenter.it/`}
                     hrefLang="x-default"
