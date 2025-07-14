@@ -1,0 +1,52 @@
+{
+  "title": "Genius Buddy Bonus €50 + €50",
+  "name": "geniusbuddy",
+  "bonus_image": "buddybank",
+  "summary": {
+    "bonus": "💰 €50 in cash after a purchase of at least €10",
+    "invito": "💰 €50 for every invited friend who opens an account and completes a transaction",
+    "deposito_richiesto": "At least €10 to deposit via bank transfer",
+    "scadenza": "Valid until September 30, 2025",
+    "commissioni": "Free account - Free virtual card",
+    "extra": "Possibility to receive a second €50 bonus with the 'Welcome to Buddy' promo"
+  },
+  "sections": [
+    {
+      "title": "What is Genius Buddy and how does the bonus work",
+      "content": [
+        "Genius Buddy (formerly BuddyBank) is a mobile account offered by Unicredit, fully manageable via app and with no fixed costs.",
+        "Registration is free, and by using a promotional code, you can get €50 in cash after making a minimum purchase of €10 with the debit card.",
+        "Additionally, for every friend you invite who opens an account and completes a qualifying purchase, you receive another €50, up to a maximum of €500 (10 invites)."
+      ]
+    },
+    {
+      "title": "Main requirements",
+      "content": [
+        "Bonus valid until September 30, 2025.",
+        "You must deposit at least €10 via bank transfer after opening the account.",
+        "To receive the welcome bonus, you must complete a purchase of at least €10 with the MyOne virtual card within 30 days.",
+        "Identity verification (KYC) is required with documents such as an ID card, driver's license, or passport.",
+        "The physical card has a one-time cost of €7, but the virtual version is completely free.",
+        "The bonus is credited within 90 days of the transaction and is fully withdrawable.",
+        "Former BuddyBank customers and Unicredit employees who already held banking products as of 09/16/2024 cannot participate."
+      ]
+    },
+    {
+      "title": "Step-by-step guide",
+      "content": [
+        "1. Download the Genius Buddy app and start the registration by selecting the classic account opening option (avoid SPID or CIEid).",
+        "2. Enter the promotional code you find at the top of the page.",
+        "3. Verify your personal data, upload the required documents (front and back), and complete the procedure (including contract signing).",
+        "4. When choosing the card, select only the **virtual MyOne version** to avoid extra costs.",
+        "5. Wait for the account and virtual card activation (within about 48 hours), then deposit at least €10 via bank transfer (recommended from accounts like Revolut for speed and zero costs).",
+        "6. Once the card is activated, make an online or in-store purchase of at least €10 with Google Pay, Apple Pay, physical POS, or e-commerce.",
+        "⚠️ Recharges, transfers, or fund movements between accounts are not valid.",
+        "💡 If you don't know what to buy, you can recharge Amazon, buy coins on TikTok, or make a small purchase from the app store.",
+        "7. The bonus will be credited directly to your account within 90 business days.",
+        "✅ After receiving your first bonus, you can invite up to 10 friends and earn €50 for each.",
+        "🎁 There is also an extra promotion: if you make a transaction of at least €30 by June 30, 2025, you will receive an additional €50 by January 2026."
+      ],
+      "image": ""
+    }
+  ]
+}

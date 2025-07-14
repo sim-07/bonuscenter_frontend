@@ -1,0 +1,51 @@
+{
+  "title": "Skrill €35 Bonus - Instant €15 + €20 Extra with Transfers",
+  "name": "skrill",
+  "bonus_image": "skrill",
+  "summary": {
+    "bonus": "💰 Get €15 instantly on your first international transfer of at least €150",
+    "invito": "💰 Earn €15 for every friend you refer who makes a transfer",
+    "deposito_richiesto": "€135 for the first transfer + €60 for the extra bonus",
+    "scadenza": "No expiration date specified",
+    "commissioni": "€1.50 with card - Free with bank transfer",
+    "extra": "💸 Earn an extra €20 after 3 transactions of at least €20 each"
+  },
+  "sections": [
+    {
+      "title": "What is Skrill and how does the bonus work",
+      "content": [
+        "Skrill is a digital payment platform similar to PayPal, allowing you to send and receive money worldwide by linking your card or bank account.",
+        "Its key feature is the Money Transfer service, ideal for sending funds to international accounts.",
+        "New users receive an instant €15 bonus when making their first international transfer of at least €150 to a non-Italian IBAN.",
+        "In practice, you only pay €135 and the recipient receives €150 — Skrill covers the €15 difference as a welcome bonus."
+      ]
+    },
+    {
+      "title": "Main requirements",
+      "content": [
+        "You’ll receive €15 instantly after your first eligible transfer.",
+        "By signing up with a referral code, you unlock the €15 bonus, and your referrer earns €15 too.",
+        "To unlock an extra €20 bonus, you need to deposit an additional €60 and make 3 separate transactions of at least €20 each.",
+        "You must complete identity verification (KYC) using a valid ID, passport, or driver’s license.",
+        "Transfer fees are €1.50 when using a card, and free with a standard bank transfer.",
+        "Skrill provides a free virtual card, which you can activate directly in the app.",
+        "The offer is available only to users aged 18 and over."
+      ]
+    },
+    {
+      "title": "Step-by-step guide to claim the bonus",
+      "content": [
+        "1. Sign up using a referral link (available at the top of this page near the Skrill logo).",
+        "2. During registration (on mobile, open the menu via the ☰ icon), enter the promo code to unlock the €15 bonus.",
+        "3. Make a transfer of at least €150 to a foreign IBAN (e.g., Revolut, N26, Verse). Card or bank transfer methods are accepted.",
+        "⚠️ When using a card, select 'credit card' to reduce the fee to just €1.50. For bank transfers, make sure to enter the correct IBAN and reference number for a fast transfer.",
+        "4. Your bonus will be included in the €150 received by your recipient — you only pay €135 out of pocket.",
+        "5. After completing your first transfer, you can start inviting friends using your personal referral link (visible from the browser version of Skrill).",
+        "6. For the extra €20, deposit €60 into your Skrill balance and make three separate transactions of at least €20 each.",
+        "💡 Valid transactions include topping up services like Revolut, BBVA, or gaming accounts. You can also use your Skrill card to pay a Revolut payment link.",
+        "📕 To create a Revolut payment link: Go to 'Payments' > 'New' > '+' (top right) > 'Create payment link' > 'Request money'. Open the link in a browser and pay with your Skrill card.",
+        "✅ Once bonuses are received, you can withdraw them using your Skrill virtual card, which can be linked to another account."
+      ]
+    }
+  ]
+}

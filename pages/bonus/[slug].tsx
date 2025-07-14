@@ -29,12 +29,20 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-    const dir = path.join(process.cwd(), 'src', 'components', 'data', 'bonusDescription');
-    const files = fs.readdirSync(dir);
+    const locales = ['it', 'en'];
+    const paths: { params: { slug: string }, locale: string }[] = [];
 
-    const paths = files.map((filename) => ({
-        params: { slug: filename.replace('.json', '') }
-    }));
+    for (const locale of locales) {
+        const dir = path.join(process.cwd(), 'src', 'components', 'data', 'bonusDescriptions', locale);
+        if (!fs.existsSync(dir)) continue;
+        const files = fs.readdirSync(dir);
+        for (const filename of files) {
+            paths.push({
+                params: { slug: filename.replace('.json', '') },
+                locale
+            });
+        }
+    }
 
     return {
         paths,
@@ -42,9 +50,17 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps({ params }: { params: { slug: string } }) {
-    const dir = path.join(process.cwd(), 'src', 'components', 'data', 'bonusDescription');
-    const filePath = path.join(dir, `${params.slug}.json`);
+export async function getStaticProps({ params, locale }: { params: { slug: string }, locale: string }) {
+    const lang = locale || 'en';
+    const filePath = path.join(
+        process.cwd(),
+        'src',
+        'components',
+        'data',
+        'bonusDescriptions',
+        lang,
+        `${params.slug}.json`
+    );
 
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const bonus = JSON.parse(fileContents);
@@ -59,8 +75,9 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 export default function BonusDescriptionPage({ bonus }: Props) {
     const router = useRouter();
     const slug = router.query.slug as string;
+    const locale = router.locale || 'en';
 
-    const canonicalUrl = `https://www.bonuscenter.it/bonus/${slug}`;
+    const canonicalUrl = `https://www.bonuscenter.it/${locale}/bonus/${slug}`;
     const metaDescription = bonus.title || 'Scopri tutti i dettagli sul bonus disponibile per questa piattaforma.';
 
     return (

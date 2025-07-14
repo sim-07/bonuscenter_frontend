@@ -1,0 +1,54 @@
+{
+  "title": "Nebeus Bonus €20 for every invite",
+  "name": "nebeus",
+  "bonus_image": "nebeus",
+  "summary": {
+    "bonus": "❌ No welcome bonus",
+    "invito": "💰 €20 for every invited friend who deposits and spends at least €5",
+    "deposito_richiesto": "€10 with bank transfer or card",
+    "scadenza": "Not specified",
+    "commissioni": "Virtual card with a monthly cost of €4.95",
+    "extra": "Bonus withdrawable immediately after the transaction"
+  },
+  "sections": [
+    {
+      "title": "What is Nebeus and how does the bonus work",
+      "content": [
+        "Nebeus is an app with a virtual card to manage money and make purchases online or via wallets like Google Pay.",
+        "It does not offer a welcome bonus but allows you to earn €20 for every friend who registers, verifies their identity, deposits at least €10, and makes a minimum purchase of €5.",
+        "The virtual card is mandatory to complete the requirements but can be closed after receiving the bonus.",
+        "The bonus is credited within a maximum of 15 days and can be withdrawn along with the initial deposit."
+      ]
+    },
+    {
+      "title": "Main requirements",
+      "content": [
+        "Complete registration by entering your phone number, personal data, tax code, and address.",
+        "Verify your identity with a document (ID card or passport) and a selfie.",
+        "Proof of residence is also mandatory, valid only if recent (less than 3 months) and with an address matching the document.",
+        "You can provide a utility bill, bank statement (not BBVA), or a residence certificate from ANPR.",
+        "Make a deposit of at least €10 via bank transfer (preferred) or card (with a 3.5% fee).",
+        "Transfer the funds to the virtual card from the app and make a purchase of at least €5 within 30 days.",
+        "Maximum 5 rewarded invites. The bonus arrives in 24 hours or within 15 days and is immediately available."
+      ]
+    },
+    {
+      "title": "Step-by-step guide",
+      "content": [
+        "1. Use the promotional code (in the community Codes section at the top of the page).",
+        "2. Complete registration with all required data and verify your identity with a document and selfie.",
+        "3. Provide proof of residence: recent utility bill, bank statement, or certificate from ANPR.",
+        "💡 You can get the certificate from https://www.anagrafenazionale.interno.it by logging in with SPID and selecting 'Residence Certificate'.",
+        "4. Order only the virtual card (the physical one is not required).",
+        "5. Top up the account with at least €10 via bank transfer, preferably from Revolut, N26, or similar.",
+        "⚠️ Do not use BBVA for the transfer and do not top up via Revolut/BBVA cards.",
+        "6. Move the funds to the card: click 'SEND' → 'EURO' → 'TO CRYPTO ACCOUNT'.",
+        "7. Make a purchase of at least €5 with the virtual card, even via Google Pay or Apple Pay.",
+        "💡 Ideas: Amazon recharge, phone recharge, purchase on Google Store, TikTok, or cheap apps.",
+        "⚠️ On Amazon, set EUR as the default currency before paying.",
+        "8. The €20 bonus will be credited within 15 days of the transaction, often within 24 hours.",
+        "9. After receiving the bonus and inviting friends, you can close the virtual card to avoid the €4.95 monthly cost by going to the menu → 'More' → 'Terminate Card'."
+      ]
+    }
+  ]
+}

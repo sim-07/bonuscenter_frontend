@@ -17,6 +17,7 @@
     "visibility_extreme": "Extreme",
     "visibility_description": "Visibility increases based on the number and value of completed bonuses",
     "logout": "Logout",
-    "delete_account": "Delete account"
+    "delete_account": "Delete account",
+    "select_language": "Change language"
   }
   

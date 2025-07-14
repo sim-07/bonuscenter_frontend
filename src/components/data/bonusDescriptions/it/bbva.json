@@ -1,0 +1,60 @@
+{
+  "title": "BBVA Conto gratuito online con IBAN italiano con bonus 10€ + 20€ per ogni invito",
+  "name": "bbva",
+  "bonus_image": "bbva",
+  "summary": {
+    "bonus": "🎁 10€ di bonus di benvenuto dopo 1 acquisto di qualsiasi importo",
+    "invito": "🎁 20€ per ogni amico invitato (max 10 inviti, fino a 200€ totali)",
+    "deposito_richiesto": "💰 Nessun deposito obbligatorio, ma consigliato un piccolo importo (0,15€) per sbloccare il bonus",
+    "scadenza": "🗓️ Promo senza scadenza definita",
+    "commissioni": "✅ Conto gratuito, carta virtuale con IBAN italiano gratuita, carta fisica opzionale, fee mensili 4,95€ per carta virtuale/fisica",
+    "extra": "💵 Bonus extra di 10€ con domiciliazione bancaria e cashback 4% su acquisti e deposito"
+  },
+  "sections": [
+    {
+      "title": "Cos’è BBVA e come funziona il bonus",
+      "content": [
+        "BBVA è una banca spagnola che ha lanciato in Italia un conto online gratuito con IBAN italiano e carta virtuale/fisica.",
+        "Aprendo il conto e completando un acquisto con la carta, riceverai 10€ di bonus sul conto.",
+        "Puoi invitare fino a 10 amici per guadagnare 20€ per ogni amico che si registra e completa le condizioni.",
+        "Inoltre, è possibile ottenere un bonus extra di 10€ effettuando una domiciliazione bancaria (addebito diretto).",
+        "Il conto offre anche cashback del 4% sugli acquisti mensili e interessi del 4% sul deposito non vincolato."
+      ]
+    },
+    {
+      "title": "Requisiti per ottenere il bonus",
+      "content": [
+        "Effettua almeno un acquisto di qualsiasi importo entro 90 giorni dall’apertura del conto utilizzando la carta BBVA (virtuale o fisica).",
+        "Puoi depositare tramite bonifico bancario gratuito o carta di debito/credito (consigliato bonifico istantaneo).",
+        "Il bonus viene accreditato entro pochi giorni dall’acquisto.",
+        "È richiesta la verifica documentale con documento di identità valido e selfie.",
+        "Il conto si apre in circa 10-15 minuti.",
+        "Possono partecipare solo maggiorenni (18+)."
+      ]
+    },
+    {
+      "title": "Guida passo passo per attivare il conto e sbloccare il bonus",
+      "content": [
+        "1. Scarica l’app BBVA per Android o iOS.",
+        "2. Avvia la registrazione e inserisci tutti i dati richiesti. Ricorda di inserire il codice promo al passaggio indicato.",
+        "3. Scansiona documento d’identità fronte/retro e fai il selfie per la verifica.",
+        "4. Attendi la verifica (di solito pochi minuti).",
+        "5. Scegli se utilizzare subito la carta virtuale o ordinare anche la carta fisica gratuita.",
+        "6. Ricarica il conto tramite bonifico (consigliato un bonifico da 2€ da app come Revolut) o carta.",
+        "7. Effettua un acquisto con la carta BBVA per attivare il bonus (es. ricarica Amazon o telefonica, acquisti online o in negozio).",
+        "💡 Metodi consigliati per l’acquisto valido: link pagamento Revolut, acquisto token TikTok, app economiche su App Store o Google Play.",
+        "❌ Evita ricariche SIM, bonifici o spese inferiori a 5€ non riferite a ricariche Amazon o telefoniche."
+      ]
+    },
+    {
+      "title": "Altre informazioni e vantaggi BBVA",
+      "content": [
+        "BBVA offre un cashback del 4% sugli acquisti effettuati con la carta (fino a 200€ spesi al mese) e un interesse del 4% sul deposito non vincolato, pagati mensilmente fino al 2025.",
+        "È possibile ricevere lo stipendio in anticipo, da 3 a 15 giorni prima della data effettiva.",
+        "Prelievi gratuiti in tutta l’UE con la carta BBVA.",
+        "Puoi invitare fino a 10 amici e guadagnare fino a 200€ totali.",
+        "La carta virtuale è subito utilizzabile dopo la registrazione, la carta fisica è opzionale e spedita gratuitamente."
+      ]
+    }
+  ]
+}

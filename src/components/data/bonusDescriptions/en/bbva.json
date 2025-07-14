@@ -1,0 +1,60 @@
+{
+  "title": "BBVA Free Account with Italian IBAN - Get €10 Bonus + €20 per Each Friend",
+  "name": "bbva",
+  "bonus_image": "bbva",
+  "summary": {
+    "bonus": "🎁 €10 welcome bonus after 1 purchase of any amount",
+    "invito": "🎁 €20 for every invited friend (max 10 invites, up to €200 total)",
+    "deposito_richiesto": "💰 No mandatory deposit, but a small amount (€0.15) is recommended to unlock the bonus",
+    "scadenza": "🗓️ Promo with no defined expiration",
+    "commissioni": "✅ Free account, free virtual card with Italian IBAN, optional physical card, €4.95 monthly fee for virtual/physical card",
+    "extra": "💵 Extra €10 bonus with direct debit and 4% cashback on purchases and deposits"
+  },
+  "sections": [
+    {
+      "title": "What is BBVA and how does the bonus work",
+      "content": [
+        "BBVA is a Spanish bank that launched in Italy with a free online account featuring an Italian IBAN and virtual/physical card.",
+        "Open an account and make any purchase with the card to receive a €10 bonus directly in your account.",
+        "You can invite up to 10 friends to earn €20 for each one who registers and meets the conditions.",
+        "The account also offers 4% cashback on monthly purchases and 4% interest on non-locked deposits."
+      ]
+    },
+    {
+      "title": "Requirements to get the bonus",
+      "content": [
+        "Make at least one purchase of any amount within 90 days of opening the account using the BBVA card (virtual or physical).",
+        "You can deposit via free bank transfer or debit/credit card (instant transfer recommended).",
+        "Set up a direct debit of any amount within 90 days to earn an extra €10 bonus.",
+        "The bonus is credited within a few days of the purchase",
+        "Document verification is required with a valid ID and selfie.",
+        "The account opens in about 10-15 minutes.",
+        "Only adults (18+) can participate."
+      ]
+    },
+    {
+      "title": "Step-by-step guide to activate the account and unlock the bonus",
+      "content": [
+        "1. Download the BBVA app for Android or iOS.",
+        "2. Start registration and enter all required data. Remember to enter the promo code at the indicated step.",
+        "3. Scan your ID (front/back) and take a selfie for verification.",
+        "4. Wait for verification (usually a few minutes).",
+        "5. Choose whether to use the virtual card immediately or also order the free physical card.",
+        "6. Top up the account via transfer (recommended: a €2 transfer from apps like Revolut) or card.",
+        "7. Make a purchase with the BBVA card to activate the bonus (e.g., Amazon or phone recharge, online or in-store purchases).",
+        "💡 Recommended methods for valid purchases: Revolut payment link, TikTok token purchase, cheap apps on App Store or Google Play.",
+        "❌ Avoid SIM recharges, transfers, or purchases under €5 unless for Amazon or phone recharges."
+      ]
+    },
+    {
+      "title": "Other BBVA benefits and information",
+      "content": [
+        "BBVA offers 4% cashback on purchases made with the card (up to €200 spent monthly) and 4% interest on non-locked deposits, paid monthly until 2025.",
+        "You can receive your salary early, 3 to 15 days before the actual date.",
+        "Free withdrawals across the EU with the BBVA card.",
+        "You can invite up to 10 friends and earn up to €200 total.",
+        "The virtual card is usable immediately after registration; the physical card is optional and shipped for free."
+      ]
+    }
+  ]
+}

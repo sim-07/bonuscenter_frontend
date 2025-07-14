@@ -1,10 +1,11 @@
 'use client';
 
-import { Box, Button, Typography, Avatar, Stack, Divider, LinearProgress, IconButton, Link } from '@mui/material';
+import { Box, Button, Typography, Avatar, Stack, Divider, LinearProgress, IconButton, Link, Select, MenuItem, SelectChangeEvent } from '@mui/material';
 import NextLink from 'next/link';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
@@ -17,6 +18,9 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function Profilo() {
+    const router = useRouter();
+    const { pathname, asPath, query } = router;
+
     const { locale } = useRouter();
     const { t } = useTranslation('profile');
 
@@ -37,8 +41,6 @@ export default function Profilo() {
         brand: string;
         bonus_value: string;
     }>>([]);
-
-    const router = useRouter();
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -125,6 +127,11 @@ export default function Profilo() {
             </Box>
         );
     }
+
+    const handleChangeLang = (event: SelectChangeEvent) => {
+        const newLocale = event.target.value as string;
+        router.push({ pathname, query }, asPath, { locale: newLocale });
+    };
 
     const { username, email, created_at } = userData;
 
@@ -230,6 +237,24 @@ export default function Profilo() {
                             {t('visibility_description')}
                         </Typography>
                     </Box>
+
+                    <Divider sx={{ width: '100%' }} />
+
+                    <Stack direction={'row'} spacing={2} alignItems="center" justifyContent="flex-start" width="100%">
+                        <Typography>
+                            {t('select_language')}
+                        </Typography>
+
+                        <Select
+                            value={locale}
+                            onChange={handleChangeLang}
+                            size="small"
+                            sx={{ minWidth: 120 }}
+                        >
+                            <MenuItem value="it">Italiano</MenuItem>
+                            <MenuItem value="en">English</MenuItem>
+                        </Select>
+                    </Stack>
 
                     <Divider sx={{ width: '100%' }} />
 

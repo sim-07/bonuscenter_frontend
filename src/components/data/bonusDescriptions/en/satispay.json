@@ -1,0 +1,56 @@
+{
+  "title": "Satispay: Welcome Bonus and Referral Rewards for Easy and Secure Digital Payments",
+  "name": "satispay",
+  "bonus_image": "satispay",
+  "summary": {
+    "bonus": "🎁 €5 welcome bonus for new users",
+    "invito": "🎁 Referral bonus up to €50 during Super Promo events (normally €5 per friend)",
+    "deposito_richiesto": "💰 Make a minimum €5 purchase within 30 days",
+    "scadenza": "🗓️ Super Promos are only active on specific days — always check the page for updates",
+    "commissioni": "✅ No fees for payments or transfers",
+    "extra": "📱 Available on Android and iOS; ID and selfie verification required"
+  },
+  "sections": [
+    {
+      "title": "What is Satispay and how does the bonus work",
+      "content": [
+        "Satispay is a free wallet app that enables fast, secure digital payments in physical stores, online shops, and among friends.",
+        "By signing up and making a minimum €5 purchase within 30 days, you’ll receive a €5 welcome bonus to use for spending or transfers.",
+        "During special Super Promo events, which last only a few days each month, the referral bonus per invited friend can go up to €50.",
+        "Identity verification with a valid document and selfie is required to activate the account."
+      ]
+    },
+    {
+      "title": "Requirements to receive the bonus",
+      "content": [
+        "Register using the official link or by entering the public promo code shown on this page.",
+        "Complete the KYC process by uploading your ID (paper or electronic) or passport, along with a selfie.",
+        "Make at least one payment with Satispay (in-store, online, or within the app) within 30 days of signing up.",
+        "For each friend who signs up using your code and makes their first purchase, you’ll earn a bonus — typically €5, but up to €50 during Super Promo periods.",
+        "You can invite an unlimited number of friends."
+      ]
+    },
+    {
+      "title": "Step-by-step guide to register and unlock the bonus",
+      "content": [
+        "1. Sign up on an Android or iOS device using the referral link or by entering the promo code listed on this page.",
+        "2. Upload a valid ID and take the required selfie to complete the identity verification process.",
+        "3. Link a bank account (IBAN); in some cases, small verification deposits may be required.",
+        "4. Make a purchase with Satispay within 30 days of registration — even a few cents is enough.",
+        "5. Your €5 bonus will be credited immediately after the first purchase.",
+        "6. Share your public referral code (shown at the top of this page) to invite friends and earn extra bonuses.",
+        "7. During Super Promo events, referral bonuses are significantly increased for each friend who joins and completes the first payment."
+      ]
+    },
+    {
+      "title": "Other useful information about Satispay",
+      "content": [
+        "The bonus can be freely spent or withdrawn without restrictions.",
+        "You can transfer funds to your linked bank account at any time for free.",
+        "If you didn’t enter a promo code during sign-up, you can still add it within two days from your profile settings.",
+        "The platform uses strong encryption and two-factor authentication to ensure maximum security.",
+        "Stay up to date on Super Promo events by checking the official page and our site regularly."
+      ]
+    }
+  ]
+}

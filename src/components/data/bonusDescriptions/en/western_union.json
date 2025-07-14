@@ -1,0 +1,48 @@
+{
+  "title": "Western Union Refer-a-Friend (USA) – Earn Amazon Gift Cards",
+  "name": "western_union",
+  "bonus_image": "western_union",
+  "summary": {
+    "bonus": "🎁 $10 Amazon gift card when you register and send at least $100",
+    "invito": "🎁 $15 Amazon gift card for each friend who meets the requirements",
+    "deposito_richiesto": "$100 minimum transfer through Western Union online",
+    "scadenza": "Valid until December 31, 2025",
+    "commissioni": "Standard Western Union transfer fees apply",
+    "extra": "Limit of 20 rewarded referrals per user"
+  },
+  "sections": [
+    {
+      "title": "How the Western Union referral bonus works (USA only)",
+      "content": [
+        "Western Union offers a referral program available exclusively to users in the United States.",
+        "New users who sign up through a referral link and send at least $100 via online transfer receive a $10 Amazon gift card.",
+        "The referrer earns a $15 Amazon gift card for each referred friend who completes the required transfer.",
+        "Transfers must be made through westernunion.com (USA) or the Western Union app (USA version)."
+      ]
+    },
+    {
+      "title": "Eligibility and requirements",
+      "content": [
+        "The promotion is only valid for users with a registered Western Union profile in the United States.",
+        "The referred user must register using a referral link and complete a transfer of at least $100 within 30 days.",
+        "Transfers must be successfully approved and received to qualify.",
+        "Each referrer can earn up to 20 referral rewards during the entire promotional period.",
+        "Amazon gift cards are sent via email within 15 business days after requirements are verified.",
+        "Amazon gift cards are subject to Amazon.com (USA) terms and conditions.",
+        "Self-referrals, fake accounts, or abusive behavior will result in disqualification and forfeiture of rewards."
+      ]
+    },
+    {
+      "title": "Step-by-step guide to earn the reward",
+      "content": [
+        "1. A registered Western Union (USA) user generates a referral link from the 'Refer a Friend' section.",
+        "2. The referred person registers using that link on the Western Union website or mobile app (USA version).",
+        "3. The new user must send at least $100 via online transfer within 30 days of signing up.",
+        "4. The transfer must be completed from a U.S.-based profile and successfully received by the recipient.",
+        "5. After validation, both the referrer and referee receive an Amazon gift card by email: $10 for the new user, $15 for the inviter.",
+        "⚠️ Avoid sharing referral links through spam or public forums — violations may lead to reward disqualification.",
+        "❌ This promotion is not available in Europe or other countries outside the U.S."
+      ]
+    }
+  ]
+}

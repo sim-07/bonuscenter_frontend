@@ -1,0 +1,52 @@
+{
+  "title": "Gemini Bonus – $75 in Crypto + $75 per Each Referral",
+  "name": "gemini",
+  "bonus_image": "gemini",
+  "summary": {
+    "bonus": "💵 $75 in cryptocurrency of your choice after trading $100 or more",
+    "invito": "💵 $75 in crypto for each referred friend who meets the requirements",
+    "deposito_richiesto": "Minimum €105 deposit via SEPA bank transfer",
+    "scadenza": "‼️ CURRENTLY NOT ACTIVE (July 2025) ‼️",
+    "commissioni": "Free SEPA transfer; card not recommended (approx. €5 fee)",
+    "extra": "Up to 10 free crypto withdrawals per month"
+  },
+  "sections": [
+    {
+      "title": "What is Gemini and how does the bonus work",
+      "content": [
+        "Gemini is a U.S.-based cryptocurrency exchange known for its strong security and high trading volume.",
+        "With the 'Refer a Friend' program, you can earn $75 in crypto of your choice after signing up, depositing at least €105, and completing $100 in total crypto trading.",
+        "The person who referred you will also receive $75.",
+        "The bonus is credited 32 days after all requirements are met.",
+        "There’s no defined expiration date, and you can earn up to $1,875 per year from this program."
+      ]
+    },
+    {
+      "title": "Main requirements",
+      "content": [
+        "Sign up using the referral link shown next to the Gemini logo on this page.",
+        "Complete identity verification (KYC) with a valid ID: national ID, driver’s license, or passport.",
+        "Deposit at least €105 via SEPA bank transfer (crypto deposits are not eligible).",
+        "The transfer can be instant via Plaid or manual. For manual transfers, make sure to include your Reference Number in the payment note.",
+        "Trade a total of $100 in crypto (buy or sell), even across multiple orders.",
+        "Activating 'ActiveTrader' mode is recommended to lower trading fees.",
+        "You’ll receive a confirmation email 24 hours after completing the requirements, and the bonus will be credited approximately 32 days later.",
+        "Only users aged 18 or older can participate."
+      ]
+    },
+    {
+      "title": "Step-by-step guide",
+      "content": [
+        "1. Use the promo code listed in the Community Codes section on this page. Sign up **from a desktop browser**, not via the app.",
+        "2. Fill in your personal info and complete ID verification by uploading a valid document.",
+        "3. Deposit at least €105 via SEPA transfer. The fastest method is Plaid, but you can also choose manual transfer and follow Gemini's instructions (Estonian IBAN).",
+        "⚠️ Be sure to correctly enter the 'Reference Number' in the payment description field.",
+        "4. Complete at least $100 in total crypto trades (e.g., Bitcoin, USDC).",
+        "💡 To save on fees, activate 'ActiveTrader' in your Gemini profile: set a limit order, click MID, complete the buy, and optionally sell later.",
+        "5. After completing your trades, you’ll receive a confirmation email within 24 hours. Your $75 crypto bonus will be credited within 32 days.",
+        "✅ You can withdraw both your bonus and funds in euros via SEPA transfer (to the same IBAN used for the deposit), or transfer crypto with **up to 10 free withdrawals per month**.",
+        "📌 You can invite friends from the 'Rewards' section of the site, earning $75 for every eligible referral."
+      ]
+    }
+  ]
+}
