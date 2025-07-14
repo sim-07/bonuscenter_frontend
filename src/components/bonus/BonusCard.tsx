@@ -32,7 +32,7 @@ export default function BonusCard({
     setSelectedCodeId
 }: BonusCardProps) {
     const { locale } = useRouter();
-    const currentLocale = locale || 'en';
+    const currentLocale = locale || 'it';
 
     return (
         <Link

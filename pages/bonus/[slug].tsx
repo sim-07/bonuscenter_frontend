@@ -51,7 +51,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, locale }: { params: { slug: string }, locale: string }) {
-    const lang = locale || 'en';
+    const lang = locale || 'it';
     const filePath = path.join(
         process.cwd(),
         'src',
@@ -75,7 +75,7 @@ export async function getStaticProps({ params, locale }: { params: { slug: strin
 export default function BonusDescriptionPage({ bonus }: Props) {
     const router = useRouter();
     const slug = router.query.slug as string;
-    const locale = router.locale || 'en';
+    const locale = router.locale || 'it';
 
     const canonicalUrl = `https://www.bonuscenter.it/${locale}/bonus/${slug}`;
     const metaDescription = bonus.title || 'Scopri tutti i dettagli sul bonus disponibile per questa piattaforma.';
@@ -86,6 +86,22 @@ export default function BonusDescriptionPage({ bonus }: Props) {
                 <title>{bonus.title}</title>
                 <meta name="description" content={metaDescription} />
                 <link rel="canonical" href={canonicalUrl} />
+
+                <link
+                    rel="alternate"
+                    href={`https://www.bonuscenter.it/it/bonus/${slug}`}
+                    hrefLang="it"
+                />
+                <link
+                    rel="alternate"
+                    href={`https://www.bonuscenter.it/en/bonus/${slug}`}
+                    hrefLang="en"
+                />
+                <link
+                    rel="alternate"
+                    href={`https://www.bonuscenter.it/${locale}/bonus/${slug}`}
+                    hrefLang="x-default"
+                />
             </Head>
             <BonusDescription bonus={bonus} />
         </>

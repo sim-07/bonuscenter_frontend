@@ -1,8 +1,12 @@
 module.exports = {
     siteUrl: 'https://bonuscenter.it',
     generateRobotsTxt: true,
-    sitemapSize: 5000,
+    sitemapSize: 7000,
     changefreq: 'daily',
-    priority: 0.7,
+    priority: 1.0,
+    i18n: {
+      locales: ['it', 'en'],
+      defaultLocale: 'it',
+    },
   };
   
