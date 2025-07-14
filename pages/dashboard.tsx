@@ -70,7 +70,7 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
             <Head>
                 <title>Dashboard | BonusCenter</title>
                 <meta name="description" content={t('description')} />
-                <link rel="icon" href="/icons/bonuscenter_icon.png" />
+                <link rel="icon" href="/favicon.ico" />
             </Head>
             {isLoading ? (
                 <Box sx={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center' }}>
