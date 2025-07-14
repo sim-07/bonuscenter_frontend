@@ -1,51 +1,48 @@
 {
-  "title": "N26 Bonus €15 + €20 per invite",
+  "title": "N26 Bonus $15",
   "name": "n26",
   "bonus_image": "n26",
   "summary": {
-    "bonus": "💰 €15 in real money after a purchase of at least €20",
-    "invito": "💰 €20 for every invited friend who tops up and spends €20",
-    "deposito_richiesto": "€20 via SEPA transfer",
-    "scadenza": "February 24, 2025",
-    "commissioni": "None if you top up with a transfer; fees apply with cards",
+    "bonus": "💰 $15 after a purchase of at least $15",
+    "invito": "💰 $15 for every invited friend who spends $15",
+    "deposito_richiesto": "No deposit required",
+    "scadenza": "-",
+    "commissioni": "None if you use a transfer; fees apply with card top-ups",
     "extra": "3 free ATM withdrawals per month in the eurozone"
   },
   "sections": [
     {
       "title": "What is N26 and how does the bonus work",
       "content": [
-        "N26 is a digital bank with a European license, offering an online account with an Italian IBAN completely free of charge.",
-        "With the Standard plan, there are no opening costs or monthly fees, and you can manage everything conveniently from your smartphone.",
-        "Upon registration, you receive a virtual debit card usable immediately with Google Pay and Apple Pay.",
-        "By making a deposit of at least €20 and a purchase of the same amount, you will receive €15 directly into your account.",
-        "Additionally, you can earn €20 for every person who registers with your invite and completes the bonus requirements."
+        "N26 is a digital bank with a European license, offering a free online account with an Italian IBAN.",
+        "With the Standard plan, there are no opening costs or monthly fees. You can manage everything from your smartphone.",
+        "Upon registration, you receive a virtual debit card that you can use immediately with Google Pay and Apple Pay.",
+        "After making a purchase of at least $15 with your N26 card (virtual or physical), you will receive a $15 bonus directly into your account.",
+        "You can also earn $15 for every person who registers using your referral link and completes the bonus requirements."
       ]
     },
     {
       "title": "Main requirements",
       "content": [
-        "To get the bonus, you must deposit at least €20 via SEPA transfer.",
-        "Once the deposit is received, make a purchase of at least €20 with the N26 card (virtual or physical).",
-        "Purchases via PayPal are not valid, while Amazon recharges and e-commerce purchases are valid.",
-        "The physical card is optional and costs €10 one-time, but you can use the virtual card for free right away.",
-        "The bonus is credited within 2-3 business days, maximum 60 days.",
-        "Each completed invite is worth €20, up to a total maximum of €1,500.",
-        "Identity verification is required via document scan (ID card, driver's license, or passport) and a selfie.",
-        "The account is available for all adults (18+)."
+        "Make a purchase of at least $15 using your N26 card (virtual or physical).",
+        "The card can be used on Amazon, e-commerce sites, or for mobile recharges. PayPal transactions are excluded.",
+        "A physical card is optional and costs $10 one-time, but the virtual card is free and usable immediately.",
+        "The bonus is credited within 2-3 business days, up to a maximum of 60 days.",
+        "Each valid referral is worth $15, with a total annual cap of $1,500.",
+        "Identity verification is required with a valid document (ID card, driver’s license, or passport) and a selfie.",
+        "Available to residents aged 18 or older."
       ]
     },
     {
       "title": "Step-by-step guide",
       "content": [
-        "1. Register via a referral link (available on this page next to the N26 logo).",
-        "2. Fill in your personal data and upload the front and back of your ID, then follow the instructions for a verification selfie.",
-        "3. Once the account is verified, make an instant SEPA transfer from another account in your name of at least €20 to your N26 IBAN.",
-        "⚠️ You can also top up with a card, but in that case, there are fees and a minimum amount required, so a transfer is preferred.",
-        "4. As soon as the deposit arrives in your account, make a purchase of at least €20 with the N26 virtual card, even via Google Pay or Apple Pay.",
-        "💡 Purchase suggestions: Amazon recharge, phone recharge, or a simple and quick online purchase.",
-        "❌ Avoid transactions via PayPal or untraceable methods.",
-        "5. The €15 bonus will be credited directly to your N26 account, usually within a few days.",
-        "✅ You can transfer the bonus to other accounts via transfer or use it for other purchases or recharges."
+        "1. Sign up using the referral link shown on this page next to the N26 logo.",
+        "2. Enter your personal details, upload your ID (front and back), and follow the instructions for the selfie verification.",
+        "3. Once your account is verified, make a purchase of at least $15 using your N26 virtual card, Google Pay, or Apple Pay.",
+        "💡 Suggested purchases: Amazon top-up, phone credit, or a small online order.",
+        "❌ Avoid PayPal or unverifiable transactions.",
+        "4. Your $15 bonus will be credited to your N26 account, typically within a few business days.",
+        "✅ You can use it for future purchases or transfer it to another account."
       ]
     }
   ]
