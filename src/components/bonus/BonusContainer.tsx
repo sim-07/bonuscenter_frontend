@@ -33,7 +33,7 @@ export default function BonusContainer({
 }: BonusContainerProps) {
     const [searchTerm, setSearchTerm] = useState('');
     const { locale } = useRouter();
-    const currentLocale = locale || 'en';
+    const currentLocale = locale || 'en'; 
 
     const filtBonusListData = Array.isArray(bonusListDataP)
         ? bonusListDataP.filter((bonus) =>
