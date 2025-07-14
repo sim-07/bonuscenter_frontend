@@ -5,6 +5,8 @@ import { appWithTranslation } from 'next-i18next'
 import createEmotionCache from "../src/lib/createEmotionCache";
 import ThemeWrapper from "../src/lib/ThemeWrapper";
 
+import '@/i18n';
+
 const clientSideCache = createEmotionCache();
 
 interface MyAppProps extends AppProps {
