@@ -1,0 +1,13 @@
+{
+    "login": "Accedi",
+    "login_upper": "ACCEDI",
+    "signup": "Crea un account",
+    "signup_upper": "REGISTRATI",
+    "no_account": "Non hai un account?",
+    "already_registered": "Sei già registrato?",
+    "signup_privacy_prefix": "Registrandoti accetti",
+    "privacy_policy": "l'informativa sulla privacy",
+    "field_required": "Il campo \"{{field}}\" è obbligatorio",
+    "server_error": "Errore del server"
+  }
+  

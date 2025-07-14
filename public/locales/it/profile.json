@@ -1,0 +1,22 @@
+{
+    "page_title": "Profilo",
+    "error_loading_profile": "Errore nel caricamento del profilo",
+    "error_fetching_used_codes": "Errore nel caricamento dei codici usati",
+    "error_fetching_user_used_codes": "Errore nel caricamento dei codici usati dall’utente",
+    "error_logout": "Errore durante il logout",
+    "confirm_delete_account": "Sei sicuro di voler cancellare il tuo account? Questa azione è irreversibile.",
+    "error_delete_account": "Errore durante la cancellazione dell’account",
+    "registered_on": "Registrato il",
+    "activity": "Attività",
+    "used_codes": "Codici usati",
+    "total_earnings": "Guadagno totale",
+    "visibility": "Visibilità",
+    "visibility_initial": "Iniziale",
+    "visibility_fair": "Buona",
+    "visibility_good": "Ottima",
+    "visibility_extreme": "Estrema",
+    "visibility_description": "La visibilità aumenta in base al numero di bonus completati e al loro valore",
+    "logout": "Logout",
+    "delete_account": "Cancella account"
+  }
+  

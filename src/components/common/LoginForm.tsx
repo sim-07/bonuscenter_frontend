@@ -12,17 +12,19 @@ import router from 'next/router';
 import { useState } from 'react';
 import apiService from '@/components/scripts/apiService';
 
+import { useTranslation } from 'next-i18next';
+
 type LoginFormProps = {
     signinTypeP: string;
 };
 
 export default function LoginForm({ signinTypeP }: LoginFormProps) {
+    const { t } = useTranslation('login');
+
     const [signinType, setSigninType] = useState(signinTypeP); // "signup" o "login"
     const [formData, setFormData] = useState<{ [key: string]: string }>({});
     const [errorMessage, setErrorMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-
-
 
     const formField = [
         { name: 'email', label: 'Email', type: 'email', required: true, formType: ['signup'] },
@@ -44,7 +46,7 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
 
         for (const field of formField) {
             if (field.formType.includes(signinType) && field.required && !formData[field.name]) {
-                setErrorMessage(`Il campo "${field.label}" è obbligatorio`);
+                setErrorMessage(t('field_required', { field: field.label }));
                 return;
             }
         }
@@ -56,7 +58,7 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
             const data = await apiService("users", endpoint, formData);
 
             if (data.error) {
-                setErrorMessage(data.error || 'Server error');
+                setErrorMessage(data.error || t('server_error'));
                 return;
             }
 
@@ -65,7 +67,7 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
 
         } catch (error: any) {
             console.log(error.message || error);
-            setErrorMessage(error.message || 'Server error');
+            setErrorMessage(error.message || t('server_error'));
         } finally {
             setIsLoading(false);
         }
@@ -84,7 +86,7 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
         >
             {/* TITOLO LOGIN/SIGNUP */}
             <Typography sx={{ color: '#535353', fontSize: '1.4em', mb: 3 }}>
-                {signinType === 'login' ? 'Accedi' : 'Crea un account'}
+                {signinType === 'login' ? t('login') : t('signup')}
             </Typography>
 
             {formField.map((field, index) => {
@@ -107,9 +109,9 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
             {/* PRIVACY POLICY */}
             {signinType === 'signup' && (
                 <Typography>
-                    Registrandoti accetti {' '}
+                    {t('signup_privacy_prefix')}{' '}
                     <MuiLink href="/privacy" sx={{ textDecoration: 'underline', cursor: 'pointer', marginLeft: '0px !important' }}>
-                        l'informativa sulla privacy
+                        {t('privacy_policy')}
                     </MuiLink>.
                 </Typography>
             )}
@@ -127,30 +129,30 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
                     p: 1
                 }}
             >
-                {isLoading ? <CircularProgress size={24} color="inherit" /> : signinType === 'login' ? 'ACCEDI' : 'REGISTRATI'}
+                {isLoading ? <CircularProgress size={24} color="inherit" /> : signinType === 'login' ? t('login_upper') : t('signup_upper')}
             </Button>
 
             {/* SWITCH LOGIN/SIGNUP */}
             {signinType === 'login' ? (
                 <Typography sx={{ color: '#535353', display: 'inline-flex', alignItems: 'center', gap: 1, mt: 2 }}>
-                    Non hai un account?
+                    {t('no_account')}
                     <Button
                         variant="text"
                         sx={{ padding: 0, minWidth: 'auto', textTransform: 'none' }}
                         onClick={() => setSigninType('signup')}
                     >
-                        Sign up
+                        {t('signup')}
                     </Button>
                 </Typography>
             ) : (
                 <Typography sx={{ color: '#535353', display: 'inline-flex', alignItems: 'center', gap: 1, mt: 2 }}>
-                    Sei già registrato?
+                    {t('already_registered')}
                     <Button
                         variant="text"
                         sx={{ padding: 0, minWidth: 'auto', textTransform: 'none' }}
                         onClick={() => setSigninType('login')}
                     >
-                        Login
+                        {t('login')}
                     </Button>
                 </Typography>
             )}

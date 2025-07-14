@@ -2,11 +2,12 @@
 
 import { Box, Button, Typography, Avatar, Stack, Divider, LinearProgress, IconButton, Link, TextField, InputAdornment, CircularProgress } from '@mui/material';
 import { useEffect, useState } from 'react';
+import NextLink from 'next/link';
 import Head from 'next/head';
-import { useRouter } from 'next/navigation';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import EuroIcon from '@mui/icons-material/Euro';
+import { useRouter } from 'next/router';
 
 import apiService from '@/components/scripts/apiService';
 import Navbar from '@/components/Home/Navbar';
@@ -18,6 +19,7 @@ type SeveritySnakbarType = {
 }
 
 export default function SuggestNewCode() {
+    const { locale } = useRouter();
     const router = useRouter();
 
     const [formData, setFormData] = useState<{
@@ -117,11 +119,11 @@ export default function SuggestNewCode() {
                     backgroundColor: '#fff',
                 }}
             >
-                <Link href='/dashboard'>
+                <NextLink href={locale === 'it' ? '/it/dashboard' : '/en/dashboard'} passHref>
                     <IconButton>
                         <ArrowBackIcon sx={{ fontSize: '30px' }} />
                     </IconButton>
-                </Link>
+                </NextLink>
 
                 <Box
                     component="form"

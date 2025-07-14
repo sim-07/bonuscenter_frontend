@@ -1,6 +1,12 @@
+import NextLink from 'next/link';
 import { Box, Link, Typography, Stack } from '@mui/material';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
 export default function Footer() {
+    const { locale } = useRouter();
+    const { t } = useTranslation('common');
+
     return (
         <Box
             component="footer"
@@ -22,19 +28,42 @@ export default function Footer() {
                 spacing={4}
                 mb={1}
             >
-                <Link href="/privacy" underline="hover" color="inherit" sx={{ cursor: 'pointer' }}>
-                    Privacy Policy
+                <Link
+                    component={NextLink}
+                    href={locale === 'it' ? '/it/privacy' : '/en/privacy'}
+                    locale={locale}
+                    underline="none"
+                    color="#b7b7b7"
+                    sx={{ cursor: 'pointer' }}
+                >
+                    {t('privacy')}
                 </Link>
-                <Link href="/contact_us" underline="hover" color="inherit" sx={{ cursor: 'pointer' }}>
-                    Contattaci
+
+                <Link
+                    component={NextLink}
+                    href={locale === 'it' ? '/it/contact_us' : '/en/contact_us'}
+                    locale={locale}
+                    underline="none"
+                    color="#b7b7b7"
+                    sx={{ cursor: 'pointer' }}
+                >
+                    {t('contact')}
                 </Link>
-                <Link href="/about" underline="hover" color="inherit" sx={{ cursor: 'pointer' }}>
-                    About
+
+                <Link
+                    component={NextLink}
+                    href={locale === 'it' ? '/it/about' : '/en/about'}
+                    locale={locale}
+                    underline="none"
+                    color="#b7b7b7"
+                    sx={{ cursor: 'pointer' }}
+                >
+                    {t('about')}
                 </Link>
             </Stack>
 
-            <Typography variant="body2" color="inherit" component="p">
-                &copy; {new Date().getFullYear()} BonusCenter. Tutti i diritti riservati.
+            <Typography variant="body2" color="inherit" component="p" sx={{ mt: 2 }}>
+                &copy; {new Date().getFullYear()} BonusCenter. {t('all_rights_reserved')}
             </Typography>
         </Box>
     );

@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import { useState } from 'react';
 import LoginForm from '../common/LoginForm';
 import DialogComponent from '../common/DialogComponent';
+import { useTranslation } from 'next-i18next';
 
 const HeroContainer = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.grey?.[100] || '#f5f5f5',
@@ -75,7 +76,7 @@ type HeroSectionProps = {
 };
 
 export default function HeroSection({ scrollToMiddle }: HeroSectionProps) {
-
+    const { t } = useTranslation('hero');
     const theme = useTheme();
 
     const [openLogin, setOpenLogin] = useState(false);
@@ -88,7 +89,7 @@ export default function HeroSection({ scrollToMiddle }: HeroSectionProps) {
         <HeroContainer>
             <Container maxWidth="lg">
                 <Grid container spacing={4} alignItems="center">
-                    <Grid size={{ xs: 12, md: 6 }} >
+                    <Grid size={{ xs: 12, md: 6 }}>
                         <Typography
                             variant="h1"
                             sx={{
@@ -101,10 +102,10 @@ export default function HeroSection({ scrollToMiddle }: HeroSectionProps) {
                             }}
                         >
                             <Box component="span" sx={{ color: theme.palette.primary.main }}>
-                                Condividi Codici,
+                                {t('title.part1')}
                             </Box>
                             <br />
-                            Guadagna Ricompense!
+                            {t('title.part2')}
                         </Typography>
 
                         <Typography
@@ -118,18 +119,18 @@ export default function HeroSection({ scrollToMiddle }: HeroSectionProps) {
                                 zIndex: 1,
                             }}
                         >
-                            Bonuscenter è la piattaforma dove ogni codice condiviso si trasforma in guadagno. Unisciti alla community e inizia a monetizzare oggi stesso!
+                            {t('subtitle')}
                         </Typography>
 
                         <Grid container spacing={2} sx={{ mt: 4 }}>
                             <Grid>
                                 <PrimaryButton variant="contained" size="large" onClick={openLoginDialog}>
-                                    Pubblica referral
+                                    {t('button.publishReferral')}
                                 </PrimaryButton>
                             </Grid>
                             <Grid>
                                 <SecondaryButton variant="outlined" size="large" onClick={scrollToMiddle}>
-                                    Tutti i bonus
+                                    {t('button.viewAll')}
                                 </SecondaryButton>
                             </Grid>
                         </Grid>

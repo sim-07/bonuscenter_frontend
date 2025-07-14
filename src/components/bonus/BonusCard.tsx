@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useRouter } from 'next/router';
 
 interface BonusCardProps {
     name: string,
@@ -30,10 +31,12 @@ export default function BonusCard({
     deleteCode,
     setSelectedCodeId
 }: BonusCardProps) {
+    const { locale } = useRouter();
+    const currentLocale = locale || 'en';
 
     return (
         <Link
-            href={`/bonus/${name}`}
+            href={currentLocale === 'it' ? `/it/bonus/${name}` : `/en/bonus/${name}`}
             style={{
                 textDecoration: 'none',
                 color: 'inherit',

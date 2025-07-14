@@ -1,14 +1,18 @@
 import { Box, Typography } from '@mui/material';
-
 import SearchInput from '../common/SearchInput';
 import BonusList from './BonusList';
 import { useState } from 'react';
 import { bonusListData } from '../data/bonusListData';
+import { useRouter } from 'next/router';
 
 interface BonusItem {
-    name: string,
+    name: string;
     title: string;
-    description: string;
+    description: {
+        it: string;
+        en: string;
+        [key: string]: string;
+    };
     bonus_value: string;
     image: string;
     category: string;
@@ -21,8 +25,15 @@ interface BonusContainerProps {
     edit?: boolean;
 }
 
-export default function BonusContainer({ width = '95%', bonusListDataP = bonusListData, titleBonusContainer, edit = false }: BonusContainerProps) {
+export default function BonusContainer({
+    width = '95%',
+    bonusListDataP = bonusListData,
+    titleBonusContainer,
+    edit = false
+}: BonusContainerProps) {
     const [searchTerm, setSearchTerm] = useState('');
+    const { locale } = useRouter();
+    const currentLocale = locale || 'en';
 
     const filtBonusListData = Array.isArray(bonusListDataP)
         ? bonusListDataP.filter((bonus) =>
@@ -60,8 +71,12 @@ export default function BonusContainer({ width = '95%', bonusListDataP = bonusLi
                 value={searchTerm}
                 onChange={(value) => setSearchTerm(value)}
             />
-            <BonusList bonusListDataP={filtBonusListData} edit={edit}/>
-        </Box>
 
+            <BonusList
+                bonusListDataP={filtBonusListData}
+                edit={edit}
+                locale={currentLocale}
+            />
+        </Box>
     );
 }

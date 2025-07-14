@@ -1,6 +1,8 @@
 import { ReactNode, useEffect, useState } from 'react';
 import Head from 'next/head';
 import router from 'next/router';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { Box } from '@mui/material';
 import { useTheme, useMediaQuery } from '@mui/material';
@@ -18,9 +20,10 @@ interface DashboardlayoutProps {
     children?: ReactNode;
 }
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-
 export default function DashboardLayout({ children }: DashboardlayoutProps) {
+    const { t } = useTranslation('dashboard');
+
+
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -35,7 +38,7 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
         const checkAuth = async () => {
             try {
                 setIsLoading(true);
-                
+
                 const res = await apiService('users', 'get_user_data');
 
                 if (res.error || !res.data || !Array.isArray(res.data) || res.data.length === 0) {
@@ -51,7 +54,7 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
                 router.push('/');
             }
         };
-    
+
         checkAuth();
     }, []);
 
@@ -66,7 +69,7 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
         <>
             <Head>
                 <title>Dashboard | BonusCenter</title>
-                <meta name="description" content="Condividi codici referral e guadagna online in modo veloce e senza rischi" />
+                <meta name="description" content={t('description')} />
                 <link rel="icon" href="/icons/bonuscenter_icon.png" />
             </Head>
             {isLoading ? (
@@ -108,5 +111,13 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
             )}
         </>
     );
+}
 
+
+export async function getServerSideProps({ locale }: { locale: string }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['dashboard'])),
+        },
+    };
 }

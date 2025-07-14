@@ -1,20 +1,25 @@
 'use client';
 
 import { Box, Button, Typography, Avatar, Stack, Divider, LinearProgress, IconButton, Link } from '@mui/material';
+import NextLink from 'next/link';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import VisibilityIcon from '@mui/icons-material/Visibility';
 
 import apiService from '@/components/scripts/apiService';
 import LoadingSpinner from '@/components/common/LoadingSpinner';
 import Navbar from '@/components/Home/Navbar';
 import Footer from '@/components/Home/Footer';
 
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function Profilo() {
+    const { locale } = useRouter();
+    const { t } = useTranslation('profile');
+
     const [userData, setUserData] = useState<{
         username: string;
         email: string;
@@ -47,7 +52,7 @@ export default function Profilo() {
 
                 setUserData(res.data[0]);
             } catch (err) {
-                console.error('Errore nel caricamento del profilo');
+                console.error(t('error_loading_profile'));
                 router.push('/');
             }
         };
@@ -60,12 +65,12 @@ export default function Profilo() {
                     const confirmedCodes = res.data.filter((code: any) => code.confirmed === true);
                     setUsedCodes(confirmedCodes);
                 } else {
-                    console.error("Error fetching used codes")
+                    console.error(t('error_fetching_used_codes'));
                 }
             } catch (err) {
-                console.error('Error used codes');
+                console.error(t('error_fetching_used_codes'));
             }
-        }
+        };
 
         const fetchUserUsedCodes = async () => {
             try {
@@ -74,35 +79,35 @@ export default function Profilo() {
                 if (!res.error) {
                     setUserBonusValue(res.data);
                 } else {
-                    console.error("Error fetching used codes")
+                    console.error(t('error_fetching_user_used_codes'));
                 }
             } catch (err) {
-                console.error('Error user used codes');
+                console.error(t('error_fetching_user_used_codes'));
             }
-        }
+        };
 
         fetchProfile();
         fetchUsedCodes();
         fetchUserUsedCodes();
-    }, []);
+    }, [t, router]);
 
     const handleLogout = async () => {
         try {
             await apiService('users', 'logout');
             router.push('/');
         } catch (err) {
-            console.error('Errore nel logout');
+            console.error(t('error_logout'));
         }
     };
 
     const handleDeleteAccount = async () => {
-        if (!confirm("Sei sicuro di voler cancellare il tuo account? Questa azione è irreversibile.")) return;
+        if (!confirm(t('confirm_delete_account'))) return;
 
         try {
             await apiService('users', 'delete_account');
             router.push('/');
         } catch (err) {
-            console.error('Errore durante la cancellazione dell’account');
+            console.error(t('error_delete_account'));
         }
     };
 
@@ -131,25 +136,26 @@ export default function Profilo() {
         return acc + parseFloat(curr.bonus_value || '0');
     }, 0);
 
-    let visibilityPercent = Math.min(100,
+    let visibilityPercent = Math.min(
+        100,
         ((codesCount / maxCodes) * 50) + ((bonusValue / maxBonus) * 50)
     );
 
     let userBonusTotal = userBonusValue.reduce((acc, curr) => {
         return acc + parseFloat(curr.bonus_value || '0');
-      }, 0);
-      
-      let bonusValueTot = bonusValue + userBonusTotal;
+    }, 0);
 
-    let visibilityLabel = "Iniziale";
-    if (visibilityPercent >= 75) visibilityLabel = "Estrema";
-    else if (visibilityPercent >= 50) visibilityLabel = "Ottima";
-    else if (visibilityPercent >= 20) visibilityLabel = "Buona";
+    let bonusValueTot = bonusValue + userBonusTotal;
+
+    let visibilityLabel = t('visibility_initial');
+    if (visibilityPercent >= 75) visibilityLabel = t('visibility_extreme');
+    else if (visibilityPercent >= 50) visibilityLabel = t('visibility_good');
+    else if (visibilityPercent >= 20) visibilityLabel = t('visibility_fair');
 
     return (
         <>
             <Head>
-                <title>Bonuscenter | Profile</title>
+                <title>{t('page_title')} | BonusCenter</title>
             </Head>
             <Navbar>
                 <></>
@@ -168,11 +174,11 @@ export default function Profilo() {
                     backgroundColor: '#fff',
                 }}
             >
-                <Link href='/dashboard'>
+                <NextLink href={locale === 'it' ? '/it/dashboard' : '/en/dashboard'} passHref>
                     <IconButton>
                         <ArrowBackIcon sx={{ fontSize: '30px' }} />
                     </IconButton>
-                </Link>
+                </NextLink>
 
                 <Stack spacing={3} alignItems="center">
                     <Avatar sx={{ width: 80, height: 80 }}>
@@ -185,7 +191,7 @@ export default function Profilo() {
                             {email}
                         </Typography>
                         <Typography variant="body2" color="gray">
-                            Registrato il {new Date(created_at).toLocaleDateString()}
+                            {t('registered_on')} {new Date(created_at).toLocaleDateString()}
                         </Typography>
                     </Box>
 
@@ -193,14 +199,14 @@ export default function Profilo() {
 
                     <Box width="100%">
                         <Typography variant="h6" sx={{ mb: 2 }} gutterBottom>
-                            📊 Attività
+                            📊 {t('activity')}
                         </Typography>
-                        <Typography variant="body1"><strong>Codici usati:</strong> {codesCount}</Typography>
-                        <Typography variant="body1"><strong>Guadagno totale:</strong> {bonusValueTot}€</Typography>
+                        <Typography variant="body1"><strong>{t('used_codes')}:</strong> {codesCount}</Typography>
+                        <Typography variant="body1"><strong>{t('total_earnings')}:</strong> {bonusValueTot}€</Typography>
 
                         <Box sx={{ mt: 3, mb: 2 }}>
                             <Typography sx={{ fontSize: '18px', mb: 2 }} gutterBottom>
-                                <strong>Visibilità:</strong> {visibilityLabel} (+{Math.round(visibilityPercent)}%)
+                                <strong>{t('visibility')}:</strong> {visibilityLabel} (+{Math.round(visibilityPercent)}%)
                             </Typography>
                             <LinearProgress
                                 variant="determinate"
@@ -221,7 +227,7 @@ export default function Profilo() {
                             />
                         </Box>
                         <Typography sx={{ color: '#626262' }}>
-                            La <strong>visibilità</strong> aumenta in base al numero di bonus completati e al loro valore
+                            {t('visibility_description')}
                         </Typography>
                     </Box>
 
@@ -229,17 +235,24 @@ export default function Profilo() {
 
                     <Stack direction="row" spacing={3} sx={{ marginTop: '50px !important' }}>
                         <Button variant="outlined" color="error" onClick={handleLogout}>
-                            Logout
+                            {t('logout')}
                         </Button>
                         <Button variant="outlined" color="error" onClick={handleDeleteAccount}>
-                            Cancella account
+                            {t('delete_account')}
                         </Button>
                     </Stack>
                 </Stack>
             </Box>
 
             <Footer />
-
         </>
     );
+}
+
+export async function getServerSideProps({ locale }: { locale: string }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['profile'])),
+        },
+    };
 }

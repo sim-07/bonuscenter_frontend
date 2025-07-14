@@ -6,8 +6,6 @@ import MiddlePage from '../src/components/Home/MiddlePage';
 import Footer from '../src/components/Home/Footer';
 import Header from '@/components/Home/Header';
 
-
-
 export default function Home() {
     const middleRef = useRef<HTMLDivElement | null>(null);
 

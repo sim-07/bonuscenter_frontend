@@ -1,0 +1,13 @@
+{
+    "login": "Login",
+    "login_upper": "LOGIN",
+    "signup": "Sign up",
+    "signup_upper": "SIGN UP",
+    "no_account": "Don't have an account?",
+    "already_registered": "Already registered?",
+    "signup_privacy_prefix": "By signing up you accept",
+    "privacy_policy": "the privacy policy",
+    "field_required": "The field \"{{field}}\" is required",
+    "server_error": "Server error"
+  }
+  

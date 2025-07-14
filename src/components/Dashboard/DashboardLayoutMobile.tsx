@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Box, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, Stack, Menu } from "@mui/material";
+import { useTranslation } from "next-i18next";
 
 import MenuIcon from '@mui/icons-material/Menu';
 import PersonIcon from '@mui/icons-material/Person';
@@ -8,7 +9,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import AssignmentAddIcon from '@mui/icons-material/AssignmentAdd';
 import AddIcon from '@mui/icons-material/Add';
-import NotificationsIcon from '@mui/icons-material/Notifications'
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 import Navbar from "../Home/Navbar";
 import DrawerMenu from "../common/DrawerMenu";
@@ -19,13 +20,6 @@ import UsedCodes from "../bonus/UsedCodes";
 import apiService from "../scripts/apiService";
 import NotificationList from "../common/NotificationList";
 
-const listMenu = [
-    { text: 'Profilo', icon: <PersonIcon />, route: '/profile' },
-    { text: 'Tutti i codici', icon: <AssignmentIcon />, component: <BonusContainer /> },
-    { text: 'I miei codici', icon: <AssignmentAddIcon />, component: <UserReferral /> },
-    { text: 'Codici usati', icon: <AssignmentTurnedInIcon />, component: <UsedCodes /> },
-];
-
 export default function DashboardLayoutMobile({
     username,
     openAddCodeDialog
@@ -33,17 +27,26 @@ export default function DashboardLayoutMobile({
     username: string,
     openAddCodeDialog: () => void
 }) {
+    const { t } = useTranslation('dashboard');
+
+    const listMenu = [
+        { text: t('profile'), icon: <PersonIcon />, route: '/profile' },
+        { text: t('all_codes'), icon: <AssignmentIcon />, component: <BonusContainer /> },
+        { text: t('my_codes'), icon: <AssignmentAddIcon />, component: <UserReferral /> },
+        { text: t('used_codes'), icon: <AssignmentTurnedInIcon />, component: <UsedCodes /> },
+    ];
+
     const [openDrawer, setOpenDrawer] = useState(false);
     const [activeTab, setActiveTab] = useState(1);
-    const [anchorElNotification, setAchorElNotification] = useState<null | HTMLElement>(null);
+    const [anchorElNotification, setAnchorElNotification] = useState<null | HTMLElement>(null);
     const openN = Boolean(anchorElNotification);
 
     const handleClickNotification = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAchorElNotification(event.currentTarget);
+        setAnchorElNotification(event.currentTarget);
     };
 
     const handleCloseNotification = () => {
-        setAchorElNotification(null);
+        setAnchorElNotification(null);
     };
 
     const toggleDrawer = (newOpen: boolean) => () => {
@@ -60,7 +63,7 @@ export default function DashboardLayoutMobile({
                 console.error("Error during logout");
             }
         } catch (error) {
-            console.error('Errore durante il logout:', error);
+            console.error('Error during logout:', error);
         }
     };
 
@@ -101,8 +104,6 @@ export default function DashboardLayoutMobile({
                     >
                         <NotificationsIcon />
                     </IconButton>
-
-
                 </Stack>
 
                 <Menu
@@ -114,7 +115,6 @@ export default function DashboardLayoutMobile({
                 >
                     <NotificationList compact={true} max={50} />
                 </Menu>
-
 
                 <DrawerMenu open={openDrawer} toggleDrawer={toggleDrawer}>
                     <List>
@@ -139,7 +139,7 @@ export default function DashboardLayoutMobile({
                         <ListItem disablePadding>
                             <ListItemButton onClick={handleLogout}>
                                 <ListItemIcon><ExitToAppIcon /></ListItemIcon>
-                                <ListItemText primary="Logout" />
+                                <ListItemText primary={t('logout')} />
                             </ListItemButton>
                         </ListItem>
                     </List>
@@ -155,8 +155,6 @@ export default function DashboardLayoutMobile({
             >
                 {listMenu[activeTab].component}
             </Box>
-
-
         </Box>
     );
 }

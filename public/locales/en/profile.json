@@ -1,0 +1,22 @@
+{
+    "page_title": "Profile",
+    "error_loading_profile": "Error loading profile",
+    "error_fetching_used_codes": "Error fetching used codes",
+    "error_fetching_user_used_codes": "Error fetching user's used codes",
+    "error_logout": "Error during logout",
+    "confirm_delete_account": "Are you sure you want to delete your account? This action is irreversible.",
+    "error_delete_account": "Error deleting account",
+    "registered_on": "Registered on",
+    "activity": "Activity",
+    "used_codes": "Used codes",
+    "total_earnings": "Total earnings",
+    "visibility": "Visibility",
+    "visibility_initial": "Initial",
+    "visibility_fair": "Fair",
+    "visibility_good": "Good",
+    "visibility_extreme": "Extreme",
+    "visibility_description": "Visibility increases based on the number and value of completed bonuses",
+    "logout": "Logout",
+    "delete_account": "Delete account"
+  }
+  
