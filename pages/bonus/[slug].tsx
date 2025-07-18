@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import BonusDescription from '@/components/bonus/BonusDesription';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -67,7 +69,8 @@ export async function getStaticProps({ params, locale }: { params: { slug: strin
 
     return {
         props: {
-            bonus
+            bonus,
+            ...(await serverSideTranslations(locale, ['common'])),
         }
     };
 }
