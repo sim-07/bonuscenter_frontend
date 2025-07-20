@@ -200,7 +200,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                         width: "100%",
                         maxWidth: 360,
                         bgcolor: "gray.100",
-                        overflow: 'scroll',
+                        overflowY: 'scroll',
                         height: '200px'
                     }}>
                     {allReferralData.map((referral) => (
