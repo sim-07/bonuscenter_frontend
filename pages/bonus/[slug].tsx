@@ -70,7 +70,7 @@ export async function getStaticProps({ params, locale }: { params: { slug: strin
     return {
         props: {
             bonus,
-            ...(await serverSideTranslations(locale, ['common'])),
+            ...(await serverSideTranslations(lang, ['common'])),
         }
     };
 }
@@ -80,8 +80,13 @@ export default function BonusDescriptionPage({ bonus }: Props) {
     const slug = router.query.slug as string;
     const locale = router.locale || 'it';
 
-    const canonicalUrl = `https://www.bonuscenter.it/${locale}/bonus/${slug}`;
+    const canonicalUrl =
+        locale === 'it'
+            ? `https://www.bonuscenter.it/bonus/${slug}`
+            : `https://www.bonuscenter.it/${locale}/bonus/${slug}`; // se l'utente è it non metto prefisso, altrimenti metto l'altra lingua
+
     const metaDescription = bonus.title || 'Scopri tutti i dettagli sul bonus disponibile per questa piattaforma.';
+
 
     return (
         <>
@@ -92,7 +97,7 @@ export default function BonusDescriptionPage({ bonus }: Props) {
 
                 <link
                     rel="alternate"
-                    href={`https://www.bonuscenter.it/it/bonus/${slug}`}
+                    href={`https://www.bonuscenter.it/bonus/${slug}`}
                     hrefLang="it"
                 />
                 <link
@@ -102,7 +107,7 @@ export default function BonusDescriptionPage({ bonus }: Props) {
                 />
                 <link
                     rel="alternate"
-                    href={`https://www.bonuscenter.it/${locale}/bonus/${slug}`}
+                    href={`https://www.bonuscenter.it/bonus/${slug}`}
                     hrefLang="x-default"
                 />
             </Head>
