@@ -150,9 +150,9 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                 backgroundColor: "grey.100",
                 p: 1,
                 borderRadius: '12px',
-                overflow: "scroll",
                 minWidth: "350px",
-                height: 'auto'
+                height: 'auto',
+                overflow: 'hidden'
             }}
         >
             <Stack
