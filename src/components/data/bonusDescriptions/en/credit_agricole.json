@@ -1,58 +1,53 @@
 {
-  "title": "Crédit Agricole Bonus €50 Amazon",
+  "title": "Crédit Agricole €50 Amazon Gift Card",
   "name": "credit_agricole",
   "bonus_image": "credit_agricole",
   "summary": {
-    "bonus": "🎁 €50 Amazon voucher after a transaction of at least €0.10",
-    "invito": "🎁 €50 Amazon voucher for every invited friend (max 4 invites)",
+    "bonus": "🎁 €50 Amazon gift card after a card payment of at least €0.10 and a €1000 deposit or salary/pension credit",
+    "invito": "🎁 €50 Amazon gift card for each friend invited (up to 4 friends)",
     "deposito_richiesto": "💰 €0.10 via free instant bank transfer",
-    "scadenza": "🗓️ Promo valid until June 30, 2025 (requirements by August 10)",
-    "commissioni": "✅ Free account and card for 9 months, then €2/month (only for over 35)",
-    "extra": "💵 +€50 for salary/pension deposit + up to €50 extra cashback"
+    "scadenza": "🗓️ Offer valid until 30/09/25 (account opening request must be submitted between 01/07/2025 and 31/07/2025)",
+    "commissioni": "✅ Free account and card for 9 months, then €2/month (only for users over 35)",
+    "extra": "-"
   },
   "sections": [
     {
       "title": "What is Crédit Agricole and how does the bonus work",
       "content": [
-        "Crédit Agricole is a European bank offering an online account with an Italian IBAN, fully manageable via app.",
-        "By opening an account and using a debit card, you can receive a €50 Amazon voucher with a simple purchase of at least €0.10.",
-        "Additionally, you can get another €50 if you deposit your salary or pension for at least one month, and up to €50 extra as cashback when spending with the card.",
-        "Each completed referral gives you another €50 in Amazon vouchers, up to a maximum of 4 invites (total €200)."
+        "Crédit Agricole is a European bank offering an Italian IBAN account, fully manageable via mobile app.",
+        "By opening an account and using your debit card, you can receive a €50 Amazon gift card with a simple payment of at least €0.10.",
+        "For each friend who completes the requirements, you receive an additional €50 Amazon gift card, up to a total of 4 friends (€200)."
       ]
     },
     {
       "title": "Main requirements",
       "content": [
-        "Minimum transaction required: at least €0.10 within 60 days of opening (and in any case by 08/10/2025).",
-        "To get the salary bonus, you must receive a regular deposit (salary or pension) by August 10, 2025, and maintain it until that date.",
-        "To receive up to €50 cashback, you must make card purchases within the first 60 days:",
-        "💵 €25 if you spend at least €500; 💵 €50 if you exceed €1,000.",
-        "The account is free for the first 9 months, then €2/month if you are over 35 (free for under 35).",
-        "The VISA card is free for 24 months. The Bancomat Easy Cash card is also available for in-person payments only.",
-        "Valid documents (ID and health card) and a short video selfie are required for identification.",
-        "The bonus is issued within 120 days of the promotion's end.",
-        "Only those aged 18 or older can register.",
-        "Maximum 4 invites per user; the counter resets with each new promotion."
+        "Minimum transaction required: at least €0.10 within 60 days of account opening.",
+        "You must also either deposit at least €1000 or credit your salary/pension to qualify for the €50 Amazon gift card.",
+        "The account is free for the first 9 months, then €2/month for users over 35 (free for users under 35).",
+        "The VISA card is free for 24 months. A physical-only Bancomat Easy Cash card is also available.",
+        "Valid ID (identity card and health card) and a short video selfie are required for identity verification.",
+        "The bonus will be issued within 120 days after the promotion ends.",
+        "Only users aged 18 or older can participate.",
+        "A maximum of 4 invitations per user; the invite counter resets with each new promotion."
       ]
     },
     {
       "title": "Step-by-step guide",
       "content": [
-        "1. Register from the link at the top of the page: make sure the promotional code is correctly entered and click 'Use promo code'.",
-        "2. Choose the nearest branch (random if none nearby). If in doubt, they will contact you by phone or email.",
-        "3. Enter your data, fill out the anti-money laundering section, and confirm your address and tax code. Choose the VISA DEBIT card.",
-        "4. Verify documents: you will need to photograph your ID and health card, as well as record a short video with a code.",
-        "5. Sign the documents digitally and wait for confirmation emails. You will need to complete the signature with an OTP code received via SMS.",
-        "6. After about 24 hours, you will receive account activation. Set up login credentials from the Crédit Agricole customer site.",
-        "7. After another 24-48 hours, you can activate the virtual card from the app: go to the 'Cards and accounts' menu, then enable online payments.",
-        "8. Once the card is active, deposit at least €0.10 with an instant transfer and complete an eligible transaction (POS, online, or wallet).",
-        "💡 Ideas for the purchase: Revolut recharge with payment link, TikTok token purchase, apps for a few cents on App Store or Google Play.",
-        "❌ Not valid: transfers, SIM recharges, or prepaid card top-ups. Avoid purchases under €5, unless it's an Amazon recharge.",
-        "9. The Amazon voucher is sent within 120 days of verifying the requirements (08/10/2025).",
-        "💵 To get the extra bonuses:",
-        "- Make purchases of at least €500 (€25) or €1,000 (€50) within 60 days.",
-        "- Deposit your salary or pension by 08/10/2025 and keep it active to receive another €50.",
-        "✅ All bonuses are cumulative."
+        "1. Register using the link at the top of the page: make sure the promo code is entered correctly and click 'Use promo code'.",
+        "2. Select the nearest branch (you can choose any, even at random). If needed, they will contact you by phone or email.",
+        "3. Fill in your personal information, complete the anti-money laundering section, confirm your address and tax code. Choose the VISA DEBIT card.",
+        "4. Verify your documents: take photos of your ID and health card, and record a short video with a verification code.",
+        "5. Digitally sign the documents and wait for confirmation emails. You’ll need to complete the signature with an OTP code sent via SMS.",
+        "6. Within about 24h your account will be activated. Set your login credentials from the Crédit Agricole customer site.",
+        "7. After another 24-48h you’ll be able to activate the virtual card via the app: go to 'Cards and accounts' and enable online payments.",
+        "8. Once the card is active, deposit at least €0.10 via instant transfer and complete a qualifying transaction (POS, online, or wallet).",
+        "💡 Spending ideas: Revolut payment link, TikTok token purchase, apps costing a few cents from the App Store or Google Play.",
+        "❌ Not valid: bank transfers, mobile top-ups, or prepaid card reloads. Avoid purchases under €5 unless it's an Amazon top-up.",
+        "9. Deposit €1000 into your account or alternatively, credit your salary or pension.",
+        "10. The Amazon gift card will be sent within 120 days after verifying the requirements.",
+        "✅ All bonuses can be combined."
       ]
     }
   ]

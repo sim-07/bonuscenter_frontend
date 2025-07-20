@@ -3,12 +3,12 @@
     "name": "credit_agricole",
     "bonus_image": "credit_agricole",
     "summary": {
-      "bonus": "🎁 50€ in buono Amazon dopo una transazione da almeno 0,10€",
+      "bonus": "🎁 50€ in buono Amazon dopo una transazione da almeno 0,10€ con la carta Visa e versa con un bonifico da 1000€ sul conto o accredita stipendio/pensione",
       "invito": "🎁 50€ in buono Amazon per ogni amico invitato (max 4 inviti)",
       "deposito_richiesto": "💰 0,10€ tramite bonifico istantaneo gratuito",
-      "scadenza": "🗓️ Promo valida fino al 30 giugno 2025 (requisiti entro 10 agosto)",
+      "scadenza": "🗓️ Promo valida fino al 30/09/25 (richiesta di apertura del conto online dal 01/07/2025 al 31/07/2025)",
       "commissioni": "✅ Conto e carta gratuiti per 9 mesi, poi 2€/mese (solo over 35)",
-      "extra": "💵 +50€ per accredito stipendio/pensione + fino a 50€ di cashback extra"
+      "extra": "-"
     },
     "sections": [
       {
@@ -16,17 +16,14 @@
         "content": [
           "Crédit Agricole è una banca europea che offre un conto online con IBAN italiano, gestibile interamente via app.",
           "Aprendo un conto e utilizzando una carta di debito, puoi ricevere un buono Amazon da 50€ con una semplice spesa di almeno 0,10€.",
-          "Inoltre, puoi ottenere altri 50€ se accrediti lo stipendio o la pensione per almeno un mese, e fino a 50€ extra sotto forma di cashback spendendo con la carta.",
-          "Ogni invito completato ti dà diritto ad altri 50€ in buoni Amazon, fino a un massimo di 4 inviti (totale 200€)."
+          "Ogni invito completato ti dà diritto a 50€ in buoni Amazon, fino a un massimo di 4 inviti (totale 200€)."
         ]
       },
       {
         "title": "Requisiti principali",
         "content": [
-          "Transazione minima richiesta: almeno 0,10€ entro 60 giorni dall'apertura (e comunque entro il 10/08/2025).",
-          "Per ottenere il bonus stipendio, è necessario ricevere un accredito regolare (stipendio o pensione) entro il 10 agosto 2025 e mantenerlo fino a quella data.",
-          "Per ricevere il cashback fino a 50€, bisogna effettuare spese con la carta nei primi 60 giorni:",
-          "💵 25€ se si spendono almeno 500€; 💵 50€ se si superano i 1.000€.",
+          "Transazione minima richiesta: almeno 0,10€ entro 60 giorni dall'apertura.",
+          "È inoltre richiesto l'accredito dello stipendio/pensione oppure versare almeno 1000€ sul conto per ottenere 50€ in buoni amazon",
           "Il conto è gratuito per i primi 9 mesi, poi 2€/mese se hai più di 35 anni (gratuito per gli under 35).",
           "La carta VISA è gratuita per 24 mesi. Disponibile anche la carta Bancomat Easy Cash per solo pagamenti fisici.",
           "Sono necessari documenti validi (identità e tessera sanitaria) e un breve videoselfie per l’identificazione.",
@@ -48,10 +45,8 @@
           "8. Una volta attiva la carta, deposita almeno 0,10€ con bonifico istantaneo e completa una transazione idonea (POS, online o wallet).",
           "💡 Idee per la spesa: ricarica Revolut con link pagamento, acquisto token su TikTok, app da pochi centesimi su App Store o Google Play.",
           "❌ Non validi: bonifici, ricariche SIM o carte prepagate. Evita spese sotto i 5€, a meno che non si tratti di una ricarica Amazon.",
-          "9. Il buono Amazon viene inviato entro 120 giorni dalla verifica dei requisiti (10/08/2025).",
-          "💵 Per ottenere i bonus extra:",
-          "- Effettua spese per almeno 500€ (25€) o 1.000€ (50€) entro 60 giorni.",
-          "- Accredita lo stipendio o la pensione entro il 10/08/2025 e mantienilo attivo per ricevere altri 50€.",
+          "9. Deposita 1000€ sul conto o, in alternativa, accredita lo stipendio la pensione.",
+          "10. Il buono Amazon viene inviato entro 120 giorni dalla verifica dei requisiti.",
           "✅ Tutti i bonus sono cumulabili."
         ]
       }
