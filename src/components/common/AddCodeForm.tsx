@@ -18,6 +18,7 @@ import { useEffect, useState } from 'react';
 import { bonusListData } from '../data/bonusListData';
 import CustomizedSnackbar from './Snakbar';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 type AddCodeFormProps = {
     successAddCode: () => void;
@@ -32,6 +33,7 @@ type SeveritySnakbarType = {
 export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: AddCodeFormProps) {
 
     const { t } = useTranslation('common');
+    const { locale } = useRouter();
 
     const [formData, setFormData] = useState<{
         title: string;
@@ -285,7 +287,7 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                         cursor: 'pointer',
                         color: 'primary.main'
                     }}
-                    href='/suggest_new_code'
+                    href={locale === 'it' ? '/it/suggest_new_code' : '/en/suggest_new_code'}
                 >
                     {t('suggest_new_brand')}
                 </Link>
