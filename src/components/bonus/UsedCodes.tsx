@@ -90,7 +90,7 @@ export default function UsedCodes() {
                                 {usedCodes.map((code, index) => (
                                     <TableRow key={index}>
                                         <TableCell>{code.brand}</TableCell>
-                                        <TableCell>{code.bonus_value}€</TableCell>
+                                        <TableCell>{code.bonus_value}</TableCell>
                                         <TableCell>{code.confirmed ? t('yes') : t('no')}</TableCell>
                                         <TableCell>{new Date(code.created_at).toLocaleString()}</TableCell>
                                     </TableRow>
