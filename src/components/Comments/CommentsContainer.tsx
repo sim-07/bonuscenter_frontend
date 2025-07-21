@@ -1,6 +1,7 @@
 import { Box, Divider, Typography, TextField, InputAdornment, IconButton, Stack } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import { useEffect, useState } from "react";
+import { useTranslation } from 'next-i18next';
 
 import apiService from "../scripts/apiService";
 import CommentsList from "./CommentsList";
@@ -15,6 +16,8 @@ type SeveritySnakbarType = {
 }
 
 export default function CommentsContainer({ bonusName }: CommentsContainerProps) {
+    const { t } = useTranslation('common');
+
     const [isLoading, setIsLoading] = useState(true);
     const [commentText, setCommentText] = useState("");
     const [snakbarMessage, setSnakbarMessage] = useState('');
@@ -39,7 +42,7 @@ export default function CommentsContainer({ bonusName }: CommentsContainerProps)
             }
 
         } catch (err: any) {
-            console.error('Errore recupero dei commenti:', err.message || err);
+            console.error(t('error_fetching_comments'), err.message || err);
         } finally {
             setIsLoading(false);
         }
@@ -57,7 +60,7 @@ export default function CommentsContainer({ bonusName }: CommentsContainerProps)
             if (!res.error) {
                 setCommentText("");
                 setOpenSnackbar(true);
-                setSnakbarMessage("Commento pubblicato!");
+                setSnakbarMessage(t('comment_posted'));
                 setSeveritySnakbar({ severity: 'success' });
                 fetchAllComments();
             } else {
@@ -67,7 +70,7 @@ export default function CommentsContainer({ bonusName }: CommentsContainerProps)
                 console.error(res.error)
             }
         } catch (err: any) {
-            console.error('Errore recupero dei commenti:', err.message || err);
+            console.error(t('error_fetching_comments'), err.message || err);
         }
 
     };
@@ -94,7 +97,7 @@ export default function CommentsContainer({ bonusName }: CommentsContainerProps)
                 }}
             >
                 <Typography sx={{ margin: 2, fontSize: "25px" }}>
-                    Commenti
+                    {t('comments')}
                 </Typography>
                 <Divider sx={{ mb: 2 }} />
 
@@ -103,7 +106,7 @@ export default function CommentsContainer({ bonusName }: CommentsContainerProps)
                         width: '100%'
                     }}
                     variant="outlined"
-                    label="Pubblica un commento"
+                    label={t('post_comment')}
                     value={commentText}
                     onChange={(e) => setCommentText(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && sendComment()}
@@ -121,7 +124,7 @@ export default function CommentsContainer({ bonusName }: CommentsContainerProps)
                 />
                 {commentsList.length === 0 && !isLoading ? (
                     <Typography sx={{ color: '#666' }}>
-                        Ancora nessun commento. 
+                        {t('no_comments_yet')}
                     </Typography>
                 ) : (
                     <CommentsList commentsList={commentsList} isLoading={isLoading} />

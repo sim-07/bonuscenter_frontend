@@ -17,6 +17,7 @@ import apiService from '../scripts/apiService';
 import { useEffect, useState } from 'react';
 import { bonusListData } from '../data/bonusListData';
 import CustomizedSnackbar from './Snakbar';
+import { useTranslation } from 'next-i18next';
 
 type AddCodeFormProps = {
     successAddCode: () => void;
@@ -29,6 +30,9 @@ type SeveritySnakbarType = {
 }
 
 export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: AddCodeFormProps) {
+
+    const { t } = useTranslation('common'); 
+
     const [formData, setFormData] = useState<{
         title: string;
         brand: string;
@@ -166,7 +170,7 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                 resetForm();
                 successAddCode();
             } else {
-                setSnackbarMessage("Fai il login per pubblicare un codice");
+                setSnackbarMessage(t("login_to_post_code"));
                 setSeveritySnakbar({ severity: 'warning' });
                 setSnackbarOpen(true);
             }

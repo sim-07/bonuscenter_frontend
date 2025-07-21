@@ -4,6 +4,7 @@ import { Box, Button, Typography, Avatar, Stack, Divider, LinearProgress, IconBu
 import { useEffect, useState } from 'react';
 import NextLink from 'next/link';
 import Head from 'next/head';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import EuroIcon from '@mui/icons-material/Euro';
@@ -13,6 +14,7 @@ import apiService from '@/components/scripts/apiService';
 import Navbar from '@/components/Home/Navbar';
 import Footer from '@/components/Home/Footer';
 import CustomizedSnackbar from '@/components/common/Snakbar';
+import { useTranslation } from 'next-i18next';
 
 type SeveritySnakbarType = {
     severity?: 'success' | 'error' | 'warning' | 'info';
@@ -20,6 +22,7 @@ type SeveritySnakbarType = {
 
 export default function SuggestNewCode() {
     const { locale } = useRouter();
+    const { t } = useTranslation('common');
     const router = useRouter();
 
     const [formData, setFormData] = useState<{
@@ -41,25 +44,25 @@ export default function SuggestNewCode() {
     const formFields = [
         {
             name: 'bonus_name',
-            label: 'Nome del brand',
+            label: t('brand_name'),
             type: 'text',
             required: true,
         },
         {
             name: 'bonus_value',
-            label: 'Premio bonus',
+            label: t('bonus_reward'),
             type: 'amount',
             required: true,
         },
         {
             name: 'bonus_description',
-            label: 'Descrizione e requisiti bonus (opzionale)',
+            label: t('bonus_description_and_requirements_optional'),
             type: 'textArea',
             required: false,
         },
         {
             name: 'note',
-            label: 'Note (opzionale)',
+            label: t('notes_optional'),
             type: 'textArea',
             required: false,
         },
@@ -73,22 +76,22 @@ export default function SuggestNewCode() {
         e.preventDefault();
 
         try {
-            const res = await apiService('codes', 'suggest_new_bonus', formData);
             setIsLoading(true);
+            const res = await apiService('codes', 'suggest_new_bonus', formData);
 
             if (res.error) {
                 setSeveritySnakbar({ severity: 'error' });
+                setSnackbarMessage(t('error_occurred_try_later'));
                 setSnackbarOpen(true);
-                setSnackbarMessage("Si è verificato un errore, prova più tardi")
                 return;
             } else {
                 setSeveritySnakbar({ severity: 'success' });
+                setSnackbarMessage(t('suggestion_sent_successfully'));
                 setSnackbarOpen(true);
-                setSnackbarMessage("Suggerimento inviato con succeso! Verrà esaminato il prima possibile")
             }
 
         } catch (err) {
-            console.error('Errore nel caricamento del profilo');
+            console.error(t('profile_load_error'));
             router.push('/');
         } finally {
             setIsLoading(false);
@@ -100,7 +103,7 @@ export default function SuggestNewCode() {
     return (
         <>
             <Head>
-                <title>Bonuscenter</title>
+                <title>{t('bonuscenter')}</title>
             </Head>
             <Navbar>
                 <></>
@@ -120,7 +123,7 @@ export default function SuggestNewCode() {
                 }}
             >
                 <NextLink href={locale === 'it' ? '/it/dashboard' : '/en/dashboard'} passHref>
-                    <IconButton>
+                    <IconButton aria-label={t('go_back')}>
                         <ArrowBackIcon sx={{ fontSize: '30px' }} />
                     </IconButton>
                 </NextLink>
@@ -137,7 +140,7 @@ export default function SuggestNewCode() {
                 >
 
                     <Typography sx={{ color: '#535353', fontSize: '1.4em', mb: 3 }}>
-                        Suggerisci nuovo brand
+                        {t('suggest_new_brand')}
                     </Typography>
 
                     {formFields.map((field) => {
@@ -170,15 +173,14 @@ export default function SuggestNewCode() {
                                                 handleChange(field.name, value);
                                             }
                                         }}
-                                        slotProps={{
-                                            input: {
-                                                endAdornment: (
-                                                    <InputAdornment position="end">
-                                                        <EuroIcon />
-                                                    </InputAdornment>
-                                                ),
-                                            },
+                                        InputProps={{
+                                            endAdornment: (
+                                                <InputAdornment position="end">
+                                                    <EuroIcon />
+                                                </InputAdornment>
+                                            ),
                                         }}
+                                        sx={{ mb: 0.5 }}
                                     />
                                 )
 
@@ -187,7 +189,6 @@ export default function SuggestNewCode() {
                                     <TextField
                                         key={field.name}
                                         label={field.label}
-                                        type={field.type}
                                         variant="outlined"
                                         value={formData[field.name as keyof typeof formData]}
                                         onChange={(e) => handleChange(field.name, e.target.value)}
@@ -218,7 +219,7 @@ export default function SuggestNewCode() {
                         {isLoading ? (
                             <CircularProgress size={24} color="inherit" />
                         ) : (
-                            'INVIA'
+                            t('send')
                         )}
                     </Button>
 
@@ -237,4 +238,12 @@ export default function SuggestNewCode() {
 
         </>
     );
+}
+
+export async function getServerSideProps({ locale }: { locale: string }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['common'])),
+        },
+    };
 }

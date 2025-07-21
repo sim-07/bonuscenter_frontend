@@ -4,6 +4,7 @@ import {
     Button,
     Divider,
     IconButton,
+    Link,
     List,
     ListItem,
     ListItemAvatar,
@@ -11,8 +12,11 @@ import {
     Stack,
     Typography,
 } from "@mui/material";
+
+import InfoOutlineIcon from '@mui/icons-material/InfoOutline';
+
 import { useEffect, useState } from "react";
-import router from "next/router";
+import router, { useRouter } from "next/router";
 import React from "react";
 import DialogComponent from "../common/DialogComponent";
 import LoadingSpinner from "../common/LoadingSpinner";
@@ -21,13 +25,12 @@ import apiService from '@/components/scripts/apiService';
 import AddCodeForm from "../common/AddCodeForm";
 
 import AddIcon from '@mui/icons-material/Add';
+import { useTranslation } from "next-i18next";
 
 
 interface AllReferralProps {
     bonusName: string;
 }
-
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 type ReferralType = {
     code_id: string;
@@ -47,6 +50,9 @@ type SeveritySnakbarType = {
 }
 
 export default function AllReferral({ bonusName }: AllReferralProps) {
+    const { t } = useTranslation('common');
+    const { locale } = useRouter();
+
     const [isLoading, setIsLoading] = useState(true);
     const [allReferralData, setAllReferralData] = useState<ReferralType[]>([]);
     const [openDialog, setOpenDialog] = useState(false);
@@ -57,6 +63,8 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
     const [openCodeDialog, setOpenCodeDialog] = useState(false);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
+    const [username, setUsername] = useState<string | null>(null);
+
 
 
     const handleOpenDialog = async (referral: ReferralType) => {
@@ -97,6 +105,24 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
 
     };
 
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const res = await apiService("users", "get_user_data", {});
+                if (res.error) {
+                    console.error("Error create_notification: ", res.error);
+                }
+                setUsername(res.data[0].username);
+            } catch (error: any) {
+                console.error(error.message || error);
+            }
+        }
+
+        fetchUserData();
+
+    }, [])
+
     const handleCloseDialog = () => {
         setOpenDialog(false);
         setSelectedReferral(null);
@@ -107,10 +133,10 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
 
         try {
             await navigator.clipboard.writeText(code);
-            setSnakbarMessage("Il codice è stato copiato negli appunti!");
+            setSnakbarMessage(t("code_copied"));
             setSeveritySnakbar({ severity: 'success' });
         } catch (err) {
-            setSnakbarMessage("Errore durante la copia del codice");
+            setSnakbarMessage(t("code_copy_error"));
             setSeveritySnakbar({ severity: 'error' });
         }
     };
@@ -138,7 +164,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
 
     const successAddCode = () => {
         setOpenCodeDialog(false);
-        setSnackbarMessage("Il tuo codice è stato inserito!");
+        setSnackbarMessage(t('code_succesfully_added'));
         setSnackbarOpen(true);
     };
 
@@ -148,9 +174,10 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
         <Box
             sx={{
                 backgroundColor: "grey.100",
-                p: 1,
+                p: 4,
                 borderRadius: '12px',
                 minWidth: "350px",
+                maxWidth: "450px",
                 height: 'auto',
                 overflow: 'hidden'
             }}
@@ -159,7 +186,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                 direction={'row'}
             >
                 <Typography sx={{ margin: 2, fontSize: "25px" }}>
-                    Codici della community
+                    {t('community_codes')}
                 </Typography>
 
                 <IconButton
@@ -191,23 +218,26 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                     }}
                 >
                     <Typography color="text.secondary">
-                        Nessun codice al momento. Pubblica il primo!
+                        {t('no_codes')}
                     </Typography>
                 </Box>
             ) : (
                 <List
                     sx={{
                         width: "100%",
-                        maxWidth: 360,
                         bgcolor: "gray.100",
                         overflowY: 'scroll',
-                        height: '200px'
+                        height: '300px'
                     }}>
                     {allReferralData.map((referral) => (
                         <React.Fragment key={referral.code_id}>
                             <ListItem
+                                sx={{
+                                    maxHeight: '100px',
+                                    cursor: "pointer",
+                                    overflow: 'hidden'
+                                }}
                                 alignItems="flex-start"
-                                sx={{ cursor: "pointer" }}
                                 onClick={() => handleOpenDialog(referral)}
                             >
                                 <ListItemAvatar>
@@ -279,7 +309,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                                 }}
                                 onClick={() => copyCode(selectedReferral.code)}
                             >
-                                Copia codice
+                                {t("copy_code")}
                             </Button>
                         </Stack>
 
@@ -302,6 +332,30 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                 onClose={() => setSnackbarOpen(false)}
                 message={snackbarMessage}
             />
+
+            <Divider sx={{ m: 2 }} />
+
+            {locale == "it" ? (
+                <Typography sx={{ mt: 2, color: "#737373" }}>
+                    <InfoOutlineIcon fontSize="small" sx={{ verticalAlign: 'middle', mr: 0.5, mt: '-6px' }} />
+                    Usa i codici degli altri per aumentare la visibilità dei tuoi. Più partecipi, più visibilità ottieni.{' '}
+                    {username && (
+                        <>
+                            Controlla <Link href="/profile" underline="hover">qui</Link> la visibilità dei tuoi codici.
+                        </>
+                    )}
+                </Typography>
+            ) : (
+                <Typography sx={{ mt: 2, color: "#737373" }}>
+                    <InfoOutlineIcon fontSize="small" sx={{ verticalAlign: 'middle', mr: 0.5, mt: '-6px' }} />
+                    Use other users' codes to increase the visibility of your own. The more you participate, the more exposure your codes get.{' '}
+                    {username && (
+                        <>
+                            Check your code visibility <Link href="/en/profile" underline="hover">here</Link>.
+                        </>
+                    )}
+                </Typography>
+            )}
 
         </Box>
     );

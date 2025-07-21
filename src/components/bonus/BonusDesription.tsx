@@ -1,10 +1,12 @@
 import { Box, Typography, List, ListItem, ListItemText, Divider, Link, Stack } from '@mui/material';
 import Image from 'next/image'
+import { useTranslation } from 'next-i18next';
 
 import Navbar from '@/components/Home/Navbar';
 import Footer from '@/components/Home/Footer';
 import AllReferral from './AllReferral';
 import CommentsContainer from '../Comments/CommentsContainer';
+import { useRouter } from 'next/router';
 
 interface BonusData {
     title: string;
@@ -30,17 +32,20 @@ interface Props {
 }
 
 export default function BonusDescription({ bonus }: Props) {
+    const { t } = useTranslation('common');
+    const { locale } = useRouter();
+
     return (
         <>
             <Navbar>
                 <Link
-                    href="/dashboard"
+                    href={locale === 'it' ? '/it/dashboard' : '/en/dashboard'}
                     style={{
                         color: 'black',
                         textDecoration: 'underline'
                     }}
                 >
-                    Tutti i bonus
+                    {t('all_bonus')}
                 </Link>
             </Navbar>
 
@@ -104,26 +109,26 @@ export default function BonusDescription({ bonus }: Props) {
                     }}
                 >
                     <Typography variant="h5" component="h2" gutterBottom fontWeight="medium" color="text.primary">
-                        Riepilogo
+                        {t('summary')}
                     </Typography>
                     <List disablePadding>
                         <ListItem disableGutters>
-                            <ListItemText primary="Bonus benvenuto" secondary={bonus.summary.bonus} />
+                            <ListItemText primary={t('welcome_bonus')} secondary={bonus.summary.bonus} />
                         </ListItem>
                         <ListItem disableGutters>
-                            <ListItemText primary="Bonus invito" secondary={bonus.summary.invito} />
+                            <ListItemText primary={t('invite_bonus')} secondary={bonus.summary.invito} />
                         </ListItem>
                         <ListItem disableGutters>
-                            <ListItemText primary="Deposito richiesto" secondary={bonus.summary.deposito_richiesto} />
+                            <ListItemText primary={t('required_deposit')} secondary={bonus.summary.deposito_richiesto} />
                         </ListItem>
                         <ListItem disableGutters>
-                            <ListItemText primary="Scadenza" secondary={bonus.summary.scadenza} />
+                            <ListItemText primary={t('expiration')} secondary={bonus.summary.scadenza} />
                         </ListItem>
                         <ListItem disableGutters>
-                            <ListItemText primary="Commissioni" secondary={bonus.summary.commissioni} />
+                            <ListItemText primary={t('fees')} secondary={bonus.summary.commissioni} />
                         </ListItem>
                         <ListItem disableGutters>
-                            <ListItemText primary="Bonus extra" secondary={bonus.summary.extra} />
+                            <ListItemText primary={t('extra_bonus')} secondary={bonus.summary.extra} />
                         </ListItem>
                     </List>
                 </Box>
@@ -155,9 +160,7 @@ export default function BonusDescription({ bonus }: Props) {
 
             </Box>
 
-
             <Footer />
         </>
-
     );
 }

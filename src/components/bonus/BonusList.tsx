@@ -6,6 +6,9 @@ import AddCodeForm from '../common/AddCodeForm';
 import CustomizedSnackbar from '../common/Snakbar';
 import apiService from '../scripts/apiService';
 
+import { useTranslation } from 'next-i18next';
+
+
 import { bonusListData } from '../data/bonusListData';
 
 interface BonusItem {
@@ -33,6 +36,8 @@ export default function BonusList({ bonusListDataP, edit = false, locale = 'en' 
     const [selectedCodeId, setSelectedCodeId] = useState<string | null>(null);
     const [itemsPage, setItemsPage] = useState(bonusListDataP);
 
+    const { t } = useTranslation('common'); 
+
     const itemsPageNum = 12;
 
     useEffect(() => {
@@ -55,12 +60,12 @@ export default function BonusList({ bonusListDataP, edit = false, locale = 'en' 
 
     const successEditCode = async () => {
         setOpenDialog(false);
-        setSnackbarMessage("Il tuo codice è stato aggiornato!");
+        setSnackbarMessage(t("code_successfully_updated"));
         setSnackbarOpen(true);
-
+    
         try {
             const res = await apiService('codes', 'get_user_codes');
-
+    
             const userReferralWithImg = res.data.map((ref: any) => {
                 const selectedBonus = bonusListData.find(
                     (b) => b.name.toLowerCase() === ref.name.toLowerCase()
@@ -71,7 +76,7 @@ export default function BonusList({ bonusListDataP, edit = false, locale = 'en' 
                 };
             });
             setItemsPage(userReferralWithImg);
-
+    
         } catch (err: any) {
             console.error('Errore nel recupero dei codici:', err.message || err);
         }
@@ -86,7 +91,7 @@ export default function BonusList({ bonusListDataP, edit = false, locale = 'en' 
             const res = await apiService("codes", "delete_code", { code_id: code_id });
             if (!res.error) {
                 setSnackbarOpen(true);
-                setSnackbarMessage("Codice eliminato con successo");
+                setSnackbarMessage(t("code_successfully_deleted"));
             } else {
                 console.error("Errore eliminando il codice");
             }
