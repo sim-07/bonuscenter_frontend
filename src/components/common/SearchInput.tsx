@@ -10,7 +10,7 @@ interface SearchInputProps {
 }
 
 export default function SearchInput({ width = '100%', value, onChange }: SearchInputProps) {
-    const { t } = useTranslation('profile');
+    const { t } = useTranslation('common');
     
     return (
         <TextField
