@@ -31,7 +31,7 @@ type SeveritySnakbarType = {
 
 export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: AddCodeFormProps) {
 
-    const { t } = useTranslation('common'); 
+    const { t } = useTranslation('common');
 
     const [formData, setFormData] = useState<{
         title: string;
@@ -55,31 +55,31 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
     const formFields = [
         {
             name: 'title',
-            label: 'Titolo',
+            label: t('title'),
             type: 'text',
             required: true,
         },
         {
             name: 'brand',
-            label: 'Seleziona brand',
+            label: t('select_brand'),
             type: 'autoComplete',
             required: true,
         },
         {
             name: 'bonus_value',
-            label: 'Premio bonus',
+            label: t('bonus_value'),
             type: 'amount',
             required: true,
         },
         {
             name: 'code',
-            label: 'Codice/Link',
+            label: t('code_or_link'),
             type: 'text',
             required: true,
         },
         {
             name: 'description',
-            label: 'Descrizione',
+            label: t('description'),
             type: 'textArea',
             required: true,
         },
@@ -112,17 +112,17 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                         description: data.description || '',
                     });
                 } else {
-                    console.error('Codice non trovato');
+                    console.error(t('code_not_found'));
                 }
             } catch (err: any) {
-                console.error('Errore nel recupero del codice:', err.message || err);
+                console.error(t('error_fetching_code'), err.message || err);
             } finally {
                 setIsLoading(false);
             }
         };
 
         fetchCodeData();
-    }, [codeId]);
+    }, [codeId, isAdd, t]);
 
 
     const resetForm = () => {
@@ -141,7 +141,7 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
         e.preventDefault();
         for (const field of formFields) {
             if (field.required && !formData[field.name as keyof typeof formData]) {
-                setErrorMessage(`Il campo "${field.label}" è obbligatorio`);
+                setErrorMessage(t('field_required', { field: field.label }));
                 return;
             }
         }
@@ -177,8 +177,8 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
 
 
         } catch (err: any) {
-            console.error('Errore nella submission:', err);
-            setErrorMessage(err.message || 'Errore del server');
+            console.error(t('submit_error'), err);
+            setErrorMessage(err.message || t('server_error'));
         } finally {
             setIsLoading(false);
         }
@@ -195,7 +195,7 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
             }}
         >
             <Typography sx={{ color: '#535353', fontSize: '1.4em', mb: 3 }}>
-                {isAdd ? 'Pubblica un codice' : 'Modifica'}
+                {isAdd ? t('publish_code') : t('edit')}
             </Typography>
 
             {formFields.map((field) => {
@@ -252,7 +252,7 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                                 }}
                                 onChange={(_, newValue) => handleChange(field.name, newValue || '')}
                                 renderInput={(params) => (
-                                    <TextField {...params} label="Brand" required={field.required} />
+                                    <TextField {...params} label={field.label} required={field.required} />
                                 )}
                             />
                         );
@@ -279,7 +279,7 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
             })}
 
             <Typography>
-                Non trovi il brand che cercavi? {" "}
+                {t('not_found_brand')}{" "}
                 <Link
                     sx={{
                         cursor: 'pointer',
@@ -287,7 +287,7 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                     }}
                     href='/suggest_new_code'
                 >
-                     Suggerisci un nuovo brand
+                    {t('suggest_new_brand')}
                 </Link>
             </Typography>
 
@@ -306,7 +306,7 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                 {isLoading ? (
                     <CircularProgress size={24} color="inherit" />
                 ) : (
-                    isAdd ? 'PUBBLICA CODICE' : 'MODIFICA'
+                    isAdd ? t('publish_code_btn') : t('edit_btn')
                 )}
             </Button>
 

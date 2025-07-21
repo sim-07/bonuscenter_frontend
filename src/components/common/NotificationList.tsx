@@ -1,5 +1,6 @@
 import { Box, Button, Divider, ListItemText, MenuItem, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useTranslation } from 'next-i18next';
 
 import apiService from "../scripts/apiService";
 import LoadingSpinner from "./LoadingSpinner";
@@ -22,6 +23,8 @@ type SeveritySnakbarType = {
 }
 
 export default function NotificationList({ max, compact = false }: NotificationListProps) {
+    const { t } = useTranslation('common');
+
     const [isLoading, setIsLoading] = useState(true);
     const [notifications, setNotifications] = useState<Notification[]>([]);
 
@@ -38,10 +41,10 @@ export default function NotificationList({ max, compact = false }: NotificationL
                 if (!res.error) {
                     setNotifications(res.data);
                 } else {
-                    console.error("Error during get_notifications: ", res.error);
+                    console.error(t("error_get_notifications"), res.error);
                 }
             } catch (error) {
-                console.error('Errore durante get_notifications:', error);
+                console.error(t("error_get_notifications"), error);
             } finally {
                 setIsLoading(false);
             }
@@ -49,7 +52,7 @@ export default function NotificationList({ max, compact = false }: NotificationL
 
         fetchNotification();
 
-    }, [])
+    }, [t])
 
     const items = max ? notifications.slice(0, max) : notifications;
 
@@ -62,22 +65,23 @@ export default function NotificationList({ max, compact = false }: NotificationL
                 try {
                     const resDelete = await apiService('notification', 'delete_notification', { code_id });
                     if (!resDelete.error) {
-                        setSnakbarMessage("Confermato!")
+                        setSnakbarMessage(t("confirmed"));
+                        setSeveritySnakbar({ severity: 'success' });
                         setOpenSnackbar(true);
                         setNotifications(prev =>
                             prev.filter(item => item.code_id !== code_id)
                         );
                     } else {
-                        console.error("Error during delete_notification: ", resDelete.error);
+                        console.error(t("error_delete_notification"), resDelete.error);
                     }
                 } catch (error) {
-                    console.error('Errore durante delete_notification:', error);
+                    console.error(t("error_delete_notification"), error);
                 }
             } else {
-                console.error("Error during confirm_code: ", res.error);
+                console.error(t("error_confirm_code"), res.error);
             }
         } catch (error) {
-            console.error('Errore durante confirm_code:', error);
+            console.error(t("error_confirm_code"), error);
         } finally {
             setIsLoading(false);
         }
@@ -97,7 +101,7 @@ export default function NotificationList({ max, compact = false }: NotificationL
                                     maxWidth: 400,
                                 }}
                             >
-                                Nessuna notifica
+                                {t("no_notifications")}
                             </MenuItem>
                         ) : (
                             items.map((item, index) => {
@@ -120,7 +124,7 @@ export default function NotificationList({ max, compact = false }: NotificationL
                                                         handleConfirmUsedCode(item.code_id);
                                                     }}
                                                 >
-                                                    Conferma
+                                                    {t("confirm")}
                                                 </Button>
                                             </Stack>
                                         );
@@ -187,7 +191,6 @@ export default function NotificationList({ max, compact = false }: NotificationL
                 message={snakbarMessage}
                 severity={severitySnakbar?.severity}
             />
-
         </>
     );
 
