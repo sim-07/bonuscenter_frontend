@@ -1,45 +1,41 @@
 {
-    "title": "Promo Referral Freecash",
-    "name": "freecash",
-    "bonus_image": "freecash",
-    "summary": {
-      "bonus": "💰 4.55€ registrandosi tramite un codice invito",
-      "invito": "1.00€ per ogni amico che installa un gioco + 5.00€ al primo prelievo dell'amico",
-      "deposito_richiesto": "🚫 Nessun deposito richiesto",
-      "scadenza": "🔄 Programma continuativo",
-      "commissioni": "✅ Prelievi gratuiti",
-      "extra": "🌍 Disponibile per utenti da paesi idonei"
+  "title": "Promo Referral Freecash",
+  "name": "freecash",
+  "bonus_image": "freecash",
+  "summary": {
+    "bonus": "💰 4,55€ registrandosi tramite un codice invito",
+    "invito": "1,00€ per ogni amico che installa un gioco + 5,00€ al suo primo prelievo",
+    "deposito_richiesto": "🚫 Nessun deposito richiesto",
+    "scadenza": "🔄 Programma sempre attivo",
+    "commissioni": "✅ Nessuna commissione sui prelievi",
+    "extra": "🌍 Disponibile per utenti in paesi supportati"
+  },
+  "sections": [
+    {
+      "title": "Come funziona il programma di invito",
+      "content": [
+        "Ogni volta che qualcuno si registra tramite il tuo link e installa un gioco consigliato, ricevi 1,00€ come ricompensa.",
+        "Chi si iscrive con il tuo codice ottiene subito 4,55€ come bonus di benvenuto, senza bisogno di depositare nulla.",
+        "In più guadagni un bonus extra di 5,00€ al primo prelievo dell'utente invitato (prima volta minimo 20€, poi non ci sono più limiti)."
+      ]
     },
-    "sections": [
-      {
-        "title": "Come funziona il programma di referral",
-        "content": [
-          "Condividi il tuo di referral ",
-          "Ricevi 1.00€ per ogni amico che si registra tramite il tuo link e installa un gioco",
-          "Il tuo amico riceverà 4.55€ come bonus di benvenuto",
-          "Guadagna un extra di 5.00€ quando il tuo amico effettua il suo primo prelievo",
-          "Tutti i bonus sono pagati in denaro reale prelevabile"
-        ]
-      },
-      {
-        "title": "Requisiti per ottenere i bonus",
-        "content": [
-          "Solo nuovi utenti reali che si registrano tramite il tuo link",
-          "Gli amici devono installare e giocare a un gioco specificato",
-          "Utenti devono provenire da paesi idonei al programma",
-          "Vietato l'uso di account duplicati o metodi fraudolenti",
-          "L'amico deve completare la verifica dell'account"
-        ]
-      },
-      {
-        "title": "Note importanti",
-        "content": [
-          "I bonus vengono accreditati entro 24-48 ore",
-          "Tutti i pagamenti sono verificati manualmente",
-          "Le ricompense potrebbero variare per paese",
-          "Il programma può cambiare senza preavviso",
-          "Contatta il supporto per problemi con i referral"
-        ]
-      }
-    ]
-  }
+    {
+      "title": "Cosa serve per ricevere i bonus",
+      "content": [
+        "I bonus si applicano solo a nuovi utenti reali che si registrano tramite il tuo link personale.",
+        "Per attivare il bonus, l’amico deve completare un gioco tra quelli proposti dalla piattaforma.",
+        "È necessario che l’account venga verificato correttamente e che l’utente si trovi in un paese supportato."
+      ]
+    },
+    {
+      "title": "Alcune cose da sapere",
+      "content": [
+        "I bonus vengono accreditati solitamente entro 24-48 ore, una volta completate le azioni richieste.",
+        "Tutti i pagamenti sono soggetti a una verifica manuale da parte dello staff di Freecash.",
+        "L'importo e la disponibilità dei premi possono variare leggermente in base al paese dell’utente.",
+        "I bonus sono soldi veri, prelevabili senza commissioni.",
+        "Freecash si riserva il diritto di modificare le condizioni del programma in qualsiasi momento."
+      ]
+    }
+  ]
+}

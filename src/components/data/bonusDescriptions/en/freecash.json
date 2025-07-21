@@ -1,46 +1,41 @@
 {
-    "title": "Freecash Referral Promo",
-    "name": "freecash",
-    "bonus_image": "freecash",
-    "summary": {
-      "bonus": "💰 Get €4.55 (or equivalent) by signing up with a referral code",
-      "invito": "Earn €1.00 when a friend installs a game + €5.00 when they make their first cashout",
-      "deposito_richiesto": "🚫 No deposit required",
-      "scadenza": "🔄 Ongoing referral program",
-      "commissioni": "✅ Free withdrawals",
-      "extra": "🌍 Available in eligible countries"
+  "title": "Freecash Referral Promo",
+  "name": "freecash",
+  "bonus_image": "freecash",
+  "summary": {
+    "bonus": "💰 €4.55 for signing up with an invite code",
+    "invito": "€1.00 for each friend who installs a game + €5.00 after their first withdrawal",
+    "deposito_richiesto": "🚫 No deposit required",
+    "scadenza": "🔄 Ongoing program",
+    "commissioni": "✅ No withdrawal fees",
+    "extra": "🌍 Available to users in eligible countries"
+  },
+  "sections": [
+    {
+      "title": "How the referral program works",
+      "content": [
+        "Every time someone signs up through your link and installs a featured game, you earn €1.00 as a reward.",
+        "Your friend will instantly receive €4.55 as a welcome bonus, with no deposit required.",
+        "You’ll also get an extra €5.00 when your referral completes their first withdrawal (minimum €20 for the first withdrawal, no limits after that)."
+      ]
     },
-    "sections": [
-      {
-        "title": "How the referral program works",
-        "content": [
-          "Share your referral link with friends",
-          "Earn €1.00 for each friend who signs up and installs a featured game",
-          "Your friend receives €4.55 as a welcome bonus",
-          "Get an extra €5.00 when your friend completes their first cashout",
-          "All rewards are paid as real, withdrawable cash"
-        ]
-      },
-      {
-        "title": "Requirements to receive the bonuses",
-        "content": [
-          "Only new, real users who sign up using your link",
-          "Friends must install and play a promoted game",
-          "Users must reside in an eligible country",
-          "Using duplicate or fraudulent accounts is prohibited",
-          "Friends must complete account verification"
-        ]
-      },
-      {
-        "title": "Important notes",
-        "content": [
-          "Bonuses are credited within 24–48 hours",
-          "All payouts are manually verified",
-          "Rewards may vary depending on country",
-          "The program may change without prior notice",
-          "Contact support if referral rewards do not appear"
-        ]
-      }
-    ]
-  }
-  
+    {
+      "title": "What’s required to get the bonuses",
+      "content": [
+        "Bonuses apply only to new, real users who register using your personal link.",
+        "To activate the bonus, the friend must complete a game featured on the platform.",
+        "The account must be properly verified, and the user must be located in a supported country."
+      ]
+    },
+    {
+      "title": "A few important notes",
+      "content": [
+        "Bonuses are usually credited within 24–48 hours after completing the required steps.",
+        "All payments are manually verified by the Freecash team.",
+        "Reward amounts and availability may vary slightly depending on the user’s country.",
+        "Bonuses are real money and can be withdrawn without any fees.",
+        "Freecash reserves the right to change the terms of the program at any time."
+      ]
+    }
+  ]
+}
