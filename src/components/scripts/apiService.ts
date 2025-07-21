@@ -9,6 +9,7 @@ const apiService = async (route: string, endpoint: string, payload?: object) => 
         const response = await fetch(`${apiUrl}/${route}/${endpoint}`, {
             method: 'POST',
             credentials: 'include',
+            cache: 'no-store',
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRF-Token': csrfToken,
