@@ -38,5 +38,7 @@
   "post_comment": "Pubblica un commento",
   "no_comments_yet": "Ancora nessun commento.",
   "comment_posted": "Commento pubblicato!",
-  "error_fetching_comments": "Errore recupero dei commenti:"
+  "error_fetching_comments": "Errore recupero dei commenti:",
+  "search": "Cerca"
+
 }

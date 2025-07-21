@@ -38,5 +38,7 @@
     "post_comment": "Post a comment",
     "no_comments_yet": "No comments yet.",
     "comment_posted": "Comment posted!",
-    "error_fetching_comments": "Error fetching comments:"
+    "error_fetching_comments": "Error fetching comments:",
+    "search": "Search"
+
 }

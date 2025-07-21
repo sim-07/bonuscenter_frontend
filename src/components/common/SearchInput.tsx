@@ -1,5 +1,6 @@
 import { IconButton, InputAdornment, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { useTranslation } from 'next-i18next';
 
 
 interface SearchInputProps {
@@ -9,6 +10,8 @@ interface SearchInputProps {
 }
 
 export default function SearchInput({ width = '100%', value, onChange }: SearchInputProps) {
+    const { t } = useTranslation('profile');
+    
     return (
         <TextField
             sx={{
@@ -36,7 +39,7 @@ export default function SearchInput({ width = '100%', value, onChange }: SearchI
                 }
             }}
             variant="outlined"
-            placeholder="Cerca"
+            placeholder={t('search')}
             value={value}
             onChange={(e) => onChange(e.target.value)}
             slotProps={{
