@@ -39,6 +39,14 @@
   "no_comments_yet": "Ancora nessun commento.",
   "comment_posted": "Commento pubblicato!",
   "error_fetching_comments": "Errore recupero dei commenti:",
-  "search": "Cerca"
+  "search": "Cerca",
+  "no_used_codes": "Nessun codice utilizzato.",
+  "used_codes": "Codici usati",
+  "brand": "Brand",
+  "bonus_value": "Valore bonus",
+  "confirmed": "Confermato",
+  "usage_date": "Data utilizzo",
+  "yes": "Sì",
+  "no": "No"
 
 }

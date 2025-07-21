@@ -14,8 +14,10 @@ import {
 import { useEffect, useState } from 'react';
 import apiService from '@/components/scripts/apiService';
 import LoadingSpinner from '../common/LoadingSpinner';
+import { useTranslation } from 'next-i18next';
 
 export default function UsedCodes() {
+    const { t } = useTranslation('common');
     const [usedCodes, setUsedCodes] = useState<Array<{
         brand: string;
         bonus_value: string;
@@ -30,7 +32,6 @@ export default function UsedCodes() {
             try {
                 setLoading(true);
                 const res = await apiService("used_codes", "get_used_code");
-                console.log(res);
                 setUsedCodes(res.data);
             } catch (error) {
                 console.error("Error get_used_code: ", error);
@@ -67,22 +68,22 @@ export default function UsedCodes() {
                     }}
                 >
                     <Typography variant="h6" color="text.secondary">
-                        Nessun codice utilizzato.
+                        {t('no_used_codes')}
                     </Typography>
                 </Box>
             ) : (
                 <Box p={2}>
                     <Typography variant="h6" gutterBottom>
-                        Codici utilizzati
+                        {t('used_codes')}
                     </Typography>
                     <TableContainer component={Paper}>
                         <Table>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell><strong>Brand</strong></TableCell>
-                                    <TableCell><strong>Valore Bonus</strong></TableCell>
-                                    <TableCell><strong>Confermato</strong></TableCell>
-                                    <TableCell><strong>Data utilizzo</strong></TableCell>
+                                    <TableCell><strong>{t('brand')}</strong></TableCell>
+                                    <TableCell><strong>{t('bonus_value')}</strong></TableCell>
+                                    <TableCell><strong>{t('confirmed')}</strong></TableCell>
+                                    <TableCell><strong>{t('usage_date')}</strong></TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -90,7 +91,7 @@ export default function UsedCodes() {
                                     <TableRow key={index}>
                                         <TableCell>{code.brand}</TableCell>
                                         <TableCell>{code.bonus_value}€</TableCell>
-                                        <TableCell>{code.confirmed ? 'Sì' : 'No'}</TableCell>
+                                        <TableCell>{code.confirmed ? t('yes') : t('no')}</TableCell>
                                         <TableCell>{new Date(code.created_at).toLocaleString()}</TableCell>
                                     </TableRow>
                                 ))}

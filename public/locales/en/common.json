@@ -39,6 +39,13 @@
     "no_comments_yet": "No comments yet.",
     "comment_posted": "Comment posted!",
     "error_fetching_comments": "Error fetching comments:",
-    "search": "Search"
-
+    "search": "Search",
+    "no_used_codes": "No used codes.",
+    "used_codes": "Used Codes",
+    "brand": "Brand",
+    "bonus_value": "Bonus Value",
+    "confirmed": "Confirmed",
+    "usage_date": "Usage Date",
+    "yes": "Yes",
+    "no": "No"
 }
