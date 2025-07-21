@@ -22,6 +22,17 @@ export const bonusListData = [
     category: "voucher"
   },
   {
+    title: "Freecash",
+    name: "freecash",
+    description: {
+      it: "4.55€ alla registrazione + fino a 6€ per ogni amico invitato",
+      en: "Get €4.55 at signup + up to €6 for each friend invited"
+    },
+    bonus_value: "5€",
+    image: "/images_bonus/freecash.avif",
+    category: "liquid"
+  },
+  {
     title: "Satispay",
     name: "satispay",
     description: {
