@@ -7,7 +7,11 @@ import LoadingSpinner from "@/components/common/LoadingSpinner";
 import { bonusListData } from '@/components/data/bonusListData';
 import apiService from "../scripts/apiService";
 
+import { useTranslation } from 'next-i18next';
+
 export default function UserReferral() {
+
+    const { t } = useTranslation('common');
 
     const [userReferral, setUserReferral] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
@@ -60,7 +64,7 @@ export default function UserReferral() {
 
                 </Box>
             ) : (
-                <BonusContainer bonusListDataP={userReferral} titleBonusContainer={'I miei codici'} edit={true} />
+                <BonusContainer bonusListDataP={userReferral} titleBonusContainer={t('userreferral_title')} edit={true} />
             )}
         </Box>
     );
