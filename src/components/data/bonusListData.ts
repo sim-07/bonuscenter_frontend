@@ -94,7 +94,7 @@ export const bonusListData = [
       it: "Buono Amazon con 3 versamenti da 500€",
       en: "Amazon voucher after 3 deposits of €500"
     },
-    bonus_value: "50€",
+    bonus_value: "150€", 
     image: "/images_bonus/findomestic.avif",
     category: "voucher"
   },
