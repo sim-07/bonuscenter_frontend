@@ -39,7 +39,12 @@ export default class MyDocument extends Document {
         <Head>
           <meta name="description" content="Condividi codici referral e guadagna online in modo veloce e senza rischi" />
           <link rel="icon" href="/favicon.ico" />
-        </Head>
+          <script
+            defer
+            src="https://cdn.counter.dev/script.js"
+            data-id="3992b468-b688-4164-9971-34499a6fdef1"
+            data-utcoffset="2"
+          />        </Head>
         <body>
           <Main />
           <NextScript />
