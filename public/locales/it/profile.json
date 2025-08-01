@@ -18,6 +18,7 @@
     "visibility_description": "La visibilità aumenta in base al numero di bonus completati e al loro valore",
     "logout": "Logout",
     "delete_account": "Cancella account",
-    "select_language": "Cambia la lingua"
+    "select_language": "Cambia la lingua",
+    "code_copied": "Copiato negli appunti!"
   }
   

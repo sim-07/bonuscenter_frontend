@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ShareIcon from '@mui/icons-material/Share';
 
 import apiService from '@/components/scripts/apiService';
 import LoadingSpinner from '@/components/common/LoadingSpinner';
@@ -16,10 +16,14 @@ import Footer from '@/components/Home/Footer';
 
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import CustomizedSnackbar from '@/components/common/Snakbar';
 
 export default function Profilo() {
     const router = useRouter();
     const { pathname, asPath, query } = router;
+
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState('');
 
     const { locale } = useRouter();
     const { t } = useTranslation('profile');
@@ -133,6 +137,22 @@ export default function Profilo() {
         router.push({ pathname, query }, asPath, { locale: newLocale });
     };
 
+    const handleShare = () => {
+        const urlShare = `${window.location.origin}/${locale}/user?u=${userData.username}`;
+        if (navigator.share) {
+            navigator.share({
+                url: urlShare
+            }).catch(err => {
+                console.error('Errore durante la condivisione:', err);
+            });
+        } else {
+            navigator.clipboard.writeText(urlShare).then(() => {
+                setSnackbarOpen(true);
+                setSnackbarMessage(t("code_copied"));
+            });
+        }
+    };
+
     const { username, email, created_at } = userData;
 
     const maxCodes = 13;
@@ -181,11 +201,20 @@ export default function Profilo() {
                     backgroundColor: '#fff',
                 }}
             >
-                <NextLink href={locale === 'it' ? '/it/dashboard' : '/en/dashboard'} passHref>
-                    <IconButton>
-                        <ArrowBackIcon sx={{ fontSize: '30px' }} />
+                <Stack direction="row" sx={{ justifyContent: "space-between", alignItems: "center" }}>
+
+                    <NextLink href={locale === 'it' ? '/it/dashboard' : '/en/dashboard'} passHref>
+                        <IconButton>
+                            <ArrowBackIcon sx={{ fontSize: '30px' }} />
+                        </IconButton>
+                    </NextLink>
+
+                    <IconButton onClick={handleShare}>
+                        <ShareIcon sx={{ fontSize: '30px' }} />
                     </IconButton>
-                </NextLink>
+
+                </Stack>
+
 
                 <Stack spacing={3} alignItems="center">
                     <Avatar sx={{ width: 80, height: 80 }}>
@@ -268,6 +297,12 @@ export default function Profilo() {
                     </Stack>
                 </Stack>
             </Box>
+
+            <CustomizedSnackbar
+                open={snackbarOpen}
+                onClose={() => setSnackbarOpen(false)}
+                message={snackbarMessage}
+            />
 
             <Footer />
         </>

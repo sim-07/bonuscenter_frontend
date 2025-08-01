@@ -18,6 +18,7 @@
     "visibility_description": "Visibility increases based on the number and value of completed bonuses",
     "logout": "Logout",
     "delete_account": "Delete account",
-    "select_language": "Change language"
+    "select_language": "Change language",
+    "code_copied": "Copied to the clipboard!"
   }
   
