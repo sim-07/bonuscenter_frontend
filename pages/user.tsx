@@ -54,8 +54,6 @@ export default function Profilo() {
                     return;
                 }
 
-                console.log("AUTHRES: ", authRes)
-
                 setAuthUsername(authRes.data[0].username);
                 setAuthUserId(authRes.data[0].user_id);
 
@@ -103,6 +101,13 @@ export default function Profilo() {
 
 
     const handleOpenChat = () => {
+        if (userData?.username == authUsername) {
+            setSnackbarOpen(true);
+            setSnackbarMessage(t('same_user'));
+            setSeveritySnakbar('warning');
+            return;
+        }
+
         if (userData) {
             if (authUserId) {
                 if (!openChat) {
@@ -110,7 +115,7 @@ export default function Profilo() {
                 } else {
                     setOpenChat(false);
                 }
-                
+
             } else {
                 setSnackbarOpen(true);
                 setSnackbarMessage(t('error_auth'));
@@ -121,7 +126,10 @@ export default function Profilo() {
             setSnackbarMessage(t('not_ex_user'));
             setSeveritySnakbar('warning');
         }
+    }
 
+    const handleCloseChat = () => {
+        setOpenChat(false);
     }
 
     if (isLoading) {
@@ -199,10 +207,14 @@ export default function Profilo() {
 
             </Box>
 
-            { openChat && (
-                <ChatContainer />
+            {openChat && userData && authUserId && (
+                <ChatContainer
+                    handleCloseChat={handleCloseChat}
+                    senderId={authUserId}
+                    receiverId={userData.user_id}
+                    receiverUsername={userData.username}
+                />
             )}
-            
 
             <CustomizedSnackbar
                 open={snackbarOpen}
