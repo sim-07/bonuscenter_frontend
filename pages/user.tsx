@@ -18,14 +18,17 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import CustomizedSnackbar from '@/components/common/Snakbar';
 import BonusContainer from '@/components/bonus/BonusContainer';
 import { bonusListData } from '@/components/data/bonusListData';
+import ChatContainer from '@/components/chat/ChatContainer';
 
 export default function Profilo() {
     const router = useRouter();
-    const { pathname, asPath, query } = router;
+    const [openChat, setOpenChat] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [severitySnakbar, setSeveritySnakbar] = useState<'success' | 'error' | 'warning' | 'info'>('success');
+    const [authUserId, setAuthUserId] = useState('');
+    const [authUsername, setAuthUsername] = useState('');
     const [userCodes, setUserCodes] = useState<any[]>([]);
     const [userData, setUserData] = useState<{
         user_id: string;
@@ -41,62 +44,85 @@ export default function Profilo() {
     const { u } = router.query;
 
     useEffect(() => {
-        const findUser = async () => {
-            if (u) {
-                try {
-                    setIsLoading(true);
-                    const res = await apiService('users', 'find_user', { u });
-                    if (!res.error && res.data) {
-                        setUserData(res.data);
-                    }
-                } catch (err) {
-                    console.error("Error: ", err);
-                } finally {
-                    setIsLoading(false);
+        const init = async () => {
+            try {
+                setIsLoading(true);
+
+                const authRes = await apiService('users', 'get_user_data');
+                if (authRes.error || !authRes.data || !Array.isArray(authRes.data) || authRes.data.length === 0) {
+                    router.push('/');
+                    return;
                 }
-            } else {
-                setIsLoading(false);
-                setSnackbarOpen(true);
-                setSnackbarMessage("No user selected");
-                setSeveritySnakbar('error');
-            }
-        }
 
-        findUser();
-    }, [u])
+                console.log("AUTHRES: ", authRes)
 
-    useEffect(() => {
-        const getUserCodes = async () => {
-            if (userData?.user_id) {
-                try {
-                    setIsLoading(true);
-                    const res = await apiService('codes', 'get_codes_by_user', { user_id: userData.user_id });
-                    if (!res.error && res.data) {
-                        const userCodesWithImg = res.data.map((ref: any) => {
-                            const selectedBonus = bonusListData.find(
-                                (b) => b.title.toLowerCase() === ref.brand.toLowerCase()
-                            );
-                            return {
-                                ...ref,
-                                image: selectedBonus?.image,
-                            };
-                        });
+                setAuthUsername(authRes.data[0].username);
+                setAuthUserId(authRes.data[0].user_id);
 
-                        setUserCodes(userCodesWithImg);
-                    }
-                } catch (err) {
-                    console.error("Error fetching codes: ", err);
+
+                const userRes = await apiService('users', 'find_user', { u });
+                if (userRes.error || !userRes.data) {
+                    setSnackbarOpen(true);
+                    setSnackbarMessage("User not found");
+                    setSeveritySnakbar('error');
+                    return;
+                }
+                setUserData(userRes.data);
+
+                const codesRes = await apiService('codes', 'get_codes_by_user', { user_id: userRes.data.user_id });
+                if (!codesRes.error && codesRes.data) {
+                    const userCodesWithImg = codesRes.data.map((ref: any) => {
+                        const selectedBonus = bonusListData.find(
+                            (b) => b.title.toLowerCase() === ref.brand.toLowerCase()
+                        );
+                        return {
+                            ...ref,
+                            image: selectedBonus?.image,
+                        };
+                    });
+
+                    setUserCodes(userCodesWithImg);
+                } else {
                     setSnackbarOpen(true);
                     setSnackbarMessage("Failed to load user codes");
                     setSeveritySnakbar('error');
-                } finally {
-                    setIsLoading(false);
                 }
+
+            } catch (err) {
+                console.error("Init error: ", err);
+                setSnackbarOpen(true);
+                setSnackbarMessage("Unexpected error");
+                setSeveritySnakbar('error');
+            } finally {
+                setIsLoading(false);
             }
         };
 
-        getUserCodes();
-    }, [userData]);
+        init();
+    }, [u]);
+
+
+    const handleOpenChat = () => {
+        if (userData) {
+            if (authUserId) {
+                if (!openChat) {
+                    setOpenChat(true);
+                } else {
+                    setOpenChat(false);
+                }
+                
+            } else {
+                setSnackbarOpen(true);
+                setSnackbarMessage(t('error_auth'));
+                setSeveritySnakbar('warning');
+            }
+        } else {
+            setSnackbarOpen(true);
+            setSnackbarMessage(t('not_ex_user'));
+            setSeveritySnakbar('warning');
+        }
+
+    }
 
     if (isLoading) {
         return (
@@ -151,7 +177,7 @@ export default function Profilo() {
                             <Typography variant="h5">{userData?.username || "-"}</Typography>
                         </Stack>
 
-                        <IconButton>
+                        <IconButton onClick={handleOpenChat}>
                             <MessageIcon sx={{ fontSize: '2rem' }} />
                         </IconButton>
                     </Stack>
@@ -171,9 +197,12 @@ export default function Profilo() {
 
                 </Stack>
 
-
-
             </Box>
+
+            { openChat && (
+                <ChatContainer />
+            )}
+            
 
             <CustomizedSnackbar
                 open={snackbarOpen}

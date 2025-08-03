@@ -1,4 +1,6 @@
 {
     "registered_on": "Registrato il",
-    "all_bonus": "Tutti i bonus"
+    "all_bonus": "Tutti i bonus",
+    "error_auth": "Fai il login per inviare un messaggio a questo utente",
+    "not_ex_user": "Utente non esistente"
 }
