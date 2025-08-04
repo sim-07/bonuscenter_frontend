@@ -25,6 +25,7 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [severitySnakbar, setSeveritySnakbar] = useState<'success' | 'error' | 'warning' | 'info'>('success');
     const [messageText, setMessageText] = useState('');
+    const inputRef = useRef<HTMLInputElement | null>(null);
     const { t } = useTranslation('user_page');
     const [messagesList, setMessagesList] = useState<Array<{
         text: string;
@@ -32,12 +33,7 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
         receiver_id: string;
         created_at: string;
     }>>([]);
-    const [messagesListTemp, setMessagesListTemp] = useState<Array<{
-        text: string;
-        sender_id: string;
-        receiver_id: string;
-        created_at: string;
-    }>>([]);
+
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -46,6 +42,7 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
     let firstLoad = true;
     useEffect(() => {
         scrollToBottom();
+        inputRef.current?.focus();
         const fetchMessage = async () => {
             firstLoad = false;
             try {
@@ -95,11 +92,20 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
         try {
             const res = await apiService("chat", "send_message", { sender_id: senderId, receiver_id: receiverId, text: messageText });
 
-            if (!res.error) {
+            if (!res.error && receiverId) {
                 setMessageText('');
+                setMessagesList(prev => [
+                    ...prev,
+                    {
+                        sender_id: senderId,
+                        receiver_id: receiverId,
+                        text: messageText,
+                        created_at: new Date().toISOString(),
+                    }
+                ])
             } else {
                 setSnackbarOpen(true);
-                setSnackbarMessage('Error fetching data');
+                setSnackbarMessage('Error sending message');
                 setSeveritySnakbar('error');
             }
         } catch (err) {
@@ -208,8 +214,9 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
 
                     <TextField
                         fullWidth
+                        inputRef={inputRef}
                         variant="outlined"
-                        placeholder="Scrivi un messaggio..."
+                        placeholder={t('typemessage')}
                         value={messageText}
                         onChange={(e) => setMessageText(e.target.value)}
                         onKeyDown={(e) => {
