@@ -5,7 +5,7 @@ import { Avatar, Box, IconButton, InputAdornment, Stack, TextField, Typography }
 import CloseIcon from '@mui/icons-material/Close';
 import SendIcon from '@mui/icons-material/Send';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import apiService from '../scripts/apiService';
 import CustomizedSnackbar from '../common/Snakbar';
 import { t } from 'i18next';
@@ -32,10 +32,20 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
         receiver_id: string;
         created_at: string;
     }>>([]);
+    const [messagesListTemp, setMessagesListTemp] = useState<Array<{
+        text: string;
+        sender_id: string;
+        receiver_id: string;
+        created_at: string;
+    }>>([]);
 
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+    const messagesEndRef = useRef<HTMLDivElement | null>(null);
     let firstLoad = true;
     useEffect(() => {
-
+        scrollToBottom();
         const fetchMessage = async () => {
             firstLoad = false;
             try {
@@ -46,7 +56,12 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
                 const res = await apiService("chat", "get_messages", { sender_id: senderId, receiver_id: receiverId });
 
                 if (!res.error) {
-                    setMessagesList(res.data); //  mettere scroll alla fine e visualizzare subito mess
+                    const newMessages = res.data;
+
+                    if (JSON.stringify(newMessages) !== JSON.stringify(messagesList)) {
+                        setMessagesList(newMessages);
+                        scrollToBottom();
+                    }
                 } else {
                     setSnackbarOpen(true);
                     setSnackbarMessage('Error fetching data');
@@ -69,15 +84,13 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
 
     }, [])
 
-    useEffect(() => {
-        console.log("MESSAGE LIST: ", messagesList)
-    }, [messagesList])
-
 
     const handleSend = async () => {
         if (messageText.trim() === '') {
             return;
         }
+
+        scrollToBottom();
 
         try {
             const res = await apiService("chat", "send_message", { sender_id: senderId, receiver_id: receiverId, text: messageText });
@@ -102,8 +115,8 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
                 position: 'fixed',
                 bottom: 20,
                 right: 20,
-                width: 320,
-                height: 400,
+                width: { xs: 320, md: 420 },
+                height: 500,
                 bgcolor: '#fff',
                 borderRadius: 2,
                 boxShadow: 4,
@@ -150,7 +163,7 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
                         sx={{
                             flexGrow: 1,
                             overflowY: 'auto',
-                            height: '270px',
+                            height: '78%',
                             p: 2,
                             display: 'flex',
                             flexDirection: 'column',
@@ -189,6 +202,7 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
                                 </Box>
                             );
                         })}
+                        <div ref={messagesEndRef} />
                     </Box>
 
 
