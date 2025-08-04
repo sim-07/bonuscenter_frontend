@@ -5,7 +5,7 @@ import { Avatar, Box, IconButton, InputAdornment, Stack, TextField, Typography }
 import CloseIcon from '@mui/icons-material/Close';
 import SendIcon from '@mui/icons-material/Send';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import apiService from '../scripts/apiService';
 import CustomizedSnackbar from '../common/Snakbar';
 import { t } from 'i18next';
@@ -26,6 +26,7 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
     const [severitySnakbar, setSeveritySnakbar] = useState<'success' | 'error' | 'warning' | 'info'>('success');
     const [messageText, setMessageText] = useState('');
     const inputRef = useRef<HTMLInputElement | null>(null);
+    const [scroll, setScroll] = useState(false);
     const { t } = useTranslation('user_page');
     const [messagesList, setMessagesList] = useState<Array<{
         text: string;
@@ -42,7 +43,6 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
     let firstLoad = true;
     useEffect(() => {
         scrollToBottom();
-        inputRef.current?.focus();
         const fetchMessage = async () => {
             firstLoad = false;
             try {
@@ -57,7 +57,6 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
 
                     if (JSON.stringify(newMessages) !== JSON.stringify(messagesList)) {
                         setMessagesList(newMessages);
-                        scrollToBottom();
                     }
                 } else {
                     setSnackbarOpen(true);
@@ -81,12 +80,22 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
 
     }, [])
 
+    useLayoutEffect(() => {
+        console.log(isLoading)
+        if (!isLoading) {
+            scrollToBottom();
+            inputRef.current?.focus();
+            setScroll(false);
+        }
+    }, [isLoading, scroll]);
+
 
     const handleSend = async () => {
         if (messageText.trim() === '') {
             return;
         }
 
+        setScroll(true); //non funzoina lo scroll
         scrollToBottom();
 
         try {
@@ -223,6 +232,7 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
                             if (e.key === 'Enter' && !e.shiftKey) {
                                 e.preventDefault();
                                 handleSend();
+                                scrollToBottom();
                             }
                         }}
                         slotProps={{
