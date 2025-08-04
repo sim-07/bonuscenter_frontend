@@ -10,6 +10,7 @@ import apiService from '../scripts/apiService';
 import CustomizedSnackbar from '../common/Snakbar';
 import { t } from 'i18next';
 import LoadingSpinner from '../common/LoadingSpinner';
+import { useTranslation } from 'next-i18next';
 
 interface ChatContainerProps {
     handleCloseChat: () => void;
@@ -23,23 +24,33 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [severitySnakbar, setSeveritySnakbar] = useState<'success' | 'error' | 'warning' | 'info'>('success');
-    const [message, setMessage] = useState('');
-    const [messagesList, setMessagesList] = useState([]);
+    const [messageText, setMessageText] = useState('');
+    const { t } = useTranslation('user_page');
+    const [messagesList, setMessagesList] = useState<Array<{
+        text: string;
+        sender_id: string;
+        receiver_id: string;
+        created_at: string;
+    }>>([]);
 
-
+    let firstLoad = true;
     useEffect(() => {
 
         const fetchMessage = async () => {
+            firstLoad = false;
             try {
-                setIsLoading(true);
+                if (firstLoad) {
+                    setIsLoading(true);
+                }
+
                 const res = await apiService("chat", "get_messages", { sender_id: senderId, receiver_id: receiverId });
 
                 if (!res.error) {
-                    setMessagesList(res.data[0]);
+                    setMessagesList(res.data); //  mettere scroll alla fine e visualizzare subito mess
                 } else {
                     setSnackbarOpen(true);
                     setSnackbarMessage('Error fetching data');
-                    setSeveritySnakbar('warning');
+                    setSeveritySnakbar('error');
                 }
             } catch (err) {
                 console.error("Error: ", err);
@@ -48,16 +59,39 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
             }
         }
 
-        fetchMessage();
+        if (firstLoad) {
+            fetchMessage();
+        }
+
+        setInterval(() => {
+            fetchMessage();
+        }, 2000)
 
     }, [])
 
+    useEffect(() => {
+        console.log("MESSAGE LIST: ", messagesList)
+    }, [messagesList])
 
-    const handleSend = () => {
-        if (message.trim() === '') {
+
+    const handleSend = async () => {
+        if (messageText.trim() === '') {
             return;
         }
 
+        try {
+            const res = await apiService("chat", "send_message", { sender_id: senderId, receiver_id: receiverId, text: messageText });
+
+            if (!res.error) {
+                setMessageText('');
+            } else {
+                setSnackbarOpen(true);
+                setSnackbarMessage('Error fetching data');
+                setSeveritySnakbar('error');
+            }
+        } catch (err) {
+            console.error("Error: ", err);
+        }
 
     };
 
@@ -76,7 +110,7 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
                 zIndex: 1300,
             }}
         >
-            <Stack direction={'row'} sx={{ justifyContent: 'space-between', display: 'flex' }}>
+            <Stack direction={'row'} sx={{ justifyContent: 'space-between', display: 'flex', height: '50px' }}>
                 <Avatar />
                 <Typography
                     variant="h6"
@@ -118,9 +152,43 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
                             overflowY: 'auto',
                             height: '270px',
                             p: 2,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 1,
                         }}
                     >
-                        {/* Messaggi qui */}
+                        {Array.isArray(messagesList) && messagesList.map((message, index) => {
+                            const isSentByUser = message.sender_id === senderId;
+                            const time = new Date(message.created_at).toLocaleTimeString('it-IT', {
+                                hour: '2-digit',
+                                minute: '2-digit',
+                            });
+
+                            return (
+                                <Box
+                                    key={index}
+                                    sx={{
+                                        alignSelf: isSentByUser ? 'flex-end' : 'flex-start',
+                                        backgroundColor: isSentByUser ? '#e0f7fa' : '#f1f1f1',
+                                        borderRadius: 2,
+                                        p: 1.2,
+                                        maxWidth: '80%',
+                                        boxShadow: 1,
+                                    }}
+                                >
+                                    <Typography
+                                        variant="caption"
+                                        color="textSecondary"
+                                        sx={{ display: 'block', mb: 0.5 }}
+                                    >
+                                        {isSentByUser ? t('you') : receiverUsername} · {time}
+                                    </Typography>
+                                    <Typography variant="body2" sx={{ whiteSpace: 'pre-line' }}>
+                                        {message.text}
+                                    </Typography>
+                                </Box>
+                            );
+                        })}
                     </Box>
 
 
@@ -128,8 +196,8 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
                         fullWidth
                         variant="outlined"
                         placeholder="Scrivi un messaggio..."
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
+                        value={messageText}
+                        onChange={(e) => setMessageText(e.target.value)}
                         onKeyDown={(e) => {
                             if (e.key === 'Enter' && !e.shiftKey) {
                                 e.preventDefault();

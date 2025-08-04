@@ -3,5 +3,6 @@
     "all_bonus": "All Offers",
     "error_auth": "Log in to send a message to this user",
     "not_ex_user": "This user doesn't exist",
-    "same_user": "You can't send a message to yourself!"
+    "same_user": "You can't send a message to yourself!",
+    "you": "You"
 }
