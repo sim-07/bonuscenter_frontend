@@ -13,6 +13,8 @@ import {
     Typography,
 } from "@mui/material";
 
+import NextLink from 'next/link';
+
 import InfoOutlineIcon from '@mui/icons-material/InfoOutline';
 
 import { useEffect, useState } from "react";
@@ -64,8 +66,6 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [username, setUsername] = useState<string | null>(null);
-
-
 
     const handleOpenDialog = async (referral: ReferralType) => {
         setSelectedReferral(referral);
@@ -238,13 +238,28 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                                     overflow: 'hidden'
                                 }}
                                 alignItems="flex-start"
-                                onClick={() => handleOpenDialog(referral)}
+                                onClick={(e) => {
+                                    if ((e.target as HTMLElement).closest('a')) {
+                                        return;
+                                    }
+                                    handleOpenDialog(referral);
+                                }}
                             >
                                 <ListItemAvatar>
                                     <Avatar alt={referral.username} />
                                 </ListItemAvatar>
                                 <ListItemText
-                                    primary={referral.username}
+                                    primary={
+                                        <Link
+                                            component={NextLink}
+                                            href={locale === 'it' ? `/it/user?u=${referral.username}` : `/en/user?u=${referral.username}`}
+                                            underline="hover"
+                                            sx={{ color: 'primary.main', cursor: 'pointer' }}
+                                            onClick={(e) => e.stopPropagation()}
+                                        >
+                                            {referral.username}
+                                        </Link>
+                                    }
                                     secondary={
                                         <React.Fragment>
                                             <Typography
@@ -262,6 +277,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                             <Divider variant="inset" component="li" />
                         </React.Fragment>
                     ))}
+
                 </List>
             )}
 
