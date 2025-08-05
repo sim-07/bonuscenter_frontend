@@ -35,18 +35,38 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
         created_at: string;
     }>>([]);
 
-
-    const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-    };
+    const messagesContainerRef = useRef<HTMLDivElement | null>(null);
     const messagesEndRef = useRef<HTMLDivElement | null>(null);
-    let firstLoad = true;
+    const messagesListRef = useRef(messagesList);
+
+    const isUserNearBottom = (): boolean => {
+        const el = messagesContainerRef.current;
+        if (!el) return false;
+    
+        const threshold = 100;
+        const position = el.scrollTop + el.clientHeight;
+        const height = el.scrollHeight;
+    
+        return height - position < threshold;
+    };
+
     useEffect(() => {
-        scrollToBottom();
+        messagesListRef.current = messagesList;
+    }, [messagesList]);
+
+    useEffect(() => {
+        if (isUserNearBottom() || firstLoad.current) {
+            messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [messagesList]);
+
+
+    let firstLoad = useRef(true);
+    useEffect(() => {
         const fetchMessage = async () => {
-            firstLoad = false;
+            
             try {
-                if (firstLoad) {
+                if (firstLoad.current) {
                     setIsLoading(true);
                 }
 
@@ -57,6 +77,12 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
 
                     if (JSON.stringify(newMessages) !== JSON.stringify(messagesList)) {
                         setMessagesList(newMessages);
+                        if (firstLoad.current) {
+                            setTimeout(() => {
+                                messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+                                firstLoad.current = false;
+                            }, 100);
+                        }
                     }
                 } else {
                     setSnackbarOpen(true);
@@ -81,13 +107,16 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
     }, [])
 
     useLayoutEffect(() => {
-        console.log(isLoading)
+        console.log("ISLOADING: ", isLoading)
         if (!isLoading) {
-            scrollToBottom();
             inputRef.current?.focus();
             setScroll(false);
         }
     }, [isLoading, scroll]);
+
+    useEffect(() => {
+        console.log("SCROLL: ", scroll);
+    }, [scroll])
 
 
     const handleSend = async () => {
@@ -95,8 +124,7 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
             return;
         }
 
-        setScroll(true); //non funzoina lo scroll
-        scrollToBottom();
+        setScroll(true);
 
         try {
             const res = await apiService("chat", "send_message", { sender_id: senderId, receiver_id: receiverId, text: messageText });
@@ -175,6 +203,7 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
             ) : (
                 <>
                     <Box
+                        ref={messagesContainerRef}
                         sx={{
                             flexGrow: 1,
                             overflowY: 'auto',
@@ -187,7 +216,9 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
                     >
                         {Array.isArray(messagesList) && messagesList.map((message, index) => {
                             const isSentByUser = message.sender_id === senderId;
-                            const time = new Date(message.created_at).toLocaleTimeString('it-IT', {
+                            const time = new Date(message.created_at).toLocaleString('it-IT', {
+                                day: '2-digit',
+                                month: '2-digit',
                                 hour: '2-digit',
                                 minute: '2-digit',
                             });
@@ -232,7 +263,6 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
                             if (e.key === 'Enter' && !e.shiftKey) {
                                 e.preventDefault();
                                 handleSend();
-                                scrollToBottom();
                             }
                         }}
                         slotProps={{
