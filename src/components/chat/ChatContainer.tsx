@@ -82,7 +82,6 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
                         setTimeout(() => {
                             messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
                             firstLoad.current = false;
-                            console.log("FIRSTLOAD MESSO A FALSE")
                         }, 100);
                     }
                 } else {
@@ -108,21 +107,11 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
     }, [])
 
     useLayoutEffect(() => {
-        console.log("ISLOADING: ", isLoading)
         if (!isLoading) {
             inputRef.current?.focus();
             setScroll(false);
         }
     }, [isLoading, scroll]);
-
-    useEffect(() => {
-        console.log("SCROLL: ", scroll);
-    }, [scroll])
-
-    useEffect(() => {
-        console.log("firstLoad.current: ", firstLoad.current);
-    }, [firstLoad.current])
-
 
     const handleSend = async () => {
         if (messageText.trim() === '') {
