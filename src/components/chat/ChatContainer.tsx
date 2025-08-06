@@ -77,12 +77,13 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
 
                     if (JSON.stringify(newMessages) !== JSON.stringify(messagesList)) {
                         setMessagesList(newMessages);
-                        if (firstLoad.current) {
-                            setTimeout(() => {
-                                messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-                                firstLoad.current = false;
-                            }, 100);
-                        }
+                    }
+                    if (firstLoad.current) {
+                        setTimeout(() => {
+                            messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+                            firstLoad.current = false;
+                            console.log("FIRSTLOAD MESSO A FALSE")
+                        }, 100);
                     }
                 } else {
                     setSnackbarOpen(true);
@@ -117,6 +118,10 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
     useEffect(() => {
         console.log("SCROLL: ", scroll);
     }, [scroll])
+
+    useEffect(() => {
+        console.log("firstLoad.current: ", firstLoad.current);
+    }, [firstLoad.current])
 
 
     const handleSend = async () => {

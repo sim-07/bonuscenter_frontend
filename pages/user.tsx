@@ -49,10 +49,6 @@ export default function Profilo() {
                 setIsLoading(true);
 
                 const authRes = await apiService('users', 'get_user_data');
-                if (authRes.error || !authRes.data || !Array.isArray(authRes.data) || authRes.data.length === 0) {
-                    router.push('/');
-                    return;
-                }
 
                 setAuthUsername(authRes.data[0].username);
                 setAuthUserId(authRes.data[0].user_id);
