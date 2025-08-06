@@ -123,6 +123,8 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
         try {
             const res = await apiService("chat", "send_message", { sender_id: senderId, receiver_id: receiverId, text: messageText });
 
+            // nuova attività sulla chat... - visualizza
+
             if (!res.error && receiverId) {
                 setMessageText('');
                 setMessagesList(prev => [

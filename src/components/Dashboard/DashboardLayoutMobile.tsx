@@ -18,7 +18,7 @@ import BonusContainer from "../bonus/BonusContainer";
 import UserReferral from "../bonus/UserReferral";
 import UsedCodes from "../bonus/UsedCodes";
 import apiService from "../scripts/apiService";
-import NotificationList from "../common/NotificationList";
+import NotificationList from "../Notification/NotificationList";
 
 export default function DashboardLayoutMobile({
     username,

@@ -1,9 +1,11 @@
-import { Box, Button, Divider, ListItemText, MenuItem, Stack, Typography } from "@mui/material";
+import { Box, Button, Divider, IconButton, ListItemText, MenuItem, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useTranslation } from 'next-i18next';
 
+import ClearIcon from '@mui/icons-material/Clear';
+
 import apiService from "../scripts/apiService";
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "../common/LoadingSpinner";
 import CustomizedSnackbar from '@/components/common/Snakbar';
 
 type NotificationListProps = {
@@ -12,7 +14,8 @@ type NotificationListProps = {
 };
 
 type Notification = {
-    code_id: string;
+    notification_id?: string;
+    code_id?: string;
     message: string;
     type: string;
     created_at: string;
@@ -56,7 +59,7 @@ export default function NotificationList({ max, compact = false }: NotificationL
 
     const items = max ? notifications.slice(0, max) : notifications;
 
-    const handleConfirmUsedCode = async (code_id: string) => {
+    const handleConfirmUsedCode = async (code_id?: string) => {
         try {
             setIsLoading(true);
             const res = await apiService('used_codes', 'confirm_code', { code_id });
@@ -84,6 +87,24 @@ export default function NotificationList({ max, compact = false }: NotificationL
             console.error(t("error_confirm_code"), error);
         } finally {
             setIsLoading(false);
+        }
+    }
+
+    const deleteNotification = async (notification_id: string) => {
+        try {
+            const resDelete = await apiService('notification', 'delete_notification', { notification_id });
+            if (!resDelete.error) {
+                setSnakbarMessage(t("confirmed"));
+                setSeveritySnakbar({ severity: 'success' });
+                setOpenSnackbar(true);
+                setNotifications(prev =>
+                    prev.filter(item => item.notification_id !== notification_id)
+                );
+            } else {
+                console.error(t("error_delete_notification"), resDelete.error);
+            }
+        } catch (error) {
+            console.error(t("error_delete_notification"), error);
         }
     }
 
@@ -132,10 +153,17 @@ export default function NotificationList({ max, compact = false }: NotificationL
 
                                     default:
                                         content = (
-                                            <ListItemText
-                                                primary={item.message}
-                                                secondary={new Date(item.created_at).toLocaleString()}
-                                            />
+                                            <Stack direction={'row'}>
+                                                <ListItemText
+                                                    primary={item.message}
+                                                    secondary={new Date(item.created_at).toLocaleString()}
+                                                />
+
+                                                <IconButton onClick={() => deleteNotification(item.notification_id ? item.notification_id : "")}>
+                                                    <ClearIcon></ClearIcon>
+                                                </IconButton>
+
+                                            </Stack>
                                         );
                                 }
 

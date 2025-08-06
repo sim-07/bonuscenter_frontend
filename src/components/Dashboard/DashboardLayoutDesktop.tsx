@@ -16,7 +16,7 @@ import router from "next/router";
 import VerticalTabs from "@/components/common/VerticalTab";
 import BonusContainer from "../bonus/BonusContainer";
 import apiService from "../scripts/apiService";
-import NotificationList from "../common/NotificationList";
+import NotificationList from "../Notification/NotificationList";
 
 const UserReferral = dynamic(() => import('@/components/bonus/UserReferral'));
 const UsedCodes = dynamic(() => import('@/components/bonus/UsedCodes'));
