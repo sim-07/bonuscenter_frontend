@@ -123,8 +123,6 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
         try {
             const res = await apiService("chat", "send_message", { sender_id: senderId, receiver_id: receiverId, text: messageText });
 
-            // nuova attività sulla chat... - visualizza
-
             if (!res.error && receiverId) {
                 setMessageText('');
                 setMessagesList(prev => [
@@ -141,6 +139,13 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
                 setSnackbarMessage('Error sending message');
                 setSeveritySnakbar('error');
             }
+
+            const resN = await apiService("notification", "create_notification", { receiver: receiverId, type: "new_activity_chat" });
+
+            if (resN.error || !receiverId) {
+                console.error("Error creating notification")
+            }
+
         } catch (err) {
             console.error("Error: ", err);
         }
