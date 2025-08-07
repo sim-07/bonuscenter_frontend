@@ -91,6 +91,7 @@ export default function NotificationList({ max, compact = false }: NotificationL
     }
 
     const deleteNotification = async (notification_id: string) => {
+        console.log(notification_id);
         try {
             const resDelete = await apiService('notification', 'delete_notification', { notification_id });
             if (!resDelete.error) {

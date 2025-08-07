@@ -113,8 +113,8 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
         }
     }, [isLoading, scroll]);
 
-    const hasSentFirstMessage = useRef(false);
-
+    
+    const firstMess = useRef(false);
     const handleSend = async () => {
         if (messageText.trim() === '') {
             return;
@@ -142,8 +142,8 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
                 setSeveritySnakbar('error');
             }
 
-            if (!hasSentFirstMessage.current) {
-                hasSentFirstMessage.current = true;
+            if (!firstMess.current) {
+                firstMess.current = true;
                 const resN = await apiService("notification", "create_notification", {
                     receiver: receiverId,
                     type: "new_activity_chat"
