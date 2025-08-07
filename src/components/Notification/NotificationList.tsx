@@ -95,9 +95,6 @@ export default function NotificationList({ max, compact = false }: NotificationL
         try {
             const resDelete = await apiService('notification', 'delete_notification', { notification_id });
             if (!resDelete.error) {
-                setSnakbarMessage(t("confirmed"));
-                setSeveritySnakbar({ severity: 'success' });
-                setOpenSnackbar(true);
                 setNotifications(prev =>
                     prev.filter(item => item.notification_id !== notification_id)
                 );
