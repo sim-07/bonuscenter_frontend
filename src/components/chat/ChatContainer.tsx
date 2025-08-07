@@ -42,11 +42,11 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
     const isUserNearBottom = (): boolean => {
         const el = messagesContainerRef.current;
         if (!el) return false;
-    
+
         const threshold = 100;
         const position = el.scrollTop + el.clientHeight;
         const height = el.scrollHeight;
-    
+
         return height - position < threshold;
     };
 
@@ -64,7 +64,7 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
     let firstLoad = useRef(true);
     useEffect(() => {
         const fetchMessage = async () => {
-            
+
             try {
                 if (firstLoad.current) {
                     setIsLoading(true);
@@ -96,7 +96,7 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
             }
         }
 
-        if (firstLoad) {
+        if (firstLoad.current) {
             fetchMessage();
         }
 
@@ -140,11 +140,14 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
                 setSeveritySnakbar('error');
             }
 
-            const resN = await apiService("notification", "create_notification", { receiver: receiverId, type: "new_activity_chat" });
+            if (firstLoad.current) {
+                const resN = await apiService("notification", "create_notification", { receiver: receiverId, type: "new_activity_chat" });
 
-            if (resN.error || !receiverId) {
-                console.error("Error creating notification")
+                if (resN.error || !receiverId) {
+                    console.error("Error creating notification")
+                }
             }
+
 
         } catch (err) {
             console.error("Error: ", err);
