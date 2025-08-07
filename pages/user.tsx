@@ -54,7 +54,7 @@ export default function Profilo() {
                 setAuthUserId(authRes.data[0].user_id);
 
 
-                const userRes = await apiService('users', 'find_user', { u });
+                const userRes = await apiService('users', 'find_user_by_username', { u });
                 if (userRes.error || !userRes.data) {
                     setSnackbarOpen(true);
                     setSnackbarMessage("User not found");

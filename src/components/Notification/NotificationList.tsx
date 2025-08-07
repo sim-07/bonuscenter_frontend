@@ -14,6 +14,7 @@ type NotificationListProps = {
 };
 
 type Notification = {
+    sender_username: string;
     sender: string;
     notification_id?: string;
     code_id?: string;
@@ -158,7 +159,7 @@ export default function NotificationList({ max, compact = false }: NotificationL
                                                     secondary={new Date(item.created_at).toLocaleString()}
                                                 />
                                                 <Typography>
-                                                    Click <Link href={`/user?u=${item.sender}`}>here</Link> to go to the chat
+                                                    Click <Link href={`/user?u=${item.sender_username}`}>here</Link> to go to the chat
                                                 </Typography>
                                                 <IconButton onClick={() => deleteNotification(item.notification_id ? item.notification_id : "")}>
                                                     <ClearIcon></ClearIcon>
