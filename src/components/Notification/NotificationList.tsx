@@ -1,4 +1,4 @@
-import { Box, Button, Divider, IconButton, ListItemText, MenuItem, Stack, Typography } from "@mui/material";
+import { Box, Button, Divider, IconButton, Link, ListItemText, MenuItem, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useTranslation } from 'next-i18next';
 
@@ -14,6 +14,7 @@ type NotificationListProps = {
 };
 
 type Notification = {
+    sender: string;
     notification_id?: string;
     code_id?: string;
     message: string;
@@ -145,6 +146,24 @@ export default function NotificationList({ max, compact = false }: NotificationL
                                                 >
                                                     {t("confirm")}
                                                 </Button>
+                                            </Stack>
+                                        );
+                                        break;
+
+                                    case 'new_activity_chat':
+                                        content = (
+                                            <Stack direction={'row'}>
+                                                <ListItemText
+                                                    primary={item.message}
+                                                    secondary={new Date(item.created_at).toLocaleString()}
+                                                />
+                                                <Typography>
+                                                    Click <Link href={`/user?u=${item.sender}`}>here</Link> to go to the chat
+                                                </Typography>
+                                                <IconButton onClick={() => deleteNotification(item.notification_id ? item.notification_id : "")}>
+                                                    <ClearIcon></ClearIcon>
+                                                </IconButton>
+
                                             </Stack>
                                         );
                                         break;
