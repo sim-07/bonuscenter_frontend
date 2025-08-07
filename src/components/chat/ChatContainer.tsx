@@ -113,6 +113,8 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
         }
     }, [isLoading, scroll]);
 
+    const hasSentFirstMessage = useRef(false);
+
     const handleSend = async () => {
         if (messageText.trim() === '') {
             return;
@@ -140,11 +142,15 @@ export default function ChatContainer({ handleCloseChat, senderId, receiverUsern
                 setSeveritySnakbar('error');
             }
 
-            if (firstLoad.current) {
-                const resN = await apiService("notification", "create_notification", { receiver: receiverId, type: "new_activity_chat" });
+            if (!hasSentFirstMessage.current) {
+                hasSentFirstMessage.current = true;
+                const resN = await apiService("notification", "create_notification", {
+                    receiver: receiverId,
+                    type: "new_activity_chat"
+                });
 
-                if (resN.error || !receiverId) {
-                    console.error("Error creating notification")
+                if (resN.error) {
+                    console.error("Error creating notification");
                 }
             }
 
