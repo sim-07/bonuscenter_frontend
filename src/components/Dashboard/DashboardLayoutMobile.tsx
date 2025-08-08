@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, Stack, Menu } from "@mui/material";
+import { Box, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, Stack, Menu, Badge } from "@mui/material";
 import { useTranslation } from "next-i18next";
 
 import MenuIcon from '@mui/icons-material/Menu';
@@ -20,13 +20,14 @@ import UsedCodes from "../bonus/UsedCodes";
 import apiService from "../scripts/apiService";
 import NotificationList from "../Notification/NotificationList";
 
-export default function DashboardLayoutMobile({
-    username,
-    openAddCodeDialog
-}: {
-    username: string,
-    openAddCodeDialog: () => void
-}) {
+interface DashboardLayoutMobileProps {
+    username: string;
+    openAddCodeDialog: () => void;
+    setUnread: React.Dispatch<React.SetStateAction<boolean>>;
+    unread: boolean;
+}
+
+export default function DashboardLayoutMobile({username, openAddCodeDialog, setUnread, unread}: DashboardLayoutMobileProps) {
     const { t } = useTranslation('dashboard');
 
     const listMenu = [
@@ -43,6 +44,7 @@ export default function DashboardLayoutMobile({
 
     const handleClickNotification = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorElNotification(event.currentTarget);
+        setUnread(false);
     };
 
     const handleCloseNotification = () => {
@@ -100,9 +102,16 @@ export default function DashboardLayoutMobile({
                             height: '40px',
                             width: '40px',
                             marginTop: '15px',
+                            position: 'relative',
                         }}
                     >
-                        <NotificationsIcon />
+                        <Badge
+                            color="primary"
+                            variant="dot"
+                            invisible={!unread}
+                        >
+                            <NotificationsIcon />
+                        </Badge>
                     </IconButton>
                 </Stack>
 

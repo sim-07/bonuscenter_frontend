@@ -20,6 +20,7 @@ type Notification = {
     code_id?: string;
     message: string;
     type: string;
+    read: boolean;
     created_at: string;
 };
 
@@ -48,8 +49,13 @@ export default function NotificationList({ max, compact = false }: NotificationL
                 } else {
                     console.error(t("error_get_notifications"), res.error);
                 }
+
+                const resRead = await apiService('notification', 'set_read', {});
+                if (resRead.error) {
+                    console.error("Error in set_read")
+                }
             } catch (error) {
-                console.error(t("error_get_notifications"), error);
+                console.error(t("error set_read"), error);
             } finally {
                 setIsLoading(false);
             }

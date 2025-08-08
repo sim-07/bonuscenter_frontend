@@ -2,6 +2,7 @@ import { Box, IconButton, Stack, Menu, MenuItem, ListItemIcon, ListItemText, Div
 import { useState } from "react";
 import dynamic from 'next/dynamic';
 import { useTranslation } from 'next-i18next';
+import { Badge } from '@mui/material';
 
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
@@ -21,13 +22,14 @@ import NotificationList from "../Notification/NotificationList";
 const UserReferral = dynamic(() => import('@/components/bonus/UserReferral'));
 const UsedCodes = dynamic(() => import('@/components/bonus/UsedCodes'));
 
-export default function DashboardLayoutDesktop({
-    username,
-    openAddCodeDialog
-}: {
-    username: string,
-    openAddCodeDialog: () => void
-}) {
+interface DashboardLayoutDesktopProps {
+    username: string;
+    openAddCodeDialog: () => void;
+    setUnread: React.Dispatch<React.SetStateAction<boolean>>;
+    unread: boolean;
+}
+
+export default function DashboardLayoutDesktop({ username, openAddCodeDialog, setUnread, unread }: DashboardLayoutDesktopProps) {
     const [anchorElProfile, setAnchorElProfile] = useState<null | HTMLElement>(null);
     const [anchorElNotification, setAchorElNotification] = useState<null | HTMLElement>(null);
     const openP = Boolean(anchorElProfile);
@@ -45,6 +47,7 @@ export default function DashboardLayoutDesktop({
 
     const handleClickNotification = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAchorElNotification(event.currentTarget);
+        setUnread(false);
     };
 
     const handleCloseNotification = () => {
@@ -91,7 +94,9 @@ export default function DashboardLayoutDesktop({
                         onClick={handleClickNotification}
                         sx={{ bgcolor: 'grey.200', color: 'text.primary', height: '40px', width: '40px' }}
                     >
-                        <NotificationsIcon />
+                        <Badge color="primary" variant="dot" invisible={!unread}>
+                            <NotificationsIcon />
+                        </Badge>
                     </IconButton>
                 </Stack>
 

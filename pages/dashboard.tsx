@@ -33,6 +33,7 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
     const [openCodeDialog, setOpenCodeDialog] = useState(false);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
+    const [unread, setUnread] = useState(false);
 
     useEffect(() => {
         const checkAuth = async () => {
@@ -55,6 +56,30 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
             }
         };
 
+        const unreadNotifications = async () => {
+            try {
+                setIsLoading(true);
+                const res = await apiService('notification', 'get_notifications_not_read', {});
+
+                if (!res.error) {
+                    if (res.data && Array.isArray(res.data) && res.data.length > 0) {
+                        setUnread(true);
+                    } else {
+                        setUnread(false);
+                    }
+                } else {
+                    console.error(t("error_get_notifications"), res.error);
+                }
+
+
+            } catch (error) {
+                console.error(t("error notReadNotifications"), error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        unreadNotifications();
         checkAuth();
     }, []);
 
@@ -63,6 +88,10 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
         setSnackbarMessage("Il tuo codice è stato inserito!");
         setSnackbarOpen(true);
     };
+
+    useEffect(() => {
+        console.log("UNREAD: ", unread)
+    }, [unread])
 
 
     return (
@@ -91,11 +120,15 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
                             <DashboardLayoutMobile
                                 username={username}
                                 openAddCodeDialog={() => setOpenCodeDialog(true)}
+                                setUnread={setUnread}
+                                unread={unread}
                             />
                         ) : (
                             <DashboardLayoutDesktop
                                 username={username}
                                 openAddCodeDialog={() => setOpenCodeDialog(true)}
+                                setUnread={setUnread}
+                                unread={unread}
                             />
                         )}
                     </Box>
