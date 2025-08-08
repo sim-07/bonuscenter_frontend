@@ -154,16 +154,23 @@ export default function NotificationList({ max, compact = false }: NotificationL
                                     case 'new_activity_chat':
                                         content = (
                                             <Stack direction={'row'}>
-                                                <ListItemText
-                                                    primary={item.message}
-                                                    secondary={new Date(item.created_at).toLocaleString()}
-                                                />
-                                                <Typography>
-                                                    Click <Link href={`/user?u=${item.sender_username}`}>here</Link> to go to the chat
-                                                </Typography>
-                                                <IconButton onClick={() => deleteNotification(item.notification_id ? item.notification_id : "")}>
-                                                    <ClearIcon></ClearIcon>
-                                                </IconButton>
+                                                <Stack direction={'column'}>
+                                                    <ListItemText
+                                                        primary={
+                                                            <Typography>
+                                                                {item.message} <br />Click <Link href={`/user?u=${item.sender_username}`}>here</Link> to go to the chat
+                                                            </Typography>
+                                                        }
+                                                        secondary={new Date(item.created_at).toLocaleString()}
+                                                    />
+                                                </Stack>
+
+                                                <Box sx={{ margin: 'auto' }}>
+                                                    <IconButton onClick={() => deleteNotification(item.notification_id ? item.notification_id : "")} sx={{ height: '40px' }}>
+                                                        <ClearIcon></ClearIcon>
+                                                    </IconButton>
+                                                </Box>
+
 
                                             </Stack>
                                         );
