@@ -89,11 +89,6 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
         setSnackbarOpen(true);
     };
 
-    useEffect(() => {
-        console.log("UNREAD: ", unread)
-    }, [unread])
-
-
     return (
         <>
             <Head>
