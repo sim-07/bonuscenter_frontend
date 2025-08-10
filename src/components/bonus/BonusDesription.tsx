@@ -53,7 +53,7 @@ export default function BonusDescription({ bonus }: Props) {
                 p: 3,
                 maxWidth: 1200,
                 mx: 'auto',
-                width: {sm: '95%', md: '80%'}
+                width: { sm: '95%', md: '80%' }
             }}>
                 <Typography
                     variant="h4"
@@ -84,9 +84,9 @@ export default function BonusDescription({ bonus }: Props) {
                             margin: '80px 0px'
                         }}
                     >
-                        <Image
-                            alt="bonusimage"
+                        <img
                             src={`/images_bonus/${bonus.bonus_image}.avif`}
+                            alt="bonusimage"
                             width={300}
                             height={300}
                             style={{
