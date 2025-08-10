@@ -46,13 +46,17 @@ export default function Profilo() {
     useEffect(() => {
         const init = async () => {
             try {
-                setIsLoading(true);
-
                 const authRes = await apiService('users', 'get_user_data');
 
                 setAuthUsername(authRes.data[0].username);
                 setAuthUserId(authRes.data[0].user_id);
 
+            } catch (err) {
+                console.log("Not authenticated")
+            }
+
+            try {
+                setIsLoading(true);
 
                 const userRes = await apiService('users', 'find_user_by_username', { u });
                 if (userRes.error || !userRes.data) {
