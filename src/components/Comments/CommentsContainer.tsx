@@ -82,10 +82,10 @@ export default function CommentsContainer({ bonusName }: CommentsContainerProps)
                 p: 1,
                 borderRadius: '12px',
                 height: 500,
-                overflow: "scroll",
                 minWidth: "100%",
                 display: 'flex',
                 justifyContent: 'center',
+                overflow: "hidden",
             }}
         >
             <Stack
