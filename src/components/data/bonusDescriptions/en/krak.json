@@ -1,0 +1,60 @@
+{
+    "title": "KRAK (Kraken) Bonus $10 + $10 per referral",
+    "name": "krak",
+    "bonus_image": "krak",
+    "summary": {
+        "bonus": "🎁 $10 welcome bonus at registration",
+        "invito": "🎁 $10 for each friend referred (cumulative referral cap indicated: €1000)",
+        "deposito_richiesto": "💰 Recommended deposit €12 via SEPA bank transfer (the deposit is withdrawable immediately)",
+        "scadenza": "🗓️ Promotion with no defined end date",
+        "commissioni": "⚠️ Possible fees on cards/PayPal; EUR withdrawal may have a minimum threshold (around €100) and variable conversion costs",
+        "extra": "📌 Bonus credited within 14 days; KYC and proof of residence required; minimum age 18+"
+    },
+    "sections": [
+        {
+            "title": "What KRAK is and how the bonus works",
+            "content": [
+                "KRAK is Kraken's mobile app, a well-known cryptocurrency exchange that allows you to buy, sell and transfer cryptocurrencies directly from your phone.",
+                "The app offers a $10 welcome bonus for new users who have never had a Kraken account.",
+                "For each friend referred who completes the requirements, a $10 bonus is awarded.",
+                "The typical procedure involves depositing about €12 via bank transfer and sending at least €1 to another user using the app's \"Send\" function to unlock the bonus.",
+                "The bonus is generally credited within 14 days after the conditions have been met.",
+                "Document verification (KYC) and proof of residence are required; the offer is available only to adults (18+)."
+            ]
+        },
+        {
+            "title": "Requirements to get the bonus",
+            "content": [
+                "Be a new customer who has never had a Kraken account before.",
+                "Register on the KRAK app (email, password, phone number).",
+                "Complete KYC verification by uploading a valid ID (identity card, passport, or driving licence) and provide proof of residence if requested.",
+                "Deposit around €12 via bank transfer (SEPA or SEPA Instant).",
+                "Send at least €1 to another user from the app to unlock the bonus.",
+                "Wait for the bonus to be credited (up to 14 days)."
+            ]
+        },
+        {
+            "title": "Step-by-step guide to activate the account and unlock the bonus",
+            "content": [
+                "1. Download the KRAK app for Android or iOS and start the registration.",
+                "2. Enter your email, password and phone number; complete the initial signup.",
+                "3. Complete KYC by uploading an identity document and proof of residence when requested.",
+                "4. Make a deposit of about €12 via SEPA bank transfer (you can also use card or PayPal but check fees).",
+                "5. Use the app's \"Send\" function and transfer at least €1 to another user to meet the required condition.",
+                "6. Once all conditions are verified, you will receive a notification and/or email: the bonus is credited within 14 days.",
+                "7. If you want to withdraw the balance in EUR but are below the direct withdrawal threshold, consider converting to a stablecoin and transferring to another wallet/exchange to reduce fees and reach the withdrawal threshold."
+            ]
+        },
+        {
+            "title": "Other information and useful tips",
+            "content": [
+                "The recommended deposit (€12) is usually withdrawable immediately, but many users prefer to leave the amount in the app until the bonus arrives for safety.",
+                "The bonus is paid within 14 days if all conditions are met; keep confirmation emails.",
+                "To withdraw in euros there may be a minimum threshold (approximately €100) and conversion costs — check the app's current conditions before converting or withdrawing.",
+                "Fees and network options (for example Solana, Polygon, Arbitrum) affect transfer costs: choosing low-fee networks can reduce expenses.",
+                "A cumulative limit for referrals is indicated (reported as max €1000 in official communications).",
+                "Always read the full Terms & Conditions in the app before proceeding."
+            ]
+        }
+    ]
+}

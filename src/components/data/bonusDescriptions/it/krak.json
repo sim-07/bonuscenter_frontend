@@ -1,0 +1,60 @@
+{
+    "title": "KRAK (Kraken) Bonus 10$ + 10$ per invito",
+    "name": "krak",
+    "bonus_image": "krak",
+    "summary": {
+        "bonus": "🎁 10$ di benvenuto alla registrazione",
+        "invito": "🎁 10$ per ogni amico invitato (massimale cumulativo sugli inviti indicato: 1000€)",
+        "deposito_richiesto": "💰 Deposito consigliato 12€ tramite bonifico SEPA (il deposito è prelevabile subito)",
+        "scadenza": "🗓️ Promo senza scadenza definita",
+        "commissioni": "⚠️ Possibili commissioni su carte/PayPal; prelievo in EUR ha soglia minima (circa 100€) e costi di conversione variabili",
+        "extra": "📌 Bonus accreditato entro 14 giorni; KYC e prova di residenza richieste; età minima 18+"
+    },
+    "sections": [
+        {
+            "title": "Cos’è KRAK e come funziona il bonus",
+            "content": [
+                "KRAK è l’app mobile di Kraken, un noto exchange di criptovalute che permette di comprare, vendere e trasferire criptovalute direttamente dal telefono.",
+                "L’app offre un bonus di benvenuto di 10$ per i nuovi utenti che non hanno mai avuto un account Kraken.",
+                "Per ogni amico invitato che completa i requisiti, viene riconosciuto un bonus di 10$.",
+                "La procedura tipica prevede il deposito di circa 12€ tramite bonifico e l’invio di almeno 1€ ad un altro utente tramite la funzione “Invia” dell’app per sbloccare il bonus.",
+                "Il bonus viene generalmente accreditato entro 14 giorni dall’avvenuto completamento delle condizioni.",
+                "Sono richiesti verifica documentale (KYC) e prova di residenza; l’offerta è riservata a maggiorenni (18+)."
+            ]
+        },
+        {
+            "title": "Requisiti per ottenere il bonus",
+            "content": [
+                "Essere un nuovo cliente che non ha mai avuto un account Kraken prima d’ora.",
+                "Registrarsi sull’app KRAK (email, password, numero di telefono).",
+                "Completare la verifica KYC caricando documento d’identità valido (carta d’identità, passaporto o patente) e fornire prova di residenza se richiesto.",
+                "Deposare circa 12€ tramite bonifico bancario (SEPA o SEPA Instant).",
+                "Effettuare almeno 1€ di invio a un altro utente dall’app per sbloccare il bonus.",
+                "Attendere l’accredito del bonus (fino a 14 giorni)."
+            ]
+        },
+        {
+            "title": "Guida passo passo per attivare l’account e sbloccare il bonus",
+            "content": [
+                "1. Scarica l’app KRAK per Android o iOS e avvia la registrazione.",
+                "2. Inserisci email, password e numero di telefono; completa la registrazione iniziale.",
+                "3. Completa la procedura KYC caricando documento d’identità e la prova di residenza quando richiesto.",
+                "4. Effettua un deposito di circa 12€ tramite bonifico SEPA (puoi usare anche carta o PayPal ma controlla le commissioni).",
+                "5. Usa la funzione “Invia” dell’app e trasferisci almeno 1€ a un altro utente (può essere un amico) per sbloccare la condizione richiesta.",
+                "6. Una volta verificate tutte le condizioni, riceverai una notifica e/o email: il bonus viene accreditato entro 14 giorni.",
+                "7. Se desideri prelevare il saldo in EUR e sei sotto la soglia minima per prelievo diretto, valuta la conversione in uno stablecoin e il trasferimento su un altro wallet/exchange per ridurre commissioni e raggiungere la soglia di prelievo."
+            ]
+        },
+        {
+            "title": "Altre informazioni e consigli utili",
+            "content": [
+                "Il deposito consigliato (12€) è in genere prelevabile subito, ma per sicurezza molti utenti lasciano l’importo fino all’accredito del bonus.",
+                "Il bonus viene liquidato entro 14 giorni se tutte le condizioni sono rispettate; conserva le email di conferma.",
+                "Per prelevare in euro può esserci una soglia minima (indicativamente 100€) e costi di conversione — controlla le condizioni attuali nell’app prima di convertire o prelevare.",
+                "Le commissioni e le opzioni di rete (ad esempio Solana, Polygon, Arbitrum) influenzano i costi di trasferimento: scegliere reti a basse fee può ridurre le spese.",
+                "C’è un limite cumulativo indicato per gli inviti (riportato come max 1000€ nella comunicazione ufficiale).",
+                "Leggi sempre i Termini & Condizioni completi nell’app prima di procedere."
+            ]
+        }
+    ]
+}

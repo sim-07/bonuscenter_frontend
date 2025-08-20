@@ -66,6 +66,17 @@ export const bonusListData = [
     category: "liquid"
   },
   {
+    title: "Krak",
+    name: "krak",
+    description: {
+      it: "10$ per ogni invito + 10$ benvenuto",
+      en: "10$ for each referral + 10$ welcome bonus"
+    },
+    bonus_value: "10$",
+    image: "/images_bonus/krak.avif",
+    category: "liquid"
+  },
+  {
     title: "Gemini",
     name: "gemini",
     description: {

@@ -111,9 +111,12 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
             try {
                 const res = await apiService("users", "get_user_data", {});
                 if (res.error) {
-                    console.error("Error get_user_data: ", res.error);
+                    //console.error("Error get_user_data: ", res.error);
                 }
-                setUsername(res.data[0].username);
+                if (res.data) {
+                    setUsername(res.data[0].username);
+                }
+                
             } catch (error: any) {
                 console.error(error.message || error);
             }
