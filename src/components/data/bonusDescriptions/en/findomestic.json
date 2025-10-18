@@ -1,38 +1,30 @@
 {
-  "title": "Findomestic Smile Account - Get a €150 Amazon.it Gift Card",
+  "title": "Findomestic Smile Current Account with 150€ Amazon Gift Card Bonus",
   "name": "findomestic_smile",
   "bonus_image": "findomestic",
   "summary": {
-    "bonus": "🎁 Receive a €150 Amazon.it gift card after meeting the requirements",
-    "deposito_richiesto": "💰 Set up a salary or pension deposit, or make monthly deposits of at least €500 for 3 consecutive months by 11/30/2025",
-    "scadenza": "🗓️ Open your account between 06/03/2025 and 07/31/2025. Activate it by 09/30 (if opened in June), 10/31 (if opened in July), or 11/30 (if opened in August)",
-    "commissioni": "✅ Subject to Findomestic Bank approval. Full terms and conditions available on their website",
+    "bonus": "🎁 Amazon.it Gift Card worth 150€ upon meeting the requirements",
+    "deposito_richiesto": "💰 Salary/pension credit or deposits of at least 500€ per month for 3 consecutive months by 30/11/2025",
+    "scadenza": "🗓️ Account opening from 01/09/2025 to 02/11/2025, 500€ per month for 3 consecutive months by 02/03/2026. Must be requested by 15/04/2026",
+    "commissioni": "✅ Offer subject to Findomestic Bank approval; economic conditions available on the website",
     "extra": "-",
     "invito": "-"
   },
   "sections": [
     {
-      "title": "How the Smile Account bonus works",
+      "title": "How the Smile Current Account Bonus Works",
       "content": [
-        "Open a Smile Current Account between June 3 and July 31, 2025, and finalize the activation by August 18.",
-        "To earn the €150 bonus, you must either deposit your salary/pension or make deposits of at least €500 per month for three consecutive months by November 30, 2025.",
-        "Activation deadlines depend on when you opened the account: September 30 for June, October 31 for July, and November 30 for August.",
-        "The bonus is issued as a €150 Amazon.it gift card, which can be requested by January 12, 2026."
+        "The “Smile Current Account Rewards You” bonus is valid from 01/09/2025 to 02/03/2026. You must request the Smile Current Account online from 01/09/2025 to 02/11/2025 and finalize it by 17/11/2025.",
+        "To receive the 150€ bonus, you need to credit your salary/pension or make monthly deposits of at least 500€ (even in multiple transactions) for three consecutive months by 02/03/2026.",
+        "The bonus must be claimed in the app under the \"Findomestic Club\" section by 15/04/2026 and will be visible once eligibility is verified."
       ]
     },
     {
-      "title": "Important details and conditions",
+      "title": "Important Conditions and Details",
       "content": [
-        "The Amazon gift card is subject to Amazon's terms and conditions, available at amazon.it/gc-legal.",
-        "The offer includes an international debit card, and is subject to approval by Findomestic Bank.",
-        "Refer to the official Findomestic Information Sheets for full financial and contractual details."
-      ]
-    },
-    {
-      "title": "Promotion timeline",
-      "content": [
-        "The offer is valid for account openings by July 31, 2025, with activation deadlines as described above.",
-        "Bonus requests must be submitted by January 12, 2026."
+        "The Amazon Gift Card is subject to restrictions; more details at amazon.it/gc-legal.",
+        "Offer with an international Debit Card, subject to Findomestic Bank approval.",
+        "Check the Findomestic Information Sheets for all economic and contractual conditions."
       ]
     }
   ]

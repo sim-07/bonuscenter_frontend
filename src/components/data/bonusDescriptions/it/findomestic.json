@@ -1,40 +1,31 @@
 {
-    "title": "Findomestic Conto Corrente Smile con bonus 150€ Buono Amazon",
-    "name": "findomestic_smile",
-    "bonus_image": "findomestic",
-    "summary": {
-      "bonus": "🎁 Buono Regalo Amazon.it da 150€ al raggiungimento dei requisiti",
-      "deposito_richiesto": "💰 Accredito stipendio/pensione o versamenti di almeno 500€ al mese per 3 mesi consecutivi entro il 30/11/2025",
-      "scadenza": "🗓️ Apertura conto 03/06/2025 - 31/07/2025, attivazione entro 30/09/2025 (se aperto a giugno), 31/10/2025 (se aperto a luglio), 30/11/2025 (se aperto ad agosto)",
-      "commissioni": "✅ Offerta soggetta ad approvazione Findomestic Banca; condizioni economiche disponibili su sito",
-      "extra": "-",
-      "invito": "-"
+  "title": "Findomestic Conto Corrente Smile con bonus 150€ Buono Amazon",
+  "name": "findomestic_smile",
+  "bonus_image": "findomestic",
+  "summary": {
+    "bonus": "🎁 Buono Regalo Amazon.it da 150€ al raggiungimento dei requisiti",
+    "deposito_richiesto": "💰 Accredito stipendio/pensione o versamenti di almeno 500€ al mese per 3 mesi consecutivi entro il 30/11/2025",
+    "scadenza": "🗓️ Apertura conto dal 01/09/2025 al 02/11/2025, 500€ al mese per 3 mesi consecutivi entro il 02/03/2026. Da RICHIEDERE entro il 15/04/2026",
+    "commissioni": "✅ Offerta soggetta ad approvazione Findomestic Banca; condizioni economiche disponibili su sito",
+    "extra": "-",
+    "invito": "-"
+  },
+  "sections": [
+    {
+      "title": "Come funziona il bonus Conto Corrente Smile",
+      "content": [
+        "Il bonus “Conto Corrente Smile ti premia” è valido dal 01/09/2025 al 02/03/2026. È necessario richiedere online l'apertura del Conto Corrente Smile dal 01/09/2025 al 02/11/2025 e finalizzarla entro il 17/11/2025.",
+        "Per ottenere il premio da 150€, occorre effettuare l'accredito dello stipendio/pensione o versamenti mensili di almeno 500€ (anche in più soluzioni) per tre mesi consecutivi entro il 02/03/2026.",
+        "Il premio va richiesto nell'app nella sezione \"Findomestic Club\" entro il 15/04/2026 e sarà visibile non appena sarà verificata l'idoneità."
+      ]
     },
-    "sections": [
-      {
-        "title": "Come funziona il bonus Conto Corrente Smile",
-        "content": [
-          "Richiedi apertura Conto Corrente Smile dal 03/06/2025 al 31/07/2025 e finalizza entro il 18/08/2025.",
-          "Per ottenere il premio da 150€, accredita stipendio o pensione o versa almeno 500€ al mese per 3 mesi consecutivi entro il 30/11/2025.",
-          "Le attivazioni devono avvenire entro 30/09/2025 per aperture di giugno, 31/10/2025 per luglio, 30/11/2025 per agosto.",
-          "Il premio è un Buono Regalo Amazon.it, richiedibile entro il 12/01/2026."
-        ]
-      },
-      {
-        "title": "Condizioni e dettagli importanti",
-        "content": [
-          "Il Buono Amazon è soggetto a restrizioni, dettagli su amazon.it/gc-legal.",
-          "Offerta con Carta di Debito internazionale, soggetta ad approvazione Findomestic Banca.",
-          "Consulta i Fogli Informativi Findomestic per tutte le condizioni economiche e contrattuali."
-        ]
-      },
-      {
-        "title": "Validità dell’offerta",
-        "content": [
-          "Promozione valida per aperture conto entro 31/07/2025 e attivazioni entro le date indicate.",
-          "Richiesta premio entro il 12 gennaio 2026."
-        ]
-      }
-    ]
-  }
-  
+    {
+      "title": "Condizioni e dettagli importanti",
+      "content": [
+        "Il Buono Amazon è soggetto a restrizioni; maggiori dettagli su amazon.it/gc-legal.",
+        "Offerta con Carta di Debito internazionale, soggetta ad approvazione Findomestic Banca.",
+        "Consulta i Fogli Informativi Findomestic per tutte le condizioni economiche e contrattuali."
+      ]
+    }
+  ]
+}
