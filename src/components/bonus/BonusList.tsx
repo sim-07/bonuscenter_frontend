@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Grid, Pagination, Stack, Typography } from '@mui/material';
+import { Box, Pagination, Stack } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import BonusCard from './BonusCard';
 import DialogComponent from '../common/DialogComponent';
 import AddCodeForm from '../common/AddCodeForm';
@@ -38,7 +39,7 @@ export default function BonusList({ bonusListDataP, edit = false, locale = 'en' 
 
     const { t } = useTranslation('common'); 
 
-    const itemsPageNum = 12;
+    const itemsPageNum = 15;
 
     useEffect(() => {
         const startIndex = (page - 1) * itemsPageNum;
