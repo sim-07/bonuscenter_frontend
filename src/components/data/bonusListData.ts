@@ -102,7 +102,7 @@ export const bonusListData = [
     title: "Findomestic",
     name: "findomestic",
     description: {
-      it: "Buono Amazon con 3 versamenti da 500€",
+      it: "Buono Amazon 150€ con 3 versamenti da 500€",
       en: "Amazon voucher after 3 deposits of €500"
     },
     bonus_value: "150€", 
