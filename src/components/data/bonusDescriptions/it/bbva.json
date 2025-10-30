@@ -1,9 +1,9 @@
 {
-  "title": "BBVA Bonus Benvenuto 10€ + 20€ per ogni invito",
+  "title": "BBVA Bonus Benvenuto 20€ + 20€ per ogni invito",
   "name": "bbva",
   "bonus_image": "bbva",
   "summary": {
-    "bonus": "🎁 10€ di bonus di benvenuto dopo 1 acquisto di qualsiasi importo",
+    "bonus": "🎁 20€ di bonus di benvenuto dopo 1 acquisto di qualsiasi importo",
     "invito": "🎁 20€ per ogni amico invitato (max 10 inviti, fino a 200€ totali)",
     "deposito_richiesto": "💰 Nessun deposito obbligatorio, ma consigliato un piccolo importo (0,15€) per sbloccare il bonus",
     "scadenza": "🗓️ Promo senza scadenza definita",
@@ -15,7 +15,7 @@
       "title": "Cos’è BBVA e come funziona il bonus",
       "content": [
         "BBVA è una banca spagnola che ha lanciato in Italia un conto online gratuito con IBAN italiano e carta virtuale/fisica.",
-        "Aprendo il conto e completando un acquisto con la carta, riceverai 10€ di bonus sul conto.",
+        "Aprendo il conto e completando un acquisto con la carta, riceverai 20€ di bonus sul conto.",
         "Puoi invitare fino a 10 amici per guadagnare 20€ per ogni amico che si registra e completa le condizioni.",
         "Inoltre, è possibile ottenere un bonus extra di 10€ effettuando una domiciliazione bancaria (addebito diretto).",
         "Il conto offre anche cashback del 4% sugli acquisti mensili e interessi del 4% sul deposito non vincolato."
