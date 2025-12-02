@@ -1,0 +1,49 @@
+{
+  "title": "Trade Republic - Bonus 50€ + 50€ Invito",
+  "name": "trade_republic",
+  "bonus_image": "trade_republic",
+  "summary": {
+    "bonus": "🎁 Bonus benvenuto: 50€ dopo il primo deposito e l'acquisto di 3 frazioni da 1€",
+    "invito": "🎁 50€ per ogni amico invitato (fino a 40 inviti massimo)",
+    "deposito_richiesto": "💰 Deposito minimo richiesto: 105€ subito prelevabili",
+    "scadenza": "🗓️ 6 gennaio 2026",
+    "commissioni": "✅ Nessun costo di apertura; trading semplice da app",
+    "extra": "🪙 Potenziale totale oltre 2.000€ grazie agli inviti"
+  },
+  "sections": [
+    {
+      "title": "Cos'è Trade Republic e come funziona il bonus",
+      "content": [
+        "Trade Republic è un broker regolamentato con sede a Berlino che permette di investire in azioni, ETF e criptovalute direttamente dall’app in modo rapido e sicuro.",
+        "Il bonus di benvenuto offre 50€ dopo aver completato la registrazione, depositato almeno 105€ e acquistato 3 frazioni di azioni da 1€ ciascuna.",
+        "Ogni amico invitato che soddisfa i requisiti genera un ulteriore bonus di 50€, con un limite massimo di 40 inviti (totale potenziale 2.000€)."
+      ]
+    },
+    {
+      "title": "Main requirements",
+      "content": [
+        "Età minima richiesta: 18 anni.",
+        "Creazione dell'account tramite link invito.",
+        "Identificazione tramite documento e verifica video.",
+        "Deposito minimo di 105€ tramite bonifico o carta.",
+        "Acquisto di 3 azioni (anche da 2€) per sbloccare il bonus. Ci sono commissioni di 1€ per ogni acquisto.",
+        "Bonus 50€ in azioni accreditato generalmente entro 30 giorni dal completamento dei requisiti, ma spesso ci mette meno.",
+        "Fino a 40 referral disponibili per utente (2000€)."
+      ]
+    },
+    {
+      "title": "Step-by-step guide",
+      "content": [
+        "1. Richiedi il link di registrazione dalla pagina o dal pulsante dedicato.",
+        "2. Apri l’app Trade Republic: il codice invito viene compilato automaticamente",
+        "3. Completa i dati personali e la verifica dell’identità tramite documento e video.",
+        "4. Effettua un deposito di almeno 105€ tramite bonifico istantaneo o standard.",
+        "5. Una volta accreditato il deposito, acquista 3 azioni o frazioni da 1€ ciascuna.",
+        "6. Il bonus di 50€ verrà accreditato entro poche ore e risulta prelevabile subito.",
+        "7. Per gli inviti, condividi il tuo link personale: ogni amico che completa i requisiti ti genera altri 50€.",
+        "💡 Suggerimento: il deposito rimane interamente prelevabile; solo i 3€ spesi per le commissioni vengono utilizzati per l’operazione richiesta.",
+        "8. Ripeti il processo con i tuoi invitati per accumulare fino a 2.000€ totali."
+      ]
+    }
+  ]
+}

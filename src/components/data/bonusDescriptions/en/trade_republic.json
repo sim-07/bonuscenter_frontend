@@ -1,0 +1,49 @@
+{
+  "title": "Trade Republic - €50 Bonus + €50 Referral",
+  "name": "trade_republic",
+  "bonus_image": "trade_republic",
+  "summary": {
+    "bonus": "🎁 Welcome bonus: €50 after the first deposit and the purchase of 3 €1 fractions",
+    "invito": "🎁 €50 for each invited friend (up to 40 invites max)",
+    "deposito_richiesto": "💰 Minimum required deposit: €105 immediately withdrawable",
+    "scadenza": "🗓️ Promotion valid until January 6, 2026",
+    "commissioni": "✅ No opening fees; simple trading via app",
+    "extra": "🪙 Total potential over €2,000 thanks to referrals"
+  },
+  "sections": [
+    {
+      "title": "What is Trade Republic and how the bonus works",
+      "content": [
+        "Trade Republic is a regulated broker based in Berlin that allows you to invest in stocks, ETFs, and cryptocurrencies directly from the app in a fast and secure way.",
+        "The welcome bonus offers €50 after completing the registration, depositing at least €105, and purchasing 3 stock fractions of €1 each.",
+        "Each friend who fulfills the requirements generates an additional €50 bonus, with a maximum limit of 40 invites (total potential €2,000)."
+      ]
+    },
+    {
+      "title": "Main requirements",
+      "content": [
+        "Minimum age required: 18 years old.",
+        "Account creation via referral link.",
+        "Identification through ID and video verification.",
+        "Minimum deposit of €105 via bank transfer or card.",
+        "Purchase of 3 stocks (even €2 ones) to unlock the bonus. There is a €1 commission for each purchase.",
+        "€50 bonus in stocks usually credited within 30 days after meeting the requirements, but often faster.",
+        "Up to 40 referrals available per user (€2,000)."
+      ]
+    },
+    {
+      "title": "Step-by-step guide",
+      "content": [
+        "1. Request the registration link from the page or the dedicated button.",
+        "2. Open the Trade Republic app: the referral code is automatically filled in.",
+        "3. Complete your personal details and identity verification through ID and video.",
+        "4. Make a deposit of at least €105 via instant or standard bank transfer.",
+        "5. Once the deposit is credited, purchase 3 stocks or fractions of €1 each.",
+        "6. The €50 bonus will be credited within a few hours and is immediately withdrawable.",
+        "7. For referrals, share your personal link: each friend who completes the requirements grants you another €50.",
+        "💡 Tip: the deposit remains fully withdrawable; only the €3 spent on commissions are used for the required operation.",
+        "8. Repeat the process with your invited friends to accumulate up to €2,000 in total."
+      ]
+    }
+  ]
+}

@@ -33,6 +33,17 @@ export const bonusListData = [
     category: "liquid"
   },
   {
+    title: "Trade Republic",
+    name: "trade_republic",
+    description: {
+      it: "50€ registrazione + altri 50€ per ogni amico invitato (max 40)",
+      en: "€50 for registration + another €50 for each invited friend (max 40)"
+    },
+    bonus_value: "50€",
+    image: "/images_bonus/trade_republic.avif",
+    category: "liquid"
+  },
+  {
     title: "Satispay",
     name: "satispay",
     description: {
