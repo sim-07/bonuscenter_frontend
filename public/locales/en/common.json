@@ -16,7 +16,7 @@
     "bonus_reward": "Bonus Reward",
     "bonus_description_and_requirements_optional": "Bonus description and requirements (optional)",
     "notes_optional": "Notes (optional)",
-    "error_occurred_try_later": "An error occurred, please try again later",
+    "error_auth_suggest": "Sign in to suggest a new bonus",
     "suggestion_sent_successfully": "Suggestion sent successfully! It will be reviewed as soon as possible",
     "profile_load_error": "Error loading profile",
     "bonuscenter": "Bonuscenter",

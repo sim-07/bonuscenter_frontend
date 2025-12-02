@@ -81,7 +81,7 @@ export default function SuggestNewCode() {
 
             if (res.error) {
                 setSeveritySnakbar({ severity: 'error' });
-                setSnackbarMessage(t('error_occurred_try_later'));
+                setSnackbarMessage(t('error_auth_suggest'));
                 setSnackbarOpen(true);
                 return;
             } else {

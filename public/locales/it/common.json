@@ -16,7 +16,7 @@
   "bonus_reward": "Premio bonus",
   "bonus_description_and_requirements_optional": "Descrizione e requisiti bonus (opzionale)",
   "notes_optional": "Note (opzionale)",
-  "error_occurred_try_later": "Si è verificato un errore, prova più tardi",
+  "error_auth_suggest": "Effettua l'accesso per suggerire un nuovo bonus",
   "suggestion_sent_successfully": "Suggerimento inviato con successo! Verrà esaminato il prima possibile",
   "profile_load_error": "Errore nel caricamento del profilo",
   "bonuscenter": "Bonuscenter",
