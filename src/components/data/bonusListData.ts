@@ -99,6 +99,17 @@ export const bonusListData = [
     category: "liquid"
   },
   {
+    title: "Skrill",
+    name: "skrill",
+    description: {
+      it: "Bonus con trasferimento internazionale da 150€",
+      en: "Bonus with international transfer from €150"
+    },
+    bonus_value: "15€",
+    image: "/images_bonus/skrill.avif",
+    category: "liquid"
+  },
+  {
     title: "Gemini",
     name: "gemini",
     description: {
@@ -165,6 +176,17 @@ export const bonusListData = [
     category: "crypto"
   },
   {
+    title: "BG Saxo",
+    name: "bgsaxo",
+    description: {
+      it: "Bonus commissioni trading 250€",
+      en: "Trading fee bonus 250€"
+    },
+    bonus_value: "250€",
+    image: "/images_bonus/skrill.avif",
+    category: "liquid"
+  },
+  {
     title: "Western Union",
     name: "western_union",
     description: {
@@ -175,15 +197,5 @@ export const bonusListData = [
     image: "/images_bonus/western_union.avif",
     category: "liquid"
   },
-  {
-    title: "Skrill",
-    name: "skrill",
-    description: {
-      it: "Bonus con trasferimento internazionale da 150€",
-      en: "Bonus with international transfer from €150"
-    },
-    bonus_value: "15€",
-    image: "/images_bonus/skrill.avif",
-    category: "liquid"
-  }
+  
 ];

@@ -1,0 +1,49 @@
+{
+  "title": "BG SAXO - Trading Bonus 250€",
+  "name": "bgsaxo",
+  "bonus_image": "bgsaxo",
+  "summary": {
+    "bonus": "💰 250€ di Trading Bonus dopo il versamento di almeno 1€",
+    "invito": "💰 250€ per ogni amico invitato che apre un conto e versa almeno 1€",
+    "deposito_richiesto": "Almeno 1€ di versamento iniziale",
+    "scadenza": "31/08/2026 per aderire, completamento versamento entro 30/09/2026",
+    "commissioni": "Bonus utilizzabile solo per le commissioni di negoziazione; conto e gestione gratuita",
+    "extra": "Ogni cliente può invitare fino a 5 amici; link valido 90 giorni dalla creazione"
+  },
+  "sections": [
+    {
+      "title": "Cos'è BG SAXO e come funziona il bonus",
+      "content": [
+        "BG SAXO SIM è una piattaforma di trading e investimento online con accesso a Azioni, ETF, Obbligazioni, Future e Opzioni.",
+        "Il programma 'Porta un Amico' permette di ricevere un Trading Bonus di 250€ per ogni amico invitato che apre un conto BG SAXO e effettua un versamento minimo di 1€.",
+        "Il bonus viene accreditato entro 30 giorni dal completamento del versamento qualificante."
+      ]
+    },
+    {
+      "title": "Requisiti principali",
+      "content": [
+        "Il programma è valido per residenti in Italia maggiorenni.",
+        "Non possono partecipare dipendenti BG SAXO, consulenti finanziari BG SAXO o già clienti al 1° settembre 2025.",
+        "L’amico invitato deve aprire il conto tramite il link fornito e versare almeno 1€ entro 30 giorni dall’apertura.",
+        "Il Trading Bonus scade 90 giorni dopo l’accredito se non utilizzato o se il conto viene chiuso.",
+        "Il bonus è utilizzabile solo per coprire le commissioni di negoziazione; non copre tasse, commissioni di borsa, CFD o altre spese.",
+        "Ogni cliente può invitare un massimo di 5 amici durante il periodo promozionale.",
+        "Il link di invito è valido per 90 giorni dalla creazione."
+      ]
+    },
+    {
+      "title": "Guida passo passo",
+      "content": [
+        "1. Accedi al tuo conto BG SAXO e genera il link 'Porta un Amico' dalla piattaforma.",
+        "2. Condividi il link con amici interessati ad aprire un conto BG SAXO.",
+        "3. L’amico invitato deve aprire il conto utilizzando il link e completare il versamento minimo di 1€ entro 30 giorni.",
+        "4. Una volta verificato il versamento, sia il cliente presentatore che l’amico ricevono il Trading Bonus di 250€ entro 30 giorni.",
+        "5. Il bonus può essere utilizzato solo per pagare le commissioni di negoziazione; non è prelevabile in contanti.",
+        "6. Il bonus scade dopo 90 giorni dall’accredito o se il conto viene chiuso.",
+        "7. Ricorda che ogni cliente può invitare fino a 5 amici durante la promozione.",
+        "8. Per qualsiasi problema o informazione, consulta il regolamento completo o contatta il servizio clienti BG SAXO."
+      ],
+      "image": ""
+    }
+  ]
+}
