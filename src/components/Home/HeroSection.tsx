@@ -87,58 +87,63 @@ export default function HeroSection({ scrollToMiddle }: HeroSectionProps) {
 
     return (
         <HeroContainer>
-            <Container maxWidth="lg">
-                <Grid container spacing={4} alignItems="center">
-                    <Grid size={{ xs: 12, md: 6 }}>
-                        <Typography
-                            variant="h1"
-                            sx={{
-                                fontWeight: 800,
-                                fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem' },
-                                lineHeight: 1.2,
-                                mb: 2,
-                                position: 'relative',
-                                zIndex: 1,
-                            }}
-                        >
-                            <Box component="span" sx={{ color: theme.palette.primary.main }}>
-                                {t('title.part1')}
-                            </Box>
-                            <br />
-                            {t('title.part2')}
-                        </Typography>
+            <Container
+                sx={{
+                    margin: {
+                        xs: 2,
+                        md: 5,
+                        xl: 12,
+                    },
+                }}>
+                <Grid size={{ xs: 12, md: 6 }}>
+                    <Typography
+                        variant="h1"
+                        sx={{
+                            fontWeight: 800,
+                            fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem' },
+                            lineHeight: 1.2,
+                            mb: 2,
+                            position: 'relative',
+                            zIndex: 1,
+                        }}
+                    >
+                        <Box component="span" sx={{ color: theme.palette.primary.main }}>
+                            {t('title.part1')}
+                        </Box>
+                        <br />
+                        {t('title.part2')}
+                    </Typography>
 
-                        <Typography
-                            variant="h6"
-                            sx={{
-                                fontWeight: 400,
-                                color: 'text.secondary',
-                                mb: 10,
-                                fontSize: { xs: '1.1rem', md: '1.25rem' },
-                                position: 'relative',
-                                zIndex: 1,
-                            }}
-                        >
-                            {t('subtitle')}
-                        </Typography>
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            fontWeight: 400,
+                            color: 'text.secondary',
+                            mb: 10,
+                            fontSize: { xs: '1.1rem', md: '1.25rem' },
+                            position: 'relative',
+                            zIndex: 1,
+                        }}
+                    >
+                        {t('subtitle')}
+                    </Typography>
 
-                        <Grid container spacing={2} sx={{ mt: 4 }}>
-                            <Grid>
-                                <PrimaryButton variant="contained" size="large" onClick={openLoginDialog}>
-                                    {t('button.publishReferral')}
-                                </PrimaryButton>
-                            </Grid>
-                            <Grid>
-                                <SecondaryButton variant="outlined" size="large" onClick={scrollToMiddle}>
-                                    {t('button.viewAll')}
-                                </SecondaryButton>
-                            </Grid>
+                    <Grid container spacing={2} sx={{ mt: 4 }}>
+                        <Grid>
+                            <PrimaryButton variant="contained" size="large" onClick={openLoginDialog}>
+                                {t('button.publishReferral')}
+                            </PrimaryButton>
+                        </Grid>
+                        <Grid>
+                            <SecondaryButton variant="outlined" size="large" onClick={scrollToMiddle}>
+                                {t('button.viewAll')}
+                            </SecondaryButton>
                         </Grid>
                     </Grid>
+                </Grid>
 
-                    <Grid size={{ xs: 12, md: 6 }}>
-                        {/* img */}
-                    </Grid>
+                <Grid size={{ xs: 12, md: 6 }}>
+                    {/* img */}
                 </Grid>
             </Container>
             <DialogComponent open={openLogin} onClose={() => setOpenLogin(false)} variant="form">

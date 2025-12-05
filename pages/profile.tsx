@@ -69,6 +69,7 @@ export default function Profilo() {
 
                 if (!res.error) {
                     const confirmedCodes = res.data.filter((code: any) => code.confirmed === true);
+                    console.log(confirmedCodes)
                     setUsedCodes(confirmedCodes);
                 } else {
                     console.error(t('error_fetching_used_codes'));
