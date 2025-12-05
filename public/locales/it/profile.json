@@ -15,7 +15,7 @@
     "visibility_fair": "Buona",
     "visibility_good": "Ottima",
     "visibility_extreme": "Estrema",
-    "visibility_description": "La visibilità aumenta in base al numero di bonus completati e al loro valore",
+    "visibility_description": "La visibilità aumenta in base a quanti bonus degli altri utenti completi e al loro valore",
     "logout": "Logout",
     "delete_account": "Cancella account",
     "select_language": "Cambia la lingua",

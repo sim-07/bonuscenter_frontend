@@ -6,7 +6,7 @@ import DialogComponent from '../common/DialogComponent';
 import { useTranslation } from 'next-i18next';
 
 const HeroContainer = styled(Box)(({ theme }) => ({
-    backgroundColor: theme.palette.grey?.[100] || '#f5f5f5',
+    backgroundColor: theme.palette.grey?.[100] || '#f5f5f5', //#1B1E1F
     borderRadius: '40px',
     padding: theme.spacing(8, 0),
     position: 'relative',
