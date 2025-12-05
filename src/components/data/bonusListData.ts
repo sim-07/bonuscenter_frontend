@@ -183,7 +183,7 @@ export const bonusListData = [
       en: "Trading fee bonus 250€"
     },
     bonus_value: "250€",
-    image: "/images_bonus/skrill.avif",
+    image: "/images_bonus/bgsaxo.avif",
     category: "liquid"
   },
   {
