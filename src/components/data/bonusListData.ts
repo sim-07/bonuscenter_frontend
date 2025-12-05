@@ -22,6 +22,17 @@ export const bonusListData = [
     category: "voucher"
   },
   {
+    title: "Isybank",
+    name: "isybank",
+    description: {
+      it: "Buono Amazon da 30€",
+      en: "Amazon gift card 30€"
+    },
+    bonus_value: "30€",
+    image: "/images_bonus/isybank.avif",
+    category: "voucher"
+  },
+  {
     title: "Freecash",
     name: "freecash",
     description: {

@@ -1,0 +1,42 @@
+{
+  "title": "Isybank - Amazon Bonus €30",
+  "name": "isybank",
+  "bonus_image": "isybank",
+  "summary": {
+    "bonus": "🎁 Amazon Gift Card €30",
+    "invito": "Amazon Gift Card €30 for each referral (max 100)",
+    "deposito_richiesto": "No deposit required",
+    "scadenza": "31/03/2026",
+    "commissioni": "-",
+    "extra": "Amazon Gift Card will be delivered by 31/07/2026"
+  },
+  "sections": [
+    {
+      "title": "What Is Isybank and How the Bonus Works",
+      "content": [
+        "Isybank is a digital banking app that allows you to open current accounts and manage your payments easily and securely.",
+        "By participating in the 'Refer a Friend 2.0' initiative, you can receive a €30 Amazon Gift Card by opening a Plan and entering the referral code, no deposits or purchases are required."
+      ]
+    },
+    {
+      "title": "Main Requirements",
+      "content": [
+        "Download the Isybank app and activate a plan (isySmart or isyPrime) between 08/11/2025 and 31/03/2026. The isyPrime plan is free for under 35s.",
+        "Enter the referral code within 15 days of opening the Plan and no later than 15/04/2026.",
+        "The Amazon Gift Card will be delivered by 31/07/2026 only if the Plan is active at the time of delivery."
+      ]
+    },
+    {
+      "title": "Step-by-Step Guide",
+      "content": [
+        "1. Download the Isybank app and register.",
+        "2. Complete the registration and verify your identity according to the app instructions (required documents: ID card, driving license, or passport).",
+        "3. Enter the referral code within 15 days of opening the Plan (and no later than 15/04/2026).",
+        "4. Once your participation is verified, the €30 Amazon Gift Card will be sent within a few weeks.",
+        "⚠️ Remember that the Plan must be active at the time of gift delivery.",
+        "💡 You can use the Gift Card for online purchases according to amazon.it/gc-legal rules."
+      ],
+      "image": ""
+    }
+  ]
+}
