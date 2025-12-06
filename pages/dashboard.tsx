@@ -42,7 +42,7 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
                 const res = await apiService('users', 'get_user_data');
 
                 if (res.error || !res.data || !Array.isArray(res.data) || res.data.length === 0) {
-                    //router.push('/');
+                    router.push('/');
                     return;
                 }
 
@@ -51,7 +51,7 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
                 setUsername(res.data[0].username);
                 setUserId(res.data[0].user_id);
             } catch (err) {
-                //router.push('/');
+                router.push('/');
             }
         };
 
@@ -141,10 +141,10 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
 }
 
 
-export async function getServerSideProps({ locale }: { locale: string }) {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale, ['dashboard', 'common', 'profile'])),
-        },
-    };
-}
+// export async function getServerSideProps({ locale }: { locale: string }) {
+//     return {
+//         props: {
+//             ...(await serverSideTranslations(locale, ['dashboard', 'common', 'profile'])),
+//         },
+//     };
+// }
