@@ -228,10 +228,10 @@ export default function Profilo() {
     );
 }
 
-export async function getServerSideProps({ locale }: { locale: string }) {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale, ['user_page', 'common'])),
-        },
-    };
-}
+// export async function getServerSideProps({ locale }: { locale: string }) {
+//     return {
+//         props: {
+//             ...(await serverSideTranslations(locale, ['user_page', 'common'])),
+//         },
+//     };
+// }
