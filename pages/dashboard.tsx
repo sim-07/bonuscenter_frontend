@@ -1,8 +1,8 @@
-'use client';
-
 import { ReactNode, useEffect, useState } from 'react';
 import Head from 'next/head';
 import router from 'next/router';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { Box } from '@mui/material';
 import { useTheme, useMediaQuery } from '@mui/material';
@@ -21,24 +21,10 @@ interface DashboardlayoutProps {
 }
 
 export default function DashboardLayout({ children }: DashboardlayoutProps) {
-    // Remove useTranslation since we're client-only
-    
+    const { t, ready } = useTranslation('dashboard');
+
     const theme = useTheme();
-    
-    // Fix: Initialize with false and update on client
-    const [isMobile, setIsMobile] = useState(false);
-    
-    // Only run on client
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 960); // md breakpoint
-        };
-        
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'), { noSsr: true });
 
     const [username, setUsername] = useState('');
     const [userId, setUserId] = useState('');
@@ -60,17 +46,18 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
                     return;
                 }
 
+                setIsLoading(false);
+
                 setUsername(res.data[0].username);
                 setUserId(res.data[0].user_id);
-                setIsLoading(false);
             } catch (err) {
-                console.error('Auth error:', err);
                 router.push('/');
             }
         };
 
         const unreadNotifications = async () => {
             try {
+                setIsLoading(true);
                 const res = await apiService('notification', 'get_notifications_not_read', {});
 
                 if (!res.error) {
@@ -80,15 +67,19 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
                         setUnread(false);
                     }
                 } else {
-                    console.error("Error getting notifications:", res.error);
+                    console.error(t("error_get_notifications"), res.error);
                 }
+
+
             } catch (error) {
-                console.error("Error in unreadNotifications:", error);
+                console.error(t("error notReadNotifications"), error);
+            } finally {
+                setIsLoading(false);
             }
         };
 
-        // Run both in parallel
-        Promise.all([checkAuth(), unreadNotifications()]);
+        unreadNotifications();
+        checkAuth();
     }, []);
 
     const successAddCode = () => {
@@ -101,8 +92,7 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
         <>
             <Head>
                 <title>Dashboard | BonusCenter</title>
-                {/* Hardcoded description since we removed translations */}
-                <meta name="description" content="Your dashboard for managing bonuses and rewards" />
+                <meta name="description" content={ready ? t('description') : ''} />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             {isLoading ? (
@@ -115,7 +105,11 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
                         <AddCodeForm successAddCode={successAddCode} />
                     </DialogComponent>
 
-                    <Box sx={{ minHeight: "100vh" }}>
+                    <Box
+                        sx={{
+                            minHeight: "100vh"
+                        }}
+                    >
                         {isMobile ? (
                             <DashboardLayoutMobile
                                 username={username}
@@ -131,8 +125,8 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
                                 unread={unread}
                             />
                         )}
-                        {children}
                     </Box>
+
 
                     <CustomizedSnackbar
                         open={snackbarOpen}
@@ -146,4 +140,11 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
     );
 }
 
-// REMOVE getServerSideProps entirely - this component is now client-only
+
+export async function getServerSideProps({ locale }: { locale: string }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['dashboard', 'common', 'profile'])),
+        },
+    };
+}
