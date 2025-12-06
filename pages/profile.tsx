@@ -22,6 +22,7 @@ export default function Profilo() {
 
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
+    
 
     const { locale } = useRouter();
     const { t } = useTranslation('profile');
