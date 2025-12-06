@@ -1,5 +1,3 @@
-'use client';
-
 import { Box, Button, Typography, Avatar, Stack, Divider, LinearProgress, IconButton, Link, Select, MenuItem, SelectChangeEvent } from '@mui/material';
 import NextLink from 'next/link';
 import { useEffect, useState } from 'react';
