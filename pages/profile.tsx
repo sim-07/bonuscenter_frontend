@@ -12,6 +12,7 @@ import LoadingSpinner from '@/components/common/LoadingSpinner';
 import Navbar from '@/components/Home/Navbar';
 import Footer from '@/components/Home/Footer';
 
+
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import CustomizedSnackbar from '@/components/common/Snakbar';
@@ -22,7 +23,7 @@ export default function Profilo() {
 
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
-    
+
 
     const { locale } = useRouter();
     const { t } = useTranslation('profile');
