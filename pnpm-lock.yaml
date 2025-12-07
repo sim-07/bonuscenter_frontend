@@ -36,7 +36,7 @@ importers:
         specifier: ^12.16.0
         version: 12.23.25(@emotion/is-prop-valid@1.4.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
       i18next:
-        specifier: ^25.3.2
+        specifier: ^25.7.1
         version: 25.7.1(typescript@5.9.3)
       i18next-browser-languagedetector:
         specifier: ^8.2.0
@@ -48,7 +48,7 @@ importers:
         specifier: ^16.0.7
         version: 16.0.7(@babel/core@7.28.5)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
       next-i18next:
-        specifier: ^15.4.2
+        specifier: ^15.4.3
         version: 15.4.3(@types/react@19.2.7)(i18next@25.7.1(typescript@5.9.3))(next@16.0.7(@babel/core@7.28.5)(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react-i18next@15.7.4(i18next@25.7.1(typescript@5.9.3))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@5.9.3))(react@19.2.1)
       next-sitemap:
         specifier: ^4.2.3
@@ -60,7 +60,7 @@ importers:
         specifier: ^19.2.1
         version: 19.2.1(react@19.2.1)
       react-i18next:
-        specifier: ^15.6.0
+        specifier: ^15.7.4
         version: 15.7.4(i18next@25.7.1(typescript@5.9.3))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@5.9.3)
       uuid:
         specifier: ^11.1.0
