@@ -13,12 +13,21 @@ import LoadingSpinner from '@/components/common/LoadingSpinner';
 import Navbar from '@/components/Home/Navbar';
 import Footer from '@/components/Home/Footer';
 
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import CustomizedSnackbar from '@/components/common/Snakbar';
 import BonusContainer from '@/components/bonus/BonusContainer';
 import { bonusListData } from '@/components/data/bonusListData';
 import ChatContainer from '@/components/chat/ChatContainer';
+
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['user_page', 'common'])),
+    },
+  };
+}
 
 export default function Profilo() {
     const router = useRouter();
@@ -227,11 +236,3 @@ export default function Profilo() {
         </>
     );
 }
-
-// export async function getServerSideProps({ locale }: { locale: string }) {
-//     return {
-//         props: {
-//             ...(await serverSideTranslations(locale, ['user_page', 'common'])),
-//         },
-//     };
-// }
