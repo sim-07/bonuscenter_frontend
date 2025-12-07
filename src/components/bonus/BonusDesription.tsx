@@ -7,6 +7,8 @@ import Footer from '@/components/Home/Footer';
 import AllReferral from './AllReferral';
 import CommentsContainer from '../Comments/CommentsContainer';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import apiService from '../scripts/apiService';
 
 interface BonusData {
     title: string;
@@ -35,11 +37,32 @@ export default function BonusDescription({ bonus }: Props) {
     const { t } = useTranslation('common');
     const { locale } = useRouter();
 
+    const [auth, setAuth] = useState(false);
+
+    useEffect(() => {
+            const checkAuth = async () => {
+                try {
+                    const res = await apiService('users', 'get_user_data');
+    
+                    if (res.error || !res.data || !Array.isArray(res.data) || res.data.length === 0) {
+                        setAuth(false)
+                        return;
+                    }
+        
+                    setAuth(true)
+                } catch (err) {
+                    console.error("Error fetching user data")
+                }
+            };
+    
+            checkAuth();
+        }, []);
+
     return (
         <>
             <Navbar>
                 <Link
-                    href={locale === 'it' ? '/it/dashboard' : '/en/dashboard'}
+                    href={auth ? (locale === 'it' ? '/it/dashboard' : '/en/dashboard') : (locale === 'it' ? '/it/' : '/en/')}
                     style={{
                         color: 'black',
                         textDecoration: 'underline'
