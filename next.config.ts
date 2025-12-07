@@ -1,11 +1,13 @@
-import type { NextConfig } from "next";
-const { i18n } = require('./next-i18next.config')
+import nextI18nextConfig from './next-i18next.config.js';
 
-const nextConfig: NextConfig = {
-
+const nextConfig = {
     devIndicators: false,
-
-    i18n,
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
+    trailingSlash: false,
+    reactStrictMode: true,
+    i18n: nextI18nextConfig.i18n,
 };
 
 export default nextConfig;

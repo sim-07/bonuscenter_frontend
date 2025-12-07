@@ -1,14 +1,10 @@
-const path = require('path');
-
 module.exports = {
-    i18n: {
-        locales: ['it', 'en'],
-        defaultLocale: 'it',
-    },
-    react: {
-        useSuspense: false,
-    },
-    localePath: path.resolve('./public/locales'),
-    reloadOnPrerender: process.env.NODE_ENV === 'development',
-
-}
+  i18n: {
+    defaultLocale: 'it',
+    locales: ['it', 'en'],
+    localeDetection: false,
+  },
+  fallbackLng: 'it',
+  ns: ['common'],
+  reloadOnPrerender: process.env.NODE_ENV === 'development',
+};
