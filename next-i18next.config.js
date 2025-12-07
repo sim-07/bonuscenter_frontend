@@ -5,6 +5,6 @@ module.exports = {
     localeDetection: false,
   },
   fallbackLng: 'it',
-  ns: ['common'],
+  ns: ['common', 'dashboard', 'hero', 'home', 'login', 'profile', 'user_page'],
   reloadOnPrerender: process.env.NODE_ENV === 'development',
 };
