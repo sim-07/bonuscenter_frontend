@@ -4,7 +4,6 @@ import { Box, Button, Typography, Avatar, Stack, Divider, LinearProgress, IconBu
 import { useEffect, useState } from 'react';
 import NextLink from 'next/link';
 import Head from 'next/head';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import EuroIcon from '@mui/icons-material/Euro';
@@ -14,10 +13,20 @@ import apiService from '@/components/scripts/apiService';
 import Navbar from '@/components/Home/Navbar';
 import Footer from '@/components/Home/Footer';
 import CustomizedSnackbar from '@/components/common/Snakbar';
+
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
 type SeveritySnakbarType = {
     severity?: 'success' | 'error' | 'warning' | 'info';
+}
+
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 }
 
 export default function SuggestNewCode() {
@@ -97,8 +106,6 @@ export default function SuggestNewCode() {
             setIsLoading(false);
         }
     };
-
-
 
     return (
         <>
@@ -239,11 +246,3 @@ export default function SuggestNewCode() {
         </>
     );
 }
-
-// export async function getServerSideProps({ locale }: { locale: string }) {
-//     return {
-//         props: {
-//             ...(await serverSideTranslations(locale, ['common'])),
-//         },
-//     };
-// }

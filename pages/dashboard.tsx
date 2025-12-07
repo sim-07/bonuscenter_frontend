@@ -1,8 +1,8 @@
 import { ReactNode, useEffect, useState } from 'react';
 import Head from 'next/head';
 import router from 'next/router';
-import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 
 import { Box } from '@mui/material';
 import { useTheme, useMediaQuery } from '@mui/material';
@@ -20,8 +20,16 @@ interface DashboardlayoutProps {
     children?: ReactNode;
 }
 
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['dashboard', 'common'])),
+    },
+  };
+}
+
 export default function DashboardLayout({ children }: DashboardlayoutProps) {
-    const { t, ready } = useTranslation('dashboard');
+    const { t } = useTranslation('dashboard');
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'), { noSsr: true });
@@ -92,7 +100,7 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
         <>
             <Head>
                 <title>Dashboard | BonusCenter</title>
-                <meta name="description" content={ready ? t('description') : ''} />
+                <meta name="description" content={t('description')} />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             {isLoading ? (
@@ -140,10 +148,3 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
     );
 }
 
-// export async function getServerSideProps({ locale }: { locale: string }) {
-//     return {
-//         props: {
-//             ...(await serverSideTranslations(locale, ['dashboard', 'common', 'profile'])),
-//         },
-//     };
-// }
