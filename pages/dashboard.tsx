@@ -21,11 +21,10 @@ interface DashboardlayoutProps {
 }
 
 export default function DashboardLayout({ children }: DashboardlayoutProps) {
-    const { t } = useTranslation('dashboard');
-
+    const { t, ready } = useTranslation('dashboard');
 
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'), { noSsr: true });
 
     const [username, setUsername] = useState('');
     const [userId, setUserId] = useState('');
@@ -93,7 +92,7 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
         <>
             <Head>
                 <title>Dashboard | BonusCenter</title>
-                <meta name="description" content={t('description')} />
+                <meta name="description" content={ready ? t('description') : ''} />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             {isLoading ? (
@@ -141,11 +140,10 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
     );
 }
 
-
-export async function getServerSideProps({ locale }: { locale: string }) {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale, ['dashboard', 'common'])),
-        },
-    };
-}
+// export async function getServerSideProps({ locale }: { locale: string }) {
+//     return {
+//         props: {
+//             ...(await serverSideTranslations(locale, ['dashboard', 'common', 'profile'])),
+//         },
+//     };
+// }

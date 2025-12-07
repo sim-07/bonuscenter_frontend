@@ -5,6 +5,10 @@ module.exports = {
         locales: ['it', 'en'],
         defaultLocale: 'it',
     },
+    react: {
+        useSuspense: false,
+    },
     localePath: path.resolve('./public/locales'),
     reloadOnPrerender: process.env.NODE_ENV === 'development',
+
 }

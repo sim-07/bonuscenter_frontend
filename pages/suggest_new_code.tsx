@@ -240,10 +240,10 @@ export default function SuggestNewCode() {
     );
 }
 
-export async function getServerSideProps({ locale }: { locale: string }) {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale, ['common'])),
-        },
-    };
-}
+// export async function getServerSideProps({ locale }: { locale: string }) {
+//     return {
+//         props: {
+//             ...(await serverSideTranslations(locale, ['common'])),
+//         },
+//     };
+// }
