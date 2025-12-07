@@ -245,7 +245,6 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                         return (
                             <Autocomplete
                                 fullWidth
-                                disablePortal
                                 key={field.name}
                                 options={brandNameList}
                                 value={formData[field.name as keyof typeof formData] || ''}

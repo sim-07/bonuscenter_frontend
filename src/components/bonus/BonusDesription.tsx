@@ -61,6 +61,7 @@ export default function BonusDescription({ bonus }: Props) {
     return (
         <>
             <Navbar>
+                {/* icona traduzioni */}
                 <Link
                     href={auth ? (locale === 'it' ? '/it/dashboard' : '/en/dashboard') : (locale === 'it' ? '/it/' : '/en/')}
                     style={{
