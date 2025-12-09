@@ -65,7 +65,7 @@ export default function BonusDescription({ bonus }: Props) {
                 <Link
                     href={auth ? (locale === 'it' ? '/it/dashboard' : '/en/dashboard') : (locale === 'it' ? '/it/' : '/en/')}
                     style={{
-                        color: 'black',
+                        color: 'grey.300',
                         textDecoration: 'underline'
                     }}
                 >
@@ -128,7 +128,7 @@ export default function BonusDescription({ bonus }: Props) {
                     sx={{
                         mb: 5,
                         p: 3,
-                        backgroundColor: 'grey.100',
+                        backgroundColor: 'grey.800',
                         borderRadius: 3,
                     }}
                 >

@@ -203,10 +203,11 @@ export default function Profilo() {
                     margin: '0 auto',
                     padding: 10,
                     borderRadius: 4,
-                    boxShadow: 3,
                     mt: 6,
                     mb: 10,
-                    backgroundColor: '#fff',
+                    height: '75vh', //non funziona
+                    display: 'block', ///
+                    backgroundColor: 'grey.800',
                 }}
             >
                 <Stack direction="row" sx={{ justifyContent: "space-between", alignItems: "center" }}>
@@ -234,7 +235,7 @@ export default function Profilo() {
                         <Typography variant="subtitle1" color="text.secondary">
                             {email}
                         </Typography>
-                        <Typography variant="body2" color="gray">
+                        <Typography variant="body2" color="grey">
                             {t('registered_on')} {new Date(created_at).toLocaleDateString()}
                         </Typography>
                     </Box>

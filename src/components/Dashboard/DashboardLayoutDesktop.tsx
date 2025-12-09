@@ -76,7 +76,7 @@ export default function DashboardLayoutDesktop({ username, openAddCodeDialog, se
     return (
         <Box>
             <Navbar>
-                <Stack direction="row" spacing={2.5} sx={{ marginTop: '12px !important' }}>
+                <Stack direction="row" spacing={2.5} sx={{ marginTop: '12px !important', backgroundColor: "grey.900", backgroundImage: 'none', }}>
                     <IconButton
                         onClick={openAddCodeDialog}
                         sx={{
@@ -92,7 +92,7 @@ export default function DashboardLayoutDesktop({ username, openAddCodeDialog, se
 
                     <IconButton
                         onClick={handleClickNotification}
-                        sx={{ bgcolor: 'grey.200', color: 'text.primary', height: '40px', width: '40px' }}
+                        sx={{ bgcolor: 'grey.900', color: 'text.primary', height: '40px', width: '40px' }}
                     >
                         <Badge color="primary" variant="dot" invisible={!unread}>
                             <NotificationsIcon />

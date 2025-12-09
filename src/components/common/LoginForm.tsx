@@ -82,10 +82,11 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 2,
+                backgroundColor: "grey.800",
             }}
         >
             {/* TITOLO LOGIN/SIGNUP */}
-            <Typography sx={{ color: '#535353', fontSize: '1.4em', mb: 3 }}>
+            <Typography sx={{ color: 'grey.300', fontSize: '1.4em', mb: 3 }}>
                 {signinType === 'login' ? t('login') : t('signup')}
             </Typography>
 
@@ -108,7 +109,7 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
 
             {/* PRIVACY POLICY */}
             {signinType === 'signup' && (
-                <Typography>
+                <Typography sx={{ color: "grey.400" }}>
                     {t('signup_privacy_prefix')}{' '}
                     <MuiLink href="/privacy" sx={{ textDecoration: 'underline', cursor: 'pointer', marginLeft: '0px !important' }}>
                         {t('privacy_policy')}
@@ -133,30 +134,31 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
             </Button>
 
             {/* SWITCH LOGIN/SIGNUP */}
-            {signinType === 'login' ? (
-                <Typography sx={{ color: '#535353', display: 'inline-flex', alignItems: 'center', gap: 1, mt: 2 }}>
-                    {t('no_account')}
-                    <Button
-                        variant="text"
-                        sx={{ padding: 0, minWidth: 'auto', textTransform: 'none' }}
-                        onClick={() => setSigninType('signup')}
-                    >
-                        {t('signup')}
-                    </Button>
-                </Typography>
-            ) : (
-                <Typography sx={{ color: '#535353', display: 'inline-flex', alignItems: 'center', gap: 1, mt: 2 }}>
-                    {t('already_registered')}
-                    <Button
-                        variant="text"
-                        sx={{ padding: 0, minWidth: 'auto', textTransform: 'none' }}
-                        onClick={() => setSigninType('login')}
-                    >
-                        {t('login')}
-                    </Button>
-                </Typography>
-            )}
-
+            <Typography sx={{ color: 'grey.400', display: 'inline-flex', alignItems: 'center', gap: 1, mt: 2 }}>
+                {signinType === 'login' ? (
+                    <>
+                        {t('no_account')}
+                        <Button
+                            variant="text"
+                            sx={{ padding: 0, minWidth: 'auto', textTransform: 'none' }}
+                            onClick={() => setSigninType('signup')}
+                        >
+                            {t('signup')}
+                        </Button>
+                    </>
+                ) : (
+                    <>
+                        {t('already_registered')}
+                        <Button
+                            variant="text"
+                            sx={{ padding: 0, minWidth: 'auto', textTransform: 'none' }}
+                            onClick={() => setSigninType('login')}
+                        >
+                            {t('login')}
+                        </Button>
+                    </>
+                )}
+            </Typography>
             {errorMessage && (
                 <Typography sx={{ color: 'red' }}>
                     {errorMessage}

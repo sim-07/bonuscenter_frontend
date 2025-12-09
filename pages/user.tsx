@@ -166,7 +166,7 @@ export default function Profilo() {
                 <Link
                     href={locale === 'it' ? '/it/dashboard' : '/en/dashboard'}
                     style={{
-                        color: 'black',
+                        color: 'grey.300',
                         textDecoration: 'underline'
                     }}
                 >
@@ -200,7 +200,7 @@ export default function Profilo() {
                     </Stack>
 
                     {userData?.created_at && (
-                        <Typography variant="body2" color="gray" sx={{ mb: 1 }}>
+                        <Typography variant="body2" color="grey" sx={{ mb: 1 }}>
                             {t('registered_on')} {new Date(userData.created_at).toLocaleDateString()}
                         </Typography>
                     )}

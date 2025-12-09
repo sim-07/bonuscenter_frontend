@@ -21,11 +21,12 @@ export default function Navbar({ children }: NavbarProps) {
             <AppBar
                 position="static"
                 sx={{
-                    backgroundColor: 'transparent',
                     boxShadow: 'none',
-                    color: '#000000',
+                    color: '#b9b9b9ff',
+                    backgroundColor: 'grey.900',
                     fontSize: '1.1em',
                     px: { xs: 2, sm: 4 },
+                    backgroundImage: 'none',
                 }}
             >
                 <Toolbar
