@@ -44,7 +44,8 @@ export default function BonusContainer({
     return (
         <Box
             sx={{
-                backgroundColor: 'grey.100',
+                backgroundColor: 'grey.800',
+                backgroundImage: 'none',
                 borderRadius: '24px',
                 width: width,
                 height: 'auto',

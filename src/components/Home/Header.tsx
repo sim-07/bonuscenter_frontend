@@ -33,7 +33,7 @@ export default function Header() {
                     {t('login_link')}
                 </Typography>
 
-                <Link href={locale === 'it' ? '/it/about' : '/en/about'} underline="none" color="inherit">
+                <Link href={locale === 'it' ? '/it/about' : '/en/about'} underline="none" color="inherit" sx={{ whiteSpace: "nowrap" }}>
                     {t('about')}
                 </Link>
 

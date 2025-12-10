@@ -235,7 +235,7 @@ export default function NotificationList({ max, compact = false }: NotificationL
                     {items.map((item, index) => (
                         <Box key={index} sx={{ py: 1, borderBottom: '1px solid #eee' }}>
                             <Typography variant="body2">{item.message}</Typography>
-                            <Typography variant="caption" color="gray">
+                            <Typography variant="caption" color="grey">
                                 {new Date(item.created_at).toLocaleString()}
                             </Typography>
                         </Box>

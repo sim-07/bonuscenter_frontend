@@ -54,14 +54,20 @@ export default function VerticalTabs({ tabs }: VerticalTabsProps) {
     };
 
     return (
-        <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex' }}>
+        <Box sx={{ flexGrow: 1, bgcolor: 'grey.900', display: 'flex' }}>
             <Tabs
                 orientation="vertical"
                 variant="scrollable"
                 value={value}
                 onChange={handleChange}
                 aria-label="Vertical tabs"
-                sx={{ borderRight: 1, borderColor: 'divider', minWidth: 200 }}
+                sx={{
+                    borderRight: 1,
+                    borderColor: 'divider',
+                    minWidth: 200,
+                    backgroundColor: "grey.900",
+                    backgroundImage: 'none',
+                }}
             >
                 {tabs.map((tab, index) => (
                     <Tab

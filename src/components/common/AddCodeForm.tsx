@@ -196,7 +196,7 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
                 gap: 2,
             }}
         >
-            <Typography sx={{ color: '#535353', fontSize: '1.4em', mb: 3 }}>
+            <Typography sx={{ color: 'grey.300', fontSize: '1.4em', mb: 3 }}>
                 {isAdd ? t('publish_code') : t('edit')}
             </Typography>
 
@@ -279,7 +279,7 @@ export default function AddCodeForm({ successAddCode, isAdd = true, codeId }: Ad
 
             })}
 
-            <Typography>
+            <Typography sx={{ color: "grey.400" }}>
                 {t('not_found_brand')}{" "}
                 <Link
                     sx={{

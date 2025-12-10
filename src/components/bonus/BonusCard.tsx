@@ -49,10 +49,10 @@ export default function BonusCard({
                     width: '100%',
                     minWidth: '220px',
                     height: edit ? '380px' : '330px',
-                    backgroundColor: '#ececec',
+                    backgroundColor: 'grey.700',
                     cursor: 'pointer',
                     padding: '20px',
-                    borderRadius: '24px',
+                    borderRadius: '8px',
                     margin: '10px 0px',
                     userSelect: 'none',
                     overflow: 'hidden'
@@ -104,7 +104,7 @@ export default function BonusCard({
                     sx={{
                         mt: 2.5,
                         mb: 1,
-                        color: 'gray',
+                        color: 'grey',
                     }}
                     variant='h6'
                 >

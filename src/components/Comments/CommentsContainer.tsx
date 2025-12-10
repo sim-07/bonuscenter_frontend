@@ -78,7 +78,7 @@ export default function CommentsContainer({ bonusName }: CommentsContainerProps)
     return (
         <Box
             sx={{
-                backgroundColor: "grey.100",
+                backgroundColor: "grey.800",
                 p: 1,
                 borderRadius: '12px',
                 height: 500,

@@ -45,7 +45,7 @@ export default class MyDocument extends Document {
             data-id="3992b468-b688-4164-9971-34499a6fdef1"
             data-utcoffset="2"
           />        </Head>
-        <body>
+        <body style={{ backgroundColor: '#212121' }}>
           <Main />
           <NextScript />
         </body>

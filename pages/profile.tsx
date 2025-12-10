@@ -17,11 +17,11 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
 export async function getStaticProps({ locale }: any) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['profile', 'common'])),
-    },
-  };
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['profile', 'common'])),
+        },
+    };
 }
 
 export default function Profilo() {
@@ -188,7 +188,13 @@ export default function Profilo() {
     else if (visibilityPercent >= 20) visibilityLabel = t('visibility_fair');
 
     return (
-        <>
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '100vh'
+            }}
+        >
             <Head>
                 <title>{t('page_title')} | BonusCenter</title>
             </Head>
@@ -196,114 +202,115 @@ export default function Profilo() {
                 <></>
             </Navbar>
 
-            <Box
-                sx={{
-                    maxWidth: 600,
-                    width: { xs: '90%', md: '60%' },
-                    margin: '0 auto',
-                    padding: 10,
-                    borderRadius: 4,
-                    boxShadow: 3,
-                    mt: 6,
-                    mb: 10,
-                    backgroundColor: '#fff',
-                }}
-            >
-                <Stack direction="row" sx={{ justifyContent: "space-between", alignItems: "center" }}>
+            <Box sx={{ flexGrow: 1, width: '100%' }}>
+                <Box
+                    sx={{
+                        maxWidth: 600,
+                        width: { xs: '90%', md: '60%' },
+                        margin: '0 auto',
+                        padding: 10,
+                        borderRadius: 4,
+                        mt: 6,
+                        mb: 10,
+                        backgroundColor: 'grey.800',
+                    }}
+                >
+                    <Stack direction="row" sx={{ justifyContent: "space-between", alignItems: "center" }}>
 
-                    <NextLink href={locale === 'it' ? '/it/dashboard' : '/en/dashboard'} passHref>
-                        <IconButton>
-                            <ArrowBackIcon sx={{ fontSize: '30px' }} />
+                        <NextLink href={locale === 'it' ? '/it/dashboard' : '/en/dashboard'} passHref>
+                            <IconButton>
+                                <ArrowBackIcon sx={{ fontSize: '30px' }} />
+                            </IconButton>
+                        </NextLink>
+
+                        <IconButton onClick={handleShare}>
+                            <ShareIcon sx={{ fontSize: '30px' }} />
                         </IconButton>
-                    </NextLink>
 
-                    <IconButton onClick={handleShare}>
-                        <ShareIcon sx={{ fontSize: '30px' }} />
-                    </IconButton>
-
-                </Stack>
+                    </Stack>
 
 
-                <Stack spacing={3} alignItems="center">
-                    <Avatar sx={{ width: 80, height: 80 }}>
-                        {email?.charAt(0)?.toUpperCase() || '?'}
-                    </Avatar>
+                    <Stack spacing={3} alignItems="center">
+                        <Avatar sx={{ width: 80, height: 80 }}>
+                            {email?.charAt(0)?.toUpperCase() || '?'}
+                        </Avatar>
 
-                    <Box textAlign="center">
-                        <Typography variant="h6">@{username}</Typography>
-                        <Typography variant="subtitle1" color="text.secondary">
-                            {email}
-                        </Typography>
-                        <Typography variant="body2" color="gray">
-                            {t('registered_on')} {new Date(created_at).toLocaleDateString()}
-                        </Typography>
-                    </Box>
-
-                    <Divider sx={{ width: '100%' }} />
-
-                    <Box width="100%">
-                        <Typography variant="h6" sx={{ mb: 2 }} gutterBottom>
-                            📊 {t('activity')}
-                        </Typography>
-                        <Typography variant="body1"><strong>{t('used_codes')}:</strong> {codesCount}</Typography>
-                        <Typography variant="body1"><strong>{t('total_earnings')}:</strong> {bonusValueTot}€</Typography>
-
-                        <Box sx={{ mt: 3, mb: 2 }}>
-                            <Typography sx={{ fontSize: '18px', mb: 2 }} gutterBottom>
-                                <strong>{t('visibility')}:</strong> {visibilityLabel} (+{Math.round(visibilityPercent)}%)
+                        <Box textAlign="center">
+                            <Typography variant="h6">@{username}</Typography>
+                            <Typography variant="subtitle1" color="text.secondary">
+                                {email}
                             </Typography>
-                            <LinearProgress
-                                variant="determinate"
-                                value={visibilityPercent}
-                                sx={{
-                                    height: 10,
-                                    borderRadius: 5,
-                                    backgroundColor: '#e0e0e0',
-                                    '& .MuiLinearProgress-bar': {
-                                        borderRadius: 5,
-                                        backgroundColor:
-                                            visibilityPercent < 20 ? '#f44336' :
-                                                visibilityPercent < 50 ? '#ff9800' :
-                                                    visibilityPercent < 75 ? '#2196f3' :
-                                                        '#4caf50'
-                                    },
-                                }}
-                            />
+                            <Typography variant="body2" color="grey">
+                                {t('registered_on')} {new Date(created_at).toLocaleDateString()}
+                            </Typography>
                         </Box>
-                        <Typography sx={{ color: '#626262' }}>
-                            {t('visibility_description')}
-                        </Typography>
-                    </Box>
 
-                    <Divider sx={{ width: '100%' }} />
+                        <Divider sx={{ width: '100%' }} />
 
-                    <Stack direction={'row'} spacing={2} alignItems="center" justifyContent="flex-start" width="100%">
-                        <Typography>
-                            {t('select_language')}
-                        </Typography>
+                        <Box width="100%">
+                            <Typography variant="h6" sx={{ mb: 2 }} gutterBottom>
+                                📊 {t('activity')}
+                            </Typography>
+                            <Typography variant="body1"><strong>{t('used_codes')}:</strong> {codesCount}</Typography>
+                            <Typography variant="body1"><strong>{t('total_earnings')}:</strong> {bonusValueTot}€</Typography>
 
-                        <Select
-                            value={locale}
-                            onChange={handleChangeLang}
-                            size="small"
-                            sx={{ minWidth: 120 }}
-                        >
-                            <MenuItem value="it">Italiano</MenuItem>
-                            <MenuItem value="en">English</MenuItem>
-                        </Select>
+                            <Box sx={{ mt: 3, mb: 2 }}>
+                                <Typography sx={{ fontSize: '18px', mb: 2 }} gutterBottom>
+                                    <strong>{t('visibility')}:</strong> {visibilityLabel} (+{Math.round(visibilityPercent)}%)
+                                </Typography>
+                                <LinearProgress
+                                    variant="determinate"
+                                    value={visibilityPercent}
+                                    sx={{
+                                        height: 10,
+                                        borderRadius: 5,
+                                        backgroundColor: '#e0e0e0',
+                                        '& .MuiLinearProgress-bar': {
+                                            borderRadius: 5,
+                                            backgroundColor:
+                                                visibilityPercent < 20 ? '#f44336' :
+                                                    visibilityPercent < 50 ? '#ff9800' :
+                                                        visibilityPercent < 75 ? '#2196f3' :
+                                                            '#4caf50'
+                                        },
+                                    }}
+                                />
+                            </Box>
+                            <Typography sx={{ color: '#626262' }}>
+                                {t('visibility_description')}
+                            </Typography>
+                        </Box>
+
+                        <Divider sx={{ width: '100%' }} />
+
+                        <Stack direction={'row'} spacing={2} alignItems="center" justifyContent="flex-start" width="100%">
+                            <Typography>
+                                {t('select_language')}
+                            </Typography>
+
+                            <Select
+                                value={locale}
+                                onChange={handleChangeLang}
+                                size="small"
+                                sx={{ minWidth: 120 }}
+                            >
+                                <MenuItem value="it">Italiano</MenuItem>
+                                <MenuItem value="en">English</MenuItem>
+                            </Select>
+                        </Stack>
+
+                        <Divider sx={{ width: '100%' }} />
+
+                        <Stack direction="row" spacing={3} sx={{ marginTop: '50px !important' }}>
+                            <Button variant="outlined" color="error" onClick={handleLogout}>
+                                {t('logout')}
+                            </Button>
+                            <Button variant="outlined" color="error" onClick={handleDeleteAccount}>
+                                {t('delete_account')}
+                            </Button>
+                        </Stack>
                     </Stack>
-
-                    <Divider sx={{ width: '100%' }} />
-
-                    <Stack direction="row" spacing={3} sx={{ marginTop: '50px !important' }}>
-                        <Button variant="outlined" color="error" onClick={handleLogout}>
-                            {t('logout')}
-                        </Button>
-                        <Button variant="outlined" color="error" onClick={handleDeleteAccount}>
-                            {t('delete_account')}
-                        </Button>
-                    </Stack>
-                </Stack>
+                </Box>
             </Box>
 
             <CustomizedSnackbar
@@ -313,6 +320,7 @@ export default function Profilo() {
             />
 
             <Footer />
-        </>
+
+        </Box>
     );
 }

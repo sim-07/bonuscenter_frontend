@@ -6,92 +6,87 @@ import { Box } from '@mui/material';
 import { easeOut, easeIn } from 'framer-motion';
 
 const backdrop = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-  exit: { opacity: 0 },
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+    exit: { opacity: 0 },
 };
 
 const scaleVariant = {
-  hidden: { scale: 0.5 },
-  visible: {
-    scale: 1,
-    transition: { duration: 0.2, ease: easeOut },
-  },
-  exit: {
-    scale: 0.5,
-    transition: { duration: 0.2, ease: easeIn },
-  },
+    hidden: { scale: 0.5 },
+    visible: {
+        scale: 1,
+        transition: { duration: 0.2, ease: easeOut },
+    },
+    exit: {
+        scale: 0.5,
+        transition: { duration: 0.2, ease: easeIn },
+    },
 };
 
 type DialogComponentProps = {
-  open: boolean;
-  onClose: () => void;
-  children: ReactNode;
-  variant?: 'form' | 'error';
+    open: boolean;
+    onClose: () => void;
+    children: ReactNode;
+    variant?: 'form' | 'error';
 };
 
 export default function DialogComponent({
-  open,
-  onClose,
-  children,
-  variant = 'form',
+    open,
+    onClose,
+    children,
 }: DialogComponentProps) {
-  const isError = variant === 'error';
 
-  return (
-    <AnimatePresence>
-      {open && (
-        <motion.div
-          variants={backdrop}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: '0px',
-            width: '100vw',
-            height: '100vh',
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 3,
-          }}
-          onClick={onClose}
-        >
-          <motion.div
-            variants={scaleVariant}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              width: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <Box
-              sx={{
-                backgroundColor: 'white',
-                color: isError ? '#ce0000' : 'black',
-                padding: isError ? 2 : 7,
-                borderRadius: 2,
-                boxShadow: 24,
-                minWidth: isError ? 250 : 340,
-                maxWidth: isError ? 500 : 530,
-                width: isError
-                  ? { xs: '80vw', sm: 280 }
-                  : { xs: '90vw', sm: 400, md: '100%' },
-              }}
-            >
-              {children}
-            </Box>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
+    return (
+        <AnimatePresence>
+            {open && (
+                <motion.div
+                    variants={backdrop}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: '0px',
+                        width: '100vw',
+                        height: '100vh',
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex: 3,
+                    }}
+                    onClick={onClose}
+                >
+                    <motion.div
+                        variants={scaleVariant}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        onClick={(e) => e.stopPropagation()}
+                        style={{
+                            width: '50%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                backgroundColor: 'grey.800',
+                                color: 'black',
+                                padding: 7,
+                                borderRadius: 2,
+                                minWidth: {xs: "90vw", md: 340},
+                                maxWidth: 600,
+                                width: { xs: '90vw', sm: 400, md: '100%' },
+                            }}
+                        >
+                            {children}
+                        </Box>
+                    </motion.div>
+                </motion.div>
+            )}
+        </AnimatePresence>
+    );
 }

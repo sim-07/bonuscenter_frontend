@@ -1,75 +1,8 @@
-import { Box, Button, Container, Grid, Typography, useTheme } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import { useState } from 'react';
+import { Box, Button, Container, Grid, Typography, useTheme, CssBaseline, Stack } from '@mui/material';
+import { useEffect, useState } from 'react';
 import LoginForm from '../common/LoginForm';
 import DialogComponent from '../common/DialogComponent';
 import { useTranslation } from 'next-i18next';
-
-const HeroContainer = styled(Box)(({ theme }) => ({
-    backgroundColor: theme.palette.grey?.[100] || '#f5f5f5', //#1B1E1F
-    borderRadius: '40px',
-    padding: theme.spacing(8, 0),
-    position: 'relative',
-    overflow: 'hidden',
-    width: '95%',
-    height: '75vh',
-    margin: '80px auto',
-    zIndex: 2,
-
-    [theme.breakpoints.down('sm')]: {
-        margin: theme.spacing(2, 1),
-        padding: theme.spacing(4, 0),
-        borderRadius: '24px'
-    },
-
-    '&:before': {
-        content: '""',
-        position: 'absolute',
-        top: -100,
-        right: -100,
-        width: 300,
-        height: 300,
-        borderRadius: '50%',
-        backgroundColor: theme.palette.primary?.light || 'rgba(72, 167, 75, 0.2)',
-        opacity: 0.3,
-        zIndex: 1
-    }
-}));
-
-const PrimaryButton = styled(Button)(({ theme }) => ({
-    padding: theme.spacing(1.5, 4),
-    fontSize: '1.1rem',
-    fontWeight: 700,
-    borderRadius: '12px',
-    transition: 'all 0.3s ease',
-    color: 'white',
-
-    '&:hover': {
-        transform: 'translateY(-3px)',
-    }
-}));
-
-const SecondaryButton = styled(Button)(({ theme }) => ({
-    padding: theme.spacing(1.5, 4),
-    fontSize: '1.1rem',
-    fontWeight: 700,
-    borderRadius: '12px',
-    borderWidth: 2,
-
-    '&:hover': {
-        borderWidth: 2,
-        backgroundColor: theme.palette.grey?.[200] || '#eeeeee'
-    }
-}));
-
-const ImageContainer = styled(Box)(({ theme }) => ({
-    position: 'relative',
-    zIndex: 1,
-
-    [theme.breakpoints.up('md')]: {
-        paddingLeft: theme.spacing(4)
-    }
-}));
 
 type HeroSectionProps = {
     scrollToMiddle: () => void;
@@ -78,77 +11,150 @@ type HeroSectionProps = {
 export default function HeroSection({ scrollToMiddle }: HeroSectionProps) {
     const { t } = useTranslation('hero');
     const theme = useTheme();
-
     const [openLogin, setOpenLogin] = useState(false);
 
-    const openLoginDialog = () => {
-        setOpenLogin(true);
-    };
+    const openLoginDialog = () => setOpenLogin(true);
+
+    const max = 5;
+    const min = 1;
+    const [randTitle, setRandTitle] = useState<number>(0);
+
+    useEffect(() => {
+        const max = 5;
+        const min = 1;
+        const r = Math.floor(Math.random() * (max - min + 1)) + min;
+        setRandTitle(r);
+    }, []);
+
 
     return (
-        <HeroContainer>
-            <Container
+        <>
+            <Box
+                component="section"
                 sx={{
-                    margin: {
-                        xs: 2,
-                        md: 5,
-                        xl: 12,
-                    },
-                }}>
-                <Grid size={{ xs: 12, md: 6 }}>
-                    <Typography
-                        variant="h1"
-                        sx={{
-                            fontWeight: 800,
-                            fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem' },
-                            lineHeight: 1.2,
-                            mb: 2,
-                            position: 'relative',
-                            zIndex: 1,
-                        }}
+                    bgcolor: theme.palette.grey[800],
+                    borderRadius: '40px',
+                    mt: {xs: 6, md: 8},
+                    p: { xs: "8px 0px", sm: 4 },
+                    width: '95%',
+                    height: '75vh',
+                    margin: '80px auto',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    
+                }}
+            >
+                <Container
+                    sx={{
+                        mx: { xs: 2, md: 5, xl: 12 },
+                        mt: "80px",
+                        zIndex: 2,
+                        position: 'relative',
+                    }}
+                >
+                    <Stack
+                        direction={{ xs: 'column', md: 'row' }}
+                        spacing={8}
+                        alignItems="center"
                     >
-                        <Box component="span" sx={{ color: theme.palette.primary.main }}>
-                            {t('title.part1')}
+                        <Box sx={{ width: { xs: '100%', md: '60%' } }}>
+                            <Typography
+                                variant="h1"
+                                sx={{
+                                    fontWeight: 800,
+                                    fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem' },
+                                    lineHeight: 1.2,
+                                    minHeight: 200,
+                                    mb: 2,
+                                    overflow: 'hidden',
+                                }}
+                            >
+                                <Box
+                                    sx={{
+                                        display: 'inline-block',
+                                        opacity: randTitle === 0 ? 0 : 1,
+                                        transform: randTitle === 0 ? 'translateY(-10px)' : 'translateY(0)',
+                                        transition: 'opacity 0.5s ease, transform 0.5s ease',
+                                    }}
+                                >
+                                    <Box component="span" sx={{ color: theme.palette.primary.main }}>
+                                        {randTitle === 0 ? '' : t(`title.title${randTitle}.part1`)}
+                                    </Box>
+                                    <br />
+                                    {randTitle === 0 ? '' : t(`title.title${randTitle}.part2`)}
+                                </Box>
+                            </Typography>
+
+                            <Typography
+                                variant="h6"
+                                sx={{
+                                    fontWeight: 400,
+                                    color: 'text.secondary',
+                                    mb: 4,
+                                    fontSize: { xs: '1.1rem', md: '1.25rem' },
+                                }}
+                            >
+                                {t('subtitle')}
+                            </Typography>
+
+                            <Stack direction="column" spacing={2} mt={8} sx={{ width: '270px' }}>
+                                <Button
+                                    variant="contained"
+                                    size="large"
+                                    sx={{
+                                        padding: theme.spacing(1.5, 4),
+                                        fontSize: '1.1rem',
+                                        fontWeight: 700,
+                                        borderRadius: '12px',
+                                        color: 'white',
+                                        transition: 'all 0.3s ease',
+                                        transform: randTitle === 0 ? 'translateY(-10px)' : 'translateY(0)',
+                                        '&:hover': { transform: 'translateY(-3px)' },
+                                    }}
+                                    onClick={openLoginDialog}
+                                >
+                                    {t('button.publishReferral')}
+                                </Button>
+
+                                <Button
+                                    variant="outlined"
+                                    size="large"
+                                    sx={{
+                                        padding: theme.spacing(1.5, 4),
+                                        fontSize: '1.1rem',
+                                        fontWeight: 700,
+                                        borderRadius: '12px',
+                                        borderWidth: 2,
+                                        '&:hover': { backgroundColor: theme.palette.grey[700] },
+                                    }}
+                                    onClick={scrollToMiddle}
+                                >
+                                    {t('button.viewAll')}
+                                </Button>
+                            </Stack>
                         </Box>
-                        <br />
-                        {t('title.part2')}
-                    </Typography>
 
-                    <Typography
-                        variant="h6"
-                        sx={{
-                            fontWeight: 400,
-                            color: 'text.secondary',
-                            mb: 10,
-                            fontSize: { xs: '1.1rem', md: '1.25rem' },
-                            position: 'relative',
-                            zIndex: 1,
-                        }}
-                    >
-                        {t('subtitle')}
-                    </Typography>
+                    </Stack>
+                </Container>
 
-                    <Grid container spacing={2} sx={{ mt: 4 }}>
-                        <Grid>
-                            <PrimaryButton variant="contained" size="large" onClick={openLoginDialog}>
-                                {t('button.publishReferral')}
-                            </PrimaryButton>
-                        </Grid>
-                        <Grid>
-                            <SecondaryButton variant="outlined" size="large" onClick={scrollToMiddle}>
-                                {t('button.viewAll')}
-                            </SecondaryButton>
-                        </Grid>
-                    </Grid>
-                </Grid>
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        top: -100,
+                        right: -100,
+                        width: {xs: 230, xl: 300},
+                        height: {xs: 230, xl: 300},
+                        borderRadius: '50%',
+                        bgcolor: theme.palette.primary.light,
+                        opacity: 0.3,
+                        zIndex: 1,
+                    }}
+                />
+            </Box>
 
-                <Grid size={{ xs: 12, md: 6 }}>
-                    {/* img */}
-                </Grid>
-            </Container>
             <DialogComponent open={openLogin} onClose={() => setOpenLogin(false)} variant="form">
-                <LoginForm signinTypeP={"signup"} />
+                <LoginForm signinTypeP="signup" />
             </DialogComponent>
-        </HeroContainer>
+        </>
     );
 }

@@ -116,7 +116,7 @@ export default function BonusList({ bonusListDataP, edit = false, locale = 'en' 
             <Box sx={{ flex: 1, width: '100%' }}>
                 <Grid
                     container
-                    spacing={4}
+                    spacing={2}
                     columns={{ xs: 4, sm: 6, md: 9, lg: 12, xl: 10 }}
                     sx={{ margin: 0, justifyContent: 'center', padding: '10px !important' }}
                 >

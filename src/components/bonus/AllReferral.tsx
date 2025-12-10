@@ -176,7 +176,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
     return (
         <Box
             sx={{
-                backgroundColor: "grey.100",
+                backgroundColor: "grey.800",
                 p: 4,
                 borderRadius: '12px',
                 minWidth: "350px",
@@ -228,7 +228,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                 <List
                     sx={{
                         width: "100%",
-                        bgcolor: "gray.100",
+                        bgcolor: "grey.800",
                         overflowY: 'scroll',
                         height: '300px'
                     }}>
