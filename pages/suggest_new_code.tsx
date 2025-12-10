@@ -22,11 +22,11 @@ type SeveritySnakbarType = {
 }
 
 export async function getStaticProps({ locale }: any) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
-  };
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['common'])),
+        },
+    };
 }
 
 export default function SuggestNewCode() {
@@ -108,7 +108,13 @@ export default function SuggestNewCode() {
     };
 
     return (
-        <>
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '100vh'
+            }}
+        >
             <Head>
                 <title>{t('bonuscenter')}</title>
             </Head>
@@ -127,6 +133,7 @@ export default function SuggestNewCode() {
                     mt: 6,
                     mb: 10,
                     backgroundColor: 'grey.800',
+                    flexGrow: 1, 
                 }}
             >
                 <NextLink href={locale === 'it' ? '/it/dashboard' : '/en/dashboard'} passHref>
@@ -243,6 +250,6 @@ export default function SuggestNewCode() {
                 severity={severitySnakbar?.severity || 'success'}
             />
 
-        </>
+        </Box>
     );
 }
