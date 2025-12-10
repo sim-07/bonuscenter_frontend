@@ -34,9 +34,7 @@ export default function DialogComponent({
     open,
     onClose,
     children,
-    variant = 'form',
 }: DialogComponentProps) {
-    const isError = variant === 'error';
 
     return (
         <AnimatePresence>
@@ -76,14 +74,12 @@ export default function DialogComponent({
                         <Box
                             sx={{
                                 backgroundColor: 'grey.800',
-                                color: isError ? '#ce0000' : 'black',
-                                padding: isError ? 2 : 7,
+                                color: 'black',
+                                padding: 7,
                                 borderRadius: 2,
-                                minWidth: isError ? 250 : 340,
-                                maxWidth: isError ? 500 : 530,
-                                width: isError
-                                    ? { xs: '80vw', sm: 280 }
-                                    : { xs: '90vw', sm: 400, md: '100%' },
+                                minWidth: {xs: "90vw", md: 340},
+                                maxWidth: 600,
+                                width: { xs: '90vw', sm: 400, md: '100%' },
                             }}
                         >
                             {children}

@@ -52,7 +52,7 @@ export default function BonusCard({
                     backgroundColor: 'grey.700',
                     cursor: 'pointer',
                     padding: '20px',
-                    borderRadius: '24px',
+                    borderRadius: '8px',
                     margin: '10px 0px',
                     userSelect: 'none',
                     overflow: 'hidden'

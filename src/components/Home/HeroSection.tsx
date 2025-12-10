@@ -34,17 +34,22 @@ export default function HeroSection({ scrollToMiddle }: HeroSectionProps) {
                 sx={{
                     bgcolor: theme.palette.grey[800],
                     borderRadius: '40px',
-                    p: { xs: 4, md: 8 },
+                    mt: {xs: 6, md: 8},
+                    p: { xs: "8px 0px", sm: 4 },
                     width: '95%',
                     height: '75vh',
                     margin: '80px auto',
                     position: 'relative',
                     overflow: 'hidden',
+                    
                 }}
             >
                 <Container
                     sx={{
-                        margin: { xs: 2, md: 5, xl: 12 },
+                        mx: { xs: 2, md: 5, xl: 12 },
+                        mt: "80px",
+                        zIndex: 2,
+                        position: 'relative',
                     }}
                 >
                     <Stack
@@ -52,7 +57,7 @@ export default function HeroSection({ scrollToMiddle }: HeroSectionProps) {
                         spacing={8}
                         alignItems="center"
                     >
-                        <Box sx={{ width: { xs: '100%', md: '50%' } }}>
+                        <Box sx={{ width: { xs: '100%', md: '60%' } }}>
                             <Typography
                                 variant="h1"
                                 sx={{
@@ -137,8 +142,8 @@ export default function HeroSection({ scrollToMiddle }: HeroSectionProps) {
                         position: 'absolute',
                         top: -100,
                         right: -100,
-                        width: 300,
-                        height: 300,
+                        width: {xs: 230, xl: 300},
+                        height: {xs: 230, xl: 300},
                         borderRadius: '50%',
                         bgcolor: theme.palette.primary.light,
                         opacity: 0.3,
