@@ -286,7 +286,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
 
             <DialogComponent open={openDialog} onClose={handleCloseDialog}>
                 {selectedReferral && (
-                    <Box sx={{ p: 2 }}>
+                    <Box sx={{ color: "grey.200", maxHeight: "70vh", overflow: "scroll" }}>
                         <Stack
                             direction={'column'}
                             spacing={5}
