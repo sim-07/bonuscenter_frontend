@@ -1,29 +1,29 @@
 {
-    "title": {
-        "title1": {
-            "part1": "Give Visibility",
-            "part2": "to Your Invitation Codes"
-        },
-        "title2": {
-            "part1": "Stop Searching for Bonuses.",
-            "part2": "Start Sharing Them."
-        },
-        "title3": {
-            "part1": "Stop Searching for Bonuses.",
-            "part2": "Start Sharing Them."
-        },
-        "title4": {
-            "part1": "Unlock the Potential",
-            "part2": "of Your Referrals."
-        },
-        "title5": {
-            "part1": "The Best Bonus",
-            "part2": "is the Shared One."
-        }
+  "title": {
+    "title1": {
+      "part1": "Give Visibility",
+      "part2": "to Your Referral Codes"
     },
-    "subtitle": "",
-    "button": {
-        "publishReferral": "Publish Referral Code",
-        "viewAll": "All Bonuses"
+    "title2": {
+      "part1": "The More You Share,",
+      "part2": "The More You Earn."
+    },
+    "title3": {
+      "part1": "Stop Looking for Bonuses.",
+      "part2": "Start Sharing Them."
+    },
+    "title4": {
+      "part1": "Unlock the Potential",
+      "part2": "of Your Referrals."
+    },
+    "title5": {
+      "part1": "Share Your Referrals.",
+      "part2": "Increase Your Earnings."
     }
+  },
+  "subtitle": "",
+  "button": {
+    "publishReferral": "Publish Referral",
+    "viewAll": "All Bonuses"
+  }
 }
