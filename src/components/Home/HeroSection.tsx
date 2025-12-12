@@ -20,7 +20,7 @@ export default function HeroSection({ scrollToMiddle }: HeroSectionProps) {
     const [randTitle, setRandTitle] = useState<number>(0);
 
     useEffect(() => {
-        const max = 5;
+        const max = 4;
         const min = 1;
         const r = Math.floor(Math.random() * (max - min + 1)) + min;
         setRandTitle(r);
