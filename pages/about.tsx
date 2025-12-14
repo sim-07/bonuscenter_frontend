@@ -8,7 +8,7 @@ import { useTranslation } from 'next-i18next';
 export async function getStaticProps({ locale }: any) {
     return {
         props: {
-            ...(await serverSideTranslations(locale, ['about'])),
+            ...(await serverSideTranslations(locale, ['common', 'about'])),
         },
     };
 }
