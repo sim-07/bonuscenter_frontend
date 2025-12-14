@@ -1,6 +1,7 @@
 import { ReactNode, useEffect, useState } from 'react';
 import Head from 'next/head';
 import router from 'next/router';
+
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
