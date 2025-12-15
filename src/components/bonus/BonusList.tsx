@@ -39,7 +39,7 @@ export default function BonusList({ bonusListDataP, edit = false, locale = 'en' 
 
     const { t } = useTranslation('common'); 
 
-    const itemsPageNum = 15;
+    const itemsPageNum = 16;
 
     useEffect(() => {
         const startIndex = (page - 1) * itemsPageNum;
