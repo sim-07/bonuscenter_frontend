@@ -2,7 +2,17 @@ import { Box, Container, Typography, List, ListItem } from '@mui/material';
 import Navbar from '@/components/Home/Navbar';
 import Footer from '@/components/Home/Footer';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+
+
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['dashboard', 'common'])),
+    },
+  };
+}
 
 export default function AboutPage() {
     const { t } = useTranslation('about');
