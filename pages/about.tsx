@@ -2,7 +2,7 @@ import { Box, Container, Typography, List, ListItem } from '@mui/material';
 import Navbar from '@/components/Home/Navbar';
 import Footer from '@/components/Home/Footer';
 
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 
