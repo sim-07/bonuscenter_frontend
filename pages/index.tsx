@@ -9,7 +9,7 @@ export default function IndexPage() {
 export async function getStaticProps({ locale }: { locale: string }) {
     return {
         props: {
-            ...(await serverSideTranslations(locale ?? 'en',
+            ...(await serverSideTranslations(locale,
                 [
                     'common',
                     'about',
