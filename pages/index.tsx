@@ -13,7 +13,6 @@ export async function getStaticProps({ locale }: { locale: string }) {
                 [
                     'common',
                     'hero',
-                    'about',
                     'login',
                     'home'
                 ]

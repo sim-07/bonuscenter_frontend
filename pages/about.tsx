@@ -6,7 +6,6 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
 export async function getStaticProps({ locale }: any) {
-    console.log("GSP - Locale Ricevuto:", locale);
     return {
         props: {
             ...(await serverSideTranslations(locale, ['common', 'about'])),
