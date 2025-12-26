@@ -1,5 +1,3 @@
-'use client';
-
 import { Box, Button, Typography, Avatar, Stack, Divider, LinearProgress, IconButton, Link, Select, MenuItem, SelectChangeEvent } from '@mui/material';
 import NextLink from 'next/link';
 import { useEffect, useState } from 'react';
@@ -22,11 +20,11 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
 export async function getStaticProps({ locale }: any) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['user_page', 'common'])),
-    },
-  };
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['user_page', 'common'])),
+        },
+    };
 }
 
 export default function Profilo() {
@@ -53,19 +51,21 @@ export default function Profilo() {
     const { u } = router.query;
 
     useEffect(() => {
+        if (!u) return; // importante: evita chiamate premature
+
         const init = async () => {
             try {
-                const authRes = await apiService('users', 'get_user_data');
-
-                setAuthUsername(authRes.data[0].username);
-                setAuthUserId(authRes.data[0].user_id);
-
-            } catch (err) {
-                console.log("Not authenticated")
-            }
-
-            try {
                 setIsLoading(true);
+
+                try {
+                    const authRes = await apiService('users', 'get_user_data');
+                    if (authRes?.data?.length) {
+                        setAuthUsername(authRes.data[0].username);
+                        setAuthUserId(authRes.data[0].user_id);
+                    }
+                } catch {
+                    console.log('Not authenticated');
+                }
 
                 const userRes = await apiService('users', 'find_user_by_username', { u });
                 if (userRes.error || !userRes.data) {
@@ -74,20 +74,16 @@ export default function Profilo() {
                     setSeveritySnakbar('error');
                     return;
                 }
-                setUserData(userRes.data);
+                setUserData(userRes.data[0]);
 
-                const codesRes = await apiService('codes', 'get_codes_by_user', { user_id: userRes.data.user_id });
+                const codesRes = await apiService('codes', 'get_codes_by_user', { user_id: userRes.data[0].user_id });
                 if (!codesRes.error && codesRes.data) {
                     const userCodesWithImg = codesRes.data.map((ref: any) => {
                         const selectedBonus = bonusListData.find(
                             (b) => b.title.toLowerCase() === ref.brand.toLowerCase()
                         );
-                        return {
-                            ...ref,
-                            image: selectedBonus?.image,
-                        };
+                        return { ...ref, image: selectedBonus?.image };
                     });
-
                     setUserCodes(userCodesWithImg);
                 } else {
                     setSnackbarOpen(true);
@@ -95,7 +91,7 @@ export default function Profilo() {
                     setSeveritySnakbar('error');
                 }
 
-            } catch (err) {
+            } catch (err: any) {
                 console.error("Init error: ", err);
                 setSnackbarOpen(true);
                 setSnackbarMessage("Unexpected error");
@@ -184,7 +180,7 @@ export default function Profilo() {
                     boxShadow: 3,
                     mt: 6,
                     mb: 10,
-                    backgroundColor: '#fff',
+                    backgroundColor: 'grey.800',
                 }}
             >
                 <Stack direction={'column'} gap={5}>
