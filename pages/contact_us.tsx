@@ -1,6 +1,5 @@
 import { Box, Button, InputAdornment, Link, Stack, TextField, Typography } from "@mui/material";
 import apiService from '@/components/scripts/apiService';
-import router from "next/router";
 import { useState } from "react";
 import Navbar from "@/components/Home/Navbar";
 
