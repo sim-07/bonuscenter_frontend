@@ -1,0 +1,48 @@
+{
+  "title": "Trading212 - Free Share Bonus up to €100",
+  "name": "trading212",
+  "bonus_image": "trading212",
+  "summary": {
+    "bonus": "🎁 Free share (average value €25)",
+    "invito": "Free share for each friend (max 5 per period)",
+    "deposito_richiesto": "€15",
+    "scadenza": "22/01/2026",
+    "commissioni": "€0 bank transfer/card deposit",
+    "extra": "Instant bonus, withdrawable after 30 days (or instantly with trick)",
+    "last_edit": "02/01/2026"
+  },
+  "sections": [
+    {
+      "title": "What is Trading212 and how the bonus works",
+      "content": [
+        "Trading 212 is an intuitive investment platform that allows you to trade stocks, ETFs, currencies, and commodities with zero commissions.",
+        "The 'Refer a Friend' promotion allows you to receive a free share worth up to €100 (usually around €25) simply by opening an Invest account and depositing a small amount.",
+        "In addition to the welcome bonus, you can invite your friends to get up to 5 free shares for each promotional period."
+      ]
+    },
+    {
+      "title": "Key requirements",
+      "content": [
+        "Must be of legal age and not already have a Trading212 account.",
+        "Accepted documents: National ID card (electronic or paper) or Passport. Note: Driving license is NOT accepted.",
+        "Deposit at least €15 into the 'Invest' account and make 3 transactions of at least €5 each using the free virtual card (top-ups to Revolut via payment links are also valid)."
+      ]
+    },
+    {
+      "title": "Step-by-step guide",
+      "content": [
+        "1. Register via the invite link and choose the 'Invest' profile (avoid the CFD profile for the bonus).",
+        "2. Complete identity verification: the process is automatic and usually takes a few minutes.",
+        "3. Deposit at least €15 via bank transfer, card, or Google Pay (free up to €2000).",
+        "4. Activate your free virtual card in the app and use it to make 3 payments of at least €5 (e.g., Revolut top-ups via payment link or small online purchases).",
+        "5. You will receive your free share within minutes after transaction verification.",
+        "6. The bonus is normally withdrawable after 30 days.",
+        "💡 To withdraw immediately:",
+        "1. Convert the bonus balance from EUR to USD in the 'Manage Funds' menu.",
+        "2. Buy a US stock (e.g., Tesla or Amazon) using the converted dollars.",
+        "3. After 15 minutes, sell the stock choosing to receive the proceeds directly in Euro.",
+        "4. Withdraw the balance immediately by topping up your Revolut account with the Trading212 virtual card."
+      ]
+    }
+  ]
+}

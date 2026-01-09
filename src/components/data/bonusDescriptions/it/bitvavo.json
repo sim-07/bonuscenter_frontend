@@ -1,0 +1,43 @@
+{
+  "title": "Bitvavo - Bonus Benvenuto 25€",
+  "name": "bitvavo",
+  "bonus_image": "bitvavo",
+  "summary": {
+    "bonus": "🎁 25€ in Bitcoin",
+    "invito": "25€ in Bitcoin per ogni amico (max 10/mese)",
+    "deposito_richiesto": "21€",
+    "scadenza": "Non specificata",
+    "commissioni": "0€ deposito bonifico",
+    "extra": "Bonus istantaneo, prelevabile dopo 180 giorni",
+    "last_edit": "02/01/2026"
+  },
+  "sections": [
+    {
+      "title": "Cos'è Bitvavo e come funziona il bonus",
+      "content": [
+        "Bitvavo è un exchange di criptovalute europeo regolamentato, noto per la sua semplicità d'uso e commissioni competitive.",
+        "La promozione attuale permette di ricevere 25€ in Bitcoin semplicemente registrandosi tramite un link invito e completando un deposito di almeno 21€.",
+        "Il bonus viene accreditato istantaneamente nel portafoglio, mentre il deposito rimane prelevabile in qualsiasi momento."
+      ]
+    },
+    {
+      "title": "Requisiti principali",
+      "content": [
+        "Essere nuovi utenti, avere almeno 18 anni e completare la verifica dell'identità (KYC).",
+        "Effettuare un deposito di almeno 21€ esclusivamente tramite bonifico bancario SEPA.",
+        "Il bonus di 25€ in BTC rimane vincolato per 180 giorni prima di poter essere prelevato o convertito in Euro."
+      ]
+    },
+    {
+      "title": "Guida passo passo",
+      "content": [
+        "1. Registrati tramite il link invito e scarica l'app Bitvavo.",
+        "2. Completa la verifica dell'identità caricando un documento valido (verifica solitamente immediata).",
+        "3. Effettua un deposito di 21€ tramite bonifico SEPA. Imposta il Paese del beneficiario su Paesi Bassi.",
+        "4. Ricevi istantaneamente il bonus di 25€ in Bitcoin.",
+        "5. Puoi prelevare il tuo deposito iniziale (21€) subito, mentre il bonus sarà sbloccato dopo 180 giorni.",
+        "💡 Puoi invitare fino a 10 amici ogni mese per accumulare ulteriori bonus da 25€ l'uno."
+      ]
+    }
+  ]
+}

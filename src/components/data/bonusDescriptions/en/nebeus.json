@@ -8,7 +8,8 @@
     "deposito_richiesto": "€10 with bank transfer or card",
     "scadenza": "Not specified",
     "commissioni": "Virtual card with a monthly cost of €4.95",
-    "extra": "Bonus withdrawable immediately after the transaction"
+    "extra": "Bonus withdrawable immediately after the transaction",
+    "last_edit": "02/01/2026"
   },
   "sections": [
     {

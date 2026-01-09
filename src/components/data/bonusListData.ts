@@ -88,6 +88,28 @@ export const bonusListData = [
     category: "liquid"
   },
   {
+    title: "Bitvavo",
+    name: "bitvavo",
+    description: {
+      it: "25€ per ogni invito",
+      en: "€25 for every referral"
+    },
+    bonus_value: "25€",
+    image: "/images_bonus/bitvavo.avif",
+    category: "crypto"
+  },
+  {
+    title: "Trading 212",
+    name: "trading212",
+    description: {
+      it: "25€ per ogni invito",
+      en: "€25 for every referral"
+    },
+    bonus_value: "25€",
+    image: "/images_bonus/trading212.avif",
+    category: "crypto"
+  },
+  {
     title: "Krak",
     name: "krak",
     description: {
