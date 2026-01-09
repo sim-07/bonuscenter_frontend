@@ -8,7 +8,8 @@
     "deposito_richiesto": "No deposit required",
     "scadenza": "-",
     "commissioni": "None if you use a transfer; fees apply with card top-ups",
-    "extra": "3 free ATM withdrawals per month in the eurozone"
+    "extra": "3 free ATM withdrawals per month in the eurozone",
+    "last_edit": "02/01/2026"
   },
   "sections": [
     {

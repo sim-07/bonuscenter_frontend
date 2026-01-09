@@ -15,6 +15,7 @@ interface BonusData {
     name: string;
     bonus_image: string;
     summary: {
+        last_edit: string;
         bonus: string;
         invito: string;
         deposito_richiesto: string;
@@ -153,6 +154,9 @@ export default function BonusDescription({ bonus }: Props) {
                         </ListItem>
                         <ListItem disableGutters>
                             <ListItemText primary={t('extra_bonus')} secondary={bonus.summary.extra} />
+                        </ListItem>
+                        <ListItem disableGutters>
+                            <ListItemText primary={t('last_edit')} secondary={bonus.summary.last_edit} />
                         </ListItem>
                     </List>
                 </Box>

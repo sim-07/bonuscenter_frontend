@@ -8,7 +8,8 @@
     "deposito_richiesto": "Minimum initial deposit of 1€",
     "scadenza": "31/08/2026 to join, deposit completion by 30/09/2026",
     "commissioni": "Bonus usable only for trading fees; account and management free of charge",
-    "extra": "Each customer can invite up to 5 friends; link valid for 90 days from creation"
+    "extra": "Each customer can invite up to 5 friends; link valid for 90 days from creation",
+    "last_edit": "03/01/2026"
   },
   "sections": [
     {

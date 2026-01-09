@@ -18,6 +18,7 @@ interface BonusData {
         scadenza: string;
         commissioni: string;
         extra: string;
+        last_edit: string;
     };
     sections: {
         title: string;
