@@ -6,6 +6,7 @@ import { useTranslation } from 'next-i18next';
 import { bonusListData } from '../data/bonusListData';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 export default function BestBonusSection() {
@@ -61,61 +62,67 @@ export default function BestBonusSection() {
                     {
                         bestItems.map((bonus, index) => {
                             return (
-                                <Box
-                                    sx={{
-                                        borderRadius: "50px",
-                                        height: "100px",
-                                        width: "100px",
-                                        userSelect: "none",
-                                        cursor: "pointer"
-                                    }}
+                                <Link
+                                    href={`/bonus/${bonus.name}`}
+                                    key={index}
+                                    style={{ textDecoration: 'none' }}
                                 >
                                     <Box
                                         sx={{
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            mt: 2,
+                                            borderRadius: "50px",
+                                            height: "100px",
+                                            width: "100px",
+                                            userSelect: "none",
+                                            cursor: "pointer"
                                         }}
                                     >
                                         <Box
                                             sx={{
-                                                width: '60px',
-                                                height: '60px',
-                                                backgroundColor: 'primary.main',
-                                                cursor: 'default',
-                                                padding: '10px',
-                                                borderRadius: '50px',
-                                                position: 'absolute',
-                                                marginLeft: '110px',
-                                                marginTop: '-20px',
                                                 display: 'flex',
-                                                alignItems: 'center',
                                                 justifyContent: 'center',
+                                                mt: 2,
                                             }}
                                         >
-                                            <Typography
+                                            <Box
                                                 sx={{
-                                                    color: 'white',
-                                                    mt: 0.4,
-                                                    maxWidth: 60,
-                                                    overflow: 'hidden',
-                                                    fontSize: "1.5rem"
+                                                    width: '60px',
+                                                    height: '60px',
+                                                    backgroundColor: 'primary.main',
+                                                    cursor: 'default',
+                                                    padding: '10px',
+                                                    borderRadius: '50px',
+                                                    position: 'absolute',
+                                                    marginLeft: '110px',
+                                                    marginTop: '-20px',
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
                                                 }}
                                             >
-                                                {bonus.bonus_value}
-                                            </Typography>
+                                                <Typography
+                                                    sx={{
+                                                        color: 'white',
+                                                        mt: 0.4,
+                                                        maxWidth: 60,
+                                                        overflow: 'hidden',
+                                                        fontSize: "1.5rem"
+                                                    }}
+                                                >
+                                                    {bonus.bonus_value}
+                                                </Typography>
+                                            </Box>
+                                            <Image
+                                                src={bonus.image}
+                                                alt={bonus.title}
+                                                key={index}
+                                                width={100}
+                                                height={100}
+                                                style={{ objectFit: 'cover', borderRadius: "20px" }}
+                                            />
                                         </Box>
-                                        <Image
-                                            src={bonus.image}
-                                            alt={bonus.title}
-                                            key={index}
-                                            width={100}
-                                            height={100}
-                                            style={{ objectFit: 'cover', borderRadius: "20px" }}
-                                        />
-                                    </Box>
 
-                                </Box>
+                                    </Box>
+                                </Link>
                             )
                         })
                     }
