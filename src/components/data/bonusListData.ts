@@ -8,7 +8,8 @@ export const bonusListData = [
     },
     bonus_value: "20€",
     image: "/images_bonus/bbva.avif",
-    category: "liquid"
+    category: "liquid",
+    best: true
   },
   {
     title: "Fineco",
@@ -19,7 +20,8 @@ export const bonusListData = [
     },
     bonus_value: "50€",
     image: "/images_bonus/fineco.avif",
-    category: "voucher"
+    category: "voucher",
+    best: false
   },
   {
     title: "Isybank",
@@ -30,7 +32,8 @@ export const bonusListData = [
     },
     bonus_value: "30€",
     image: "/images_bonus/isybank.avif",
-    category: "voucher"
+    category: "voucher",
+    best: true
   },
   {
     title: "Freecash",
@@ -41,7 +44,8 @@ export const bonusListData = [
     },
     bonus_value: "5€",
     image: "/images_bonus/freecash.avif",
-    category: "liquid"
+    category: "liquid",
+    best: false
   },
   {
     title: "Trade Republic",
@@ -52,7 +56,8 @@ export const bonusListData = [
     },
     bonus_value: "50€",
     image: "/images_bonus/trade_republic.avif",
-    category: "liquid"
+    category: "liquid",
+    best: true
   },
   {
     title: "Satispay",
@@ -63,7 +68,8 @@ export const bonusListData = [
     },
     bonus_value: "5€",
     image: "/images_bonus/satispay.avif",
-    category: "liquid"
+    category: "liquid",
+    best: true
   },
   {
     title: "Crédit Agricole",
@@ -74,7 +80,8 @@ export const bonusListData = [
     },
     bonus_value: "50€",
     image: "/images_bonus/credit_agricole.avif",
-    category: "voucher"
+    category: "voucher",
+    best: true
   },
   {
     title: "BuddyBank",
@@ -85,7 +92,8 @@ export const bonusListData = [
     },
     bonus_value: "50€",
     image: "/images_bonus/buddybank.avif",
-    category: "liquid"
+    category: "liquid",
+    best: true
   },
   {
     title: "Bitvavo",
@@ -96,7 +104,8 @@ export const bonusListData = [
     },
     bonus_value: "25€",
     image: "/images_bonus/bitvavo.avif",
-    category: "crypto"
+    category: "crypto",
+    best: true
   },
   {
     title: "Trading 212",
@@ -107,7 +116,8 @@ export const bonusListData = [
     },
     bonus_value: "25€",
     image: "/images_bonus/trading212.avif",
-    category: "crypto"
+    category: "crypto",
+    best: true
   },
   {
     title: "Krak",
@@ -118,7 +128,8 @@ export const bonusListData = [
     },
     bonus_value: "10$",
     image: "/images_bonus/krak.avif",
-    category: "liquid"
+    category: "liquid",
+    best: true
   },
   {
     title: "Skrill",
@@ -129,7 +140,8 @@ export const bonusListData = [
     },
     bonus_value: "15€",
     image: "/images_bonus/skrill.avif",
-    category: "liquid"
+    category: "liquid",
+    best: false
   },
   {
     title: "Gemini",
@@ -140,7 +152,8 @@ export const bonusListData = [
     },
     bonus_value: "75€",
     image: "/images_bonus/gemini.avif",
-    category: "crypto"
+    category: "crypto",
+    best: false
   },
   {
     title: "Nemo Money",
@@ -151,7 +164,8 @@ export const bonusListData = [
     },
     bonus_value: "50€",
     image: "/images_bonus/nemo_money.avif",
-    category: "crypto"
+    category: "crypto",
+    best: false
   },
   {
     title: "Findomestic",
@@ -162,7 +176,8 @@ export const bonusListData = [
     },
     bonus_value: "150€", 
     image: "/images_bonus/findomestic.avif",
-    category: "voucher"
+    category: "voucher",
+    best: true
   },
   {
     title: "Revolut",
@@ -173,7 +188,8 @@ export const bonusListData = [
     },
     bonus_value: "60€",
     image: "/images_bonus/revolut.avif",
-    category: "voucher"
+    category: "voucher",
+    best: true
   },
   {
     title: "N26",
@@ -184,7 +200,8 @@ export const bonusListData = [
     },
     bonus_value: "15€",
     image: "/images_bonus/n26.avif",
-    category: "liquid"
+    category: "liquid",
+    best: false
   },
   {
     title: "Nebeus",
@@ -195,7 +212,8 @@ export const bonusListData = [
     },
     bonus_value: "20€",
     image: "/images_bonus/nebeus.avif",
-    category: "crypto"
+    category: "crypto",
+    best: false
   },
   {
     title: "BG Saxo",
@@ -206,7 +224,8 @@ export const bonusListData = [
     },
     bonus_value: "250€",
     image: "/images_bonus/bgsaxo.avif",
-    category: "liquid"
+    category: "liquid",
+    best: false
   },
   {
     title: "Western Union",
@@ -217,7 +236,7 @@ export const bonusListData = [
     },
     bonus_value: "15€",
     image: "/images_bonus/western_union.avif",
-    category: "liquid"
+    category: "liquid",
+    best: false
   },
-  
 ];

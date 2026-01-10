@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import HeroSection from '../src/components/Home/HeroSection';
 import BonusSection from '../src/components/Home/BonusSection';
-import MiddlePage from '../src/components/Home/MiddlePage';
+import BestBonusSection from '../src/components/Home/BestBonusSection';
 import Footer from '../src/components/Home/Footer';
 import Header from '@/components/Home/Header';
 import { useTranslation } from 'next-i18next';
@@ -44,7 +44,7 @@ export default function Home() {
             }} />
 
             <Stack direction={"column"} gap={"30px"}>
-                {/* <MiddlePage /> */}
+                <BestBonusSection />
 
                 <div ref={middleRef}>
                     <BonusSection />

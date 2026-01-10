@@ -7,7 +7,7 @@ export default function BonusSection() {
         <Box
             sx={{
                 display: 'flex',
-                justifyContent: 'center'
+                justifyContent: 'center',
             }}
         >
             <BonusContainer />
