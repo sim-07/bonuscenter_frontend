@@ -1,5 +1,5 @@
 {
-  "login_link": "Accedi",
+  "login_link": "Registrati",
   "about": "Chi siamo",
   "contact": "Contattaci",
   "privacy": "Privacy Policy",
@@ -35,6 +35,7 @@
   "fees": "Commissioni",
   "extra_bonus": "Extra",
   "last_edit": "Ultima modifica",
+  "best_bonus": "Migliori bonus del 2026",
   "comments": "Commenti",
   "post_comment": "Pubblica un commento",
   "no_comments_yet": "Ancora nessun commento.",

@@ -2,10 +2,12 @@ import { useRef } from 'react';
 import Head from 'next/head';
 
 import HeroSection from '../src/components/Home/HeroSection';
+import BonusSection from '../src/components/Home/BonusSection';
 import MiddlePage from '../src/components/Home/MiddlePage';
 import Footer from '../src/components/Home/Footer';
 import Header from '@/components/Home/Header';
 import { useTranslation } from 'next-i18next';
+import { Stack } from '@mui/material';
 
 
 export default function Home() {
@@ -28,19 +30,29 @@ export default function Home() {
                     href={`https://www.bonuscenter.it/en/`}
                     hrefLang="en"
                 />
-                <link 
+                <link
                     rel="alternate"
                     href={`https://www.bonuscenter.it/`}
                     hrefLang="x-default"
                 />
             </Head>
+
             <Header />
+
             <HeroSection scrollToMiddle={() => {
                 middleRef.current?.scrollIntoView({ behavior: 'smooth' });
             }} />
-            <div ref={middleRef}>
-                <MiddlePage />
-            </div>
+
+            <Stack direction={"column"} gap={"30px"}>
+                {/* <MiddlePage /> */}
+
+                <div ref={middleRef}>
+                    <BonusSection />
+                </div>
+            </Stack>
+
+
+
             <Footer />
         </>
     );

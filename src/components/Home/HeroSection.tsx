@@ -38,7 +38,7 @@ export default function HeroSection({ scrollToMiddle }: HeroSectionProps) {
                     p: { xs: "8px 0px", sm: 4 },
                     width: '95%',
                     height: '75vh',
-                    margin: '80px auto',
+                    margin: '35px auto',
                     position: 'relative',
                     overflow: 'hidden',
                     

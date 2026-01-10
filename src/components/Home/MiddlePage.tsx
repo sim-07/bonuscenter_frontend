@@ -1,16 +1,24 @@
 import { Box } from '@mui/material';
 
-import BonusContainer from '../bonus/BonusContainer';
-
 export default function MiddlePage() {
     return (
         <Box
             sx={{
+                backgroundColor: 'grey.800',
+                backgroundImage: 'none',
+                borderRadius: '24px',
+                width: "95%",
+                mx: 'auto',
+                height: 'auto',
+                minHeight: '85vh',
                 display: 'flex',
-                justifyContent: 'center'
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '30px',
             }}
         >
-            <BonusContainer />
+
         </Box>
 
     );
