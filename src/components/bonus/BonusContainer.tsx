@@ -1,9 +1,10 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 import SearchInput from '../common/SearchInput';
 import BonusList from './BonusList';
 import { useState } from 'react';
 import { bonusListData } from '../data/bonusListData';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
 interface BonusItem {
     name: string;
@@ -33,7 +34,8 @@ export default function BonusContainer({
 }: BonusContainerProps) {
     const [searchTerm, setSearchTerm] = useState('');
     const { locale } = useRouter();
-    const currentLocale = locale || 'it'; 
+    const currentLocale = locale || 'it';
+    const { t } = useTranslation('common');
 
     const filtBonusListData = Array.isArray(bonusListDataP)
         ? bonusListDataP.filter((bonus) =>
@@ -54,14 +56,27 @@ export default function BonusContainer({
                 flexDirection: 'column',
                 alignItems: 'center',
                 gap: '30px',
+                border: "1px solid #353535",
             }}
         >
+            <Box
+                sx={{
+                    width: "100%",
+                    justifyContent: "left",
+                    alignItems: "left",
+                    p: 4
+                }}
+            >
+                <Typography component={"h1"} sx={{ fontSize: "2rem", color: "grey.400", fontWeight: "bold" }}>{t('all_bonus')}</Typography>
+                <Divider />
+            </Box>
+
+
             <Typography
                 component={'h1'}
                 sx={{
                     fontSize: '26px',
                     fontWeight: 'bold',
-                    mt: 4
                 }}
             >
                 {titleBonusContainer}

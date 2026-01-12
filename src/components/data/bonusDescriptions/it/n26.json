@@ -8,7 +8,8 @@
     "deposito_richiesto": "Nessun deposito richiesto",
     "scadenza": "-",
     "commissioni": "Nessuna se ricarichi con bonifico; con carta ci sono commissioni",
-    "extra": "3 prelievi ATM gratuiti al mese nella zona euro"
+    "extra": "3 prelievi ATM gratuiti al mese nella zona euro",
+    "last_edit": "02/01/2026"
   },
   "sections": [
     {

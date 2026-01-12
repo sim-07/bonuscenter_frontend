@@ -1,5 +1,5 @@
 {
-  "login_link": "Accedi",
+  "login_link": "Registrati",
   "about": "Chi siamo",
   "contact": "Contattaci",
   "privacy": "Privacy Policy",
@@ -33,7 +33,9 @@
   "required_deposit": "Deposito richiesto",
   "expiration": "Scadenza",
   "fees": "Commissioni",
+  "best_bonus_title": "Migliori Bonus del momento",
   "extra_bonus": "Extra",
+  "last_edit": "Ultima modifica",
   "comments": "Commenti",
   "post_comment": "Pubblica un commento",
   "no_comments_yet": "Ancora nessun commento.",

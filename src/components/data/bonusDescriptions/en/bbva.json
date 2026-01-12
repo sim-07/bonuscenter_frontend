@@ -8,7 +8,8 @@
     "deposito_richiesto": "💰 No mandatory deposit, but a small amount (€0.15) is recommended to unlock the bonus",
     "scadenza": "🗓️ Promo with no defined expiration",
     "commissioni": "✅ Free account, free virtual card with Italian IBAN, optional physical card, €4.95 monthly fee for virtual/physical card",
-    "extra": "💵 Extra €10 bonus with direct debit and 4% cashback on purchases and deposits"
+    "extra": "💵 Extra €10 bonus with direct debit and 4% cashback on purchases and deposits",
+    "last_edit": "02/01/2026"
   },
   "sections": [
     {

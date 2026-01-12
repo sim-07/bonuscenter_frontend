@@ -5,12 +5,13 @@ import Footer from '@/components/Home/Footer';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
+
 export async function getStaticProps({ locale }: any) {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale, ['common', 'about'])),
-        },
-    };
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['about', 'common'])),
+    },
+  };
 }
 
 export default function AboutPage() {

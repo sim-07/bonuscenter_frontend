@@ -98,7 +98,7 @@ export default function DashboardLayoutMobile({username, openAddCodeDialog, setU
                         onClick={handleClickNotification}
                         sx={{
                             bgcolor: 'grey.900',
-                            color: 'black',
+                            color: 'text.primary',
                             height: '40px',
                             width: '40px',
                             marginTop: '15px',

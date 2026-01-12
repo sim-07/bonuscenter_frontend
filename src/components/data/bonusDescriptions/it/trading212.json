@@ -1,0 +1,48 @@
+{
+  "title": "Trading212 - Bonus Azione Omaggio fino a 100€",
+  "name": "trading212",
+  "bonus_image": "trading212",
+  "summary": {
+    "bonus": "🎁 25€",
+    "invito": "Azione gratuita per ogni amico (max 5 per periodo)",
+    "deposito_richiesto": "15€",
+    "scadenza": "22/01/2026",
+    "commissioni": "0€ deposito bonifico/carta",
+    "extra": "Bonus istantaneo, prelevabile dopo 30 giorni (o subito con trick)",
+    "last_edit": "02/01/2026"
+  },
+  "sections": [
+    {
+      "title": "Cos'è Trading212 e come funziona il bonus",
+      "content": [
+        "Trading 212 è una piattaforma di investimento intuitiva che permette di negoziare azioni, ETF, valute e materie prime a commissioni zero.",
+        "La promozione 'Porta un Amico' permette di ricevere un'azione gratuita da 25€ semplicemente aprendo un conto Invest (NON CFD) e depositando una piccola somma.",
+        "Oltre al bonus di benvenuto, puoi invitare i tuoi amici per ottenere fino a 5 azioni omaggio per ogni periodo promozionale."
+      ]
+    },
+    {
+      "title": "Requisiti principali",
+      "content": [
+        "Essere maggiorenni e non avere già un account Trading212.",
+        "Documenti accettati: Carta d'identità (elettronica o cartacea) o Passaporto. Nota: la patente NON è accettata.",
+        "Depositare almeno 15€ sul conto 'Invest' ed effettuare 3 transazioni di almeno 5€ ciascuna utilizzando la carta virtuale gratuita (sono validi anche i top-up verso Revolut tramite link di pagamento)."
+      ]
+    },
+    {
+      "title": "Guida passo passo",
+      "content": [
+        "1. Registrati tramite il link invito e scegli il profilo 'Invest' (evita il profilo CFD per il bonus).",
+        "2. Completa la verifica dell'identità: la procedura è automatica e solitamente richiede pochi minuti.",
+        "3. Deposita almeno 15€ tramite bonifico, carta o Google Pay (gratuito fino a 2000€).",
+        "4. Attiva la tua carta virtuale gratuita nell'app e usala per fare 3 pagamenti da almeno 5€ (es. ricariche Revolut tramite link di pagamento o piccoli acquisti online. Per fare una ricarica Revolut apri l'app e vai su \"Pagamenti > Bottone + > Link\").",
+        "5. Riceverai la tua azione omaggio entro pochi minuti dalla verifica delle transazioni.",
+        "6. Il bonus è normalmente prelevabile dopo 30 giorni.",
+        "💡 Per prelevare immediatamente:",
+        "1. Converti il saldo bonus da Euro a USD nel menu 'Gestione Fondi'.",
+        "2. Acquista un'azione USA (es. Tesla o Amazon) usando i dollari convertiti.",
+        "3. Dopo 15 minuti, rivendi l'azione scegliendo di ricevere il ricavato direttamente in Euro.",
+        "4. Incassa subito il saldo ricaricando il tuo conto Revolut con la carta virtuale Trading212."
+      ]
+    }
+  ]
+}

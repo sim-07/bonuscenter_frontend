@@ -8,7 +8,8 @@
     "deposito_richiesto": "Minimum €105 deposit via SEPA bank transfer",
     "scadenza": "‼️ CURRENTLY NOT ACTIVE (July 2025) ‼️",
     "commissioni": "Free SEPA transfer; card not recommended (approx. €5 fee)",
-    "extra": "Up to 10 free crypto withdrawals per month"
+    "extra": "Up to 10 free crypto withdrawals per month",
+    "last_edit": "02/07/2025"
   },
   "sections": [
     {
