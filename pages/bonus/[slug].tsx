@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { serialize } from 'next-mdx-remote/serialize';
 
 import BonusDescription from '@/components/bonus/BonusDesription';
 import Head from 'next/head';
@@ -31,7 +32,7 @@ interface Props {
     bonus: BonusData;
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths() { // creo i percorsi
     const locales = ['it', 'en'];
     const paths: { params: { slug: string }, locale: string }[] = [];
 
@@ -40,10 +41,8 @@ export async function getStaticPaths() {
         if (!fs.existsSync(dir)) continue;
         const files = fs.readdirSync(dir);
         for (const filename of files) {
-            paths.push({
-                params: { slug: filename.replace('.json', '') },
-                locale
-            });
+            const slug = filename.replace(/\.(json|mdx)$/, '');
+            paths.push({ params: { slug }, locale });
         }
     }
 
@@ -53,9 +52,10 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps({ params, locale }: { params: { slug: string }, locale: string }) {
+export async function getStaticProps({ params, locale }: { params: { slug: string }, locale: string }) { // aggiungo contenuto ai percorsi precedentemente creati
     const lang = locale || 'it';
-    const filePath = path.join(
+
+    const filePathJson = path.join(
         process.cwd(),
         'src',
         'components',
@@ -65,18 +65,41 @@ export async function getStaticProps({ params, locale }: { params: { slug: strin
         `${params.slug}.json`
     );
 
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const bonus = JSON.parse(fileContents);
+    const filePathMdx = path.join(
+        process.cwd(),
+        'src',
+        'components',
+        'data',
+        'bonusDescriptions',
+        lang,
+        `${params.slug}.mdx`
+    )
 
-    return {
-        props: {
-            bonus,
-            ...(await serverSideTranslations(lang, ['common'])),
-        }
-    };
+    if (fs.existsSync(filePathMdx)) {
+        const fileContents = fs.readFileSync(filePathMdx, 'utf8');
+        const mdxSource = await serialize(fileContents, { parseFrontmatter: true });
+
+        return {
+            props: {
+                source: mdxSource,
+                ...(await serverSideTranslations(lang, ['common'])),
+            }
+        };
+
+    } else if (fs.existsSync(filePathJson)) {
+        const fileContents = fs.readFileSync(filePathJson, 'utf8');
+        const bonus = JSON.parse(fileContents);
+
+        return {
+            props: {
+                bonus,
+                ...(await serverSideTranslations(lang, ['common'])),
+            }
+        };
+    }
 }
 
-export default function BonusDescriptionPage({ bonus }: Props) {
+export default function BonusDescriptionPage({ bonus }: Props) { // gestisco il contenuto delle pagine create con get
     const router = useRouter();
     const slug = router.query.slug as string;
     const locale = router.locale || 'it';
