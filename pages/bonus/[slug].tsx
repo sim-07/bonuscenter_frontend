@@ -29,7 +29,8 @@ interface BonusData {
 }
 
 interface Props {
-    bonus: BonusData;
+    jsonData?: BonusData;
+    mdxData?: any;
 }
 
 export async function getStaticPaths() { // creo i percorsi
@@ -99,7 +100,7 @@ export async function getStaticProps({ params, locale }: { params: { slug: strin
     }
 }
 
-export default function BonusDescriptionPage({ bonus }: Props) { // gestisco il contenuto delle pagine create con get
+export default function BonusDescriptionPage({ jsonData, mdxData }: Props) { // gestisco il contenuto delle pagine create con get
     const router = useRouter();
     const slug = router.query.slug as string;
     const locale = router.locale || 'it';
@@ -109,13 +110,13 @@ export default function BonusDescriptionPage({ bonus }: Props) { // gestisco il 
             ? `https://www.bonuscenter.it/bonus/${slug}`
             : `https://www.bonuscenter.it/${locale}/bonus/${slug}`; // se l'utente è it non metto prefisso, altrimenti metto l'altra lingua
 
-    const metaDescription = bonus.title || 'Scopri tutti i dettagli sul bonus disponibile per questa piattaforma.';
-
+    const title = mdxData?.frontmatter?.title || jsonData?.title;
+    const metaDescription = title || 'Scopri tutti i dettagli sul bonus disponibile per questa piattaforma.';
 
     return (
         <>
             <Head>
-                <title>{bonus.title}</title>
+                <title>{title}</title>
                 <meta name="description" content={metaDescription} />
                 <link rel="canonical" href={canonicalUrl} />
 
@@ -135,7 +136,7 @@ export default function BonusDescriptionPage({ bonus }: Props) { // gestisco il 
                     hrefLang="x-default"
                 />
             </Head>
-            <BonusDescription bonus={bonus} />
+            <BonusDescription mdxData={mdxData} jsonData={jsonData} />
         </>
     );
 }

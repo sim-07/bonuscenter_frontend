@@ -15,13 +15,13 @@ interface BonusData {
     name: string;
     bonus_image: string;
     summary: {
-        last_edit: string;
         bonus: string;
         invito: string;
         deposito_richiesto: string;
         scadenza: string;
         commissioni: string;
         extra: string;
+        last_edit: string;
     };
     sections: {
         title: string;
@@ -31,33 +31,34 @@ interface BonusData {
 }
 
 interface Props {
-    bonus: BonusData;
+    jsonData?: BonusData;
+    mdxData?: any;
 }
 
-export default function BonusDescription({ bonus }: Props) {
+export default function BonusDescription({ jsonData, mdxData }: Props) {
     const { t } = useTranslation('common');
     const { locale } = useRouter();
 
     const [auth, setAuth] = useState(false);
 
     useEffect(() => {
-            const checkAuth = async () => {
-                try {
-                    const res = await apiService('users', 'get_user_data');
-    
-                    if (res.error || !res.data || !Array.isArray(res.data) || res.data.length === 0) {
-                        setAuth(false)
-                        return;
-                    }
-        
-                    setAuth(true)
-                } catch (err) {
-                    console.error("Error fetching user data")
+        const checkAuth = async () => {
+            try {
+                const res = await apiService('users', 'get_user_data');
+
+                if (res.error || !res.data || !Array.isArray(res.data) || res.data.length === 0) {
+                    setAuth(false)
+                    return;
                 }
-            };
-    
-            checkAuth();
-        }, []);
+
+                setAuth(true)
+            } catch (err) {
+                console.error("Error fetching user data")
+            }
+        };
+
+        checkAuth();
+    }, []);
 
     return (
         <>
@@ -74,119 +75,126 @@ export default function BonusDescription({ bonus }: Props) {
                 </Link>
             </Navbar>
 
-            <Box sx={{
-                p: 3,
-                maxWidth: 1200,
-                mx: 'auto',
-                width: {sm: '95%', md: '80%'}
-            }}>
-                <Typography
-                    variant="h4"
-                    component="h1"
-                    gutterBottom
-                    fontWeight="bold"
-                    textAlign="left"
-                    sx={{
-                        mb: 5,
-                        mt: 3
-                    }}
-                >
-                    {bonus.title}
-                </Typography>
-
-                <Box
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'center'
-                    }}
-                >
-                    <Stack
-                        direction={{ md: "column", lg: "row" }}
-                        justifyContent="space-between"
-                        alignItems="center"
-                        width="80%"
-                        sx={{
-                            margin: '80px 0px'
-                        }}
-                    >
-                        <Image
-                            alt="bonusimage"
-                            src={`/images_bonus/${bonus.bonus_image}.avif`}
-                            width={300}
-                            height={300}
-                            style={{
-                                borderRadius: '16px',
-                                marginBottom: '30px'
-                            }}
-                        />
-
-                        <AllReferral bonusName={bonus.name} />
-                    </Stack>
-
-                </Box>
-
-                <Box
-                    sx={{
-                        mb: 5,
+            {
+                jsonData ? (
+                    <Box sx={{
                         p: 3,
-                        backgroundColor: 'grey.800',
-                        borderRadius: 3,
-                    }}
-                >
-                    <Typography variant="h5" component="h2" gutterBottom fontWeight="medium" color="text.primary">
-                        {t('summary')}
-                    </Typography>
-                    <List disablePadding>
-                        <ListItem disableGutters>
-                            <ListItemText primary={t('welcome_bonus')} secondary={bonus.summary.bonus} />
-                        </ListItem>
-                        <ListItem disableGutters>
-                            <ListItemText primary={t('invite_bonus')} secondary={bonus.summary.invito} />
-                        </ListItem>
-                        <ListItem disableGutters>
-                            <ListItemText primary={t('required_deposit')} secondary={bonus.summary.deposito_richiesto} />
-                        </ListItem>
-                        <ListItem disableGutters>
-                            <ListItemText primary={t('expiration')} secondary={bonus.summary.scadenza} />
-                        </ListItem>
-                        <ListItem disableGutters>
-                            <ListItemText primary={t('fees')} secondary={bonus.summary.commissioni} />
-                        </ListItem>
-                        <ListItem disableGutters>
-                            <ListItemText primary={t('extra_bonus')} secondary={bonus.summary.extra} />
-                        </ListItem>
-                        <ListItem disableGutters>
-                            <ListItemText primary={t('last_edit')} secondary={bonus.summary.last_edit} />
-                        </ListItem>
-                    </List>
-                </Box>
-
-                <Divider sx={{ mb: 5 }} />
-
-                {bonus.sections.map((section, i) => (
-                    <Box key={i} sx={{ mb: 6 }}>
-                        <Typography variant="h5" component="h3" gutterBottom fontWeight="bold" color="text.primary" sx={{ mb: 5 }}>
-                            {section.title}
+                        maxWidth: 1200,
+                        mx: 'auto',
+                        width: { sm: '95%', md: '80%' }
+                    }}>
+                        <Typography
+                            variant="h4"
+                            component="h1"
+                            gutterBottom
+                            fontWeight="bold"
+                            textAlign="left"
+                            sx={{
+                                mb: 5,
+                                mt: 3
+                            }}
+                        >
+                            {jsonData.title}
                         </Typography>
-                        {section.content.map((p, idx) => (
-                            <Typography key={idx} component="p" sx={{ mb: idx === section.content.length - 1 ? 0 : 2, lineHeight: 1.6 }}>
-                                {p}
+
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'center'
+                            }}
+                        >
+                            <Stack
+                                direction={{ md: "column", lg: "row" }}
+                                justifyContent="space-between"
+                                alignItems="center"
+                                width="80%"
+                                sx={{
+                                    margin: '80px 0px'
+                                }}
+                            >
+                                <Image
+                                    alt="bonusimage"
+                                    src={`/images_bonus/${jsonData.bonus_image}.avif`}
+                                    width={300}
+                                    height={300}
+                                    style={{
+                                        borderRadius: '16px',
+                                        marginBottom: '30px'
+                                    }}
+                                />
+
+                                <AllReferral bonusName={jsonData.name} />
+                            </Stack>
+
+                        </Box>
+
+                        <Box
+                            sx={{
+                                mb: 5,
+                                p: 3,
+                                backgroundColor: 'grey.800',
+                                borderRadius: 3,
+                            }}
+                        >
+                            <Typography variant="h5" component="h2" gutterBottom fontWeight="medium" color="text.primary">
+                                {t('summary')}
                             </Typography>
+                            <List disablePadding>
+                                <ListItem disableGutters>
+                                    <ListItemText primary={t('welcome_bonus')} secondary={jsonData.summary.bonus} />
+                                </ListItem>
+                                <ListItem disableGutters>
+                                    <ListItemText primary={t('invite_bonus')} secondary={jsonData.summary.invito} />
+                                </ListItem>
+                                <ListItem disableGutters>
+                                    <ListItemText primary={t('required_deposit')} secondary={jsonData.summary.deposito_richiesto} />
+                                </ListItem>
+                                <ListItem disableGutters>
+                                    <ListItemText primary={t('expiration')} secondary={jsonData.summary.scadenza} />
+                                </ListItem>
+                                <ListItem disableGutters>
+                                    <ListItemText primary={t('fees')} secondary={jsonData.summary.commissioni} />
+                                </ListItem>
+                                <ListItem disableGutters>
+                                    <ListItemText primary={t('extra_bonus')} secondary={jsonData.summary.extra} />
+                                </ListItem>
+                                <ListItem disableGutters>
+                                    <ListItemText primary={t('last_edit')} secondary={jsonData.summary.last_edit} />
+                                </ListItem>
+                            </List>
+                        </Box>
+
+                        <Divider sx={{ mb: 5 }} />
+
+                        {jsonData.sections.map((section, i) => (
+                            <Box key={i} sx={{ mb: 6 }}>
+                                <Typography variant="h5" component="h3" gutterBottom fontWeight="bold" color="text.primary" sx={{ mb: 5 }}>
+                                    {section.title}
+                                </Typography>
+                                {section.content.map((p, idx) => (
+                                    <Typography key={idx} component="p" sx={{ mb: idx === section.content.length - 1 ? 0 : 2, lineHeight: 1.6 }}>
+                                        {p}
+                                    </Typography>
+                                ))}
+                                {section.image && (
+                                    <Box
+                                        component="img"
+                                        src={section.image}
+                                        alt={section.title}
+                                        sx={{ width: '100%', maxWidth: 500, borderRadius: 2, mt: 3, boxShadow: 2 }}
+                                    />
+                                )}
+                            </Box>
                         ))}
-                        {section.image && (
-                            <Box
-                                component="img"
-                                src={section.image}
-                                alt={section.title}
-                                sx={{ width: '100%', maxWidth: 500, borderRadius: 2, mt: 3, boxShadow: 2 }}
-                            />
-                        )}
+
+                        <CommentsContainer bonusName={jsonData.name} />
+
                     </Box>
-                ))}
+                ) : (
+                    <></>
+                )
+            }
 
-                <CommentsContainer bonusName={bonus.name} />
-
-            </Box>
 
             <Footer />
         </>
