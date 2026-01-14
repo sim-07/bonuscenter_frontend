@@ -105,7 +105,7 @@ export const bonusListData = [
     bonus_value: "25€",
     image: "/images_bonus/bitvavo.avif",
     category: "crypto",
-    best: true
+    best: false
   },
   {
     title: "Trading 212",
