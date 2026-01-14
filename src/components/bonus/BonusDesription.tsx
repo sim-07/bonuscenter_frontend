@@ -6,6 +6,7 @@ import Navbar from '@/components/Home/Navbar';
 import Footer from '@/components/Home/Footer';
 import AllReferral from './AllReferral';
 import CommentsContainer from '../Comments/CommentsContainer';
+
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import apiService from '../scripts/apiService';
@@ -18,7 +19,7 @@ interface BonusData {
     summary: {
         bonus: string;
         invito: string;
-        deposito_richiesto: string;
+        deposito: string;
         scadenza: string;
         commissioni: string;
         extra: string;
@@ -45,9 +46,23 @@ export default function BonusDescription({ jsonData, mdxData }: Props) {
     const mdxComponents = {
         h2: (props: any) => <Typography variant="h5" fontWeight="bold" sx={{ mb: 3, mt: 5 }} {...props} />,
         h3: (props: any) => <Typography variant="h6" fontWeight="bold" sx={{ mb: 2, mt: 4 }} {...props} />,
-        p: (props: any) => <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.6 }} {...props} />,
+        p: (props: any) => (
+            <Typography
+                component="div"
+                variant="body1"
+                sx={{ mb: 2, lineHeight: 1.6 }}
+                {...props}
+            />
+        ),
         ul: (props: any) => <Box component="ul" sx={{ pl: 4, mb: 2 }} {...props} />,
-        li: (props: any) => <Box component="li" sx={{ mb: 1 }}><Typography variant="body1" {...props} /></Box>,
+        li: (props: any) => (
+            <Box
+                component="li"
+                sx={{ mb: 1, typography: 'body1' }}
+            >
+                {props.children}
+            </Box>
+        ),
     };
 
     const dataSummary = mdxData ? {
@@ -201,15 +216,17 @@ export default function BonusDescription({ jsonData, mdxData }: Props) {
                                     )}
                                 </Box>
                             ))}
-                            
+
                             <CommentsContainer bonusName={jsonData.name} />
                         </Box>
-                    ) : (
-                        <></>
-                    )
+                    ) : mdxData ? (
+                        <section className="mt-4 prose max-w-4xl ">
+                            <MDXRemote {...mdxData} components={mdxComponents} />
+                        </section>
+                    ) : null
                 }
 
-                
+
 
             </Box>
 

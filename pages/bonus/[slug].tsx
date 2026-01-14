@@ -15,7 +15,7 @@ interface BonusData {
     summary: {
         bonus: string;
         invito: string;
-        deposito_richiesto: string;
+        deposito: string;
         scadenza: string;
         commissioni: string;
         extra: string;
@@ -82,7 +82,7 @@ export async function getStaticProps({ params, locale }: { params: { slug: strin
 
         return {
             props: {
-                source: mdxSource,
+                mdxData: mdxSource,
                 ...(await serverSideTranslations(lang, ['common'])),
             }
         };
@@ -93,11 +93,13 @@ export async function getStaticProps({ params, locale }: { params: { slug: strin
 
         return {
             props: {
-                bonus,
+                jsonData: bonus,
                 ...(await serverSideTranslations(lang, ['common'])),
             }
         };
     }
+
+    return { notFound: true };
 }
 
 export default function BonusDescriptionPage({ jsonData, mdxData }: Props) { // gestisco il contenuto delle pagine create con get
