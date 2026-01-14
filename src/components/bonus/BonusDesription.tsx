@@ -220,9 +220,14 @@ export default function BonusDescription({ jsonData, mdxData }: Props) {
                             <CommentsContainer bonusName={jsonData.name} />
                         </Box>
                     ) : mdxData ? (
-                        <section className="mt-4 prose max-w-4xl ">
-                            <MDXRemote {...mdxData} components={mdxComponents} />
-                        </section>
+                        <>
+                            <Box sx={{ my: 9 }}>
+                                <MDXRemote {...mdxData} components={mdxComponents} />
+                            </Box>
+
+                            <CommentsContainer bonusName={mdxData.name} />
+                        </>
+
                     ) : null
                 }
 
