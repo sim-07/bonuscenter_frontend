@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import BonusContainer from "@/components/bonus/BonusContainer"
 import router from "next/router";
 import LoadingSpinner from "@/components/common/LoadingSpinner";
-import { bonusListData } from '@/components/data/bonusListData';
+import { bonusListData } from '../data/bonusListData';
 import apiService from "../scripts/apiService";
 
 import { useTranslation } from 'next-i18next';

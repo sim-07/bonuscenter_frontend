@@ -13,7 +13,7 @@ import Footer from '@/components/Home/Footer';
 
 import CustomizedSnackbar from '@/components/common/Snakbar';
 import BonusContainer from '@/components/bonus/BonusContainer';
-import { bonusListData } from '@/components/data/bonusListData';
+import { bonusListData } from '../src/components/data/bonusListData';
 import ChatContainer from '@/components/chat/ChatContainer';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
