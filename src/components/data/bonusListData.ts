@@ -121,7 +121,7 @@ export const bonusListData = [
   },
     {
     title: "Octopus Energy",
-    name: "octopus",
+    name: "octopusenergy",
     description: {
       it: "30€ per ogni invito",
       en: "€30 for every referral"
