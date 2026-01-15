@@ -10,7 +10,7 @@ import apiService from '../scripts/apiService';
 import { useTranslation } from 'next-i18next';
 
 
-import { bonusListData } from '../data/bonusListData';
+import { bonusListData } from '../../../public/data/bonusListData';
 
 interface BonusItem {
     code_id?: string;
