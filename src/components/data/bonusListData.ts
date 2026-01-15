@@ -127,7 +127,7 @@ export const bonusListData = [
       en: "€30 for every referral"
     },
     bonus_value: "30€",
-    image: "/images_bonus/octopus.avif",
+    image: "/images_bonus/octopusenergy.avif",
     category: "bollette",
     best: true
   },
