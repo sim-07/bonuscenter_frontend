@@ -119,6 +119,18 @@ export const bonusListData = [
     category: "crypto",
     best: true
   },
+    {
+    title: "Octopus Energy",
+    name: "octopus",
+    description: {
+      it: "30€ per ogni invito",
+      en: "€30 for every referral"
+    },
+    bonus_value: "30€",
+    image: "/images_bonus/octopus.avif",
+    category: "bollette",
+    best: true
+  },
   {
     title: "Krak",
     name: "krak",
