@@ -15,7 +15,7 @@ import EuroIcon from '@mui/icons-material/Euro';
 
 import apiService from '../scripts/apiService';
 import { useEffect, useState } from 'react';
-import { bonusListData } from '../../../public/data/bonusListData';
+import { bonusListData } from '../data/bonusListData';
 import CustomizedSnackbar from './Snakbar';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';

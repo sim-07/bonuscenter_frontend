@@ -2,7 +2,7 @@ import { Box, Divider, Typography } from '@mui/material';
 import SearchInput from '../common/SearchInput';
 import BonusList from './BonusList';
 import { useState } from 'react';
-import { bonusListData } from '../../../public/data/bonusListData';
+import { bonusListData } from '../data/bonusListData';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 

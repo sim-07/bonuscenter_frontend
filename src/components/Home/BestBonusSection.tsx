@@ -3,7 +3,7 @@
 import { Box, Divider, Stack, Typography } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 
-import { bonusListData } from '../../../public/data/bonusListData';
+import { bonusListData } from '../data/bonusListData';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -58,7 +58,7 @@ export default function BestBonusSection() {
                         },
                     }}
                 >
-                    <DraggableMarquee>
+                    {/* <DraggableMarquee> */}
                         {
                             bestItems.map((bonus, index) => {
                                 return (
@@ -125,7 +125,7 @@ export default function BestBonusSection() {
                                 )
                             })
                         }
-                    </DraggableMarquee>
+                    {/* </DraggableMarquee> */}
 
 
 
