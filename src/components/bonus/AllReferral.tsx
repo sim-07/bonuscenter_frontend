@@ -229,7 +229,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                     sx={{
                         width: "100%",
                         bgcolor: "grey.800",
-                        overflowY: 'scroll',
+                        overflowY: 'auto',
                         height: '300px'
                     }}>
                     {allReferralData.map((referral) => (
@@ -286,7 +286,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
 
             <DialogComponent open={openDialog} onClose={handleCloseDialog}>
                 {selectedReferral && (
-                    <Box sx={{ color: "grey.200", maxHeight: "70vh", overflowY: "scroll" }}>
+                    <Box sx={{ color: "grey.200", maxHeight: "70vh", overflowY: "auto" }}>
                         <Stack
                             direction={'column'}
                             spacing={5}
