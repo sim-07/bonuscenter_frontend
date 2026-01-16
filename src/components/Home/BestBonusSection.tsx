@@ -64,9 +64,6 @@ export default function BestBonusSection() {
                                     return (
                                         <Box
                                             key={index}
-                                            // onPointerUp={(e) => {
-                                            //     router.push(`/bonus/${bonus.name}`);
-                                            // }}
                                             sx={{
                                                 flexShrink: 0,
                                                 position: "relative",
