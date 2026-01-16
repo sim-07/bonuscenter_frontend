@@ -193,12 +193,12 @@ const DraggableMarquee = ({
   const lastPointerPosition = useRef({ x: 0, y: 0 })
 
   const handlePointerDown = (e: React.PointerEvent) => {
-    if (!draggable)
-      return // Capture the pointer to receive events even when pointer moves outside
-    ;(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
+    // if (!draggable)
+    //   return // Capture the pointer to receive events even when pointer moves outside
+    //     ; (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
 
     if (grabCursor) {
-      ;(e.currentTarget as HTMLElement).style.cursor = "grabbing"
+      ; (e.currentTarget as HTMLElement).style.cursor = "grabbing"
     }
 
     isDragging.current = true
@@ -237,14 +237,14 @@ const DraggableMarquee = ({
 
   const handlePointerUp = (e: React.PointerEvent) => {
     if (!draggable) return // Release pointer capture
-    ;(e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId)
+      ; (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId)
 
     isDragging.current = false
   }
 
   return (
     <motion.div
-      className={cn("flex", isHorizontal ? "flex-row" : "flex-col", className)}
+      style={{ display: 'flex', flexDirection: 'row', width: 'max-content' }}
       onHoverStart={() => (isHovered.current = true)}
       onHoverEnd={() => (isHovered.current = false)}
       onPointerDown={handlePointerDown}
@@ -256,8 +256,7 @@ const DraggableMarquee = ({
         <motion.div
           key={i}
           className={cn(
-            "shrink-0",
-            isHorizontal && "flex",
+            "shrink-0 flex flex-row",
             draggable && grabCursor && "cursor-grab"
           )}
           style={isHorizontal ? { x } : { y }}

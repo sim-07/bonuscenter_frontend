@@ -5,13 +5,14 @@ import { useTranslation } from 'next-i18next';
 
 import { bonusListData } from '../data/bonusListData';
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import DraggableMarquee from '../DraggableMarquee/simple-marquee';
+import DraggableMarquee from '../DraggableMarquee/DraggableMarquee';
+import { useRouter } from 'next/navigation';
 
 
 export default function BestBonusSection() {
     const { t } = useTranslation('common');
+    const router = useRouter();
 
     const [bestItems, setBestItems] = useState(bonusListData);
 
@@ -21,8 +22,6 @@ export default function BestBonusSection() {
         bestBonuses = bestBonuses.concat(bestBonuses);
 
         setBestItems(bestBonuses);
-
-        console.log(bestBonuses);
     }, [bonusListData]);
 
     return (
@@ -48,33 +47,38 @@ export default function BestBonusSection() {
                     sx={{
                         width: "max-content",
                         my: 10,
-                        animation: "scroll 40s linear infinite",
-                        '@keyframes scroll': {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-50%)' }
-                        },
-                        '&:hover': {
-                            animationPlayState: "paused",
-                        },
                     }}
                 >
-                    {/* <DraggableMarquee> */}
-                        {
-                            bestItems.map((bonus, index) => {
-                                return (
-                                    <Link
-                                        href={`/bonus/${bonus.name}`}
-                                        key={index}
-                                    >
+                    <DraggableMarquee baseVelocity={1} draggable={true} slowdownOnHover={true}>
+                        <Stack
+                            direction={"row"}
+                            gap={10}
+                            sx={{
+                                pr: 10,
+                                display: 'flex',
+                                flexDirection: 'row'
+                            }}
+                        >
+                            {
+                                bestItems.map((bonus, index) => {
+                                    return (
                                         <Box
+                                            key={index}
+                                            // onPointerUp={(e) => {
+                                            //     router.push(`/bonus/${bonus.name}`);
+                                            // }}
                                             sx={{
+                                                flexShrink: 0,
+                                                position: "relative",
                                                 borderRadius: "50px",
                                                 height: "100px",
                                                 width: "100px",
                                                 userSelect: "none",
-                                                cursor: "pointer"
+                                                cursor: "pointer",
+                                                pointerEvents: "auto",
                                             }}
                                         >
+                                            <Link href={`/bonus/${bonus.name}`} style={{ color: "grey", marginTop: "10px", position: "relative" }}>
                                             <Box
                                                 sx={{
                                                     display: 'flex',
@@ -110,26 +114,31 @@ export default function BestBonusSection() {
                                                         {bonus.bonus_value}
                                                     </Typography>
                                                 </Box>
-                                                <Image
-                                                    src={bonus.image}
-                                                    alt={bonus.title}
-                                                    key={index}
-                                                    width={100}
-                                                    height={100}
-                                                    style={{ objectFit: 'cover', borderRadius: "20px" }}
-                                                />
+                                                <Box
+                                                    sx={{
+                                                        backgroundImage: `url(${bonus.image})`,
+                                                        width: "100px",
+                                                        height: "100px",
+                                                        backgroundPosition: 'center',
+                                                        backgroundSize: 'cover',
+                                                        backgroundRepeat: 'no-repeat',
+                                                        borderRadius: "20px"
+                                                    }}
+                                                >
+
+                                                </Box>
                                             </Box>
 
+                                            <Typography sx={{ mt: 1 }}>{bonus.title}</Typography>
+                                            
+                                            </Link>
                                         </Box>
-                                    </Link>
-                                )
-                            })
-                        }
-                    {/* </DraggableMarquee> */}
+                                    )
+                                })
+                            }
+                        </Stack>
 
-
-
-
+                    </DraggableMarquee>
                 </Stack>
             </Box>
 
