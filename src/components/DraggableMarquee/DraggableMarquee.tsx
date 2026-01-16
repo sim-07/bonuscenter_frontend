@@ -192,54 +192,55 @@ const DraggableMarquee = ({
 
   const lastPointerPosition = useRef({ x: 0, y: 0 })
 
+  const DRAG_THRESHOLD = 5
+
+  const handlePointerUp = (e: React.PointerEvent) => {
+    if (!draggable) return 
+      ; (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId)
+
+    isDragging.current = false
+  }
+  
+  const hasDragged = useRef(false)
   const handlePointerDown = (e: React.PointerEvent) => {
-    // if (!draggable)
-    //   return // Capture the pointer to receive events even when pointer moves outside
-    //     ; (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
+    if (!draggable) return
 
-    if (grabCursor) {
-      ; (e.currentTarget as HTMLElement).style.cursor = "grabbing"
-    }
-
+    hasDragged.current = false
     isDragging.current = true
     lastPointerPosition.current = { x: e.clientX, y: e.clientY }
-
-    // Pause automatic animation by setting velocity to 0
-    dragVelocity.current = 0
   }
 
   const handlePointerMove = (e: React.PointerEvent) => {
     if (!draggable || !isDragging.current) return
 
-    const currentPosition = { x: e.clientX, y: e.clientY }
+    const dx = e.clientX - lastPointerPosition.current.x
+    const dy = e.clientY - lastPointerPosition.current.y
 
-    // Calculate delta from last position
-    const deltaX = currentPosition.x - lastPointerPosition.current.x
-    const deltaY = currentPosition.y - lastPointerPosition.current.y
+    if (!hasDragged.current && Math.hypot(dx, dy) > DRAG_THRESHOLD) {
+      hasDragged.current = true
+        ; (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
+    }
 
-    // Convert dragAngle from degrees to radians
-    const angleInRadians = (dragAngle * Math.PI) / 180
+    if (!hasDragged.current) return
 
-    // Calculate the projection of the movement along the angle direction
-    // Using the dot product of the movement vector and the direction vector
-    const directionX = Math.cos(angleInRadians)
-    const directionY = Math.sin(angleInRadians)
+    const handlePointerUp = (e: React.PointerEvent) => {
+      if (!draggable) return
 
-    // Project the movement onto the angle direction
-    const projectedDelta = deltaX * directionX + deltaY * directionY
+      if (hasDragged.current) {
+        e.preventDefault()
+        e.stopPropagation()
+      }
 
-    // Update drag velocity based on the projected movement
-    dragVelocity.current = projectedDelta * dragSensitivity
+      isDragging.current = false
+      hasDragged.current = false
 
-    // Update last position
-    lastPointerPosition.current = currentPosition
-  }
+      try {
+        ; (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId)
+      } catch { }
+    }
 
-  const handlePointerUp = (e: React.PointerEvent) => {
-    if (!draggable) return // Release pointer capture
-      ; (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId)
-
-    isDragging.current = false
+    dragVelocity.current = dx * dragSensitivity
+    lastPointerPosition.current = { x: e.clientX, y: e.clientY }
   }
 
   return (
