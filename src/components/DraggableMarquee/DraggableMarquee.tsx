@@ -42,7 +42,6 @@ interface SimpleMarqueeProps {
 
 const DraggableMarquee = ({
   children,
-  className,
   direction = "right",
   baseVelocity = 5,
   slowdownOnHover = false,
@@ -54,10 +53,9 @@ const DraggableMarquee = ({
   scrollContainer,
   repeat = 3,
   draggable = false,
-  dragSensitivity = 0.2,
+  dragSensitivity = 0.05,
   dragVelocityDecay = 0.96,
   dragAwareDirection = false,
-  dragAngle = 0,
   grabCursor = false,
   easing,
 }: SimpleMarqueeProps) => {
@@ -222,22 +220,6 @@ const DraggableMarquee = ({
     }
 
     if (!hasDragged.current) return
-
-    const handlePointerUp = (e: React.PointerEvent) => {
-      if (!draggable) return
-
-      if (hasDragged.current) {
-        e.preventDefault()
-        e.stopPropagation()
-      }
-
-      isDragging.current = false
-      hasDragged.current = false
-
-      try {
-        ; (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId)
-      } catch { }
-    }
 
     dragVelocity.current = dx * dragSensitivity
     lastPointerPosition.current = { x: e.clientX, y: e.clientY }
