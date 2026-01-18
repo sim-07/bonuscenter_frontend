@@ -70,7 +70,7 @@ export default function Navbar({ children }: NavbarProps) {
                                 height: 'auto',
                                 cursor: 'pointer'
                             }}
-                            onClick={() => router.push('/dashboard')}
+                            // onClick={() => router.push('/dashboard')}
                         />
                     </Box>
                 </Toolbar>
