@@ -116,7 +116,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                 if (res.data) {
                     setUsername(res.data[0].username);
                 }
-                
+
             } catch (error: any) {
                 console.error(error.message || error);
             }
@@ -295,13 +295,30 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                                 direction={'row'}
                                 spacing={2}
                                 sx={{
-                                    mb: 3
+                                    mb: 3,
+                                    backgroundColor: "grey.700",
+                                    p: 3,
+                                    borderRadius: 2
                                 }}
                             >
                                 <Avatar alt={selectedReferral.username} />
-                                <Typography sx={{ mt: '4px !important' }}>{selectedReferral.username}</Typography>
+                                <Link
+                                    component={NextLink}
+                                    href={locale === 'it' ? `/it/user?u=${selectedReferral.username}` : `/en/user?u=${selectedReferral.username}`}
+                                    underline="hover"
+                                    sx={{ color: 'primary.main', cursor: 'pointer', marginTop: "7px !important" }}
+                                    onClick={(e) => e.stopPropagation()}
+                                >
+                                    {selectedReferral.username}
+                                </Link>
 
                             </Stack>
+                            <Typography>
+                                {selectedReferral.created_at.split('T')[0]}
+                            </Typography>
+
+                            <Divider />
+
                             <Typography
                                 variant="h5"
                                 sx={{ marginBottom: '30px' }}
@@ -320,6 +337,8 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                             <Typography>
                                 <Box component="span" fontWeight="bold">Codice:</Box> {selectedReferral.code}
                             </Typography>
+
+                            <Divider />
 
                             <Button
                                 variant="contained"
@@ -378,4 +397,8 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
 
         </Box>
     );
+}
+
+function formatDate(date: String) {
+    return date.split('T')[0];
 }
