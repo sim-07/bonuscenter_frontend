@@ -43,7 +43,7 @@ export const bonusListData = [
       en: "Get 50€ welcome bonus + 100€ per referral"
     },
     bonus_value: "30€",
-    image: "/images_bonus/isybank.avif",
+    image: "/images_bonus/robinhood.avif",
     category: "voucher",
     best: true
   },
