@@ -63,10 +63,10 @@ export const bonusListData = [
     title: "Trade Republic",
     name: "trade_republic",
     description: {
-      it: "50€ registrazione + altri 50€ per ogni amico invitato (max 40)",
-      en: "€50 for registration + another €50 for each invited friend (max 40)"
+      it: "10€ registrazione + altri 10€ per ogni amico invitato (max 40)",
+      en: "€10 for registration + another €10 for each invited friend (max 40)"
     },
-    bonus_value: "50€",
+    bonus_value: "10€",
     image: "/images_bonus/trade_republic.avif",
     category: "liquid",
     best: true
@@ -126,12 +126,24 @@ export const bonusListData = [
       it: "25€ per ogni invito",
       en: "€25 for every referral"
     },
-    bonus_value: "25€",
+    bonus_value: "10€",
     image: "/images_bonus/trading212.avif",
     category: "crypto",
+    best: false
+  },
+  {
+    title: "Mediolanum",
+    name: "mediolanum",
+    description: {
+      it: "20€ per ogni invito + 60€ di benvenuto",
+      en: "€20 for every referral + €60 welcome bonus"
+    },
+    bonus_value: "80€",
+    image: "/images_bonus/mediolanum.avif",
+    category: "liquid",
     best: true
   },
-    {
+  {
     title: "Octopus Energy",
     name: "octopusenergy",
     description: {
@@ -198,7 +210,7 @@ export const bonusListData = [
       it: "Buono Amazon 150€ con 3 versamenti da 500€",
       en: "Amazon voucher after 3 deposits of €500"
     },
-    bonus_value: "150€", 
+    bonus_value: "150€",
     image: "/images_bonus/findomestic.avif",
     category: "voucher",
     best: true
