@@ -36,6 +36,18 @@ export const bonusListData = [
     best: true
   },
   {
+    title: "Robinhood",
+    name: "robinhood",
+    description: {
+      it: "Ricevi 10€ in azioni + 10€ per ogni invito",
+      en: "Get 50€ welcome bonus + 100€ per referral"
+    },
+    bonus_value: "30€",
+    image: "/images_bonus/isybank.avif",
+    category: "voucher",
+    best: true
+  },
+  {
     title: "Freecash",
     name: "freecash",
     description: {
