@@ -222,7 +222,7 @@ export const bonusListData = [
       it: "Premio in denaro sul conto",
       en: "Cash reward to your account"
     },
-    bonus_value: "60€",
+    bonus_value: "50€",
     image: "/images_bonus/revolut.avif",
     category: "voucher",
     best: true
