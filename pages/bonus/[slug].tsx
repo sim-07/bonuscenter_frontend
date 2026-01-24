@@ -83,7 +83,7 @@ export async function getStaticProps({ params, locale }: { params: { slug: strin
         return {
             props: {
                 mdxData: mdxSource,
-                ...(await serverSideTranslations(lang, ['common'])),
+                ...(await serverSideTranslations(lang, ['common', 'login'])),
             }
         };
 
@@ -94,7 +94,7 @@ export async function getStaticProps({ params, locale }: { params: { slug: strin
         return {
             props: {
                 jsonData: bonus,
-                ...(await serverSideTranslations(lang, ['common'])),
+                ...(await serverSideTranslations(lang, ['common', 'login'])),
             }
         };
     }
