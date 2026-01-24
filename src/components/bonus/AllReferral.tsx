@@ -28,6 +28,7 @@ import AddCodeForm from "../common/AddCodeForm";
 
 import AddIcon from '@mui/icons-material/Add';
 import { useTranslation } from "next-i18next";
+import LoginForm from "../common/LoginForm";
 
 
 interface AllReferralProps {
@@ -362,7 +363,13 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
             />
 
             <DialogComponent open={openCodeDialog} onClose={() => setOpenCodeDialog(false)}>
-                <AddCodeForm successAddCode={successAddCode} />
+                {
+                    username ? (
+                        <AddCodeForm successAddCode={successAddCode} />
+                    ) : (
+                        <LoginForm signinTypeP={"signup"} />
+                    )
+                }
             </DialogComponent>
 
             <CustomizedSnackbar
