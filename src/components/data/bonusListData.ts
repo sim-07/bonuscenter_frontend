@@ -56,7 +56,7 @@ export const bonusListData = [
     },
     bonus_value: "5€",
     image: "/images_bonus/very.avif",
-    category: "voucher",
+    category: "voucher", 
     best: true
   },
   {
