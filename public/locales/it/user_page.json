@@ -5,5 +5,6 @@
     "not_ex_user": "Utente non esistente",
     "same_user": "Non puoi inviare un messaggio a te stesso!",
     "you": "Tu",
-    "typemessage": "Scrivi un messaggio..."
+    "typemessage": "Scrivi un messaggio...",
+    "visibility": "Visibilità"
 }

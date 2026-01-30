@@ -24,13 +24,15 @@ interface BonusContainerProps {
     width?: string;
     titleBonusContainer?: string;
     edit?: boolean;
+    background?: boolean;
 }
 
 export default function BonusContainer({
     width = '95%',
     bonusListDataP = bonusListData,
     titleBonusContainer,
-    edit = false
+    edit = false,
+    background = false,
 }: BonusContainerProps) {
     const [searchTerm, setSearchTerm] = useState('');
     const { locale } = useRouter();
@@ -46,7 +48,7 @@ export default function BonusContainer({
     return (
         <Box
             sx={{
-                backgroundColor: 'grey.800',
+                backgroundColor: background ? 'grey.800' : 'none',
                 backgroundImage: 'none',
                 borderRadius: '24px',
                 width: width,
@@ -56,7 +58,7 @@ export default function BonusContainer({
                 flexDirection: 'column',
                 alignItems: 'center',
                 gap: '30px',
-                border: "1px solid #353535",
+                border: background ? "1px solid #353535" : "none",
             }}
         >
             <Box
@@ -64,23 +66,14 @@ export default function BonusContainer({
                     width: "100%",
                     justifyContent: "left",
                     alignItems: "left",
-                    p: 4
+                    p: 4,
                 }}
             >
-                <Typography component={"h1"} sx={{ fontSize: "2rem", color: "grey.400", fontWeight: "bold" }}>{t('all_bonus')}</Typography>
+                <Typography component={"h1"} sx={{ fontSize: "2rem", color: "grey.400", fontWeight: "bold", mb: 2 }}>
+                    {titleBonusContainer ? titleBonusContainer : t('all_bonus')}
+                </Typography>
                 <Divider />
             </Box>
-
-
-            <Typography
-                component={'h1'}
-                sx={{
-                    fontSize: '26px',
-                    fontWeight: 'bold',
-                }}
-            >
-                {titleBonusContainer}
-            </Typography>
 
             <SearchInput
                 width="60%"

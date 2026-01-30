@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 
 import Navbar from '@/components/Home/Navbar';
 import Footer from '@/components/Home/Footer';
-import AllReferral from './AllReferral';
+import AllReferral from './CommunityReferral';
 import CommentsContainer from '../Comments/CommentsContainer';
 
 import { useRouter } from 'next/router';

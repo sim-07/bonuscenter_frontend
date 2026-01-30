@@ -17,7 +17,6 @@ export default function SearchInput({ width = '100%', value, onChange }: SearchI
             sx={{
                 width: width,
                 minWidth: '250px',
-                marginTop: '20px',
                 '& .MuiOutlinedInput-root': {
                     borderRadius: '24px',
                     '& fieldset': {

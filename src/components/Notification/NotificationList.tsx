@@ -67,7 +67,7 @@ export default function NotificationList({ max, compact = false }: NotificationL
 
     const items = max ? notifications.slice(0, max) : notifications;
 
-    const handleConfirmUsedCode = async (code_id?: string) => {
+    const handleConfirmUsedCode = async (code_id?: string, sender?: string) => {
         try {
             setIsLoading(true);
             const res = await apiService('used_codes', 'confirm_code', { code_id });
@@ -91,6 +91,19 @@ export default function NotificationList({ max, compact = false }: NotificationL
             } else {
                 console.error(t("error_confirm_code"), res.error);
             }
+
+            try {
+                const res = await apiService('users', 'update_visibility', {target_user: sender});
+
+                if (res.error) {
+                    console.error("Error updating visibility", res.error);
+                }
+            } catch (error) {
+                console.error("Error update visibility", error);
+            }
+
+
+
         } catch (error) {
             console.error(t("error_confirm_code"), error);
         } finally {
@@ -139,7 +152,7 @@ export default function NotificationList({ max, compact = false }: NotificationL
                                             <Stack direction="column" spacing={2}>
                                                 <ListItemText
                                                     primary={item.message}
-                                                    secondary={new Date(item.created_at).toLocaleString()}
+                                                    secondary={new Date(item.created_at).toLocaleDateString('it-IT')}
                                                 />
                                                 <Button
                                                     variant="contained"
@@ -147,7 +160,7 @@ export default function NotificationList({ max, compact = false }: NotificationL
                                                     onClick={(e) => {
                                                         e.preventDefault();
                                                         e.stopPropagation();
-                                                        handleConfirmUsedCode(item.code_id);
+                                                        handleConfirmUsedCode(item.code_id, item.sender);
                                                     }}
                                                 >
                                                     {t("confirm")}
@@ -166,7 +179,7 @@ export default function NotificationList({ max, compact = false }: NotificationL
                                                                 {item.message} <br />Click <Link href={`/user?u=${item.sender_username}`}>here</Link> to go to the chat
                                                             </Typography>
                                                         }
-                                                        secondary={new Date(item.created_at).toLocaleString()}
+                                                        secondary={new Date(item.created_at).toLocaleDateString('it-IT')}
                                                     />
                                                 </Stack>
 
@@ -186,7 +199,7 @@ export default function NotificationList({ max, compact = false }: NotificationL
                                             <Stack direction={'row'}>
                                                 <ListItemText
                                                     primary={item.message}
-                                                    secondary={new Date(item.created_at).toLocaleString()}
+                                                    secondary={new Date(item.created_at).toLocaleDateString('it-IT')}
                                                 />
 
                                                 <IconButton onClick={() => deleteNotification(item.notification_id ? item.notification_id : "")}>

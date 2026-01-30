@@ -68,6 +68,6 @@
   "confirmed": "Confermato",
   "error_get_notifications": "Errore durante il recupero delle notifiche:",
   "error_delete_notification": "Errore durante la cancellazione della notifica:",
-  "error_confirm_code": "Errore durante la conferma del codice:"
-
+  "error_confirm_code": "Errore durante la conferma del codice:",
+  "other_channels": "Canali in Evidenza"
 }

@@ -54,7 +54,7 @@ export const bonusListData = [
       it: "Ricevi 5€ per ogni amico + 5€ con requisiti",
       en: "Get 5€ per referral"
     },
-    bonus_value: "5€",
+    bonus_value: "10€",
     image: "/images_bonus/very.avif",
     category: "voucher",
     best: true
