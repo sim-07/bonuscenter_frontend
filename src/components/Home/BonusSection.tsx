@@ -10,7 +10,7 @@ export default function BonusSection() {
                 justifyContent: 'center',
             }}
         >
-            <BonusContainer />
+            <BonusContainer background={true} />
         </Box>
 
     );

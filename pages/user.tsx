@@ -41,6 +41,7 @@ export default function Profilo() {
         user_id: string;
         username: string;
         email: string;
+        visibility: number;
         created_at: string;
     } | null>(null);
 
@@ -51,7 +52,7 @@ export default function Profilo() {
     const { u } = router.query;
 
     useEffect(() => {
-        if (!u) return; // importante: evita chiamate premature
+        if (!u) return; // evita chiamate premature
 
         const init = async () => {
             try {
@@ -195,11 +196,22 @@ export default function Profilo() {
                         </IconButton>
                     </Stack>
 
-                    {userData?.created_at && (
-                        <Typography variant="body2" color="grey" sx={{ mb: 1 }}>
-                            {t('registered_on')} {new Date(userData.created_at).toLocaleDateString()}
-                        </Typography>
-                    )}
+                    <Box>
+                        {userData?.created_at && (
+                            <Typography variant="body2" color="grey">
+                                {t('registered_on')} {new Date(userData.created_at).toLocaleDateString('it-IT')}
+                            </Typography>
+                        )}
+
+                        {userData?.visibility ? (
+                            <Typography variant="body2" color="grey">
+                                {t('visibility')}: {userData.visibility}%
+                            </Typography>
+                        ) : (
+                            <></>
+                        )}
+                    </Box>
+
 
 
                     <Box>

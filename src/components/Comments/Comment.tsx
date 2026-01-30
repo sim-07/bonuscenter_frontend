@@ -20,7 +20,7 @@ export default function Comment({ username, text, reply_text, created_at }: Comm
             }}
         >
             <Typography variant="subtitle2" color="text.secondary">
-                <strong>{username}</strong> - {new Date(created_at).toLocaleString()}
+                <strong>{username}</strong> - {new Date(created_at).toLocaleDateString('it-IT')}
             </Typography>
             <Typography variant="body1">{text}</Typography>
             {reply_text && (

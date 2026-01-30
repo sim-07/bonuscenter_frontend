@@ -1,4 +1,4 @@
-import { Box, Button, Typography, Avatar, Stack, Divider, LinearProgress, IconButton, Link, Select, MenuItem, SelectChangeEvent } from '@mui/material';
+import { Box, Button, Typography, Avatar, Stack, Divider, LinearProgress, IconButton, Link, Select, MenuItem, SelectChangeEvent, Chip } from '@mui/material';
 import NextLink from 'next/link';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
@@ -6,12 +6,15 @@ import { useRouter } from 'next/router';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ShareIcon from '@mui/icons-material/Share';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import AppsIcon from '@mui/icons-material/Apps';
 
 import apiService from '@/components/scripts/apiService';
 import LoadingSpinner from '@/components/common/LoadingSpinner';
 import Navbar from '@/components/Home/Navbar';
 import Footer from '@/components/Home/Footer';
 import CustomizedSnackbar from '@/components/common/Snakbar';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
@@ -38,6 +41,7 @@ export default function Profilo() {
     const [userData, setUserData] = useState<{
         username: string;
         email: string;
+        visibility: number;
         created_at: string;
     } | null>(null);
 
@@ -163,18 +167,12 @@ export default function Profilo() {
 
     const { username, email, created_at } = userData;
 
-    const maxCodes = 13;
-    const maxBonus = 200;
-
     let codesCount = usedCodes.length;
     let bonusValue = usedCodes.reduce((acc, curr) => {
         return acc + parseFloat(curr.bonus_value || '0');
     }, 0);
 
-    let visibilityPercent = Math.min(
-        100,
-        ((codesCount / maxCodes) * 50) + ((bonusValue / maxBonus) * 50)
-    );
+
 
     let userBonusTotal = userBonusValue.reduce((acc, curr) => {
         return acc + parseFloat(curr.bonus_value || '0');
@@ -183,9 +181,9 @@ export default function Profilo() {
     let bonusValueTot = bonusValue + userBonusTotal;
 
     let visibilityLabel = t('visibility_initial');
-    if (visibilityPercent >= 75) visibilityLabel = t('visibility_extreme');
-    else if (visibilityPercent >= 50) visibilityLabel = t('visibility_good');
-    else if (visibilityPercent >= 20) visibilityLabel = t('visibility_fair');
+    if (userData.visibility >= 75) visibilityLabel = t('visibility_extreme');
+    else if (userData.visibility >= 50) visibilityLabel = t('visibility_good');
+    else if (userData.visibility >= 20) visibilityLabel = t('visibility_fair');
 
     return (
         <Box
@@ -205,10 +203,10 @@ export default function Profilo() {
             <Box sx={{ flexGrow: 1, width: '100%' }}>
                 <Box
                     sx={{
-                        maxWidth: 600,
-                        width: { xs: '90%', md: '60%' },
+                        maxWidth: 1000,
+                        width: { xs: '95%', md: '80%', lg: '60%' }, 
                         margin: '0 auto',
-                        padding: 10,
+                        padding: { xs: 3, sm: 6, md: 10 },
                         borderRadius: 4,
                         mt: 6,
                         mb: 10,
@@ -231,36 +229,103 @@ export default function Profilo() {
 
 
                     <Stack spacing={3} alignItems="center">
-                        <Avatar sx={{ width: 80, height: 80 }}>
-                            {email?.charAt(0)?.toUpperCase() || '?'}
-                        </Avatar>
+                        <Box
+                            sx={{
+                                borderRadius: "16px",
+                                width: "100%",
+                                marginTop: "40px !important",
+                                p: 3,
+                            }}
+                        >
+                            <Stack direction={{ xs: "column", sm: "row" }} gap={{ xs: 2, sm: 4 }} alignItems="center">
+                                <Avatar sx={{ width: 80, height: 80, backgroundColor: "primary.main" }}>
+                                    {email?.charAt(0)?.toUpperCase() || '?'}
+                                </Avatar>
 
-                        <Box textAlign="center">
-                            <Typography variant="h6">@{username}</Typography>
-                            <Typography variant="subtitle1" color="text.secondary">
-                                {email}
-                            </Typography>
-                            <Typography variant="body2" color="grey">
-                                {t('registered_on')} {new Date(created_at).toLocaleDateString()}
-                            </Typography>
+                                <Box textAlign={{ xs: "center", sm: "left" }}>
+                                    <Typography variant="h5">@{username}</Typography>
+                                    <Typography variant="subtitle1" color="text.secondary">
+                                        {email}
+                                    </Typography>
+                                    <Chip
+                                        label={`${t('registered_on')} ${new Date(userData.created_at).toLocaleDateString('it-IT')}`}
+                                        size="small"
+                                        variant="outlined"
+                                        sx={{ color: '#888', borderColor: '#444', mt: 1 }}
+                                    />
+                                </Box>
+                            </Stack>
+
                         </Box>
 
-                        <Divider sx={{ width: '100%' }} />
-
                         <Box width="100%">
-                            <Typography variant="h6" sx={{ mb: 2 }} gutterBottom>
-                                📊 {t('activity')}
-                            </Typography>
-                            <Typography variant="body1"><strong>{t('used_codes')}:</strong> {codesCount}</Typography>
-                            <Typography variant="body1"><strong>{t('total_earnings')}:</strong> {bonusValueTot}€</Typography>
+                            <Stack direction={{ xs: 'column', md: 'row' }} gap={3}>
+                                <Box
+                                    sx={{
+                                        backgroundColor: "#292929",
+                                        borderRadius: "16px",
+                                        width: "100%",
+                                        p: 3,
+                                        maxWidth: { xs: "100%", md: "300px" },
+                                        height: "160px"
+                                    }}
+                                >
+                                    <Stack direction={"row"}>
+                                        <AppsIcon />
+                                        <Typography sx={{ ml: 2, marginTop: "-5px", color: "#7f7f7f" }} variant="h6"><strong>{t('used_codes')}</strong></Typography>
+                                    </Stack>
+                                    <Typography variant="h4" sx={{ mt: 2 }}>{codesCount}</Typography>
+                                </Box>
 
-                            <Box sx={{ mt: 3, mb: 2 }}>
-                                <Typography sx={{ fontSize: '18px', mb: 2 }} gutterBottom>
-                                    <strong>{t('visibility')}:</strong> {visibilityLabel} (+{Math.round(visibilityPercent)}%)
+                                <Box
+                                    sx={{
+                                        backgroundColor: "#292929",
+                                        borderRadius: "16px",
+                                        width: "100%",
+                                        p: 3,
+                                    }}
+                                >
+                                    <Stack direction={"row"}>
+                                        <MonetizationOnIcon sx={{ color: "gold" }} />
+                                        <Typography sx={{ ml: 2, marginTop: "-5px", color: "#7f7f7f" }} variant="h6"><strong>{t('total_earnings')}</strong></Typography>
+                                    </Stack>
+
+                                    <Typography variant="h4" sx={{ mt: 2 }}>{bonusValueTot}€</Typography>
+                                </Box>
+                            </Stack>
+
+
+                            <Box
+                                sx={{
+                                    backgroundColor: "grey.700",
+                                    borderRadius: "16px",
+                                    width: "100%",
+                                    marginTop: "20px !important",
+                                    p: 3,
+                                }}
+                            >
+                                <Typography sx={{ fontSize: '18px', mb: 2 }} component="div">
+                                    <Stack direction={"row"} gap={2} alignItems="center">
+                                        <EmojiEventsIcon sx={{ fontSize: "30px", color: "primary.main" }} />
+                                        <Typography variant='h5'><strong>{t('visibility')}:</strong></Typography>
+                                    </Stack>
                                 </Typography>
+
+                                <Stack direction={"row"} gap={2} sx={{ my: 3 }} alignItems="center">
+                                    <Typography variant='h5' >{Math.round(userData.visibility)}%</Typography>
+
+                                    <Chip
+                                        label={`${visibilityLabel}`}
+                                        size="medium"
+                                        variant="outlined"
+                                        sx={{ color: '#c5c5c5', borderColor: '#585858' }}
+                                    />
+                                </Stack>
+
+
                                 <LinearProgress
                                     variant="determinate"
-                                    value={visibilityPercent}
+                                    value={userData.visibility}
                                     sx={{
                                         height: 10,
                                         borderRadius: 5,
@@ -268,17 +333,20 @@ export default function Profilo() {
                                         '& .MuiLinearProgress-bar': {
                                             borderRadius: 5,
                                             backgroundColor:
-                                                visibilityPercent < 20 ? '#f44336' :
-                                                    visibilityPercent < 50 ? '#ff9800' :
-                                                        visibilityPercent < 75 ? '#2196f3' :
+                                                userData.visibility < 20 ? '#f44336' :
+                                                    userData.visibility < 50 ? '#ff9800' :
+                                                        userData.visibility < 75 ? '#2196f3' :
                                                             '#4caf50'
                                         },
                                     }}
                                 />
+
+                                <Typography sx={{ color: '#626262', mt: 3 }}>
+                                    &#128712; {t('visibility_description')}
+                                </Typography>
                             </Box>
-                            <Typography sx={{ color: '#626262' }}>
-                                {t('visibility_description')}
-                            </Typography>
+
+
                         </Box>
 
                         <Divider sx={{ width: '100%' }} />
@@ -301,11 +369,11 @@ export default function Profilo() {
 
                         <Divider sx={{ width: '100%' }} />
 
-                        <Stack direction="row" spacing={3} sx={{ marginTop: '50px !important' }}>
-                            <Button variant="outlined" color="error" onClick={handleLogout}>
+                        <Stack direction={{ xs: "column", sm: "row" }} spacing={3} sx={{ marginTop: '50px !important', width: "100%" }}>
+                            <Button variant="outlined" color="error" fullWidth onClick={handleLogout}>
                                 {t('logout')}
                             </Button>
-                            <Button variant="outlined" color="error" onClick={handleDeleteAccount}>
+                            <Button variant="outlined" color="error" fullWidth onClick={handleDeleteAccount}>
                                 {t('delete_account')}
                             </Button>
                         </Stack>

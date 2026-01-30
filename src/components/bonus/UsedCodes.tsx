@@ -92,7 +92,7 @@ export default function UsedCodes() {
                                         <TableCell>{code.brand}</TableCell>
                                         <TableCell>{code.bonus_value}</TableCell>
                                         <TableCell>{code.confirmed ? t('yes') : t('no')}</TableCell>
-                                        <TableCell>{new Date(code.created_at).toLocaleString()}</TableCell>
+                                        <TableCell>{new Date(code.created_at).toLocaleDateString('it-IT')}</TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>

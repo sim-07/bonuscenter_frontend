@@ -68,5 +68,6 @@
     "confirmed": "Confirmed",
     "error_get_notifications": "Error fetching notifications:",
     "error_delete_notification": "Error deleting notification:",
-    "error_confirm_code": "Error confirming the code:"
+    "error_confirm_code": "Error confirming the code:",
+    "other_channels": "Featured Channels"
 }

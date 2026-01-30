@@ -8,6 +8,7 @@ import Footer from '../src/components/Home/Footer';
 import Header from '@/components/Home/Header';
 import { useTranslation } from 'next-i18next';
 import { Stack } from '@mui/material';
+import OtherChannels from '@/components/Home/OtherChannels';
 
 
 export default function Home() {
@@ -46,12 +47,13 @@ export default function Home() {
             <Stack direction={"column"} gap={"30px"}>
                 <BestBonusSection />
 
+                {/* <OtherChannels /> */}
+
                 <div ref={middleRef}>
                     <BonusSection />
                 </div>
+               
             </Stack>
-
-
 
             <Footer />
         </>
