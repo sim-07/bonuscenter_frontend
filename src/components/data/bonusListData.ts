@@ -60,6 +60,18 @@ export const bonusListData = [
     best: true
   },
   {
+    title: "Letyshops",
+    name: "letyshops",
+    description: {
+      it: "5€ per ogni amico",
+      en: "Get 5€ per referral"
+    },
+    bonus_value: "5€",
+    image: "/images_bonus/letyshops.avif",
+    category: "voucher",
+    best: true
+  },
+  {
     title: "Freecash",
     name: "freecash",
     description: {
