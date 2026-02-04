@@ -60,6 +60,18 @@ export const bonusListData = [
     best: true
   },
   {
+    title: "Investing One",
+    name: "investingone",
+    description: {
+      it: "Ricevi un'azione gratuita fino a 100€",
+      en: "Get a free share up to €100"
+    },
+    bonus_value: "100€",
+    image: "/images_bonus/investingone.avif",
+    category: "liquid",
+    best: true
+  },
+  {
     title: "Letyshops",
     name: "letyshops",
     description: {
@@ -69,7 +81,7 @@ export const bonusListData = [
     bonus_value: "5€",
     image: "/images_bonus/letyshops.avif",
     category: "voucher",
-    best: true
+    best: false
   },
   {
     title: "Freecash",
