@@ -1,18 +1,17 @@
 import Image from 'next/image';
-import { Box, Divider, IconButton, Stack, Typography } from '@mui/material';
+import { Box, Chip, Divider, IconButton, Stack, Typography } from '@mui/material';
 import Link from 'next/link';
 
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
-interface BonusCardProps {
-    name: string,
-    title: string;
-    description: string;
-    bonus_value: string;
-    image: string;
-    code_id?: string;
+import { BonusItem } from '@/types/bonusTypes';
+
+
+interface BonusCardProps extends BonusItem {
+    views: number;
     edit?: boolean;
     editCode?: () => void;
     deleteCode?: (code_id: string) => void;
@@ -25,7 +24,9 @@ export default function BonusCard({
     title,
     description,
     image,
+    views = 0,
     bonus_value,
+    active,
     edit,
     editCode,
     deleteCode,
@@ -33,6 +34,7 @@ export default function BonusCard({
 }: BonusCardProps) {
     const { locale } = useRouter();
     const currentLocale = locale || 'it';
+    const { t } = useTranslation('common');
 
     return (
         <Link
@@ -99,7 +101,10 @@ export default function BonusCard({
                         height={140}
                         style={{ borderRadius: '12px' }}
                     />
+
+
                 </Box>
+
                 <Typography
                     sx={{
                         mt: 2.5,
@@ -110,6 +115,7 @@ export default function BonusCard({
                 >
                     {title}
                 </Typography>
+
                 <Typography
                     variant='body2'
                     sx={{
@@ -117,8 +123,43 @@ export default function BonusCard({
                         overflow: 'hidden'
                     }}
                 >
-                    {description}
+                    {description[currentLocale] || description.en}
                 </Typography>
+
+                <Stack
+                    direction={"row"}
+                    gap={1}
+                    sx={{
+                        position: "absolute",
+                        bottom: "17px"
+                    }}
+                >
+                    <Chip
+                        label={active ? t("active") : t("inactive")}
+                        size="small"
+                        variant="outlined"
+                        sx={{
+                            color: active ? 'primary.main' : '#f43c3c',
+                            borderColor: '#444',
+                            display: edit ? "None" : "Block",
+                            paddingTop: "1px"
+                        }}
+                    />
+
+                    <Chip
+                        label={`${views} ${t("views")}`}
+                        size="small"
+                        variant="outlined"
+                        sx={{
+                            color: '#d4d4d4',
+                            borderColor: '#444',
+                            display: edit ? "None" : "Block",
+                            paddingTop: "1px"
+                        }}
+                    />
+                </Stack>
+
+
                 {(edit && editCode && deleteCode && code_id && setSelectedCodeId) && (
                     <Stack
                         direction="column"

@@ -6,18 +6,8 @@ import { bonusListData } from '../data/bonusListData';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 
-interface BonusItem {
-    name: string;
-    title: string;
-    description: {
-        it: string;
-        en: string;
-        [key: string]: string;
-    };
-    bonus_value: string;
-    image: string;
-    category: string;
-}
+import { BonusItem } from '@/types/bonusTypes';
+
 
 interface BonusContainerProps {
     bonusListDataP?: BonusItem[] | null;

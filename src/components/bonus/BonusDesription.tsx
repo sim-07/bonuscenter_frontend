@@ -88,7 +88,21 @@ export default function BonusDescription({ jsonData, mdxData }: Props) {
             }
         };
 
+        const increasesViews = async () => {
+            try {
+                const res = await apiService('bonuses', 'increases_views', { bonus_name: dataSummary?.name });
+
+                if (res.error) {
+                    console.error("Error increaseviews");
+                }
+
+            } catch (err) {
+                console.error("Error increase views");
+            }
+        }
+
         checkAuth();
+        increasesViews();
     }, []);
 
     return (

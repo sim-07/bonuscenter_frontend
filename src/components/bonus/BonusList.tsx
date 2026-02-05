@@ -9,19 +9,9 @@ import apiService from '../scripts/apiService';
 
 import { useTranslation } from 'next-i18next';
 
+import { BonusItem } from '@/types/bonusTypes';
 
 import { bonusListData } from '../data/bonusListData';
-
-interface BonusItem {
-    code_id?: string;
-    name: string;
-    title: string;
-    description: {
-        [lang: string]: string;
-    };
-    bonus_value: string;
-    image: string;
-}
 
 interface BonusListProps {
     bonusListDataP: BonusItem[];
@@ -36,8 +26,39 @@ export default function BonusList({ bonusListDataP, edit = false, locale = 'en' 
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [selectedCodeId, setSelectedCodeId] = useState<string | null>(null);
     const [itemsPage, setItemsPage] = useState(bonusListDataP);
+    const [bonusViews, setBonusViews] = useState<{ [key: string]: number }>({});
 
     const { t } = useTranslation('common'); 
+
+
+    useEffect(() => {
+
+        const getViews = async () => {
+            try {
+                const res = await apiService('bonuses', 'get_views');
+                
+                if (res.error || !res.data || res.data.length === 0) {
+                    console.error("Getviews error: ", res.error)
+                    return;
+                }
+                
+                let formattedData = res.data.reduce((acc: any, e: any) => {
+                    acc[e.bonus_name] = e.views;
+                    return acc;
+                }, {})
+
+                setBonusViews(formattedData);
+                
+            } catch (err) {
+                console.error('Error getviews:', err);
+            }
+        }
+
+        getViews();
+    }, [])
+
+
+
 
     const itemsPageNum = 15;
 
@@ -126,10 +147,13 @@ export default function BonusList({ bonusListDataP, edit = false, locale = 'en' 
                                 code_id={bonus.code_id}
                                 name={bonus.name}
                                 title={bonus.title}
-                                description={bonus.description[locale] || bonus.description.en}
+                                description={bonus.description}
                                 image={bonus.image}
                                 bonus_value={bonus.bonus_value}
                                 edit={edit}
+                                category={bonus.category}
+                                active={bonus.active}
+                                views={bonusViews[bonus.name]}
                                 editCode={editCode}
                                 deleteCode={deleteCode}
                                 setSelectedCodeId={setSelectedCodeId}
