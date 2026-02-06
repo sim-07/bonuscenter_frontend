@@ -485,7 +485,7 @@ embed[type="application/pdf"][src="about:blank"] { filter: invert(100%) contrast
 <h2>Contact Us</h2>
 <p>If you have any questions about this Privacy Policy, You can contact us:</p>
 <ul>
-<li>By email: info@bonuscenter.org</li>
+<li>By email: info@bonuscenter.it</li>
 </ul>
             </div>
             

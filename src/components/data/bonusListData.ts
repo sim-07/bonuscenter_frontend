@@ -178,8 +178,8 @@ export const bonusListData = [
     bonus_value: "10€",
     image: "/images_bonus/trading212.avif",
     category: "crypto",
-    best: false,
-    active: false,
+    best: true,
+    active: true,
   },
   {
     title: "Mediolanum",

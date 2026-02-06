@@ -13,6 +13,7 @@ import { BonusItem } from '@/types/bonusTypes';
 interface BonusCardProps extends BonusItem {
     views: number;
     edit?: boolean;
+    showDetails?: boolean;
     editCode?: () => void;
     deleteCode?: (code_id: string) => void;
     setSelectedCodeId?: (code_id: string) => void;
@@ -28,6 +29,7 @@ export default function BonusCard({
     bonus_value,
     active,
     edit,
+    showDetails,
     editCode,
     deleteCode,
     setSelectedCodeId
@@ -126,38 +128,38 @@ export default function BonusCard({
                     {description[currentLocale] || description.en}
                 </Typography>
 
-                <Stack
-                    direction={"row"}
-                    gap={1}
-                    sx={{
-                        position: "absolute",
-                        bottom: "17px"
-                    }}
-                >
-                    <Chip
-                        label={active ? t("active") : t("inactive")}
-                        size="small"
-                        variant="outlined"
+                {showDetails && (
+                    <Stack
+                        direction={"row"}
+                        gap={1}
                         sx={{
-                            color: active ? 'primary.main' : '#f43c3c',
-                            borderColor: '#444',
-                            display: edit ? "None" : "Block",
-                            paddingTop: "1px"
+                            position: "absolute",
+                            bottom: "17px",
                         }}
-                    />
+                    >
+                        <Chip
+                            label={active ? t("active") : t("inactive")}
+                            size="small"
+                            variant="outlined"
+                            sx={{
+                                color: active ? 'primary.main' : '#f43c3c',
+                                borderColor: '#444',
+                                paddingTop: "1px"
+                            }}
+                        />
 
-                    <Chip
-                        label={`${views} ${t("views")}`}
-                        size="small"
-                        variant="outlined"
-                        sx={{
-                            color: '#d4d4d4',
-                            borderColor: '#444',
-                            display: edit ? "None" : "Block",
-                            paddingTop: "1px"
-                        }}
-                    />
-                </Stack>
+                        <Chip
+                            label={`${views} ${t("views")}`}
+                            size="small"
+                            variant="outlined"
+                            sx={{
+                                color: '#d4d4d4',
+                                borderColor: '#444',
+                                paddingTop: "1px"
+                            }}
+                        />
+                    </Stack>
+                )}
 
 
                 {(edit && editCode && deleteCode && code_id && setSelectedCodeId) && (
