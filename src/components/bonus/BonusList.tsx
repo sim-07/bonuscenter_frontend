@@ -17,9 +17,10 @@ interface BonusListProps {
     bonusListDataP: BonusItem[];
     edit?: boolean;
     locale?: string;
+    showDetails?: boolean;
 }
 
-export default function BonusList({ bonusListDataP, edit = false, locale = 'en' }: BonusListProps) {
+export default function BonusList({ bonusListDataP, edit = false, locale = 'en', showDetails }: BonusListProps) {
     const [page, setPage] = useState(1);
     const [openDialog, setOpenDialog] = useState(false);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -29,7 +30,6 @@ export default function BonusList({ bonusListDataP, edit = false, locale = 'en' 
     const [bonusViews, setBonusViews] = useState<{ [key: string]: number }>({});
 
     const { t } = useTranslation('common'); 
-
 
     useEffect(() => {
 
@@ -157,6 +157,7 @@ export default function BonusList({ bonusListDataP, edit = false, locale = 'en' 
                                 editCode={editCode}
                                 deleteCode={deleteCode}
                                 setSelectedCodeId={setSelectedCodeId}
+                                showDetails={showDetails}
                             />
                         </Grid>
                     ))}

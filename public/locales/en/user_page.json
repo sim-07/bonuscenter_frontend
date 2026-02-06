@@ -6,5 +6,6 @@
     "same_user": "You can't send a message to yourself!",
     "you": "You",
     "typemessage": "Type a message...",
-    "visibility": "Visibility"
+    "visibility": "Visibility",
+    "users_bonus": "Posted Bonuses"
 }

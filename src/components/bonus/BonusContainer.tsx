@@ -15,6 +15,7 @@ interface BonusContainerProps {
     titleBonusContainer?: string;
     edit?: boolean;
     background?: boolean;
+    showDetails?: boolean;
 }
 
 export default function BonusContainer({
@@ -23,6 +24,7 @@ export default function BonusContainer({
     titleBonusContainer,
     edit = false,
     background = false,
+    showDetails = true,
 }: BonusContainerProps) {
     const [searchTerm, setSearchTerm] = useState('');
     const { locale } = useRouter();
@@ -75,6 +77,7 @@ export default function BonusContainer({
                 bonusListDataP={filtBonusListData}
                 edit={edit}
                 locale={currentLocale}
+                showDetails={showDetails}
             />
         </Box>
     );

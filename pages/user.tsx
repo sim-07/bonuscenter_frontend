@@ -1,5 +1,4 @@
 import { Box, Button, Typography, Avatar, Stack, Divider, LinearProgress, IconButton, Link, Select, MenuItem, SelectChangeEvent } from '@mui/material';
-import NextLink from 'next/link';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -215,9 +214,7 @@ export default function Profilo() {
 
 
                     <Box>
-                        <BonusContainer width='100%' bonusListDataP={userCodes}>
-
-                        </BonusContainer>
+                        <BonusContainer width='100%' bonusListDataP={userCodes} showDetails={false} titleBonusContainer={t('users_bonus')}/>
                     </Box>
 
                 </Stack>
