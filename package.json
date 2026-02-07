@@ -17,6 +17,7 @@
     "@mui/icons-material": "^7.1.2",
     "@mui/joy": "5.0.0-beta.52",
     "@mui/material": "^7.1.2",
+    "@supabase/supabase-js": "^2.95.3",
     "clsx": "^2.1.1",
     "dotenv": "^16.5.0",
     "framer-motion": "^12.26.2",
