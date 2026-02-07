@@ -71,6 +71,9 @@
   "error_confirm_code": "Errore durante la conferma del codice:",
   "other_channels": "Canali in Evidenza",
   "active": "Attivo",
-    "inactive": "Non Attivo",
-    "views": "visualizzazioni"
+  "inactive": "Non Attivo",
+  "views": "visualizzazioni",
+  "contact_us": "Contattaci",
+  "or_write_at": "oppure scrivi a",
+  "return_to_home": "Torna alla home"
 }
