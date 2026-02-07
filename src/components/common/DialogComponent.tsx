@@ -65,7 +65,7 @@ export default function DialogComponent({
                         exit="exit"
                         onClick={(e) => e.stopPropagation()}
                         style={{
-                            width: '50%',
+                            width: '34%',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -77,7 +77,7 @@ export default function DialogComponent({
                                 color: 'black',
                                 padding: 7,
                                 borderRadius: 2,
-                                minWidth: {xs: "90vw", md: 340},
+                                minWidth: {xs: "90vw", md: 550},
                                 maxWidth: 600,
                                 width: { xs: '90vw', sm: 400, md: '100%' },
                             }}
