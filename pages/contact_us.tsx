@@ -2,9 +2,20 @@ import { Box, Button, InputAdornment, Link, Stack, TextField, Typography } from 
 import apiService from '@/components/scripts/apiService';
 import { useState } from "react";
 import Navbar from "@/components/Home/Navbar";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getStaticProps({ locale }: any) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['dashboard', 'common'])),
+        },
+    };
+}
 
 
 export default function ContactUs() {
+    const { t } = useTranslation('common');
 
     const [formData, setFormData] = useState<{
         email: string;
@@ -60,14 +71,14 @@ export default function ContactUs() {
         <>
             <Navbar>
                 <>
-                    <Link sx={{ color: "grey.200" }} href="/">Return to home page</Link>
+                    <Link sx={{ color: "grey.200" }} href="/">{t("return_to_home")}</Link>
                 </>
             </Navbar>
-            <Box sx={{ display: "flex", width: "100vw", height: "80vh", justifyContent: "center", alignItems: "center" }}>
-                <Box component="form" onSubmit={submitHandler} sx={{ width: "70%", maxWidth: "500px", backgroundColor: "grey.800", padding: 6 }}>
+            <Box sx={{ display: "flex", width: "100vw", height: "90vh", justifyContent: "center", alignItems: "center" }}>
+                <Box component="form" onSubmit={submitHandler} sx={{ width: "70%", maxWidth: "600px", height: "600px", backgroundColor: "grey.800", padding: 6, borderRadius: "16px" }}>
                     <Stack direction={'column'} gap={2}>
                         <Typography sx={{ color: 'grey.300', fontSize: '2em', mb: 3 }}>
-                            Contact us
+                            {t("contact_us")}
                         </Typography>
 
                         {formFields.map((field) => {
@@ -119,6 +130,10 @@ export default function ContactUs() {
                             Send
                         </Button>
                     </Stack>
+
+                    <Typography sx={{ color: 'grey.500', mt: 3 }}>
+                        {t("or_write_at")}: <Link href="mailto:info@bonuscenter.it" sx={{ color: 'primary.main', textDecoration: 'none' }}>info@bonuscenter.it</Link>
+                    </Typography>
 
                 </Box>
             </Box>

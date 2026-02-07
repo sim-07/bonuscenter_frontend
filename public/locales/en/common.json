@@ -72,5 +72,8 @@
     "other_channels": "Featured Channels",
     "active": "Active",
     "inactive": "Inactive",
-    "views": "views"
+    "views": "views",
+    "contact_us": "Contact us",
+    "or_write_at": "or email us at",
+    "return_to_home": "Back to homepage"
 }
