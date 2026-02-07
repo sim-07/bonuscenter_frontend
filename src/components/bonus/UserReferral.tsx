@@ -64,7 +64,7 @@ export default function UserReferral() {
 
                 </Box>
             ) : (
-                <BonusContainer bonusListDataP={userReferral} titleBonusContainer={t('userreferral_title')} edit={true} />
+                <BonusContainer bonusListDataP={userReferral} titleBonusContainer={t('userreferral_title')} edit={true} showDetails={false} />
             )}
         </Box>
     );

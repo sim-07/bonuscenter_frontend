@@ -18,6 +18,7 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import { supabase } from '@/lib/supabaseClient';
 
 export async function getStaticProps({ locale }: any) {
     return {
@@ -80,7 +81,6 @@ export default function Profilo() {
 
                 if (!res.error) {
                     const confirmedCodes = res.data.filter((code: any) => code.confirmed === true);
-                    console.log(confirmedCodes)
                     setUsedCodes(confirmedCodes);
                 } else {
                     console.error(t('error_fetching_used_codes'));
@@ -111,10 +111,21 @@ export default function Profilo() {
 
     const handleLogout = async () => {
         try {
+            await supabase.auth.signOut();
+
+            if (typeof window !== 'undefined') {
+                window.localStorage.clear();
+                window.sessionStorage.clear();
+            }
+
+            await apiService('users', 'logout');
+
+            window.location.href = '/';
+
+        } catch (err) {
+            console.error("Error during logout:", err);
             await apiService('users', 'logout');
             router.push('/');
-        } catch (err) {
-            console.error(t('error_logout'));
         }
     };
 
@@ -204,7 +215,7 @@ export default function Profilo() {
                 <Box
                     sx={{
                         maxWidth: 1000,
-                        width: { xs: '95%', md: '80%', lg: '60%' }, 
+                        width: { xs: '95%', md: '80%', lg: '60%' },
                         margin: '0 auto',
                         padding: { xs: 3, sm: 6, md: 10 },
                         borderRadius: 4,

@@ -8,6 +8,9 @@
     "signup_privacy_prefix": "By signing up you accept",
     "privacy_policy": "the privacy policy",
     "field_required": "The field \"{{field}}\" is required",
-    "server_error": "Server error"
+    "server_error": "Server error",
+    "or": "or",
+    "signingoogle": "Sign in with Google",
+    "logingoogle": "Log in with Google"
   }
   
