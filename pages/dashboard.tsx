@@ -50,9 +50,10 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
             try {
                 setIsLoading(true);
 
+
                 const { data: { user }, error: userError } = await supabase.auth.getUser(); // controllo se l'utente si è registrato con google
-                // console.log("Dati user:", user);
-                // console.log("Errore:", userError);
+                console.log("Dati user:", user);
+                console.log("Errore:", userError);
 
                 if (user) {
                     const { data: { session } } = await supabase.auth.getSession();
@@ -83,14 +84,10 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
                 //router.push('/');
             }
         };
-        checkAuth();
-    }, []);
 
-    useEffect(() => {
         const unreadNotifications = async () => {
-            if (!userId) return;
-
             try {
+                //setIsLoading(true);
                 const res = await apiService('notification', 'get_notifications_not_read', {});
 
                 if (!res.error) {
@@ -106,10 +103,15 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
 
             } catch (error) {
                 console.error(t("error notReadNotifications"), error);
-            }
+            } //finally {
+            //     setIsLoading(false);
+            // }
         };
+
+        checkAuth();
         unreadNotifications();
-    }, [userId]);
+        
+    }, []);
 
     const successAddCode = () => {
         setOpenCodeDialog(false);
