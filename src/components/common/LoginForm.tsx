@@ -213,7 +213,7 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
             </Box>
 
             {/* GOOGLE */}
-            {/* <Divider sx={{ color: "grey.200" }}>{t('or')}</Divider>
+            <Divider sx={{ color: "grey.200" }}>{t('or')}</Divider>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 <Button
                     fullWidth
@@ -228,7 +228,7 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
                 >
                     {signinType == "signup" ? t("signingoogle") : t("logingoogle")}
                 </Button>
-            </Box> */}
+            </Box>
 
             {/* PRIVACY POLICY */}
             {signinType === 'signup' && (

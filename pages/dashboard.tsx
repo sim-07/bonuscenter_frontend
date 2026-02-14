@@ -16,7 +16,9 @@ import DashboardLayoutDesktop from '@/components/Dashboard/DashboardLayoutDeskto
 import DashboardLayoutMobile from '@/components/Dashboard/DashboardLayoutMobile';
 import Footer from '@/components/Home/Footer';
 import apiService from '@/components/scripts/apiService';
+
 import { supabase } from '@/lib/supabaseClient';
+import { User } from '@supabase/supabase-js';
 
 interface DashboardlayoutProps {
     children?: ReactNode;
@@ -43,51 +45,71 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [unread, setUnread] = useState(false);
+    const [userAuth, setUserAuth] = useState<User | null>(null);
+    const [isAuthChecking, setIsAuthChecking] = useState(true);
 
     useEffect(() => {
-        const checkAuth = async () => {
-
+        setIsLoading(true);
+        const checkAuthMethod = async () => {
             try {
-                setIsLoading(true);
+                const { data: { user }, error: userError } = await supabase.auth.getUser();
 
-
-                const { data: { user }, error: userError } = await supabase.auth.getUser(); // controllo se l'utente si è registrato con google
-                console.log("Dati user:", user);
-                console.log("Errore:", userError);
-
-                if (user) {
-                    const { data: { session } } = await supabase.auth.getSession();
-
-                    if (session) { // mando token di supabase per ottenere i dati dell'utente nel backend
-                        await apiService('users', 'google_signin', {
-                            supabase_token: session.access_token
-                        });
-                    }
-                } else {
-                    console.log("Errore user")
+                if (!userError && user) {
+                    setUserAuth(user);
                 }
-
-                const res = await apiService('users', 'get_user_data');
-
-                if (res.error || !res.data || !Array.isArray(res.data) || res.data.length === 0) {
-                    //router.push('/');
-                    console.log("NO USER DATA: ", res)
-                    return;
-                }
-
-                setIsLoading(false);
-
-                setUsername(res.data[0].username);
-                setUserId(res.data[0].user_id);
             } catch (err) {
-                console.log("ERRORE CATCH: ", err)
-                //router.push('/');
+                console.log("ERROR checkAuthMethod: ", err);
+                setIsLoading(false);
+                router.push('/');
+            } finally {
+                setIsAuthChecking(false);
             }
-        };
+        }
+
+        checkAuthMethod();
+    }, []);
+
+    useEffect(() => {
+
+        if (isAuthChecking) {
+            return;
+        }
+
+        const checkAuth = async () => {
+            try {
+                switch (userAuth?.app_metadata.provider) {
+                    case "google":
+                        try {
+                            const res = await apiService('users', 'google_signin', {
+                                user: userAuth
+                            });
+
+                            if (res.error) {
+                                console.error("Error google: ", res.error);
+                                router.push("/");
+                                return;
+                            }
+                        } catch (err) {
+                            console.error("Error google: ", err)
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+
+                await getUserData();
+                await unreadNotifications();
+            } catch (err) {
+                console.log("Err checkAuth", err);
+                router.push("/");
+            } finally {
+                setIsLoading(false);
+            }
+        }
 
         const unreadNotifications = async () => {
             try {
-                //setIsLoading(true);
                 const res = await apiService('notification', 'get_notifications_not_read', {});
 
                 if (!res.error) {
@@ -97,21 +119,31 @@ export default function DashboardLayout({ children }: DashboardlayoutProps) {
                         setUnread(false);
                     }
                 } else {
-                    console.error(t("error_get_notifications"), res.error);
+                    console.error("Error_get_notifications", res.error);
                 }
 
 
             } catch (error) {
-                console.error(t("error notReadNotifications"), error);
-            } //finally {
-            //     setIsLoading(false);
-            // }
+                console.error("Error notReadNotifications", error);
+            }
         };
 
+        const getUserData = async () => {
+            const res = await apiService('users', 'get_user_data');
+
+            if (res.error || !res.data || !Array.isArray(res.data) || res.data.length === 0) {
+                console.log("NO USER DATA: ", res);
+                router.push('/');
+                return;
+            }
+            setUsername(res.data[0].username);
+            setUserId(res.data[0].user_id);
+        }
+
         checkAuth();
-        unreadNotifications();
-        
-    }, []);
+
+    }, [userAuth, isAuthChecking]);
+
 
     const successAddCode = () => {
         setOpenCodeDialog(false);
