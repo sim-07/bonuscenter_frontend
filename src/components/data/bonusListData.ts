@@ -74,8 +74,8 @@ export const bonusListData = [
     bonus_value: "100€",
     image: "/images_bonus/investingone.avif",
     category: "liquid",
-    best: true,
-    active: true,
+    best: false,
+    active: false,
   },
   {
     title: "Letyshops",
