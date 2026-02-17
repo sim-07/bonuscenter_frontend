@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import apiService from '../scripts/apiService';
 import { MDXRemote } from 'next-mdx-remote';
+import Reviews from '../Reviews/ReviewsContainer';
 
 interface BonusData {
     title: string;
@@ -231,7 +232,11 @@ export default function BonusDescription({ jsonData, mdxData }: Props) {
                                 </Box>
                             ))}
 
-                            <CommentsContainer bonusName={jsonData.name} />
+                            <Stack direction={"column"} gap={3}>
+                                {/* <Reviews bonusName={dataSummary?.name} /> */}
+                                <CommentsContainer bonusName={jsonData.name} />
+                            </Stack>
+
                         </Box>
                     ) : mdxData ? (
                         <>
@@ -239,13 +244,14 @@ export default function BonusDescription({ jsonData, mdxData }: Props) {
                                 <MDXRemote {...mdxData} components={mdxComponents} />
                             </Box>
 
-                            <CommentsContainer bonusName={mdxData.name} />
+                            <Stack direction={"column"} gap={3}>
+                                {/* <Reviews bonusName={dataSummary?.name} /> */}
+                                <CommentsContainer bonusName={mdxData.name} />
+                            </Stack>
                         </>
 
                     ) : null
                 }
-
-
 
             </Box>
 

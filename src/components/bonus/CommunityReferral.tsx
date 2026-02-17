@@ -389,7 +389,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                 <Divider sx={{ m: 2 }} />
 
                 {locale == "it" ? (
-                    <Typography sx={{ mt: 2, color: "#737373" }}>
+                    <Box sx={{ mt: 2, color: "#737373" }}>
                         <InfoOutlineIcon fontSize="small" sx={{ verticalAlign: 'middle', mr: 0.5, mt: '-6px' }} />
                         Usa i codici degli altri per aumentare la visibilità dei tuoi. Più partecipi, più visibilità ottieni.{' '}
                         {username ? (
@@ -403,9 +403,9 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                                 </Typography>
                             </>
                         )}
-                    </Typography>
+                    </Box>
                 ) : (
-                    <Typography sx={{ mt: 2, color: "#737373" }}>
+                    <Box sx={{ mt: 2, color: "#737373" }}>
                         <InfoOutlineIcon fontSize="small" sx={{ verticalAlign: 'middle', mr: 0.5, mt: '-6px' }} />
                         Use other users' codes to increase the visibility of your own. The more you participate, the more exposure your codes get.{' '}
                         {username ? (
@@ -419,7 +419,7 @@ export default function AllReferral({ bonusName }: AllReferralProps) {
                                 </Typography>
                             </>
                         )}
-                    </Typography>
+                    </Box>
                 )}
 
             </Box>
