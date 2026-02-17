@@ -42,7 +42,7 @@ export default function CommentsContainer({ bonusName }: CommentsContainerProps)
             }
 
         } catch (err: any) {
-            console.error(t('error_fetching_comments'), err.message || err);
+            console.error('Error_fetching_comments', err.message || err);
         } finally {
             setIsLoading(false);
         }
@@ -70,7 +70,7 @@ export default function CommentsContainer({ bonusName }: CommentsContainerProps)
                 console.error(res.error)
             }
         } catch (err: any) {
-            console.error(t('error_fetching_comments'), err.message || err);
+            console.error('Error_fetching_comments', err.message || err);
         }
 
     };

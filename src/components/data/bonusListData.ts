@@ -39,6 +39,19 @@ export const bonusListData = [
     active: true,
   },
   {
+    title: "Binance",
+    name: "binance",
+    description: {
+      it: "100 USD di sconto sulle commissioni",
+      en: "100 USD fee rebate"
+    },
+    bonus_value: "100€",
+    image: "/images_bonus/binance.avif",
+    category: "voucher",
+    best: true,
+    active: true,
+  },
+  {
     title: "Robinhood",
     name: "robinhood",
     description: {

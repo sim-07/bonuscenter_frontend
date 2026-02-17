@@ -202,8 +202,6 @@ export default function LoginForm({ signinTypeP }: LoginFormProps) {
                     </Typography>
                 </Stack>
 
-
-
                 {errorMessage && (
                     <Typography sx={{ color: 'red' }}>
                         {errorMessage}

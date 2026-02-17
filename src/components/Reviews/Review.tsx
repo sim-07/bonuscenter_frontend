@@ -1,9 +1,9 @@
 import { Box, Typography } from "@mui/material";
 
-import { CommentType } from '@/types/commentTypes';
+import { ReviewType } from '@/types/reviewTypes';
 
 
-export default function Comment({ username, text, reply_text, created_at }: CommentType) {
+export default function Review({ username, text, rating, created_at }: ReviewType) {
     return (
         <Box
             sx={{
@@ -19,11 +19,7 @@ export default function Comment({ username, text, reply_text, created_at }: Comm
                 <strong>{username}</strong> - {new Date(created_at).toLocaleDateString('it-IT')}
             </Typography>
             <Typography variant="body1">{text}</Typography>
-            {reply_text && (
-                <Typography variant="body2" color="text.secondary" sx={{ mt: 1, pl: 2 }}>
-                    ↳ {reply_text}
-                </Typography>
-            )}
+            {/* TODO rating -- ☆ -- */}
         </Box>
     );
 }

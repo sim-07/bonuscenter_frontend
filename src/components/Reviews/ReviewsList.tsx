@@ -1,15 +1,15 @@
 import { Box } from "@mui/material";
-import Comment from "./Comment";
+import Review from "./Review";
 import LoadingSpinner from "../common/LoadingSpinner";
 
-import { CommentType } from '@/types/commentTypes';
+import { ReviewType } from '@/types/reviewTypes';
 
-interface CommentsListProps {
-    commentsList: CommentType[];
+interface ReviewsListProps {
+    lastReviews: ReviewType[];
     isLoading: boolean;
 }
 
-export default function CommentsList({ commentsList, isLoading }: CommentsListProps) {
+export default function ReviewsList({ lastReviews, isLoading }: ReviewsListProps) {
     return (
         <Box
             sx={{
@@ -19,13 +19,13 @@ export default function CommentsList({ commentsList, isLoading }: CommentsListPr
             }}
         >
             {!isLoading ? (
-                commentsList.map((comment, index) => (
-                    <Comment
+                lastReviews.map((review, index) => (
+                    <Review
                         key={index}
-                        username={comment.username}
-                        text={comment.text}
-                        reply_text={comment.reply_text}
-                        created_at={comment.created_at}
+                        username={review.username}
+                        text={review.text}
+                        rating={review.rating}
+                        created_at={review.created_at}
                     />
                 ))
             ) : (
