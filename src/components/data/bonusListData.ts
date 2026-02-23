@@ -52,6 +52,19 @@ export const bonusListData = [
     active: true,
   },
   {
+    title: "Finst",
+    name: "finst",
+    description: {
+      it: "Bitcoin 50€",
+      en: "Bitcoin 50€"
+    },
+    bonus_value: "50€",
+    image: "/images_bonus/finst.avif",
+    category: "liquid",
+    best: true,
+    active: true,
+  },
+  {
     title: "Robinhood",
     name: "robinhood",
     description: {
