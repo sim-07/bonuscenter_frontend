@@ -8,5 +8,20 @@ module.exports = {
       locales: ['it', 'en'],
       defaultLocale: 'it',
     },
+    robotsTxtOptions: {
+      policies: [
+        {
+          userAgent: '*',
+          allow: '/',
+          disallow: [
+            '/profile', 
+            '/dashboard', 
+            '/it/profile', 
+            '/it/dashboard', 
+            '/en/profile', 
+            '/en/dashboard'
+          ],
+        },
+      ],
+    },
   };
-  
