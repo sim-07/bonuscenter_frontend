@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import apiService from '../scripts/apiService';
 import { MDXRemote } from 'next-mdx-remote';
-import Reviews from '../Reviews/ReviewsContainer';
+// import Reviews from '../Reviews/ReviewsContainer';
 
 interface BonusData {
     title: string;
@@ -62,6 +62,30 @@ export default function BonusDescription({ jsonData, mdxData }: Props) {
                 sx={{ mb: 1, typography: 'body1' }}
             >
                 {props.children}
+            </Box>
+        ),
+        img: (props: any) => (
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    my: 4,
+                    width: '100%'
+                }}
+            >
+                <Box
+                    component="img"
+                    {...props}
+                    sx={{
+                        width: '100%',
+                        maxWidth: 500,
+                        height: 'auto',
+                        borderRadius: 3,
+                        boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+                        border: '1px solid',
+                        borderColor: 'grey.700'
+                    }}
+                />
             </Box>
         ),
     };
@@ -126,7 +150,8 @@ export default function BonusDescription({ jsonData, mdxData }: Props) {
                 p: 3,
                 maxWidth: 1200,
                 mx: 'auto',
-                width: { sm: '95%', md: '80%' }
+                width: { sm: '95%', md: '80%' },
+                overflow: "hidden"
             }}>
                 <Typography
                     variant="h4"
