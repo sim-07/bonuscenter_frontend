@@ -1,6 +1,6 @@
+# *
 User-agent: *
 Allow: /
-
 Disallow: /profile
 Disallow: /dashboard
 Disallow: /it/profile
@@ -8,4 +8,8 @@ Disallow: /it/dashboard
 Disallow: /en/profile
 Disallow: /en/dashboard
 
-Sitemap: https://www.bonuscenter.it/sitemap.xml
+# Host
+Host: https://bonuscenter.it
+
+# Sitemaps
+Sitemap: https://bonuscenter.it/sitemap.xml
