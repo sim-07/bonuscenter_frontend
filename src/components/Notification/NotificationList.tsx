@@ -65,8 +65,12 @@ export default function NotificationList({ max, compact = false }: NotificationL
 
     }, [t])
 
-    const items = max ? notifications.slice(0, max) : notifications;
+    const sortedNotifications = [...notifications].sort((a, b) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    );
 
+    const items = max ? sortedNotifications.slice(0, max) : sortedNotifications;
+    
     const handleConfirmUsedCode = async (code_id?: string, sender?: string) => {
         try {
             setIsLoading(true);
@@ -93,7 +97,7 @@ export default function NotificationList({ max, compact = false }: NotificationL
             }
 
             try {
-                const res = await apiService('users', 'update_visibility', {target_user: sender});
+                const res = await apiService('users', 'update_visibility', { target_user: sender });
 
                 if (res.error) {
                     console.error("Error updating visibility", res.error);
