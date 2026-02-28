@@ -65,6 +65,19 @@ export const bonusListData = [
     active: true,
   },
   {
+    title: "Swissborg",
+    name: "swissborg",
+    description: {
+      it: "Bitcoin fino a 50€",
+      en: "Bitcoin up to 50€"
+    },
+    bonus_value: "50€",
+    image: "/images_bonus/swissborg.avif",
+    category: "liquid",
+    best: true,
+    active: true,
+  },
+  {
     title: "Robinhood",
     name: "robinhood",
     description: {
