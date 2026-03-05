@@ -104,6 +104,19 @@ export const bonusListData = [
     active: true,
   },
   {
+    title: "Ho Mobile",
+    name: "ho_mobile",
+    description: {
+      it: "Ricevi 5€ per ogni amico",
+      en: "Get 5€ per referral"
+    },
+    bonus_value: "5€",
+    image: "/images_bonus/ho_mobile.avif",
+    category: "voucher",
+    best: true,
+    active: true,
+  },
+  {
     title: "Investing One",
     name: "investingone",
     description: {
