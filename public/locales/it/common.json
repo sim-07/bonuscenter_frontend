@@ -1,5 +1,6 @@
 {
-  "login_link": "Registrati",
+  "signup_link": "Registrati",
+  "login_link": "Accedi",
   "about": "Chi siamo",
   "contact": "Contattaci",
   "privacy": "Privacy Policy",

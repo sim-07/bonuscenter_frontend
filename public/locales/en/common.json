@@ -1,5 +1,6 @@
 {
-    "login_link": "Sign in",
+    "signup_link": "Sign in",
+    "login_link": "Login",
     "about": "About",
     "contact": "Contact Us",
     "privacy": "Privacy Policy",
