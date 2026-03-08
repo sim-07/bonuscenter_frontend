@@ -38,7 +38,7 @@ export default function Header() {
                 </Link>
 
                 <DialogComponent open={openLogin} onClose={() => setOpenLogin(false)} variant="form">
-                    <LoginForm signinTypeP={"signup"} />
+                    <LoginForm signinTypeP={"login"} />
                 </DialogComponent>
             </Navbar>
         </Box>
