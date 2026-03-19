@@ -104,6 +104,19 @@ export const bonusListData = [
     active: true,
   },
   {
+    title: "Naga",
+    name: "naga",
+    description: {
+      it: "25-100$",
+      en: "25-100$"
+    },
+    bonus_value: "100€",
+    image: "/images_bonus/naga.avif",
+    category: "liquid",
+    best: true,
+    active: true,
+  },
+  {
     title: "Ho Mobile",
     name: "ho_mobile",
     description: {
