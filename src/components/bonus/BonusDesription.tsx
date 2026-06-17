@@ -1,6 +1,7 @@
-import { Box, Typography, List, ListItem, ListItemText, Divider, Link, Stack } from '@mui/material';
+import { Box, Typography, List, ListItem, ListItemText, Divider, Link, Stack, Link as MuiLink } from '@mui/material';
 import Image from 'next/image'
 import { useTranslation } from 'next-i18next';
+import NextLink from 'next/link';
 
 import Navbar from '@/components/Home/Navbar';
 import Footer from '@/components/Home/Footer';
@@ -47,6 +48,19 @@ export default function BonusDescription({ jsonData, mdxData }: Props) {
     const mdxComponents = {
         h2: (props: any) => <Typography variant="h5" fontWeight="bold" sx={{ mb: 3, mt: 5 }} {...props} />,
         h3: (props: any) => <Typography variant="h6" fontWeight="bold" sx={{ mb: 2, mt: 4 }} {...props} />,
+        a: ({ href, ...props }: React.ComponentPropsWithoutRef<'a'>) => {
+            const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'));
+
+            if (isInternalLink) {
+                return (
+                    <MuiLink component={NextLink} href={href} {...props} />
+                );
+            }
+
+            return (
+                <MuiLink href={href} target="_blank" rel="noopener noreferrer" {...props} />
+            );
+        },
         p: (props: any) => (
             <Typography
                 component="div"
