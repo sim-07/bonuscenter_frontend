@@ -38,6 +38,19 @@ export const bonusListData = [
     best: true,
     active: true,
   },
+    {
+    title: "Widiba",
+    name: "widiba",
+    description: {
+      it: "Buono Amazon da 50€",
+      en: "Amazon gift card 50€"
+    },
+    bonus_value: "50€",
+    image: "/images_bonus/widiba.avif",
+    category: "voucher",
+    best: true,
+    active: true,
+  },
   {
     title: "Binance",
     name: "binance",
